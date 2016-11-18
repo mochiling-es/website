@@ -374,17 +374,17 @@ module.exports = function (grunt) {
 
   // No real tests yet. Add your own.
   grunt.registerTask('test', [
-  //   'clean:server',
-  //   'concurrent:test',
-  //   'connect:test'
+    'clean:server',
+    'concurrent:test',
+    'connect:test'
   ]);
 
   grunt.registerTask('check', [
     'clean:server',
     'jekyll:check',
     'sass:server',
-    // 'jshint:all',
-    // 'csslint:check'
+    'jshint:all',
+    'csslint:check'
   ]);
 
   grunt.registerTask('build', [
@@ -405,8 +405,8 @@ module.exports = function (grunt) {
     ]);
 
   grunt.registerTask('deploy', [
-    'check',
-    'test',
+    // 'check',
+    // 'test',
     'build',
     'buildcontrol:pages'
     ]);
