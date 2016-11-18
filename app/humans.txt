@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Javier Álvarez Medina -- frontend -- @xavijam
+
+# THANKS
+
+    To all libraries that make possible this.
+
+# TECHNOLOGY COLOPHON
+
+    HTML5,
+    CSS3,
+    Jekyll
