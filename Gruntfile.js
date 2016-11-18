@@ -15,6 +15,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     // Configurable paths
+    js: 'js',
     app: {
       app: 'app',
       dist: 'dist'
@@ -42,7 +43,7 @@ module.exports = function (grunt) {
         files: [
           '.jekyll/**/*.html',
           '.tmp/css/**/*.css',
-          '{.tmp,<%= app.app %>/_assets}/<%= js %>/**/*.js',
+          '{.tmp,<%= app.app %>/_assets}/js/**/*.js',
           '<%= app.app %>/img/**/*.{gif,jpg,jpeg,png,svg,webp}'
         ]
       }
@@ -122,7 +123,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= app.app %>/_assets/scss',
           src: '**/*.{scss,sass}',
-          dest: '<%= app.dist %>/<%= app.baseurl %>/css',
+          dest: '.tmp/<%= app.baseurl %>/css',
           ext: '.css'
         }]
       }
@@ -190,7 +191,7 @@ module.exports = function (grunt) {
       },
       html: ['<%= app.dist %>/**/*.html'],
       css: ['<%= app.dist %>/css/**/*.css'],
-      js: '<%= app.dist %>/js/*.js'
+      js: '<%= app.dist %>/js/**/*.js'
     },
     htmlmin: {
       dist: {
