@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "fonts.css",
+	"sources": [
+		"../../app/_assets/scss/fonts.scss"
+	],
+	"sourcesContent": [],
+	"mappings": ";EACC,aAAa;EACb,KAAK;EACL,KAAgB;EAChB,aAAa;EACb,YAAY",
+	"names": []
+}

@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "reset.css",
+	"sources": [
+		"../../app/_assets/scss/reset.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "AAAA,iBAAiB,KAAK,iBAAiB,KAAK,gBAAgB,KAAK,iBAAiB;EAK9E,oBAAoB;EACjB,iBAAiB;EACZ,YAAY;;;AAIxB,KAAK,iBAAiB,KAAK,gBAAgB,KAAK,iBAAiB;EAI7D,YAAY;EACZ,QAAQ;EACR,OAAO;;EAEP,MAAM;EACN,aAAa;EACb,UAAU;EACV,SAAS;EACT,oBAAoB;;EACpB,qBAAqB;;EAClB,kBAAkB;EACjB,iBAAiB;;AAEzB,KAAK,oBAAoB,MAAM;EAE3B,QAAQ;EACR,SAAS",
+	"names": []
+}

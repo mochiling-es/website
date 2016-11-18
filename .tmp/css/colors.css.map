@@ -1,0 +1,11 @@
+{
+	"version": 3,
+	"file": "colors.css",
+	"sources": [
+		"../../app/_assets/scss/colors.scss",
+		"../../app/_assets/scss/_vars.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "AAEA;EACE,OAAO;;AAET;EACE,OAAO;;AAET;EACE,OAAO;;AAET;EACE,OCZU;;ADcZ;EACE,OAAO;EACP,iBAAiB;EAAnB,YAAY;IAER,OClBQ",
+	"names": []
+}

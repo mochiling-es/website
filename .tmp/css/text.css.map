@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "text.css",
+	"sources": [
+		"../../app/_assets/scss/text.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "AACA;EACE,aAAa;;AAEf;EACE,WAAW;;AAEb;EACE,WAAW;;AAEb;EACE,WAAW;;AAEb;EACE,WAAW",
+	"names": []
+}

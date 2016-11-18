@@ -1,0 +1,8 @@
+title: Mochiling
+email: xavijam@gmail.com
+baseurl: ""
+url: "http://xavij.am/mochiling"
+languages: ["es", "en"]
+exclude_from_localizations: ["img", "_assets"]
+markdown: kramdown
+gems: [jekyll-admin, jekyll-multiple-languages-plugin]

@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "backgrounds.css",
+	"sources": [
+		"../../app/_assets/scss/backgrounds.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "AAAA;EACE,YAAY",
+	"names": []
+}
