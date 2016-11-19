@@ -1,0 +1,16 @@
+---
+layout: default
+title: experiencies
+
+namespace:     experiences
+permalink:     /experiencias/
+permalink_en:  /experiences/
+---
+
+<ul>
+{% for place in site.experiences %}
+  <li>
+    <a href="{{ site.pages.new-zealand.permalink }}">{{ place }}</a>
+  </li>
+{% endfor %}
+</ul>
