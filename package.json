@@ -6,12 +6,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/esmochiling/esmochiling.github.io.git"
+    "url": "https://github.com/xavijam/mochiling.git"
   },
   "bugs": {
-    "url": "https://github.com/esmochiling/esmochiling.github.io/issues"
+    "url": "https://github.com/xavijam/mochiling/issues"
   },
-  "homepage": "https://github.com/esmochiling/esmochiling.github.io",
+  "homepage": "https://github.com/xavijam/mochiling",
 	"devDependencies": {
     "grunt": "~1.0.1",
     "grunt-autoprefixer": "~3.0.4",

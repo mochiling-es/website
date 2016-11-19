@@ -313,7 +313,7 @@ module.exports = function (grunt) {
       },
       pages: {
         options: {
-          remote: 'git@github.com:esmochiling/esmochiling.github.io.git',
+          remote: 'git@github.com:xavijam/mochiling.git',
           branch: 'gh-pages'
         }
       }
