@@ -3,11 +3,11 @@
 .Color {
   color: #666;
 }
-.Color--title {
-  color: #333;
+.Color--main {
+  color: #333333;
 }
-.Color--headerLink {
-  color: #9B9B9B;
+.Color--secondary {
+  color: #555555;
 }
 .Color--paragraph {
   color: #787878;
@@ -23,5 +23,12 @@
   text-decoration: underline;
   &:hover {
     color: $mainColor;
+  }
+}
+.Color--linkSecondary {
+  color: #AAA;
+  text-decoration: none;
+  &:hover {
+    color: #555555;
   }
 }

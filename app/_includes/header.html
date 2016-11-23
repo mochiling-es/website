@@ -3,27 +3,27 @@
     <h1>
       <a class="Header-logo" href="/">
         <span class="Header-logoObj u-rSpace--m">{% include logo.html width="40px" height="41px" %}</span>
-        <span class="Text Text--med Text--strong Text--uppercase Color--title">{{ site.title }}</span>
+        <span class="Text Text--med Text--strong Text--uppercase Color--emphasis">{{ site.title }}</span>
       </a>
     </h1>
   </div>
 
   <div class="Header-child">
     <nav class="Header-nav">
-      <ul class="Header-navList Text Text--med Text--uppercase Color--headerLink">
-        <li class="Header-navListItem"><a href="/#{{ site.title }}">{{ site.title }}?</a></li>
-        <li class="Header-navListItem"><a href="{% tl experiences %}">{% t experiences.title %}</a></li>
-        <li class="Header-navListItem"><a href="{% tl team %}">{% t team.title %}</a></li>
-        <li class="Header-navListItem"><a href="{% tl contact %}">{% t contact.title %}</a></li>
-      </ul>
-    </nav>
-
-    <nav class="Header-nav">
-      <ul class="Header-navList">
+      <ul class="Header-navList Text Text--med Text--strong Text--uppercase">
+        <li class="Header-navListItem"><a class="Color--linkSecondary" href="/#{{ site.title }}">{{ site.title }}?</a></li>
+        <li class="Header-navListItem"><a class="Color--linkSecondary" href="{% tl experiences %}">{% t experiences.title %}</a></li>
+        <li class="Header-navListItem"><a class="Color--linkSecondary" href="{% tl team %}">{% t team.title %}</a></li>
+        <li class="Header-navListItem"><a class="Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a></li>
         {% for lang in site.languages %}
-          <li class="Header-navListItem">
-            <a href="{% tl {{ page.namespace }} {{ lang }} %}">{{ lang }}</a>
-          </li>
+          {% unless site.lang == lang %}
+            <li class="Header-navListItem">
+              <a class="Color--linkSecondary" href="{% tl {{ page.namespace }} {{ lang }} %}">
+                <i class="fa fa-globe fa-lg"></i>
+                {{ lang }}
+              </a>
+            </li>
+          {% endunless %}
         {% endfor %}
       </ul>
     </nav>
