@@ -1,4 +1,9 @@
 quote: "La nueva manera de vivir un viaje..."
-experiencies: experiencias
+contact:
+  title: contacto
+team:
+  title: equipo
+experiences:
+  title: experiencias
 places:
   new-zealand: Nueva Zelanda

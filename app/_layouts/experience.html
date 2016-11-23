@@ -3,6 +3,9 @@
   {% include head.html %}
   <body>
     {% include header.html %}
+    {% if page.map %}
+      <iframe class="Map Map--big" src="{{ page.map }}"></iframe>
+    {% endif %}
     {{ content }}
     {% include footer.html %}
     {% include analytics.html %}

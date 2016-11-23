@@ -1,0 +1,23 @@
+@import 'vars';
+
+.Header {
+  display: flex;
+  max-width: 760px;
+  height: 70px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.Header-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.Header-nav {
+  display: block;
+}
+.Header-navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}

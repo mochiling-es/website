@@ -1,6 +1,7 @@
 
 .Text {
   font-family: 'Lato';
+  font-weight: normal;
 }
 .Text--big {
   font-size: 22px;
@@ -13,4 +14,10 @@
 }
 .Text--small {
   font-size: 10px;
+}
+.Text--strong {
+  font-weight: bold;
+}
+.Text--uppercase {
+  text-transform: uppercase;
 }
