@@ -1,0 +1,12 @@
+@import 'vars';
+
+.Experience {}
+.Experience-content {
+  width: $mainSize;
+  margin: 0 auto;
+}
+.Experience-quote {
+  max-width: 500px;
+  margin: 90px auto;
+  text-align: center;
+}

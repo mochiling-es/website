@@ -3,6 +3,12 @@
   font-family: 'Lato';
   font-weight: normal;
 }
+.Text--giant {
+  font-size: 38px;
+}
+.Text--huge {
+  font-size: 30px;
+}
 .Text--big {
   font-size: 22px;
 }
@@ -20,4 +26,7 @@
 }
 .Text--uppercase {
   text-transform: uppercase;
+}
+.Text--italic {
+  font-style: italic;
 }

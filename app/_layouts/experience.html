@@ -4,9 +4,22 @@
   <body>
     {% include header.html %}
     {% if page.map %}
-      <iframe class="Map Map--big" src="{{ page.map }}"></iframe>
+      <div class="Map Map--big Bkg--light">
+        <iframe width="100%" height="100%" src="{{ page.map }}"></iframe>
+        <div class="Map-label">
+          <p class="Map-labelDesc Text Text--large Color--light">{{ page.year }}</p>
+          <h2 class="Map-labelTitle Text Text--giant Color--light">{% t page.title %}</h2>
+        </div>
+      </div>
     {% endif %}
-    {{ content }}
+    <div class="Experience-content">
+      {% if page.quote %}
+        <div class="Experience-quote Text Text--huge Text--italic Color--title">
+          "{% t page.quote %}"
+        </div>
+      {% endif %}
+      {{ content }}
+    </div>
     {% include footer.html %}
     {% include analytics.html %}
   </body>

@@ -6,4 +6,6 @@ team:
 experiences: 
   title: experiences
 places:
-  new-zealand: New Zealand
+  new-zealand:
+    title: New Zealand
+    quote: Don't forget to visit the glaciars, sky resorts and Hobbit locations

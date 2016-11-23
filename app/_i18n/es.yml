@@ -6,4 +6,6 @@ team:
 experiences:
   title: experiencias
 places:
-  new-zealand: Nueva Zelanda
+  new-zealand:
+    title: Nueva Zelanda
+    quote: No olvides de visitar los glaciares, los remontes y los lugares donde se filmó el Hobbit
