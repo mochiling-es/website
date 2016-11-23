@@ -250,19 +250,19 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= app.app %>',
-          src: [
-            // Jekyll processes and moves HTML and text files.
-            // Usemin moves CSS and javascript inside of Usemin blocks.
-            // Copy moves asset files and directories.
-            '_assets/img/**/*',
-            '_assets/fonts/**/*',
-            // Like Jekyll, exclude files & folders prefixed with an underscore.
-            '!**/_*{,/**}',
-            // Explicitly add any files your site needs for distribution here.
-            //'_bower_components/jquery/jquery.js',
-            'favicon.ico'
-            //'apple-touch*.png'
-          ],
+          src: 'favicon.ico',
+          dest: '<%= app.dist %>'
+        }, {
+          expand: true,
+          dot: true,
+          cwd: '<%= app.app %>/_assets',
+          src: 'fonts/**/*',
+          dest: '<%= app.dist %>'
+        }, {
+          expand: true,
+          dot: true,
+          cwd: '<%= app.app %>/_assets/img',
+          src: 'img/**/*',
           dest: '<%= app.dist %>'
         }]
       },
