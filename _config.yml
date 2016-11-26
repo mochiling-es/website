@@ -7,5 +7,10 @@ exclude_from_localizations: ["img", "_assets"]
 markdown: kramdown
 gems: [jekyll-admin, jekyll-multiple-languages-plugin]
 
+social:
+  facebook: https://www.facebook.com/mochiling.es/
+  instagram: https://www.instagram.com/mochiling.es/
+  twitter: https://twitter.com/mochilinges
+
 experiences: 
   - new-zealand

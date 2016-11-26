@@ -1,3 +1,4 @@
+@import 'vars';
 
 .Home-section {
   position: absolute;
@@ -5,4 +6,24 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.Home-share {
+  display: flex;
+  
+  list-style: none;
+}
+.Home-shareLink {
+  color: $headerLinkColors;
+}
+.Home-shareLink--facebook:hover {
+  color: #3B5998;
+}
+.Home-shareLink--instagram:hover {
+  color: #833AB4;
+}
+.Home-shareLink--twitter:hover {
+  color: #1DA1F2;
+}
+.Home-shareLink--globe:hover {
+  color: $mainColor;
 }

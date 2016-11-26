@@ -1,5 +1,9 @@
 ---
-layout: home
+layout:         home
+
+namespace:      home
+permalink:      /
+permalink_en:   /
 ---
 
 <div class="Home-section">
@@ -9,6 +13,25 @@ layout: home
   <div class="Text">
     <h1 class="Text--big Color--emphasis">{{ site.title }}</h1>
     <p class="Text--medium Color--paragraph">{% t quote %}</p>
+    <ul class="Home-share u-tSpace">
+      {% for social in site.social %}
+        <li class="Home-shareItem u-rSpace--m">
+          <a class="Home-shareLink Home-shareLink--{{ social[0] }}" href="{{ social[1] }}" target="_blank">
+            <i class="fa fa-{{ social[0] }}" aria-hidden="true"></i>
+          </a>
+        </li>
+      {% endfor %}
+
+      {% for lang in site.languages %}
+        {% unless site.lang == lang %}
+          <li class="Home-shareItem">
+            <a class="Home-shareLink Home-shareLink--globe" href="{% tl {{ page.namespace }} {{ lang }} %}">
+              <i class="fa fa-globe"></i>
+            </a>
+          </li>
+        {% endunless %}
+      {% endfor %}
+    </ul>
   </div>
 </div>
 
