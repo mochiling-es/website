@@ -3,6 +3,8 @@ layout: null
 ---
 User-agent: *
 Disallow: 404.html
+Disallow: /concepto/
+Disallow: /en/concept/
 Disallow: /experiencias/
 Disallow: /en/experiences/
 Disallow: /experiencias/nueva-zelanda
