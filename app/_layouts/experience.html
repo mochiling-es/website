@@ -5,22 +5,30 @@
     {% include header.html %}
     {% if page.map %}
       <div class="Map Map--big Bkg--light">
-        <iframe width="100%" height="100%" src="{{ page.map }}"></iframe>
+        <iframe id="mapIframe" width="100%" height="100%" src="{{ page.map }}"></iframe>
         <div class="Map-label">
           <p class="Map-labelDesc Text Text--large Color--light">{{ page.year }}</p>
           <h2 class="Map-labelTitle Text Text--giant Color--light">{% t page.title %}</h2>
         </div>
       </div>
     {% endif %}
-    <div class="Experience-content">
-      {% if page.quote %}
-        <div class="Experience-quote Text Text--huge Text--italic Color--secondary">
-          "{% t page.quote %}"
+    <div class="Experience">
+      <div class="Experience-line"></div>
+      <div class="Experience-content">
+        {% if page.quote %}
+          <h3 class="Experience-contentQuote Text Text--huge Text--italic Color--secondary">
+            "{% t page.quote %}"
+          </h3>
+        {% endif %}
+
+        <div class="Experience-contentText Text Text--large Color Color--paragraph">
+          {{ content }}
         </div>
-      {% endif %}
-      {{ content }}
+      </div>
     </div>
     {% include footer.html %}
     {% include analytics.html %}
+
+    <script type="text/javascript" src="/js/experiences/entry.js"></script>
   </body>
 </html>

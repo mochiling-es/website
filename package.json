@@ -1,8 +1,8 @@
 {
-	"name": "Mochiling",
-	"version": "0.0.1",
-	"description": "Mochiling",
-	"author": "xavijam@gmail.com",
+  "name": "Mochiling",
+  "version": "0.0.1",
+  "description": "Mochiling",
+  "author": "xavijam@gmail.com",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -12,9 +12,10 @@
     "url": "https://github.com/xavijam/mochiling/issues"
   },
   "homepage": "https://github.com/xavijam/mochiling",
-	"devDependencies": {
+  "devDependencies": {
     "grunt": "~1.0.1",
     "grunt-autoprefixer": "~3.0.4",
+    "grunt-browserify": "^5.0.0",
     "grunt-build-control": "~0.7.1",
     "grunt-concurrent": "~2.3.1",
     "grunt-contrib-clean": "~1.0.0",
@@ -34,6 +35,7 @@
     "grunt-uncss": "~0.4.0",
     "grunt-usemin": "~3.1.1",
     "jit-grunt": "~0.10.0",
+    "jquery": "^3.1.1",
     "jshint-stylish": "~2.2.1",
     "load-grunt-tasks": "~3.5.2",
     "time-grunt": "~1.0.0"

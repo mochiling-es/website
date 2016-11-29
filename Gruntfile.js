@@ -25,6 +25,10 @@ module.exports = function (grunt) {
         files: ['<%= app.app %>/_assets/scss/**/*.{scss,sass}'],
         tasks: ['sass:server', 'autoprefixer']
       },
+      browserify: {
+        files: ['<%= app.app %>/_assets/js/**/*.js'],
+        tasks: ['browserify:dev']
+      },
       autoprefixer: {
         files: ['<%= app.app %>/css/**/*.css'],
         tasks: ['copy:stageCss', 'autoprefixer:server']
@@ -46,6 +50,18 @@ module.exports = function (grunt) {
           '{.tmp,<%= app.app %>/_assets}/js/**/*.js',
           '<%= app.app %>/img/**/*.{gif,jpg,jpeg,png,svg,webp}'
         ]
+      }
+    },
+    browserify: {
+      dev: {
+        files: {
+          '.tmp/js/experiences/entry.js': ['<%= app.app %>/_assets/js/experiences/entry.js'],
+        }
+      },
+      dist: {
+        files: {
+          '<%= app.dist %>/js/experiences/entry.js': ['<%= app.app %>/_assets/js/experiences/entry.js'],
+        }
       }
     },
     connect: {
@@ -191,7 +207,7 @@ module.exports = function (grunt) {
       },
       html: ['<%= app.dist %>/**/*.html'],
       css: ['<%= app.dist %>/css/**/*.css'],
-      js: '<%= app.dist %>/js/**/*.js'
+      // js: '<%= app.dist %>/js/**/*.js'
     },
     htmlmin: {
       dist: {
@@ -212,7 +228,15 @@ module.exports = function (grunt) {
     // Usemin adds files to concat
     concat: {},
     // Usemin adds files to uglify
-    uglify: {},
+    uglify: {
+      // options: {
+      //   banner: '/*! Grunt Uglify <%= grunt.template.today("yyyy-mm-dd") %> */ '
+      // },
+      // build: {
+      //   src: 'bundle.js',
+      //   dest: 'bundle.min.js'
+      // }
+    },
     // Usemin adds files to cssmin
     cssmin: {
       dist: {
@@ -364,6 +388,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
+      'browserify:dev',
       'watch'
     ]);
   });
@@ -397,6 +422,7 @@ module.exports = function (grunt) {
     'concat',
     'autoprefixer:dist',
     'cssmin',
+    'browserify:dist',
     'uglify',
     'imagemin',
     'svgmin',
