@@ -285,8 +285,14 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           dot: true,
-          cwd: '<%= app.app %>/_assets/img',
+          cwd: '<%= app.app %>/_assets',
           src: 'img/**/*',
+          dest: '<%= app.dist %>'
+        }, {
+          expand: true,
+          dot: true,
+          cwd: '<%= app.app %>/_assets',
+          src: 'svg/*.svg',
           dest: '<%= app.dist %>'
         }]
       },
@@ -310,6 +316,12 @@ module.exports = function (grunt) {
           cwd: '<%= app.app %>/_assets/img',
           src: '**/*',
           dest: '.tmp/img'
+        }, {
+          expand: true,
+          dot: true,
+          cwd: '<%= app.app %>/_assets/svg',
+          src: '**/*',
+          dest: '.tmp/svg'
         }]
       }
     },

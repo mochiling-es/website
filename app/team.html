@@ -7,4 +7,10 @@ permalink:      /equipo/
 permalink_en:   /team/
 ---
 
-vamos equipo
+<ul>
+  {% for member in site.members %}
+    <li>
+      <a href="{% tl {{member}} {{lang}} %}">{{member}}</a>
+    </li>
+  {% endfor %}
+</ul>

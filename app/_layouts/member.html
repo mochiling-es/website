@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    <div class="Member-map">
+      {% include header.html %}
+      <nav class="Breadcrumb">
+        <a href="{% tl team {{lang}} %}" class="Breadcrumb-link">{% t team.title %}</a>
+        <a href="{% tl {{ page.namespace }} {{ lang }} %}" class="Breadcrumb-link">{{page.member_name}}</a>
+      </nav>
+
+      <div class="Member-info">
+        <div class="Member-infoImage">
+          <img src="{{ page.member_image }}" alt="{{ page.member_name }}" title="{{ page.member_name }}" />
+        </div>
+        <div class="Member-infoDesc">
+          <h4>{% t {{page.role}} %}</h4>
+          <h2>{{ page.member_name }}</h2>
+          
+          <ul>
+            {% for language in page.languages %}
+              <li>
+                <span class="flag-icon flag-icon-{{language}}"></span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="Member-text">
+        {{ content }}
+      </div>
+
+      <ul class="Member-social">
+      </ul>
+    </div>
+    
+    {% include footer.html %}
+    {% include analytics.html %}
+  </body>
+</html>

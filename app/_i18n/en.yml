@@ -1,10 +1,12 @@
 quote: "The new way of living a trip..."
-concept:
-  title: Concept
+proposals:
+  title: Proposals
 contact:
   title: Contact
 team:
   title: Team
+  roles: 
+    president: President
 experiences: 
   title: Experiences
 places:

@@ -3,11 +3,11 @@
 
 # TEAM
 
-    Javier Álvarez Medina -- frontend -- @xavijam
+    Javier Álvarez Medina -- Frontend -- @xavijam
 
 # THANKS
 
-    To all libraries that make possible this.
+    To all libraries that make possible this web.
 
 # TECHNOLOGY COLOPHON
 
