@@ -1,10 +1,15 @@
 quote: "The new way of living a trip..."
+learn-more: Learn more
+last-experience: Last experience
 proposals:
   title: Proposals
 contact:
   title: Contact
 team:
   title: Team
+  follow:
+    male: Follow him
+    female: Follow her
   roles: 
     president: President
 experiences: 

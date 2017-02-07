@@ -2,39 +2,73 @@
 <html>
   {% include head.html %}
   <body>
-    <div class="Member-map">
+    <div class="Member">
+      <div class="Member-map js-map"></div>
+      
       {% include header.html %}
-      <nav class="Breadcrumb">
-        <a href="{% tl team {{lang}} %}" class="Breadcrumb-link">{% t team.title %}</a>
-        <a href="{% tl {{ page.namespace }} {{ lang }} %}" class="Breadcrumb-link">{{page.member_name}}</a>
-      </nav>
+      
+      <div class="Breadcrumb">
+        <ul class="Breadcrumb-inner">
+          <li class="Breadcrumb-item"><a href="{% tl team {{lang}} %}" class="Breadcrumb-link">{% t team.title %}</a></li>
+          <li class="Breadcrumb-item Breadcrumb-item--separator">></li>
+          <li class="Breadcrumb-item"><a href="{% tl {{ page.namespace }} {{ lang }} %}" class="Breadcrumb-link">{{page.member_name}}</a></li>
+        </ul>
+      </div>
 
-      <div class="Member-info">
-        <div class="Member-infoImage">
-          <img src="{{ page.member_image }}" alt="{{ page.member_name }}" title="{{ page.member_name }}" />
+      <div class="Member-content">
+        <div class="Member-contentInner">
+          <div class="Member-info u-tSpace--xxl ">
+            <div class="Member-image">
+              <img src="/img/members/{{ page.member_image }}" alt="{{ page.member_name }}" title="{{ page.member_name }}" />
+            </div>
+            <div class="Member-desc">
+              <h4 class="Color--paragraph Text Text--uppercase Text--med">{% t {{page.role}} %}</h4>
+              <h2 class="Color--main Text Text--giant Text--strong">{{ page.member_name }}</h2>
+              <ul class="Member-languages u-tSpace">
+                {% for language in page.languages %}
+                  <li class="Member-language">
+                    <span class="flag-icon flag-icon-{{language}}"></span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="Member-text">{{ content }}</div>
         </div>
-        <div class="Member-infoDesc">
-          <h4>{% t {{page.role}} %}</h4>
-          <h2>{{ page.member_name }}</h2>
+      </div>
+
+      <div class="Breadcrumb u-tSpace--xxl">
+        <ul class="Breadcrumb-inner">
+          <li class="Breadcrumb-item u-rSpace--l">{% t team.follow.{{page.member_gender}} %}</li>
           
-          <ul>
-            {% for language in page.languages %}
-              <li>
-                <span class="flag-icon flag-icon-{{language}}"></span>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
+          {% if page.facebook %}
+          <li class="Breadcrumb-item u-rSpace--m">
+            <a href="{{ page.facebook }}" target="_blank" class="Breadcrumb-link">
+              <i class="fa fa-facebook u-rSpace"></i>Facebook
+            </a>
+          </li>
+          {% endif %}
 
-      <div class="Member-text">
-        {{ content }}
-      </div>
+          {% if page.twitter %}
+          <li class="Breadcrumb-item u-rSpace--m">
+            <a href="{{ page.twitter }}" target="_blank" class="Breadcrumb-link">
+              <i class="fa fa-twitter u-rSpace"></i>Twitter
+            </a>
+          </li>
+          {% endif %}
 
-      <ul class="Member-social">
-      </ul>
+          {% if page.instagram %}
+          <li class="Breadcrumb-item">
+            <a href="{{ page.instagram }}" target="_blank" class="Breadcrumb-link">
+              <i class="fa fa-instagram u-rSpace"></i>Instagram
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
     
+    {% include last-experience.html %}
     {% include footer.html %}
     {% include analytics.html %}
   </body>

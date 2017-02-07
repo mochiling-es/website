@@ -1,0 +1,13 @@
+@import 'vars';
+
+// Member styles
+
+.Banner {}
+.Banner-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 375px;
+  margin: 0 auto;
+  text-align: left;
+}

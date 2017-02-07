@@ -1,10 +1,17 @@
 quote: "La nueva manera de vivir un viaje..."
+learn-more: Saber más
+last-experience: Última experiencia
 proposals:
   title: Propuestas
 contact:
   title: Contacto
 team:
   title: Equipo
+  follow:
+    male: Síguele
+    female: Síguela
+  roles: 
+    president: Presidente
 experiences:
   title: Experiencias
 places:

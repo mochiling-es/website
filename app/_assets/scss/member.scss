@@ -1,0 +1,37 @@
+@import 'vars';
+
+// Member styles
+
+.Member {}
+.Member-map {}
+.Member-content {
+  width: $mainSize;
+  margin: 0 auto;
+}
+.Member-contentInner {
+  width: 100%;
+  max-width: 400px;
+}
+.Member-info {
+  display: flex;
+}
+.Member-image {
+  
+}
+.Member-image img {
+  width: 90px;
+  height: 90px;
+  margin-right: 20px;
+  background-size: 90px 90px;
+}
+.Member-desc {}
+.Member-languages {
+  display: flex;
+  list-style: none;
+}
+.Member-language {
+  margin-right: 6px;
+}
+.Member-text {
+  margin-top: 250px;
+}
