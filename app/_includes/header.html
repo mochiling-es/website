@@ -11,16 +11,20 @@
   <div class="Header-child">
     <nav class="Header-nav">
       <ul class="Header-navList Text Text--med Text--strong Text--uppercase">
-        <li class="Header-navListItem">
-          <a class="Color--linkSecondary" href="{% tl concept %}">{% t proposals.title %}</a>
+        <li class="Header-navListItem {% if page.url contains tl experiences %}is-selected{% endif %}">
+          <a class="Color--linkSecondary " href="{% tl concept %}">{% t proposals.title %}</a>
         </li>
         <li class="Header-navListItem">
           <a class="Color--linkSecondary" href="{% tl experiences %}">{% t experiences.title %}</a>
         </li>
-        <li class="Header-navListItem">
+
+        {% capture team_url %}{% tl team {{site.lang}}%}{% endcapture %}
+        <li class="Header-navListItem {% if page.url contains team_url %}is-selected{% endif %}">
           <a class="Color--linkSecondary" href="{% tl team %}">{% t team.title %}</a>
         </li>
-        <li class="Header-navListItem">
+
+        {% capture contact_url %}{% tl contact {{ site.lang }} %}{% endcapture %}
+        <li class="Header-navListItem {% if page.url == contact_url %}is-selected{% endif %}">
           <a class="Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a>
         </li>
         {% for lang in site.languages %}

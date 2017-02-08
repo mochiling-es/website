@@ -1,7 +1,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{% if page.title %}{% t page.title %} · {% endif %}{{ site.title }}</title>
+  <title>
+    {% if page.translatedTitle %}
+      {% t page.translatedTitle %} ·
+    {% else %}
+      {{ page.title }} ·
+    {% endif %}{{ site.title }}</title>
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="distribution" content="Global">

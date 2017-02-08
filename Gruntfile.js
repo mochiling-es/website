@@ -55,12 +55,12 @@ module.exports = function (grunt) {
     browserify: {
       dev: {
         files: {
-          '.tmp/js/experiences/entry.js': ['<%= app.app %>/_assets/js/experiences/entry.js'],
+          '.tmp/js/member.js': ['<%= app.app %>/_assets/js/member.js'],
         }
       },
       dist: {
         files: {
-          '<%= app.dist %>/js/experiences/entry.js': ['<%= app.app %>/_assets/js/experiences/entry.js'],
+          '<%= app.dist %>/js/member.js': ['<%= app.app %>/_assets/js/member.js'],
         }
       }
     },

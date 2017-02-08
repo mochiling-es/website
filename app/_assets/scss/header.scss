@@ -1,12 +1,14 @@
 @import 'vars';
 
 .Header {
+  position: relative;
   display: flex;
   max-width: $mainSize;
   height: 70px;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
 }
 .Header-child {
   display: flex;
