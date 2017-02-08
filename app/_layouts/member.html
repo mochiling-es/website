@@ -68,17 +68,27 @@
       </div>
     </div>
     
-    {% include last-experience.html %}
+    {% if page.banner == 'twitter' %}
+      {% include twitter.html %}
+    {% elsif page.banner == 'instagram' %}
+
+    {% else %}
+      {% include last-experience.html %}
+    {% endif %}
+
     {% include footer.html %}
     {% include analytics.html %}
 
 
     <script src="/js/member.js"></script>
     <script>
+      {% if page.twitter %}
+      var twitterUsername = '{{ page.twitter }}';
+      {% endif %}
       var bornLocation = {{ page.born_location | join: "," | prepend: "[" | append: "]"}};
       var visitedCountries = [
         {% for country in page.visited_countries %}
-          "{{ country }}"
+          '{{ country }}'
           {% if forloop.last == false %}
             ,
           {% endif %}
