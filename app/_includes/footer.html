@@ -19,4 +19,19 @@
       </li>
     </ul>
   </nav>
+
+  <nav>
+    <ul>
+      {% for social_network in site.social %}
+        <li>
+          <a href="{{ social_network[1] }}" target="_blank">
+            <i class="fa fa-{{ social_network[0] }}"></i>
+            {{ social_network[0] }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <p>{{site.title}}.es · {{ site.time | date: '%Y' }} · {% t rights-reserved %}</p>
 </footer>

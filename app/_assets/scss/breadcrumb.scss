@@ -9,6 +9,8 @@
   width: 100%;
   height: 64px;
   background: rgba($greyBkg, 0.05);
+  border-top: 1px solid #EFEFEF;
+  border-bottom: 1px solid #EFEFEF;
   z-index: 1;
 }
 .Breadcrumb-inner {

@@ -11,7 +11,7 @@
         <ul class="Breadcrumb-inner">
           <li class="Breadcrumb-item"><a href="{% tl team {{lang}} %}" class="Breadcrumb-link">{% t team.title %}</a></li>
           <li class="Breadcrumb-item Breadcrumb-item--separator">></li>
-          <li class="Breadcrumb-item"><a href="{% tl {{ page.namespace }} {{ lang }} %}" class="Breadcrumb-link">{{page.member_name}}</a></li>
+          <li class="Breadcrumb-item"><a href="{% tl {{ page.namespace }} {{ lang }} %}" class="Breadcrumb-link">{{page.complete_name}}</a></li>
         </ul>
       </div>
 
@@ -19,11 +19,11 @@
         <div class="Member-contentInner">
           <div class="Member-info u-tSpace--xxl ">
             <div class="Member-image">
-              <img src="/img/members/{{ page.member_image }}" alt="{{ page.member_name }}" title="{{ page.member_name }}" />
+              <img src="/img/members/{{ page.image }}" alt="{{ page.complete_name }}" title="{{ page.complete_name }}" />
             </div>
             <div class="Member-desc">
               <h4 class="Color--paragraph Text Text--uppercase Text--med">{% t {{page.role}} %}</h4>
-              <h2 class="Color--main Text Text--giant Text--strong">{{ page.member_name }}</h2>
+              <h2 class="Color--main Text Text--giant Text--strong">{{ page.complete_name }}</h2>
               <ul class="Member-languages u-tSpace">
                 {% for language in page.languages %}
                   <li class="Member-language">
@@ -39,7 +39,7 @@
 
       <div class="Breadcrumb u-tSpace--xxl">
         <ul class="Breadcrumb-inner">
-          <li class="Breadcrumb-item u-rSpace--xl">{% t team.follow.{{page.member_gender}} %}</li>
+          <li class="Breadcrumb-item u-rSpace--xl">{% t team.follow.{{page.gender}} %}</li>
           
           {% if page.facebook %}
           <li class="Breadcrumb-item u-rSpace--xl">
@@ -77,16 +77,15 @@
     {% include footer.html %}
     {% include analytics.html %}
 
-
     <script src="/js/member.js"></script>
     <script>
       {% if page.instagram_id and page.banner == 'instagram' %}
-      var instagramId = '{{ page.instagram_id }}';
+        var instagramId = '{{ page.instagram_id }}';
       {% endif %}
       var bornLocation = {{ page.born_location | join: "," | prepend: "[" | append: "]"}};
       var visitedCountries = [
         {% for country in page.visited_countries %}
-          '{{ country }}'
+          "{{ country }}"
           {% if forloop.last == false %}
             ,
           {% endif %}

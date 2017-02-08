@@ -1,6 +1,8 @@
 quote: "La nueva manera de vivir un viaje..."
 learn-more: Saber más
 last-experience: Última experiencia
+rights-reserved: Todos los derechos reservados
+
 proposals:
   title: Propuestas
 contact:
@@ -12,6 +14,7 @@ team:
     female: Síguela
   roles: 
     president: Presidente
+    webmaster: Webmaster
 experiences:
   title: Experiencias
 places:
