@@ -3,6 +3,17 @@
 // Member styles
 
 .Banner {}
+.Banner-logo {
+  position: relative;
+}
+.Banner-logo > div {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  font-size: 80px;
+  line-height: 90px;
+}
 .Banner-info {
   display: flex;
   align-items: center;
@@ -14,4 +25,12 @@
 }
 .Banner-info--wider {
   max-width: 100%;
+}
+.Banner-social {
+  margin: 0 auto;
+  padding: 70px 25px 0;
+  max-width: 750px;
+  width: 100%;
+  min-width: 300px;
+  box-sizing: border-box;
 }

@@ -1,0 +1,22 @@
+<footer class="Footer">
+  <nav class="Footer-nav">
+    <ul class="Footer-navList Text Text--med Text--strong Text--uppercase">
+      <li class="Footer-navListItem {% if page.url contains tl experiences %}is-selected{% endif %}">
+        <a class="Color--linkSecondary " href="{% tl concept %}">{% t proposals.title %}</a>
+      </li>
+      <li class="Footer-navListItem">
+        <a class="Color--linkSecondary" href="{% tl experiences %}">{% t experiences.title %}</a>
+      </li>
+
+      {% capture team_url %}{% tl team {{site.lang}}%}{% endcapture %}
+      <li class="Footer-navListItem {% if page.url contains team_url %}is-selected{% endif %}">
+        <a class="Color--linkSecondary" href="{% tl team %}">{% t team.title %}</a>
+      </li>
+
+      {% capture contact_url %}{% tl contact {{ site.lang }} %}{% endcapture %}
+      <li class="Footer-navListItem {% if page.url == contact_url %}is-selected{% endif %}">
+        <a class="Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a>
+      </li>
+    </ul>
+  </nav>
+</footer>

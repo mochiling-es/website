@@ -43,7 +43,7 @@
           
           {% if page.facebook %}
           <li class="Breadcrumb-item u-rSpace--xl">
-            <a href="{{ page.facebook }}" target="_blank" class="Breadcrumb-link">
+            <a href="http://facebook.com/{{ page.facebook }}" target="_blank" class="Breadcrumb-link">
               <i class="fa fa-facebook u-rSpace"></i>Facebook
             </a>
           </li>
@@ -51,7 +51,7 @@
 
           {% if page.twitter %}
           <li class="Breadcrumb-item u-rSpace--xl">
-            <a href="{{ page.twitter }}" target="_blank" class="Breadcrumb-link">
+            <a href="http://twitter.com/@{{ page.twitter }}" target="_blank" class="Breadcrumb-link">
               <i class="fa fa-twitter u-rSpace"></i>Twitter
             </a>
           </li>
@@ -59,7 +59,7 @@
 
           {% if page.instagram %}
           <li class="Breadcrumb-item">
-            <a href="{{ page.instagram }}" target="_blank" class="Breadcrumb-link">
+            <a href="http://instagr.am/{{ page.instagram }}" target="_blank" class="Breadcrumb-link">
               <i class="fa fa-instagram u-rSpace"></i>Instagram
             </a>
           </li>
@@ -68,10 +68,8 @@
       </div>
     </div>
     
-    {% if page.banner == 'twitter' %}
-      {% include twitter.html %}
-    {% elsif page.banner == 'instagram' %}
-
+    {% if page.banner == 'instagram' %}
+      {% include instagram.html %}
     {% else %}
       {% include last-experience.html %}
     {% endif %}
@@ -82,8 +80,8 @@
 
     <script src="/js/member.js"></script>
     <script>
-      {% if page.twitter %}
-      var twitterUsername = '{{ page.twitter }}';
+      {% if page.instagram_id and page.banner == 'instagram' %}
+      var instagramId = '{{ page.instagram_id }}';
       {% endif %}
       var bornLocation = {{ page.born_location | join: "," | prepend: "[" | append: "]"}};
       var visitedCountries = [
