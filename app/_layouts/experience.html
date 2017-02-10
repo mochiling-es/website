@@ -1,34 +1,72 @@
+{% assign experience = site.data.experiences[page.namespace] %}
+
 <!DOCTYPE html>
 <html>
   {% include head.html %}
   <body>
-    {% include header.html %}
-    {% if page.map %}
-      <div class="Map Map--big Bkg--light">
-        <iframe id="mapIframe" width="100%" height="100%" src="{{ page.map }}"></iframe>
-        <div class="Map-label">
-          <p class="Map-labelDesc Text Text--large Color--light">{{ page.year }}</p>
-          <h2 class="Map-labelTitle Text Text--giant Color--light">{% t page.title %}</h2>
+    <div class="Experience">
+      <div class="Experience-map" id="js-map"></div>
+      
+      {% include header.html %}
+      
+      <div class="Breadcrumb">
+        <ul class="Breadcrumb-inner">
+          <li class="Breadcrumb-item"><a href="{% tl team {{lang}} %}" class="Breadcrumb-link">{% t experiences.title %}</a></li>
+          <li class="Breadcrumb-item Breadcrumb-item--separator">></li>
+          <li class="Breadcrumb-item"><a href="{% tl {{ page.namespace }} {{ lang }} %}" class="Breadcrumb-link">{% t experiences.{{experience.title}} %}</a></li>
+        </ul>
+      </div>
+
+      <div class="Experience-content">
+        <div class="Experience-contentInner">
+          <div class="Experience-info u-tSpace--xxl">
+            <h4 class="Color--paragraph Text Text--uppercase Text--med">{% t experiences.{{experience.subtitle}} %}</h4>
+            <h2 class="Color--main Text Text--giant Text--strong">{% t experiences.{{experience.title}} %}</h2>
+          </div>
+          <div class="Text Text--large Color--paragraph Paragraph Paragraph--lefty u-tSpace--xxl">{{ content }}</div>
         </div>
       </div>
-    {% endif %}
-    <div class="Experience">
-      <div class="Experience-line"></div>
-      <div class="Experience-content">
-        {% if page.quote %}
-          <h3 class="Experience-contentQuote Text Text--huge Text--italic Color--secondary">
-            "{% t page.quote %}"
-          </h3>
-        {% endif %}
 
-        <div class="Experience-contentText Text Text--large Color Color--paragraph">
-          {{ content }}
-        </div>
+      <div class="Breadcrumb u-tSpace--xxl">
+        <ul class="Breadcrumb-inner">
+          <li class="Breadcrumb-item u-rSpace--xl">{% t experiences.share %}</li>
+          <li class="Breadcrumb-item u-rSpace--xl">
+            <a href="http://facebook.com/{{ member.facebook }}" target="_blank" class="Breadcrumb-link">
+              <i class="fa fa-facebook u-rSpace"></i>Facebook
+            </a>
+          </li>
+          <li class="Breadcrumb-item u-rSpace--xl">
+            <a href="http://twitter.com/" target="_blank" class="Breadcrumb-link">
+              <i class="fa fa-twitter u-rSpace"></i>Twitter
+            </a>
+          </li>
+          <li class="Breadcrumb-item">
+            <a href="http://instagr.am/" target="_blank" class="Breadcrumb-link">
+              <i class="fa fa-instagram u-rSpace"></i>Instagram
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
+    
+    {% include next-experience.html %}
     {% include footer.html %}
     {% include analytics.html %}
 
-    <script type="text/javascript" src="/js/experiences/entry.js"></script>
+    <script src="/js/experience.js"></script>
+    <script>
+      {% if member.instagram_id and member.banner == 'instagram' %}
+        var instagramId = '{{ member.instagram_id }}';
+      {% endif %}
+      var bornLocation = {{ member.born_location | join: "," | prepend: "[" | append: "]"}};
+      var visitedCountries = [
+        {% for country in member.visited_countries %}
+          "{{ country }}"
+          {% if forloop.last == false %}
+            ,
+          {% endif %}
+        {% endfor %}
+      ];
+    </script>
   </body>
 </html>

@@ -1,16 +1,58 @@
 ---
-layout:         default
-title:          team.title
+layout:           default
+translated_title: team.title
 
-namespace:      team
-permalink:      /equipo/
-permalink_en:   /team/
+namespace:        team
+permalink:        /equipo/
+permalink_en:     /team/
 ---
 
-<ul>
-  {% for member in site.members %}
-    <li>
-      <a href="{% tl {{member}} {{lang}} %}">{{member}}</a>
+<div class="Paragraph Paragraph--centered u-tSpace--xxl">
+  <h2 class="Text Text--giant Text--strong Color--emphasis">{% t team.subtitle %}</h2>
+  <p class="Text Text--large Color--paragraph u-tSpace--l">{% t team.desc %}</p>
+</div>
+
+<ul class="Members-list u-tSpace--xxl pure-g">
+  {% for member in site.data.members %}
+    <li class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">
+      <div class="l-box"> 
+        <div class="Members-item">
+          <div class="Members-itemImage">
+            <a href="{% tl {{member[0]}} {{lang}} %}">
+              <img class="pure-img" src="/img/members/{{ member[1].image }}" title="{{ member[1].complete_name }}" alt="{{ member[0].complete_name }}"/>
+            </a>
+          </div>
+          <div class="Members-itemInfo">
+            <h4 class="Members-itemTitle Text">
+              <a href="{% tl {{member[0]}} {{lang}} %}" class="Color--link">
+                {{ member[1].complete_name }}
+              </a>
+            </h4>
+            <p class="Text Text--paragraph Members-itemDesc Color--dark u-tSpace--m">{{ member[1].short_desc }}</p>
+          </div>
+          <div class="Members-itemFooter">
+            <p class="Members-itemRole Text Text--paragraph">{% t team.roles.{{ member[1].role }} %}</p>
+
+            {% if member[1].facebook %}
+              <a href="http://facebook.com/{{ member[1].facebook }}" class="Color--paragraph Members-itemSocial Members-itemSocial--facebook" target="_blank">
+                <i class=" fa fa-facebook"></i>
+              </a>
+            {% endif %}
+
+            {% if member[1].instagram %}
+              <a href="http://instagr.am/{{ member[1].instagram }}" class="Color--paragraph Members-itemSocial Members-itemSocial--instagram" target="_blank">
+                <i class=" fa fa-instagram"></i>
+              </a>
+            {% endif %}
+
+            {% if member[1].twitter %}
+              <a href="http://twitter.com/{{ member[1].twitter }}" class="Color--paragraph Members-itemSocial Members-itemSocial--twitter" target="_blank">
+                <i class=" fa fa-twitter"></i>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </li>
   {% endfor %}
 </ul>

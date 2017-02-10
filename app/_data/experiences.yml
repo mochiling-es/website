@@ -1,0 +1,9 @@
+new-zealand: 
+  title: new-zealand.title
+  subtitle: new-zealand.subtitle
+  date: 01/01/2015
+  countries: ['New Zealand']
+  pois: [] 
+  video: https://www.youtube.com/embed/58sycxbESvU
+  image: 
+  mochiling_member: victor

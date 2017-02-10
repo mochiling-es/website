@@ -9,6 +9,11 @@ contact:
   title: Contacto
 team:
   title: Equipo
+  subtitle: Nuestro equipo
+  desc: |
+    Tenemos un equipo cualificado y aventurero preparado para ayudarte en tu
+    experiencia <span class="Color--emphasis">Mochiling</span>. Visita los perfiles y
+    encuentra el que mejor se podría ajustar a tu ruta.
   follow:
     male: Síguele
     female: Síguela
@@ -17,7 +22,8 @@ team:
     webmaster: Webmaster
 experiences:
   title: Experiencias
-places:
+  share: Compartir en
   new-zealand:
     title: Nueva Zelanda
+    subtitle: Septiembre 2017
     quote: No olvides de visitar los glaciares, los remontes y los lugares donde se filmó el Hobbit

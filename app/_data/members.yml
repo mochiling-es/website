@@ -1,0 +1,28 @@
+victor:
+  complete_name:      Victor García Vidal
+  image:              victor.png
+  gender:             male
+  role:               president
+  languages:          [es, pt, it, gb]
+  facebook:           victor.garcia.1272
+  twitter:            mochilinges
+  instagram:          mochiling.es
+  instagram_id:       3286677168
+  short_desc:         Lorem ipsum Lorem ipsum Lorem ipsum 
+  born_location:      [40.412279, -3.88877]
+  visited_countries:  ["Spain", "France", "Italy", "India", "China", "Australia", "Cuba", "Argentina", "Brazil", "Belgium", "Mexico", "Costa Rica", "Korea, Republic of", "Bosnia and Herzegovina", "Germany", "United Kingdom", "Thailand", "Netherlands", "Panama", "Uruguay", "Paraguay", "Chile", "United States", "Cambodia", "Viet Nam", "Malta", "Portugal", "Greece", "Albania", "Serbia", "Croatia", "Switzerland", "Montenegro", "Zimbabwe", "Turkey", "Slovenia", "San Marino", "Philippines", "Namibia", "Burma", "Morocco", "Malaysia", "Macedonia", "Lao People's Democratic Republic", "Jordan", "Indonesia", "Czech Republic", "Canada", "Botswana", "Austria", "Bolivia", "Andorra", "Austria", "Israel", "Egypt"]
+  banner:             instagram
+jamon:
+  complete_name:      Javier Álvarez
+  image:              jam.png
+  gender:             male
+  role:               webmaster
+  languages:          [es, gb]
+  facebook:           jamedina
+  twitter:            xavijam
+  instagram:          xavijam
+  instagram_id:       9841730
+  short_desc:         Lorem ipsum Lorem ipsum Lorem ipsum 
+  born_location:      [40.412279, -3.88877]
+  visited_countries:  ["Spain", "France", "Italy", "Israel", "United States", "United Kingdom", "Mexico", "Netherlands", "Germany", "Belgium", "Portugal", "Andorra"]
+  banner:             instagram
