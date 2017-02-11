@@ -1,9 +1,22 @@
 new-zealand: 
   title: new-zealand.title
   subtitle: new-zealand.subtitle
-  date: 01/01/2015
+  short_desc: new-zealand.short_desc
+  date: 2016-03-23T10:20:00Z
   countries: ['New Zealand']
   pois: [] 
   video: https://www.youtube.com/embed/58sycxbESvU
-  image: 
+  image: new-zealand.png
+  instagram_tag: '#mochilingnewzealand'
+  mochiling_member: victor
+cuba: 
+  title: cuba.title
+  subtitle: cuba.subtitle
+  short_desc: cuba.short_desc
+  date: 2017-03-23T10:20:00Z
+  countries: ['Cuba']
+  pois: [] 
+  video: https://www.youtube.com/embed/58sycxbESvU
+  image: cuba.png
+  instagram_tag: '#mochilingcuba'
   mochiling_member: victor

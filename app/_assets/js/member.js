@@ -1,6 +1,6 @@
 var $ = require('jquery');
-var MemberMapView = require('./member-map-view');
-var Instafeed = require('instafeed.js');
+var MemberMapView = require('./member/member-map-view');
+var MemberInstagramView = require('./member/member-instagram-view');
 
 $(function(){
   var visitedCountries = window.visitedCountries;
@@ -18,19 +18,11 @@ $(function(){
 
   memberMap.render();
 
-  if (instagramId) {
-    var feed = new Instafeed({
-      get: 'user',
-      limit: 1,
-      userId: instagramId,
-      clientId: '8edddd77898d4100bfac8f4b58e54c25',
-      accessToken: '9841730.ba4c844.3ce456308101453787eb5443d358c259',
-      resolution: 'standard_resolution',
-      after: function () {
-        $('#instafeed img').addClass('pure-img');
-        console.log(arguments);
-      }
+  if (instagramId && $('#instafeed').length) {
+    var memberInstagram = new MemberInstagramView({
+      el: $('#instafeed'),
+      instagramId: instagramId
     });
-    feed.run();
+    memberInstagram.render();
   }
 });

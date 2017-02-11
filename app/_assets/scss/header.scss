@@ -31,3 +31,10 @@
 .Header-navListItem {
   margin-left: 35px;
 }
+.Header-navListItemLink {}
+.Header-navListItemLink.is-selected {
+  padding: 26px 0 0;
+  color: #333;
+  border-top: 1px solid #333;
+  cursor: default;
+}

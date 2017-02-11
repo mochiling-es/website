@@ -3,15 +3,21 @@ layout: null
 ---
 User-agent: *
 Disallow: 404.html
-Disallow: /concepto/
-Disallow: /en/concept/
+Disallow: /propuestas/
+Disallow: /proposals/
 Disallow: /experiencias/
-Disallow: /en/experiences/
+Disallow: /experiences/
 Disallow: /experiencias/nueva-zelanda
-Disallow: /en/experiences/new-zealand
+Disallow: /experiences/new-zealand
+Disallow: /experiencias/cuba
+Disallow: /experiences/cuba
 Disallow: /equipo/
-Disallow: /en/team/
+Disallow: /team/
+Disallow: /equipo/victor
+Disallow: /team/victor
+Disallow: /equipo/jamon
+Disallow: /team/jamon
 Disallow: /contacto/
-Disallow: /en/contact/
+Disallow: /contact/
 
 Sitemap: {{ site.url }}/sitemap.xml

@@ -1,3 +1,6 @@
+{% assign site_lang = site.lang | append: "/" %}
+{% assign current_page = page.url | strip %}
+
 <header class="Header">
   <div class="Header-child">
     <h1>
@@ -11,22 +14,48 @@
   <div class="Header-child">
     <nav class="Header-nav">
       <ul class="Header-navList Text Text--med Text--strong Text--uppercase">
-        <li class="Header-navListItem {% if page.url contains tl experiences %}is-selected{% endif %}">
-          <a class="Color--linkSecondary " href="{% tl concept %}">{% t proposals.title %}</a>
-        </li>
+        {% capture proposals %}{% tl proposals {{ site.lang }} %}{% endcapture %}
         <li class="Header-navListItem">
-          <a class="Color--linkSecondary" href="{% tl experiences %}">{% t experiences.title %}</a>
+          <a class="Header-navListItemLink {% if page.url contains proposals %}is-selected{% endif %} Color--linkSecondary" href="{% tl proposals %}">{% t proposals.title %}</a>
         </li>
 
-        {% capture team_url %}{% tl team {{site.lang}}%}{% endcapture %}
-        <li class="Header-navListItem {% if page.url contains team_url %}is-selected{% endif %}">
-          <a class="Color--linkSecondary" href="{% tl team %}">{% t team.title %}</a>
+        {% capture experiences_url %}
+          {% tl experiences {{site.lang}} %}
+        {% endcapture %}
+        {% assign experiences_url_strip = experiences_url | strip | remove: site_lang %}
+
+        {% capture experiences_selected_class %}
+          {% if current_page contains experiences_url_strip %}
+            is-selected
+          {% elsif experiences_url_strip contains current_page %}
+            is-selected
+          {% endif %}
+        {% endcapture %}
+        <li class="Header-navListItem">
+          <a class="Header-navListItemLink {{ experiences_selected_class }} Color--linkSecondary" href="{% tl experiences %}">{% t experiences.title %}</a>
+        </li>
+        
+        {% capture team_url %}
+          {% tl team {{site.lang}} %}
+        {% endcapture %}
+        {% assign team_url_strip = team_url | strip | remove: site_lang %}
+
+        {% capture team_selected_class %}
+          {% if current_page contains team_url_strip %}
+            is-selected
+          {% elsif team_url_strip contains current_page %}
+            is-selected
+          {% endif %}
+        {% endcapture %}
+        <li class="Header-navListItem">
+          <a class="Header-navListItemLink {{ team_selected_class }} Color--linkSecondary" href="{% tl team %}">{% t team.title %}</a>
         </li>
 
         {% capture contact_url %}{% tl contact {{ site.lang }} %}{% endcapture %}
-        <li class="Header-navListItem {% if page.url == contact_url %}is-selected{% endif %}">
-          <a class="Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a>
+        <li class="Header-navListItem">
+          <a class="Header-navListItemLink {% if page.url == contact_url %}is-selected{% endif %} Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a>
         </li>
+
         {% for lang in site.languages %}
           {% unless site.lang == lang %}
             <li class="Header-navListItem">

@@ -28,11 +28,6 @@ module.exports = Backbone.View.extend({
   },
 
   render: function () {
-    this._initViews();
-    return this;
-  },
-
-  _initViews: function () {
     var map = L.map(this.el, {
       doubleClickZoom: false,
       boxZoom: false,
@@ -63,5 +58,7 @@ module.exports = Backbone.View.extend({
 
       L.circleMarker(bornLocation, MARKER_STYLE).addTo(map);
     }.bind(this));
+
+    return this;
   }
 });

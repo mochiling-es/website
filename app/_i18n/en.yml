@@ -26,4 +26,8 @@ experiences:
   new-zealand:
     title: New Zealand
     subtitle: September 2017
-    quote: Don't forget to visit the glaciars, sky resorts and Hobbit locations
+    short_desc: Don't forget to visit the glaciars, sky resorts and Hobbit locations
+  cuba:
+    title: Cuba
+    subtitle: February 2017
+    short_desc: Cuba mi amol

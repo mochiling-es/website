@@ -26,4 +26,8 @@ experiences:
   new-zealand:
     title: Nueva Zelanda
     subtitle: Septiembre 2017
-    quote: No olvides de visitar los glaciares, los remontes y los lugares donde se filmó el Hobbit
+    short_desc: No olvides de visitar los glaciares, los remontes y los lugares donde se filmó el Hobbit
+  cuba:
+    title: Cuba
+    subtitle: Febrero 2017
+    short_desc: Cuba mi amol
