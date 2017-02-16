@@ -1,17 +1,55 @@
 victor:
-  complete_name:      Victor García Vidal
+  complete_name:      Victor García
   image:              victor.png
   gender:             male
-  role:               president
+  role:               founder
   languages:          [es, pt, it, gb]
   facebook:           victor.garcia.1272
   twitter:            mochilinges
   instagram:          mochiling.es
   instagram_id:       3286677168
-  short_desc:         Lorem ipsum Lorem ipsum Lorem ipsum 
+  short_desc:         victor
   born_location:      [40.412279, -3.88877]
   visited_countries:  ["Spain", "France", "Italy", "India", "China", "Australia", "Cuba", "Argentina", "Brazil", "Belgium", "Mexico", "Costa Rica", "Korea, Republic of", "Bosnia and Herzegovina", "Germany", "United Kingdom", "Thailand", "Netherlands", "Panama", "Uruguay", "Paraguay", "Chile", "United States", "Cambodia", "Viet Nam", "Malta", "Portugal", "Greece", "Albania", "Serbia", "Croatia", "Switzerland", "Montenegro", "Zimbabwe", "Turkey", "Slovenia", "San Marino", "Philippines", "Namibia", "Burma", "Morocco", "Malaysia", "Macedonia", "Lao People's Democratic Republic", "Jordan", "Indonesia", "Czech Republic", "Canada", "Botswana", "Austria", "Bolivia", "Andorra", "Austria", "Israel", "Egypt"]
   banner:             instagram
+daniel:
+  complete_name:      Daniel Panozzo
+  image:              daniel.png
+  gender:             male
+  role:               expert
+  languages:          [us, kr, es]
+  facebook:           daniel.panozzo.3
+  instagram:          retrodman
+  instagram_id:       23456071
+  short_desc:         daniel
+  born_location:      [35.907757, 127.766922]
+  visited_countries:  []
+  banner:             instagram
+pau:
+  complete_name:      Pau Lleal
+  image:              pau.png
+  gender:             male
+  role:               expert
+  languages:          [cat, es, gb]
+  facebook:           pau.llealgrau
+  instagram:          dagolleal
+  instagram_id:       934338905
+  short_desc:         pau
+  born_location:      [41.979400, 2.821426]
+  visited_countries:  []
+  banner:             instagram
+mariaje:
+  complete_name:      María Jesús Ajá
+  image:              mariaje.png
+  gender:             female
+  role:               expert
+  languages:          [es, gb]
+  facebook:           1251103067
+  instagram:          mariajesusaja
+  instagram_id:       3421212432
+  short_desc:         mariaje
+  born_location:      [40.412279, -3.88877]
+  visited_countries:  []
 jamon:
   complete_name:      Javier Álvarez
   image:              jam.png
@@ -22,7 +60,7 @@ jamon:
   twitter:            xavijam
   instagram:          xavijam
   instagram_id:       9841730
-  short_desc:         Lorem ipsum Lorem ipsum Lorem ipsum 
+  short_desc:         jamon
   born_location:      [40.412279, -3.88877]
   visited_countries:  ["Spain", "France", "Italy", "Israel", "United States", "United Kingdom", "Mexico", "Netherlands", "Germany", "Belgium", "Portugal", "Andorra"]
   banner:             instagram

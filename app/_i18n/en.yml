@@ -1,6 +1,7 @@
 quote: "The new way of living a trip..."
 learn-more: Learn more
 last-experience: Last experience
+next-experience: Next experience
 rights-reserved: All rights reserved
 
 proposals:
@@ -20,6 +21,13 @@ team:
   roles: 
     president: President
     webmaster: Webmaster
+    expert: Expert
+  members: 
+    victor: Heritage Traveler
+    daniel: Musician and adventure
+    pau: Gastromaster and dreamer
+    mariaje: Travel freak & dreams organizer
+    jamon: Looking for the marvelous place within the keyboard
 experiences: 
   title: Experiences
   share: Share in 

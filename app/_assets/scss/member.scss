@@ -31,6 +31,7 @@
 .Member-image img {
   width: 90px;
   height: 90px;
+  border-radius: 90px;
   margin-right: 20px;
   background-size: 90px 90px;
 }
@@ -44,6 +45,9 @@
 }
 .Member-text {
   margin-top: 250px;
+}
+.Member-text > p{
+  margin: 20px 0;
 }
 .Member-instagram {
   position: relative;

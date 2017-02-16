@@ -1,0 +1,27 @@
+{% for experience in site.data.experiences %}
+  
+  {% if last_experience == '' %}
+    {% assign last_experience = experience %}
+  {% endif %}
+
+  {% capture lastunix %}{{last_experience[1].date | date: '%s'}}{% endcapture %}
+  {% capture currentunix %}{{experience[1].date | date: '%s'}}{% endcapture %}
+
+  {% if lastunix < currentunix %}
+    {% assign last_experience = experience %}
+  {% endif %}
+{% endfor %}
+
+<div class="pure-g Banner Bkg--light">
+  <div class="pure-u-1-2 Banner-image">
+    <img src="/img/experiences/{{ last_experience[1].image }}" class="pure-img" alt="{% t experiences.{{last_experience[1].title}} %}" title="{% t experiences.{{last_experience[1].title}} %}"/>
+  </div>
+  <div class="pure-u-1-2 Banner-info">
+    <div class="Banner-infoContent">
+      <h4 class="Text">{% t 'next-experience' %}</h4>
+      <h3>{% t experiences.{{last_experience[1].title}} %}</h3>
+      <p>{% t experiences.{{last_experience[1].short_desc}} %}</p>
+      <a href="{% tl {{last_experience[0]}} {{site.lang}} %}" class="Button Button--dark">{% t 'learn-more'%}</a>
+    </div>
+  </div>
+</div>

@@ -23,7 +23,7 @@
       <h4 class="Text">{% t 'last-experience' %}</h4>
       <h3>{% t experiences.{{last_experience[1].title}} %}</h3>
       <p>{% t experiences.{{last_experience[1].short_desc}} %}</p>
-      <a href="" class="Button Button--dark">{% t 'learn-more'%}</a>
+      <a href="{% tl {{last_experience[0]}} {{site.lang}} %}" class="Button Button--dark">{% t 'learn-more'%}</a>
     </div>
   </div>
 </div>

@@ -28,7 +28,7 @@ permalink_en:     /team/
                 {{ member[1].complete_name }}
               </a>
             </h4>
-            <p class="Text Text--paragraph Members-itemDesc Color--dark u-tSpace--m">{{ member[1].short_desc }}</p>
+            <p class="Text Text--paragraph Members-itemDesc Color--dark u-tSpace--m">{% t team.members.{{member[1].short_desc}} %}.</p>
           </div>
           <div class="Members-itemFooter">
             <p class="Members-itemRole Text Text--paragraph">{% t team.roles.{{ member[1].role }} %}</p>

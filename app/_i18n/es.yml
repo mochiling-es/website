@@ -1,6 +1,7 @@
 quote: "La nueva manera de vivir un viaje..."
 learn-more: Saber más
 last-experience: Última experiencia
+next-experience: Siguiente experiencia
 rights-reserved: Todos los derechos reservados
 
 proposals:
@@ -12,14 +13,21 @@ team:
   subtitle: Nuestro equipo
   desc: |
     Tenemos un equipo cualificado y aventurero preparado para ayudarte en tu
-    experiencia <span class="Color--emphasis">Mochiling</span>. Visita los perfiles y
+    experiencia <span class="Color--emphasis">mochiling</span>. Visita los perfiles y
     encuentra el que mejor se podría ajustar a tu ruta.
   follow:
     male: Síguele
     female: Síguela
   roles: 
-    president: Presidente
+    founder: Fundador
     webmaster: Webmaster
+    expert: Expert@
+  members:
+    victor: Viajero por herencia
+    daniel: Músico y aventurero
+    pau: Gastromaster y soñador
+    mariaje: Travel freak & organizadora de sueños
+    jamon: Buscando el lugar perfecto entre las teclas
 experiences:
   title: Experiencias
   share: Compartir en

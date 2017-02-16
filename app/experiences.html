@@ -1,14 +1,14 @@
 ---
-layout:         default
-title:          experiences.title
+layout:           default
+translated_title: experiences.title
 
-namespace:      experiences
-permalink:      /experiencias/
-permalink_en:   /experiences/
+namespace:        experiences
+permalink:        /experiencias/
+permalink_en:     /experiences/
 ---
 
 <ul>
-  {% for place in site.experiences %}
+  {% for place in site.data.experiences %}
     <li>
       <a href="{% tl {{place}} {{lang}} %}">{% t places.{{place}}.title %}</a>
     </li>
