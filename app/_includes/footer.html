@@ -1,37 +1,36 @@
 <footer class="Footer">
-  <nav class="Footer-nav">
-    <ul class="Footer-navList Text Text--med Text--strong Text--uppercase">
-      <li class="Footer-navListItem {% if page.url contains tl experiences %}is-selected{% endif %}">
-        <a class="Color--linkSecondary " href="{% tl concept %}">{% t proposals.title %}</a>
-      </li>
-      <li class="Footer-navListItem">
-        <a class="Color--linkSecondary" href="{% tl experiences %}">{% t experiences.title %}</a>
-      </li>
-
-      {% capture team_url %}{% tl team {{site.lang}}%}{% endcapture %}
-      <li class="Footer-navListItem {% if page.url contains team_url %}is-selected{% endif %}">
-        <a class="Color--linkSecondary" href="{% tl team %}">{% t team.title %}</a>
-      </li>
-
-      {% capture contact_url %}{% tl contact {{ site.lang }} %}{% endcapture %}
-      <li class="Footer-navListItem {% if page.url == contact_url %}is-selected{% endif %}">
-        <a class="Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a>
-      </li>
-    </ul>
-  </nav>
-
-  <nav>
-    <ul>
-      {% for social_network in site.social %}
-        <li>
-          <a href="{{ social_network[1] }}" target="_blank">
-            <i class="fa fa-{{ social_network[0] }}"></i>
-            {{ social_network[0] }}
-          </a>
+  <div class="Footer-inner">
+    <nav class="Footer-nav">
+      <ul class="Footer-navList Text Text--med Text--strong Text--uppercase">
+        <li class="Footer-navListItem">
+          <a class="Color--linkSecondary" href="/">{% t home %}</a>
         </li>
-      {% endfor %}
-    </ul>
-  </nav>
-
-  <p>{{site.title}}.es · {{ site.time | date: '%Y' }} · {% t rights-reserved %}</p>
+        <li class="Footer-navListItem">
+          <a class="Color--linkSecondary" href="{% tl concept %}">{% t proposals.title %}</a>
+        </li>
+        <li class="Footer-navListItem">
+          <a class="Color--linkSecondary" href="{% tl experiences %}">{% t experiences.title %}</a>
+        </li>
+        <li class="Footer-navListItem">
+          <a class="Color--linkSecondary" href="{% tl team %}">{% t team.title %}</a>
+        </li>
+        <li class="Footer-navListItem">
+          <a class="Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="Footer-nav Footer u-tSpace--l">
+      <ul class="Footer-navList">
+        {% for social_network in site.social %}
+          <li class="Footer-navListItem">
+            <a href="{{ social_network[1] }}" class="Text Text--med Color--linkSecondary" target="_blank">
+              <i class="fa fa-{{ social_network[0] }} Footer-navListItem--social"></i>
+              {{ social_network[0] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <p class="u-tSpace--m Text Text--small Color--paragraph">{{site.title}}.es · {{ site.time | date: '%Y' }} · {% t rights-reserved %}</p>
+  </div>
 </footer>
