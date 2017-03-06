@@ -52,7 +52,7 @@ mariaje:
   visited_countries:  []
 jamon:
   complete_name:      Javier Álvarez
-  image:              jam.png
+  image:              jamon.png
   gender:             male
   role:               webmaster
   languages:          [es, gb]
