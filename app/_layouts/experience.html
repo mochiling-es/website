@@ -27,6 +27,15 @@
         </div>
       </div>
 
+      {% if experience.instagram_tag %}
+        <div class="Breadcrumb u-tSpace--xxl">
+          <ul class="Breadcrumb-inner">
+            <li class="Breadcrumb-item u-rSpace--xl">---</li>
+          </ul>
+        </div>
+        <div id="instafeed" class="pure-g"></div>
+      {% endif %}
+
       <div class="Breadcrumb u-tSpace--xxl">
         <ul class="Breadcrumb-inner">
           <li class="Breadcrumb-item u-rSpace--xl">{% t experiences.share %}</li>
@@ -51,18 +60,9 @@
 
     <script src="/js/experience.js"></script>
     <script>
-      {% if member.instagram_id and member.banner == 'instagram' %}
-        var instagramId = '{{ member.instagram_id }}';
+      {% if experience.instagram_tag %}
+        var instagramTag = '{{ experience.instagram_tag }}';
       {% endif %}
-      var bornLocation = {{ member.born_location | join: "," | prepend: "[" | append: "]"}};
-      var visitedCountries = [
-        {% for country in member.visited_countries %}
-          "{{ country }}"
-          {% if forloop.last == false %}
-            ,
-          {% endif %}
-        {% endfor %}
-      ];
     </script>
   </body>
 </html>

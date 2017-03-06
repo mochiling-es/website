@@ -4,6 +4,7 @@ last-experience: Última experiencia
 next-experience: Siguiente experiencia
 rights-reserved: Todos los derechos reservados
 home: Inicio
+contact-us: Escríbenos
 
 proposals:
   title: Propuestas
@@ -16,6 +17,7 @@ team:
     Tenemos un equipo cualificado y aventurero preparado para ayudarte en tu
     experiencia <span class="Color--emphasis">mochiling</span>. Visita los perfiles y
     encuentra el que mejor se podría ajustar a tu ruta.
+  join: ¿Te gustaría unirte a nuestro equipo <span class="Color--emphasis">Mochiling</span>?
   follow:
     male: Síguele
     female: Síguela
@@ -35,8 +37,8 @@ experiences:
   new-zealand:
     title: Nueva Zelanda
     subtitle: Septiembre 2017
-    short_desc: No olvides de visitar los glaciares, los remontes y los lugares donde se filmó el Hobbit
+    short_desc: No olvides de visitar los glaciares, los remontes y los lugares donde se filmó el Hobbit.
   cuba:
     title: Cuba
     subtitle: Febrero 2017
-    short_desc: Cuba mi amol
+    short_desc: Descrube que hemos encontrado en este increible país caribeño.

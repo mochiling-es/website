@@ -14,14 +14,14 @@
 
 <div class="pure-g Banner Bkg--light">
   <div class="pure-u-1-2 Banner-image">
-    <img src="/img/experiences/{{ last_experience[1].image }}" class="pure-img" alt="{% t experiences.{{last_experience[1].title}} %}" title="{% t experiences.{{last_experience[1].title}} %}"/>
+    <img src="{{ last_experience[1].image }}" class="pure-img" alt="{% t experiences.{{last_experience[1].title}} %}" title="{% t experiences.{{last_experience[1].title}} %}"/>
   </div>
   <div class="pure-u-1-2 Banner-info">
     <div class="Banner-infoContent">
-      <h4 class="Text">{% t 'next-experience' %}</h4>
-      <h3>{% t experiences.{{last_experience[1].title}} %}</h3>
-      <p>{% t experiences.{{last_experience[1].short_desc}} %}</p>
-      <a href="{% tl {{last_experience[0]}} {{site.lang}} %}" class="Button Button--dark">{% t 'learn-more'%}</a>
+      <h4 class="Text Text--small Color--desc Text--uppercase">{% t 'next-experience' %}</h4>
+      <h3 class="Text Text--huge Color--dark Text--strong">{% t experiences.{{last_experience[1].title}} %}</h3>
+      <p class="Text Text--large Color--paragraph u-tSpace--l">{% t experiences.{{last_experience[1].short_desc}} %}</p>
+      <a href="{% tl {{last_experience[0]}} {{site.lang}} %}" class="Button Button--light u-tSpace--l">{% t 'learn-more'%}</a>
     </div>
   </div>
 </div>

@@ -4,6 +4,7 @@ last-experience: Last experience
 next-experience: Next experience
 rights-reserved: All rights reserved
 home: Home
+contact-us: Contact us
 
 proposals:
   title: Proposals
@@ -16,6 +17,7 @@ team:
     We have a qualified and adventurous team ready to help you in your
     <span class="Color--emphasis">mochiling</span> experience. Check the profiles
     in order to find the best fit for your route.
+  join: Would you like to join our <span class="Color--emphasis">Mochiling</span> team?
   follow:
     male: Follow him
     female: Follow her
@@ -35,8 +37,8 @@ experiences:
   new-zealand:
     title: New Zealand
     subtitle: September 2017
-    short_desc: Don't forget to visit the glaciars, sky resorts and Hobbit locations
+    short_desc: Don't forget to visit the glaciars, sky resorts and Hobbit locations.
   cuba:
     title: Cuba
     subtitle: February 2017
-    short_desc: Cuba mi amol
+    short_desc: Discover what we have found in this incredible Caribean country.

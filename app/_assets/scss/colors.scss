@@ -1,5 +1,7 @@
 @import 'vars';
 
+// Colors, colors everywhere.
+
 .Color {
   color: #666;
 }
@@ -11,6 +13,9 @@
 }
 .Color--paragraph {
   color: #787878;
+}
+.Color--desc {
+  color: #AAA;
 }
 .Color--emphasis {
   color: $mainColor;

@@ -56,13 +56,15 @@ module.exports = function (grunt) {
       dev: {
         files: {
           '.tmp/js/member.js': ['<%= app.app %>/_assets/js/member.js'],
-          '.tmp/js/members.js': ['<%= app.app %>/_assets/js/members.js']
+          '.tmp/js/members.js': ['<%= app.app %>/_assets/js/members.js'],
+          '.tmp/js/experience.js': ['<%= app.app %>/_assets/js/experience.js']
         }
       },
       dist: {
         files: {
           '<%= app.dist %>/js/member.js': ['<%= app.app %>/_assets/js/member.js'],
-          '<%= app.dist %>/js/members.js': ['<%= app.app %>/_assets/js/members.js']
+          '<%= app.dist %>/js/members.js': ['<%= app.app %>/_assets/js/members.js'],
+          '<%= app.dist %>/js/experience.js': ['<%= app.app %>/_assets/js/experience.js']
         }
       }
     },
