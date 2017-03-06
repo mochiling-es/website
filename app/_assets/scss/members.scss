@@ -18,7 +18,7 @@ $border-color: #EEE;
 }
 .Members-content {
   position: relative;
-  width: $mainSize;
+  width: $mainSize + 40px;
   margin: 0 auto;
   z-index: 1;
 }
