@@ -10,12 +10,12 @@ var POLYGON_STYLE = {
 };
 var MARKER_STYLE = {
   radius: 6,
-  fillColor: "#F88B52",
-  color: "#FFFFFF",
+  fillColor: '#F88B52',
+  color: '#FFFFFF',
   weight: 4,
   opacity: 0.5,
   fillOpacity: 1
-}
+};
 
 module.exports = Backbone.View.extend({
 
@@ -25,10 +25,11 @@ module.exports = Backbone.View.extend({
 
     this._visitedCountries = opts.visitedCountries;
     this._bornLocation = opts.bornLocation;
+    this._centerMap = this._centerMap.bind(this);
   },
 
   render: function () {
-    var map = L.map(this.el, {
+    this._map = L.map(this.el, {
       doubleClickZoom: false,
       boxZoom: false,
       dragging: false,
@@ -36,14 +37,13 @@ module.exports = Backbone.View.extend({
       scrollWheelZoom: false,
       touchZoom: false,
       keyboard: false
-    }).setView(this._bornLocation, 3);
+    }).setView(this._bornLocation, 3, false);
 
-    // TODO: make it responsive!
-    map.panBy([200, 100]);
+    this._centerMap();
 
-    $.getJSON(COUNTRIES_SQL, function(data) {
+    $.getJSON(COUNTRIES_SQL, function (data) {
       L.geoJson(data, {
-        style: function(feature) {
+        style: function (feature) {
           var opts = _.clone(POLYGON_STYLE);
           var countryName = feature.properties.name;
 
@@ -54,11 +54,29 @@ module.exports = Backbone.View.extend({
 
           return opts;
         }.bind(this)
-      }).addTo(map);
+      }).addTo(this._map);
 
-      L.circleMarker(bornLocation, MARKER_STYLE).addTo(map);
+      L.circleMarker(this._bornLocation, MARKER_STYLE).addTo(this._map);
     }.bind(this));
 
     return this;
+  },
+
+  _centerMap: function () {
+    var windowWidth = window.innerWidth;
+    var mapHeight = this.$el.innerHeight();
+
+    var moveX = 0;
+    var moveY = (mapHeight / 2) - 380;
+
+    if (windowWidth > 720) {
+      moveX = 200;
+    } else if (windowWidth > 320) {
+      moveX = (windowWidth / 2) / 2;
+    } else {
+      moveX = 0;
+    }
+
+    this._map.panBy([moveX, moveY]);
   }
 });
