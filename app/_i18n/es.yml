@@ -33,6 +33,8 @@ team:
     jamon: Buscando el lugar perfecto entre las teclas
 experiences:
   title: Experiencias
+  subtitle: Nuestras experiencias
+  desc: No hay mejor manera de aprender que puede ofrecer <span class="Color--emphasis">Mochiling</span> que comprobando los lugares que hemos disfrutado. ¿Quieres que te ayudemos a crear tu experiencia?
   share: Compartir en
   new-zealand:
     title: Nueva Zelanda

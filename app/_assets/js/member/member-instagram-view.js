@@ -9,11 +9,11 @@ var INSTAGRAM_OPTS = {
   limit: 1
 };
 var locationTemplate = _.template(
-  '<div class="Member-instagramLocation Text Text--med Text--strong Color--light">'+
-    '<i class="fa fa-map-marker u-rSpace"></i>'+
-    '<a href="https://www.instagram.com/explore/locations/<%- placeId %>" target="_blank">'+
-      '<%- name %>'+
-    '</a>'+
+  '<div class="Member-instagramLocation Text Text--med Text--strong Color--light">' +
+    '<i class="fa fa-map-marker u-rSpace"></i>' +
+    '<a href="https://www.instagram.com/explore/locations/<%- placeId %>" target="_blank">' +
+      '<%- name %>' +
+    '</a>' +
   '</div>'
 );
 
