@@ -38,11 +38,12 @@ permalink_en:     /experiences/
       var experiences = [
         {% for place in site.data.experiences %}
           {
-            title: '',
-            countries: '',
-            place: '{% t places.{{place}}.title %}',
-            link: '{% tl {{place}} {{lang}} %}'
-          },
+            title: '{% t experiences.{{place[0]}}.title %}',
+            countries: ["{{ place[1].countries | join: '", "' }}"],
+            date_start: "{{ place[1].date_start }}",
+            date_end: "{{ place[1].date_end }}",
+            link: '{% tl {{place[0]}} {{lang}} %}'
+          }{% if forloop.last == false %},{% endif %}
         {% endfor %}
       ]
     </script>

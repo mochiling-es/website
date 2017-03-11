@@ -33,19 +33,17 @@ module.exports = Backbone.View.extend({
     $.getJSON(COUNTRIES_SQL, function (data) {
       L.geoJson(data, {
         style: function (feature) {
-          var opts = _.clone(POLYGON_STYLE);
-          // var countryName = feature.properties.name;
-
-          // if (_.contains(this._experiences, countryName)) {
-          //   opts.color = '#CDCDCD';
-          //   opts.weight = 1.5;
-          // }
-
-          return opts;
+          return _.clone(POLYGON_STYLE);
         }
       }).addTo(this._map);
     }.bind(this));
 
     return this;
+  },
+
+  _belongsToAnyExperience: function (countryName) {
+    return _.find(this._experiences, function (experience) {
+      return _.contains(experience.countries, countryName);
+    });
   }
 });

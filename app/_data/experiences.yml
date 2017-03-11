@@ -2,8 +2,9 @@ new-zealand:
   title: new-zealand.title
   subtitle: new-zealand.subtitle
   short_desc: new-zealand.short_desc
-  date: 2016-03-23T10:20:00Z
-  countries: ['New Zealand']
+  date_start: 2016-03-23T10:20:00Z
+  date_end: 2016-04-23T10:20:00Z
+  countries: ["New Zealand", "Fiji"]
   pois: [] 
   video: https://www.youtube.com/embed/58sycxbESvU
   image: new-zealand.png
@@ -13,8 +14,9 @@ cuba:
   title: cuba.title
   subtitle: cuba.subtitle
   short_desc: cuba.short_desc
-  date: 2017-03-23T10:20:00Z
-  countries: ['Cuba']
+  date_start: 2017-03-23T10:20:00Z
+  date_end: 2017-04-23T10:20:00Z
+  countries: ["Cuba"]
   pois: [] 
   video: https://www.youtube.com/embed/58sycxbESvU
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/16906601_704458816403293_7457892516851875840_n.jpg

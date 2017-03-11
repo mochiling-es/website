@@ -11,7 +11,7 @@
     </h1>
   </div>
 
-  <div class="Header-child">
+  <div class="Header-child Header-subLinks">
     <nav class="Header-nav">
       <ul class="Header-navList Text Text--med Text--strong Text--uppercase">
         {% capture proposals %}{% tl proposals {{ site.lang }} %}{% endcapture %}
@@ -68,5 +68,9 @@
         {% endfor %}
       </ul>
     </nav>
+  </div>
+
+  <div class="Header-child Header-hamburguer js-responsiveHeader">
+    <i class="fa fa-bars fa-lg Color--linkSecondary"></i>
   </div>
 </header>

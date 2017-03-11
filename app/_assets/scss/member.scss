@@ -2,9 +2,6 @@
 
 // Member styles
 
-.Member {
-  position: relative;
-}
 .Member-map {
   position: absolute;
   top: 0;
@@ -13,12 +10,6 @@
   left: 0;
   overflow: hidden;
   z-index: 0;
-}
-.Member-content {
-  position: relative;
-  width: $mainSize;
-  margin: 0 auto;
-  z-index: 1;
 }
 .Member-contentInner {
   width: 100%;
@@ -52,11 +43,23 @@
 .Member-instagram {
   position: relative;
 }
-.Member-instagram img {}
+.Member-instagram img {
+  max-height: 600px;
+}
 .Member-instagramLocation {
   position: absolute;
   bottom: 0;
   left: 0;
   padding: 10px;
   background: rgba(black, 0.4);
+}
+
+@media (max-width: $mainSize) {
+  .Member-image img {
+    width: 64px;
+    height: 64px;
+  }
+  .Member-text {
+    margin-top: 200px;
+  }
 }

@@ -9,7 +9,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: $mainSize;
+  width: 100%;
+  max-width: $mainSize;
   margin: 0 auto;
   padding: 40px 0;
   text-align: center;
@@ -25,4 +26,10 @@
 }
 .Footer-navListItem--social {
   margin-right: 3px;
+}
+
+@media (max-width: $mainSize) {
+  .Footer-navigationLinks {
+    display: none;
+  } 
 }

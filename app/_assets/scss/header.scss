@@ -1,11 +1,15 @@
 @import 'vars';
 
+// Header styles
+
 .Header {
   position: relative;
   display: flex;
+  box-sizing: border-box;
   max-width: $mainSize;
   height: 70px;
   margin: 0 auto;
+  padding: 0 20px;
   justify-content: space-between;
   align-items: center;
   z-index: 1;
@@ -14,6 +18,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.Header-hamburguer {
+  display: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .Header-logo {
   display: flex;
@@ -37,4 +47,33 @@
   color: #333;
   border-top: 1px solid #333;
   cursor: default;
+}
+
+@media (max-width: $mainSize) {
+  .Header-subLinks {
+    display: none;
+  }
+  .Header-subLinks.is-headerVisible {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 200px;
+    background: #333;
+  }
+  .Header-subLinks .Header-navList {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 30px;
+  }
+  .Header-subLinks .Header-navListItem {
+    margin-top: 30px;
+  }
+  .Header-navListItemLink.is-selected {
+    color: white;
+  }
+  .Header-hamburguer {
+    display: block;
+  }
 }

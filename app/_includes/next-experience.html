@@ -4,8 +4,8 @@
     {% assign last_experience = experience %}
   {% endif %}
 
-  {% capture lastunix %}{{last_experience[1].date | date: '%s'}}{% endcapture %}
-  {% capture currentunix %}{{experience[1].date | date: '%s'}}{% endcapture %}
+  {% capture lastunix %}{{last_experience[1].date_end | date: '%s'}}{% endcapture %}
+  {% capture currentunix %}{{experience[1].date_end | date: '%s'}}{% endcapture %}
 
   {% if lastunix < currentunix %}
     {% assign last_experience = experience %}

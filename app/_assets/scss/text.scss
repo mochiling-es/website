@@ -1,3 +1,5 @@
+@import 'vars';
+
 // Hello text types!
 
 .Text {
@@ -32,4 +34,28 @@
 }
 .Text--italic {
   font-style: italic;
+}
+
+@media (max-width: $mainSize) {
+  .Text--giant {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .Text--huge {
+    font-size: 24px;
+  }
+  .Text--big {
+    font-size: 20px;
+  }
+  .Text--large {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .Text--med {
+    font-size: 13px;
+    line-height: 14px;
+  }
+  .Text--small {
+    font-size: 11px;
+  }
 }
