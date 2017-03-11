@@ -42,7 +42,7 @@
 }
 .Member-instagram {
   position: relative;
-  min-height: 300px;
+  min-height: 250px;
 }
 .Member-instagram img {
   position: relative;
@@ -53,14 +53,17 @@
 .Member-instagramLocation {
   position: absolute;
   bottom: 0;
-  left: 0;
+  right: 0;
   padding: 10px;
   background: rgba(black, 0.4);
+  z-index: 3;
 }
 .Member-instagramLoader {
   position: absolute;
   top: 50%;
   right: 50%;
+  margin-right: -20px;
+  margin-top: -20px;
   z-index: 0;
 }
 
@@ -75,9 +78,5 @@
   .Member-instagram {
     display: flex;
     justify-content: flex-end;
-  }
-  .Member-instagramLocation {
-    left: auto;
-    right: 0;
   }
 }

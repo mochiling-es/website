@@ -45,6 +45,7 @@ module.exports = Backbone.View.extend({
   },
 
   _afterImageAdded: function () {
+    this.$('.js-instagramLoader').remove();
     this.$('img').addClass('pure-img');
   },
 
