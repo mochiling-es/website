@@ -1,4 +1,5 @@
 var $ = require('jquery');
+global.jQuery = $;
 var ExperienceInstagramView = require('./experience/experience-instagram-view');
 var ResponsiveHeaderHelper = require('./components/responsive-header');
 

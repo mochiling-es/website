@@ -7,9 +7,9 @@ new-zealand:
   countries: ["New Zealand", "Fiji"]
   pois: [] 
   video: https://www.youtube.com/embed/58sycxbESvU
-  image: new-zealand.png
-  instagram_tag: 'mochilingnewzealand'
-  mochiling_member: victor
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/17125832_640868046121717_970688550498467840_n.jpg
+  instagram_tag: 'mochiling'
+  mochiling_expert: victor
 cuba: 
   title: cuba.title
   subtitle: cuba.subtitle
@@ -19,6 +19,6 @@ cuba:
   countries: ["Cuba"]
   pois: [] 
   video: https://www.youtube.com/embed/58sycxbESvU
-  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/16906601_704458816403293_7457892516851875840_n.jpg
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/16906699_772028626280435_8109765709392773120_n.jpg
   instagram_tag: 'mochiling'
-  mochiling_member: victor
+  mochiling_expert: victor

@@ -24,35 +24,65 @@
               <h4 class="Color--paragraph Text Text--uppercase Text--med">{% t experiences.{{experience.subtitle}} %}</h4>
               <h2 class="Color--main Text Text--giant Text--strong">{% t experiences.{{experience.title}} %}</h2>
             </div>
-            <div class="Text Text--large Color--paragraph Paragraph Paragraph--lefty u-tSpace--xxl">{{ content }}</div>
+            <div class="Experience-text Text Text--large Color--paragraph Paragraph Paragraph--lefty u-tSpace--xxl">{{ content }}</div>
           </div>
         </div>
+      </div>
 
-        {% if experience.instagram_tag %}
-          <div class="Breadcrumb u-tSpace--xxl">
-            <ul class="Breadcrumb-inner">
-              <li class="Breadcrumb-item u-rSpace--xl">---</li>
-            </ul>
-          </div>
-          <div id="instafeed" class="pure-g Paragraph--centeredBig"></div>
-        {% endif %}
-
+      {% if experience.video %}
         <div class="Breadcrumb u-tSpace--xxl">
           <ul class="Breadcrumb-inner">
-            <li class="Breadcrumb-item u-rSpace--xl">{% t experiences.share %}</li>
             <li class="Breadcrumb-item u-rSpace--xl">
-              <a href="http://www.facebook.com/sharer.php?u={{ site.url | append: page.url | cgi_escape }}" target="_blank" class="Breadcrumb-link">
-                <i class="fa fa-facebook u-rSpace"></i>Facebook
-              </a>
+              <i class="fa fa-youtube u-rSpace"></i>
+              YOUTUBE
             </li>
-            <li class="Breadcrumb-item u-rSpace--xl">
-              {% capture title %}{% t experiences.{{experience.title}} %}{% endcapture %}
-              <a href="https://twitter.com/intent/tweet?text=&url={{ title | strip | escape }}&via=Mochiling.es" target="_blank" class="Breadcrumb-link">
-                <i class="fa fa-twitter u-rSpace"></i>Twitter
+            <li class="Breadcrumb-item">
+              <a href="{{ experience.video }}" target="_blank" class="Breadcrumb-link">
+                #MOCHILING
               </a>
             </li>
           </ul>
         </div>
+
+        <div class="Block-content">
+          <iframe class="u-tSpace--xxl" width="100%" height="380" src="{{ experience.video }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      {% endif %}
+
+      {% if experience.instagram_tag %}
+        <div class="Breadcrumb u-tSpace--xxl">
+          <ul class="Breadcrumb-inner">
+            <li class="Breadcrumb-item u-rSpace--xl">
+              <i class="fa fa-instagram u-rSpace"></i>
+              INSTAGRAM
+            </li>
+            <li class="Breadcrumb-item">
+              <a href="https://www.instagram.com/explore/tags/{{ experience.instagram_tag }}" target="_blank" class="Breadcrumb-link">
+                #{{ experience.instagram_tag }}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="instafeed" class="Experience-photos">
+          <i class="fa fa-circle-o-notch fa-2x fa-spin Color--emphasis Experience-photosLoader js-instagramLoader"></i>
+        </div>
+      {% endif %}
+
+      <div class="Breadcrumb">
+        <ul class="Breadcrumb-inner">
+          <li class="Breadcrumb-item u-rSpace--xl">{% t experiences.share %}</li>
+          <li class="Breadcrumb-item u-rSpace--xl">
+            <a href="http://www.facebook.com/sharer.php?u={{ site.url | append: page.url | cgi_escape }}" target="_blank" class="Breadcrumb-link">
+              <i class="fa fa-facebook u-rSpace"></i>Facebook
+            </a>
+          </li>
+          <li class="Breadcrumb-item u-rSpace--xl">
+            {% capture title %}{% t experiences.{{experience.title}} %}{% endcapture %}
+            <a href="https://twitter.com/intent/tweet?text=&url={{ title | strip | escape }}&via=Mochiling.es" target="_blank" class="Breadcrumb-link">
+              <i class="fa fa-twitter u-rSpace"></i>Twitter
+            </a>
+          </li>
+        </ul>
       </div>
       
       {% include next-experience.html %}

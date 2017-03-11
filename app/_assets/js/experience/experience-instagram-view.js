@@ -1,6 +1,9 @@
+// var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var Instafeed = require('instafeed.js');
+var Freewall = require('freewall');
+
 var INSTAGRAM_OPTS = {
   clientId: '8edddd77898d4100bfac8f4b58e54c25',
   accessToken: '9841730.ba4c844.3ce456308101453787eb5443d358c259',
@@ -9,13 +12,12 @@ var INSTAGRAM_OPTS = {
   limit: 20
 };
 var IMAGE_TEMPLATE = '' +
-  '<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">' +
-    '<a href="{{link}}" class="Instagram-image" target="_blank">' +
-      '<img src="{{image}}" class="pure-img" title="{{caption}}" alt="{{caption}}" />' +
-      '<div class="Instagram-location Text Text--small Text--strong Color--light">' +
-        '<i class="fa fa-map-marker u-rSpace"></i>' +
-        '{{location}}' +
-      '</div>' +
+  '<div class="cell" alt="{{caption}}" title="{{caption}}" style="width: {{width}}px; height: {{height}}px; background: url({{image}}) no-repeat;">' +
+    '<a href="{{link}}" target="_blank" class="Instagram-item">' +
+      // '<div class="Instagram-location Text Text--small Text--strong Color--light">' +
+      //   '<i class="fa fa-map-marker u-rSpace"></i>' +
+      //   '{{location}}' +
+      // '</div>' +
     '</a>' +
   '</div>';
 
@@ -37,11 +39,30 @@ module.exports = Backbone.View.extend({
       _.extend(
         {
           tagName: this._instagramTag,
-          template: IMAGE_TEMPLATE
+          template: IMAGE_TEMPLATE,
+          after: this._onImagesAdded.bind(this)
         },
         INSTAGRAM_OPTS
       )
     );
     feed.run();
+  },
+
+  _onImagesAdded: function () {
+    this.$('.js-instagramLoader').remove();
+    
+    var wall = new Freewall.freewall('#instafeed');
+    var fitOnResize = function () {
+      wall.fitWidth();
+    };
+    wall.reset({
+      selector: '.cell',
+      animate: true,
+      cellW: 306,
+      fixSize: 0,
+      onResize: fitOnResize
+    });
+    
+    fitOnResize();
   }
 });
