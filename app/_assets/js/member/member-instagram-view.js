@@ -8,14 +8,18 @@ var INSTAGRAM_OPTS = {
   get: 'user',
   limit: 1
 };
-var locationTemplate = _.template(
-  '<div class="Member-instagramLocation Text Text--med Text--strong Color--light">' +
-    '<i class="fa fa-map-marker u-rSpace"></i>' +
-    '<a href="https://www.instagram.com/explore/locations/<%- placeId %>" target="_blank">' +
-      '<%- name %>' +
-    '</a>' +
-  '</div>'
-);
+var IMAGE_TEMPLATE = '' +
+  '<a href="{{link}}" target="_blank">' +
+    '<img class="pure-img" title="{{caption}}" alt="{{caption}}" src="{{image}}" />' +
+    '<div class="Member-instagramImageInfo Text Text--med Text--strong Color--light">' +
+      '<i class="fa fa-map-marker u-lSpace--m u-rSpace"></i>' +
+      '{{location}}' +
+      '<i class="fa fa-heart u-lSpace--m u-rSpace"></i>' +
+      '{{likes}}' +
+      '<i class="fa fa-comment u-lSpace--m u-rSpace"></i>' +
+      '{{comments}}' +
+    '</div>' +
+  '</a>';
 
 module.exports = Backbone.View.extend({
 
@@ -35,8 +39,8 @@ module.exports = Backbone.View.extend({
       _.extend(
         {
           userId: this._instagramId,
-          after: this._afterImageAdded.bind(this),
-          success: this._afterImageSuccess.bind(this)
+          template: IMAGE_TEMPLATE,
+          after: this._afterImageAdded.bind(this)
         },
         INSTAGRAM_OPTS
       )
@@ -46,18 +50,5 @@ module.exports = Backbone.View.extend({
 
   _afterImageAdded: function () {
     this.$('.js-instagramLoader').remove();
-    this.$('img').addClass('pure-img');
-  },
-
-  _afterImageSuccess: function (photos) {
-    if (photos.data[0] && photos.data[0].location) {
-      var location = photos.data[0].location;
-      this.$el.append(
-        locationTemplate({
-          name: location.name,
-          placeId: location.id
-        })
-      );
-    }
   }
 });
