@@ -4,28 +4,30 @@
 <html>
   {% include head.html %}
   <body>
-    <div class="Members">
-      <div class="Members-map" id="js-map"></div>
-      
-      {% include header.html %}
-      
-      <div class="Members-content">
-        {{ content }}
-      </div>
+    <div class="Canvas js-canvas">
+      <div class="Block Members">
+        <div class="Members-map" id="js-map"></div>
+        
+        {% include header.html %}
+        
+        <div class="Block-content Members-content">
+          {{ content }}
+        </div>
 
-      <div class="Breadcrumb u-tSpace--xxl">
-        <ul class="Breadcrumb-inner">
-          <li class="Breadcrumb-item u-rSpace--xl">
-            {% t 'team.join' %}. <a href="{% tl contact {{site.lang}} %}" class="Color--linkSecondary">{% t 'contact-us' %}</a>.
-          </li>
-        </ul>
+        <div class="Breadcrumb u-tSpace--xxl">
+          <ul class="Breadcrumb-inner">
+            <li class="Breadcrumb-item u-rSpace--xl">
+              {% t 'team.join' %} <a href="{% tl contact {{site.lang}} %}" class="Color--linkSecondary">{% t 'contact-us' %}</a>.
+            </li>
+          </ul>
+        </div>
       </div>
+      
+      {% include last-experience.html %}
+      {% include footer.html %}
     </div>
     
-    {% include last-experience.html %}
-    {% include footer.html %}
     {% include analytics.html %}
-
     <script src="/js/members.js"></script>
   </body>
 </html>

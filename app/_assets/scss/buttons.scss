@@ -32,3 +32,10 @@
 .Button.is-disabled {
   opacity: 0.5;
 }
+
+@media (max-width: $mainSize) {
+  .Button {
+    padding: 10px 24px;
+    font-size: 12px;
+  }
+}

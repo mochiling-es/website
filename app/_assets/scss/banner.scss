@@ -2,17 +2,23 @@
 
 // Member styles
 
-.Banner {}
+.Banner {
+  position: relative;
+  overflow: hidden;
+}
 .Banner-logo {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
 }
-.Banner-logo > div {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0 auto;
+.Banner-image img {
+  max-height: 600px;
+}
+.Banner-logo .instagram-logo {
+  transform: scale(0.6);
   font-size: 80px;
-  line-height: 90px;
 }
 .Banner-social {
   margin: 0 auto;
@@ -28,9 +34,13 @@
   justify-content: center;
   max-width: 375px;
   margin: 0 auto;
-  padding: 0;
+  padding: 40px;
   text-align: left;
+  z-index: 1;
 }
-.Banner-infoContent {
-  min-width: 380px;
+
+@media (max-width: 567px) {
+  .Banner-logo {
+    display: none;
+  }
 }

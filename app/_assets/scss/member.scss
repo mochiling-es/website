@@ -37,14 +37,18 @@
 .Member-text {
   margin-top: 250px;
 }
-.Member-text > p{
+.Member-text > p {
   margin: 20px 0;
 }
 .Member-instagram {
   position: relative;
+  min-height: 300px;
 }
 .Member-instagram img {
+  position: relative;
+  background: rgba(black, 0.05);
   max-height: 600px;
+  z-index: 2;
 }
 .Member-instagramLocation {
   position: absolute;
@@ -53,13 +57,27 @@
   padding: 10px;
   background: rgba(black, 0.4);
 }
+.Member-instagramLoader {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  z-index: 0;
+}
 
 @media (max-width: $mainSize) {
   .Member-image img {
     width: 64px;
     height: 64px;
   }
-  .Member-text {
-    margin-top: 200px;
+}
+
+@media all and (min-width: $mainSize) {
+  .Member-instagram {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .Member-instagramLocation {
+    left: auto;
+    right: 0;
   }
 }

@@ -75,7 +75,8 @@
       </div>
       
       {% if member.banner == 'instagram' %}
-        {% include instagram.html %}
+        {% capture username %}{{ member.instagram }}{% endcapture %}
+        {% include instagram.html username=username %}
       {% else %}
         {% include last-experience.html %}
       {% endif %}
