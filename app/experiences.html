@@ -11,26 +11,28 @@ permalink_en:     /experiences/
 <html>
   {% include head.html %}
   <body>
-    <div class="Experiences">
-      <div class="Experiences-map js-map"></div>
-      {% include header.html %}
+    <div class="Canvas js-canvas">
+      <div class="Experiences Block">
+        <div class="Experiences-map js-map"></div>
+        {% include header.html %}
 
-      <div class="Paragraph Paragraph--centered u-tSpace--xxl">
-        <h2 class="Text Text--giant Text--strong Color--emphasis">{% t experiences.subtitle %}</h2>
-        <p class="Text Text--large Color--paragraph u-tSpace--l">{% t experiences.desc %}</p>
+        <div class="Block-content Paragraph Paragraph--centered u-tSpace--xxl">
+          <h2 class="Text Text--giant Text--strong Color--emphasis">{% t experiences.subtitle %}</h2>
+          <p class="Text Text--large Color--paragraph u-tSpace--l">{% t experiences.desc %}</p>
+        </div>
+
+        <div class="Breadcrumb Experiences-breadcrumb u-tSpace--xxl">
+          <ul class="Breadcrumb-inner">
+            <li class="Breadcrumb-item u-rSpace--xl">
+              {% t 'team.join' %} <a href="{% tl contact {{site.lang}} %}" class="Color--linkSecondary">{% t 'contact-us' %}</a>.
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div class="Breadcrumb Experiences-breadcrumb u-tSpace--xxl">
-        <ul class="Breadcrumb-inner">
-          <li class="Breadcrumb-item u-rSpace--xl">
-            {% t 'team.join' %} <a href="{% tl contact {{site.lang}} %}" class="Color--linkSecondary">{% t 'contact-us' %}</a>.
-          </li>
-        </ul>
-      </div>
+      {% include last-experience.html %}
+      {% include footer.html %}
     </div>
-
-    {% include last-experience.html %}
-    {% include footer.html %}
     {% include analytics.html %}
 
     <script src="/js/experiences.js"></script>

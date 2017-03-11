@@ -44,3 +44,8 @@
     display: none;
   }
 }
+@media all and (min-width: $mainSize) {
+  .Banner-info {
+    padding: 40px 0;
+  }
+}
