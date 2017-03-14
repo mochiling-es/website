@@ -40,6 +40,7 @@ module.exports = Backbone.View.extend({
         {
           userId: this._instagramId,
           template: IMAGE_TEMPLATE,
+          success: this._afterImageSuccess.bind(this),
           after: this._afterImageAdded.bind(this)
         },
         INSTAGRAM_OPTS
@@ -48,7 +49,14 @@ module.exports = Backbone.View.extend({
     feed.run();
   },
 
+  _afterImageSuccess: function (info) {
+    this._imageLocation = info.data[0].location;
+  },
+
   _afterImageAdded: function () {
     this.$('.js-instagramLoader').remove();
+    if (!this._imageLocation) {
+      this.$('.fa-map-marker').remove();
+    }
   }
 });

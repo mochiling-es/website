@@ -40,7 +40,10 @@ module.exports = Backbone.View.extend({
         {
           tagName: this._instagramTag,
           template: IMAGE_TEMPLATE,
-          after: this._onImagesAdded.bind(this)
+          after: this._onImagesAdded.bind(this),
+          success: function () {
+            console.log(arguments);
+          }
         },
         INSTAGRAM_OPTS
       )

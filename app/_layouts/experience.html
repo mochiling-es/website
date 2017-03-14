@@ -19,35 +19,20 @@
         </div>
 
         <div class="Experience-content Block-content">
-          <div class="Experience-contentInner">
-            <div class="Experience-info u-tSpace--xxl">
-              <h4 class="Color--paragraph Text Text--uppercase Text--med">{% t experiences.{{experience.subtitle}} %}</h4>
-              <h2 class="Color--main Text Text--giant Text--strong">{% t experiences.{{experience.title}} %}</h2>
-            </div>
-            <div class="Experience-text Text Text--large Color--paragraph Paragraph Paragraph--lefty u-tSpace--xxl">{{ content }}</div>
+          <div class="Experience-info u-tSpace--xxl">
+            <h4 class="Color--paragraph Text Text--uppercase Text--med">{% t experiences.{{experience.subtitle}} %}</h4>
+            <h2 class="Color--main Text Text--giant Text--strong">{% t experiences.{{experience.title}} %}</h2>
+          </div>
+
+          <div class="Experience-text Text Text--large Color--paragraph Paragraph Paragraph--lefty u-tSpace--xxl">
+            {{ content }}
+
+            {% if experience.video %}
+              <iframe class="u-tSpace--xxl" width="100%" height="210" src="{{ experience.video }}" frameborder="0" allowfullscreen></iframe>
+            {% endif %}
           </div>
         </div>
       </div>
-
-      {% if experience.video %}
-        <div class="Breadcrumb u-tSpace--xxl">
-          <ul class="Breadcrumb-inner">
-            <li class="Breadcrumb-item u-rSpace--xl">
-              <i class="fa fa-youtube u-rSpace"></i>
-              YOUTUBE
-            </li>
-            <li class="Breadcrumb-item">
-              <a href="{{ experience.video }}" target="_blank" class="Breadcrumb-link">
-                #MOCHILING
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="Block-content">
-          <iframe class="u-tSpace--xxl" width="100%" height="380" src="{{ experience.video }}" frameborder="0" allowfullscreen></iframe>
-        </div>
-      {% endif %}
 
       {% if experience.instagram_tag %}
         <div class="Breadcrumb u-tSpace--xxl">
