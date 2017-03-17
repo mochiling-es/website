@@ -35,6 +35,7 @@ module.exports = Backbone.View.extend({
       dragging: false,
       attributionControl: false,
       scrollWheelZoom: false,
+      zoomControl: false,
       touchZoom: false,
       keyboard: false
     }).setView(this._bornLocation, 3, false);

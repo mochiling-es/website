@@ -1,6 +1,131 @@
+@import '../vars';
 
 // Default styles for maps
 
-// .leaflet-control-zoom {
-//   display: none;
-// }
+$popup-component-box-shadow: 0 0 5px 0 rgba(black, 0.44);
+$default-border-radius: 6px;
+
+.leaflet-popup-content-wrapper {
+  border-radius: $default-border-radius;
+}
+.leaflet-popup-content {
+  margin: 0;
+}
+.leaflet-popup-content-wrapper {
+  padding: 0;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  line-height: 24px;
+  background: white;
+  border-radius: 100%;
+  box-shadow: $popup-component-box-shadow;
+  z-index: 3;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  box-shadow: $popup-component-box-shadow;
+}
+.leaflet-popup-content p {
+  margin: 0;
+}
+
+// Default popups
+.Popup {
+  display: flex;
+}
+.Popup--horizontal {
+  flex-direction: row;
+  width: 200px;
+}
+.Popup--vertical {
+  flex-direction: column;
+  width: 220px;
+}
+.Popup--small {
+  height: 90px;
+}
+.Popup-image {
+  position: relative;
+  background: #EFEFEF;
+  overflow: hidden;
+}
+.Popup--vertical .Popup-image {
+  width: 100%;
+  height: 150px;
+}
+.Popup-imageLoader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -14px;
+  margin-top: -14px;
+  opacity: 0.5;
+  z-index: 1;
+}
+.Popup a {
+  text-decoration: none;
+}
+.Popup-link {
+  display: none;
+}
+.Popup-image img {
+  position: relative;
+  z-index: 2;
+}
+.Popup--horizontal .Popup-image {
+  width: 90px;
+  min-width: 90px;
+  height: 90px;
+  min-height: 90px;
+  border-top-left-radius: $default-border-radius;
+  border-bottom-left-radius: $default-border-radius;
+  border-right: 1px solid #DDD;
+}
+.Popup--horizontal .Popup-image img {
+  width: 90px;
+}
+.Popup--vertical .Popup-image {
+  width: 100%;
+  min-width: 100%;
+  border-top-left-radius: $default-border-radius;
+  border-top-right-radius: $default-border-radius;
+  border-bottom: 1px solid #DDD;
+}
+.Popup--vertical .Popup-image img {
+  width: 100%;
+}
+.Popup-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-decoration: none;
+  text-align: left;
+}
+.Popup-info p,
+.Popup-info h4 {
+  width: 100%;
+  text-decoration: none;
+  text-align: left;
+}
+.Popup:hover {
+  .Popup-link {
+    display: inline-block;
+  }
+}
+
+@media (max-width: $mainSize + 70) {
+  .leaflet-control-zoom {
+    display: none;
+  }
+}

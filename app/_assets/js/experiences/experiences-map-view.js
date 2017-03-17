@@ -4,6 +4,8 @@ var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var Instafeed = require('instafeed.js');
+var PhotoMarker = require('./photo-marker-view');
+var experiencePolygon = require('./experience-polygon-view');
 
 var INSTAGRAM_OPTS = {
   clientId: '8edddd77898d4100bfac8f4b58e54c25',
@@ -20,21 +22,6 @@ var POLYGON_STYLE = {
   color: '#EFEFEF',
   weight: 1,
   opacity: 0.65
-};
-
-var HIGHLIGHT_STYLE = {
-  color: '#AAA',
-  weight: 1.5,
-  opacity: 0.65
-};
-
-var CIRCLE_STYLE = {
-  radius: 4,
-  color: '#F88B52',
-  fillColor: '#FFF',
-  weight: 1,
-  opacity: 0.6,
-  fillOpacity: 0.6
 };
 
 module.exports = Backbone.View.extend({
@@ -69,11 +56,7 @@ module.exports = Backbone.View.extend({
       var countryName = feature.properties.name;
       var experience = this._belongsToAnyExperience(countryName);
       if (experience) {
-        layer.setStyle(HIGHLIGHT_STYLE);
-
-        layer.on('click', function () {
-          window.location = experience.link;
-        });
+        experiencePolygon(layer, experience);
       } else {
         layer.setStyle(POLYGON_STYLE);
       }
@@ -110,12 +93,7 @@ module.exports = Backbone.View.extend({
     
     _.each(markers, function (marker) {
       if (marker.location) {
-        console.log(marker);
-        var location = [marker.location.latitude, marker.location.longitude];
-        var imageUrl = marker.images.thumbnail.url;
-        var imageLink = marker.link;
-        var circleMarker = new L.circleMarker(location, CIRCLE_STYLE);
-        circleMarker.bindPopup("<a target='_blank' href='" + imageLink + "'><img src='" + imageUrl + "' width=150 /></a>");
+        var circleMarker = new PhotoMarker(marker);
         circleMarker.addTo(this._map);
       }
     }, this);
