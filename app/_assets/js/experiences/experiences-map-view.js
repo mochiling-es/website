@@ -138,13 +138,21 @@ module.exports = Backbone.View.extend({
   },
 
   _setMapState: function () {
+    var currentState = this.model.get('state');
+
     this._$mobile
       .removeClass('in-map in-page')
       .addClass(
-        this.model.get('state') === 'map'? 'in-map' : 'in-page'
+        currentState === 'map'? 'in-map' : 'in-page'
       );
 
-    this._$title.toggle(this.model.get('state') === 'page');
+    if (currentState === 'map') {
+      $('body').animate({
+        scrollTop: 0
+      });
+    }
+
+    this._$title.toggle(currentState === 'page');
   },
 
   _initMobileStuff: function () {
