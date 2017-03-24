@@ -3,7 +3,6 @@
 // Header styles
 
 .Header {
-  position: relative;
   display: flex;
   box-sizing: border-box;
   max-width: $mainSize;
@@ -15,17 +14,20 @@
   z-index: 1;
 }
 .Header-child {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 .Header-hamburguer {
+  position: relative;
   display: none;
   &:hover {
     cursor: pointer;
   }
 }
 .Header-logo {
+  position: relative;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -61,6 +63,7 @@
     display: block;
     width: 200px;
     background: #333;
+    z-index: 1000;
   }
   .Header-subLinks .Header-navList {
     flex-direction: column;
