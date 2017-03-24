@@ -1,13 +1,13 @@
 var _ = require('underscore');
 var Backbone = require('backbone');
 var Instafeed = require('instafeed.js');
+
 var INSTAGRAM_OPTS = {
-  clientId: '8edddd77898d4100bfac8f4b58e54c25',
-  accessToken: '9841730.ba4c844.3ce456308101453787eb5443d358c259',
   resolution: 'standard_resolution',
   get: 'user',
   limit: 1
 };
+
 var IMAGE_TEMPLATE = '' +
   '<a href="{{link}}" target="_blank">' +
     '<img class="pure-img" title="{{caption}}" alt="{{caption}}" src="{{image}}" />' +
@@ -25,8 +25,10 @@ module.exports = Backbone.View.extend({
 
   initialize: function (opts) {
     if (!opts.instagramId) throw new Error('instagramId is required');
+    if (!opts.instagramConfig) throw new Error('instagram config is required');
 
     this._instagramId = opts.instagramId;
+    this._instagramConfig = opts.instagramConfig;
   },
 
   render: function () {
@@ -43,7 +45,8 @@ module.exports = Backbone.View.extend({
           success: this._afterImageSuccess.bind(this),
           after: this._afterImageAdded.bind(this)
         },
-        INSTAGRAM_OPTS
+        INSTAGRAM_OPTS,
+        this._instagramConfig
       )
     );
     feed.run();

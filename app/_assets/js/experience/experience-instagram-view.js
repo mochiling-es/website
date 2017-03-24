@@ -13,12 +13,7 @@ var INSTAGRAM_OPTS = {
 };
 var IMAGE_TEMPLATE = '' +
   '<div class="cell" alt="{{caption}}" title="{{caption}}" style="width: {{width}}px; height: {{height}}px; background: url({{image}}) no-repeat;">' +
-    '<a href="{{link}}" target="_blank" class="Instagram-item">' +
-      // '<div class="Instagram-location Text Text--small Text--strong Color--light">' +
-      //   '<i class="fa fa-map-marker u-rSpace"></i>' +
-      //   '{{location}}' +
-      // '</div>' +
-    '</a>' +
+    '<a href="{{link}}" target="_blank" class="Instagram-item"></a>' +
   '</div>';
 
 module.exports = Backbone.View.extend({
@@ -40,10 +35,7 @@ module.exports = Backbone.View.extend({
         {
           tagName: this._instagramTag,
           template: IMAGE_TEMPLATE,
-          after: this._onImagesAdded.bind(this),
-          success: function () {
-            console.log(arguments);
-          }
+          after: this._onImagesAdded.bind(this)
         },
         INSTAGRAM_OPTS
       )

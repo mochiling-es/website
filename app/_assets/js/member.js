@@ -7,6 +7,7 @@ $(function () {
   var visitedCountries = window.visitedCountries;
   var bornLocation = window.bornLocation;
   var instagramId = window.instagramId;
+  var instagramConfig = window.instagramConfig;
 
   if (!visitedCountries) throw new Error('visitedCountries is required');
   if (!bornLocation) throw new Error('bornLocation is required');
@@ -24,7 +25,8 @@ $(function () {
   if (instagramId && $('#instafeed').length) {
     var memberInstagram = new MemberInstagramView({
       el: $('#instafeed'),
-      instagramId: instagramId
+      instagramId: instagramId,
+      instagramConfig: instagramConfig
     });
     memberInstagram.render();
   }

@@ -5,8 +5,8 @@
   {% include head.html %}
   <body>
     <div class="Canvas js-canvas">
-      <div class="Experience Block">
-        <div class="Experience-map" id="js-map"></div>
+      <div class="Experience Block u-bSpace--xxl">
+        <div class="Experience-map js-map"></div>
         
         {% include header.html %}
         
@@ -26,16 +26,29 @@
 
           <div class="Experience-text Text Text--large Color--paragraph Paragraph Paragraph--lefty u-tSpace--xxl">
             {{ content }}
-
-            {% if experience.video %}
-              <iframe class="u-tSpace--xxl" width="100%" height="210" src="{{ experience.video }}" frameborder="0" allowfullscreen></iframe>
-            {% endif %}
           </div>
         </div>
       </div>
 
+      {% if experience.video %}
+        <div class="Breadcrumb">
+          <ul class="Breadcrumb-inner">
+            <li class="Breadcrumb-item u-rSpace--xl">
+              <i class="fa fa-youtube u-rSpace"></i>
+              YOUTUBE
+            </li>
+          </ul>
+        </div>
+
+        <div class="Experience-videoWrapper">
+          <div class="Block-content">
+            <iframe class="u-tSpace--xxl" src="{{ experience.video }}" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      {% endif %}
+
       {% if experience.instagram_tag %}
-        <div class="Breadcrumb u-tSpace--xxl">
+        <div class="Breadcrumb">
           <ul class="Breadcrumb-inner">
             <li class="Breadcrumb-item u-rSpace--xl">
               <i class="fa fa-instagram u-rSpace"></i>
@@ -77,6 +90,14 @@
     {% include analytics.html %}
     <script src="/js/experience.js"></script>
     <script>
+      var experienceCountries = [
+        {% for country in experience.countries %}
+          "{{ country }}"
+          {% if forloop.last == false %}
+            ,
+          {% endif %}
+        {% endfor %}
+      ];
       {% if experience.instagram_tag %}
         var instagramTag = '{{ experience.instagram_tag }}';
       {% endif %}

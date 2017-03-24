@@ -90,6 +90,10 @@
     <script>
       {% if member.instagram_id and member.banner == 'instagram' %}
         var instagramId = '{{ member.instagram_id }}';
+        var instagramConfig = {
+          clientId: '{{ site.instagramConfig.clientId }}',
+          accessToken: '{{ site.instagramConfig.accessToken }}'
+        };
       {% endif %}
       var bornLocation = {{ member.born_location | join: "," | prepend: "[" | append: "]"}};
       var visitedCountries = [

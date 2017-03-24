@@ -4,7 +4,7 @@ new-zealand:
   short_desc: new-zealand.short_desc
   date_start: 2016-03-23T10:20:00Z
   date_end: 2016-04-23T10:20:00Z
-  countries: ["New Zealand", "Fiji"]
+  countries: ["New Zealand"]
   pois: [] 
   video: https://www.youtube.com/embed/58sycxbESvU
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/17125832_640868046121717_970688550498467840_n.jpg
