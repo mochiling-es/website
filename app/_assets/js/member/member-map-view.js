@@ -2,12 +2,14 @@ var L = require('leaflet');
 var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
-var COUNTRIES_SQL = 'http://mochiling.carto.com/api/v2/sql?format=GeoJSON&q=SELECT ST_SIMPLIFY(the_geom, 0.2) as the_geom, name FROM world_borders';
+var CountriesJSON = require('../countries.json');
+
 var POLYGON_STYLE = {
   color: '#EFEFEF',
   weight: 1,
   opacity: 0.65
 };
+
 var MARKER_STYLE = {
   radius: 6,
   fillColor: '#F88B52',
@@ -42,23 +44,21 @@ module.exports = Backbone.View.extend({
 
     this._centerMap();
 
-    $.getJSON(COUNTRIES_SQL, function (data) {
-      L.geoJson(data, {
-        style: function (feature) {
-          var opts = _.clone(POLYGON_STYLE);
-          var countryName = feature.properties.name;
+    L.geoJson(CountriesJSON, {
+      style: function (feature) {
+        var opts = _.clone(POLYGON_STYLE);
+        var countryName = feature.properties.name;
 
-          if (_.contains(this._visitedCountries, countryName)) {
-            opts.color = '#CDCDCD';
-            opts.weight = 1.5;
-          }
+        if (_.contains(this._visitedCountries, countryName)) {
+          opts.color = '#CDCDCD';
+          opts.weight = 1.5;
+        }
 
-          return opts;
-        }.bind(this)
-      }).addTo(this._map);
+        return opts;
+      }.bind(this)
+    }).addTo(this._map);
 
-      L.circleMarker(this._bornLocation, MARKER_STYLE).addTo(this._map);
-    }.bind(this));
+    L.circleMarker(this._bornLocation, MARKER_STYLE).addTo(this._map);
 
     return this;
   },
