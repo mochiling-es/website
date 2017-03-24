@@ -13,9 +13,21 @@ permalink_en:     /experiences/
     <div class="Canvas js-canvas">
       <div class="Experiences Block">
         <div class="Experiences-map js-map"></div>
+        
+        <div class="Experiences-mapMobile js-mapMobile">
+          <button class="Experiences-mapMobileBack js-mapMobileBack">x</button>
+          <div class="Experiences-mapMobileDisclaimer">
+            <p class="Text Text--large">
+              <i class="fa fa-hand-pointer-o"></i>
+              {% t experiences.navigate.map %}
+            </p>
+            <button class="Button Button--action u-tSpace--m js-navigate">{% t experiences.navigate.enable %}</button>
+          </div>
+        </div>
+
         {% include header.html %}
 
-        <div class="Block-content Paragraph Paragraph--centered u-tSpace--xxl">
+        <div class="Block-content Paragraph Paragraph--centered u-tSpace--xxl js-title">
           <h2 class="Text Text--giant Text--strong Color--emphasis">{% t experiences.subtitle %}</h2>
           <p class="Text Text--large Color--paragraph u-tSpace--l">{% t experiences.desc %}</p>
         </div>
@@ -38,16 +50,20 @@ permalink_en:     /experiences/
 
     <script src="/js/experiences.js"></script>
     <script>
+      var instagramConfig = {
+        clientId: '{{ site.instagramConfig.clientId }}',
+        accessToken: '{{ site.instagramConfig.accessToken }}'
+      };
       var experiences = [
         {% for place in site.data.experiences %}
           {
-            title: "{% t experiences.{{place[0]}}.title %}",
-            image: "{{ place[1].image }}",
+            title: '{% t experiences.{{place[0]}}.title %}',
+            image: '{{ place[1].image }}',
             countries: ["{{ place[1].countries | join: '", "' }}"],
             short_desc: "{% t experiences.{{place[1].short_desc}} %}",
-            date_start: "{{ place[1].date_start }}",
-            date_end: "{{ place[1].date_end }}",
-            link: "{% tl {{place[0]}} {{lang}} %}"
+            date_start: '{{ place[1].date_start }}',
+            date_end: '{{ place[1].date_end }}',
+            link: '{% tl {{place[0]}} {{lang}} %}'
           }{% if forloop.last == false %},{% endif %}
         {% endfor %}
       ]

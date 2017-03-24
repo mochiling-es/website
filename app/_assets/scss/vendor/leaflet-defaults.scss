@@ -5,6 +5,9 @@
 $popup-component-box-shadow: 0 0 5px 0 rgba(black, 0.44);
 $default-border-radius: 6px;
 
+.leaflet-bar a {
+  color: #666;
+}
 .leaflet-popup-content-wrapper {
   border-radius: $default-border-radius;
 }

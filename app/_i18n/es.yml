@@ -35,6 +35,9 @@ experiences:
   title: Experiencias
   subtitle: Nuestras experiencias
   desc: No hay mejor manera de aprender que puede ofrecer <span class="Color--emphasis">Mochiling</span> que comprobando los lugares que hemos disfrutado. ¿Quieres que te ayudemos a crear tu experiencia?
+  navigate:
+    map: Si quieres navegar por el mapa
+    enable: Vamos!
   share: Compartir en
   new-zealand:
     title: Nueva Zelanda

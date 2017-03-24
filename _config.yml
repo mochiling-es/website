@@ -7,6 +7,10 @@ exclude_from_localizations: ["img", "_assets"]
 markdown: kramdown
 gems: [jekyll-admin, jekyll-multiple-languages-plugin]
 
+instagramConfig:
+  clientId: "8edddd77898d4100bfac8f4b58e54c25"
+  accessToken: "9841730.ba4c844.3ce456308101453787eb5443d358c259"
+
 social:
   facebook: https://www.facebook.com/mochiling.es/
   instagram: https://www.instagram.com/mochiling.es/

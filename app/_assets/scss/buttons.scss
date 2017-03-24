@@ -29,6 +29,16 @@
     background: #666;
   }
 }
+.Button--action {
+  $color: #0078e7;
+  background: $color;
+  color: white;
+
+  &:hover,
+  &:focus {
+    background: darken($color, 3);
+  }
+}
 .Button.is-disabled {
   opacity: 0.5;
 }

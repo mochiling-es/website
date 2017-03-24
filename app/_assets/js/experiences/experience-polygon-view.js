@@ -9,7 +9,7 @@ var template = _.template(
       '</div>' +
       '<div class="Popup-info Text">' +
         '<h4 class="Text--large Color--secondary"><%- title %><i class="fa fa-link Popup-link u-lSpace"></i></h4>' +
-        '<p class="Text--med Color--paragraph"><%- desc %></p>' +
+        '<p class="Text--med Color--paragraph u-tSpace--m"><%- desc %></p>' +
       '</div>' +
     '</a>' +
   '</div>'

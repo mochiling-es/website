@@ -19,3 +19,10 @@
 .Paragraph--lefty {
   // Implicit
 }
+
+@media (max-width: $mainSize) {
+  .Paragraph--centered,
+  .Paragraph--centeredBig {
+    margin: 20px auto;
+  }
+}

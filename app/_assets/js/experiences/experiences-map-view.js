@@ -6,17 +6,16 @@ var Backbone = require('backbone');
 var Instafeed = require('instafeed.js');
 var PhotoMarker = require('./photo-marker-view');
 var experiencePolygon = require('./experience-polygon-view');
+var CountriesJSON = require('../countries.json');
+var isMobileDevice = require('ismobilejs');
+var TIME_BETWEEN_MARKERS_APPEAR = 150;
 
 var INSTAGRAM_OPTS = {
-  clientId: '8edddd77898d4100bfac8f4b58e54c25',
-  accessToken: '9841730.ba4c844.3ce456308101453787eb5443d358c259',
   resolution: 'thumbnail',
   get: 'tagged',
   sortBy: 'random',
   limit: 300
 };
-
-var COUNTRIES_SQL = 'http://mochiling.carto.com/api/v2/sql?format=GeoJSON&q=SELECT ST_SIMPLIFY(the_geom, 0.2) as the_geom, name FROM world_borders';
 
 var POLYGON_STYLE = {
   color: '#EFEFEF',
@@ -28,13 +27,34 @@ module.exports = Backbone.View.extend({
 
   initialize: function (opts) {
     if (!opts.experiences) throw new Error('experiences is required');
+    if (!opts.$title) throw new Error('title element is not provided');
+    if (!opts.$mobile) throw new Error('mobile element is not provided');
+    if (!opts.instagramConfig) throw new Error('instagram config is required');
 
     this._experiences = opts.experiences;
+    this._$title = opts.$title;
+    this._$mobile = opts.$mobile;
+    this._instagramConfig = opts.instagramConfig;
+
+    this.model = new Backbone.Model({
+      state: isMobileDevice.any ? 'page' : 'map'
+    });
+
+    this._initBinds();
   },
 
   render: function () {
     this._initMap();
+
+    if (isMobileDevice.any) {
+      this._initMobileStuff();
+    }
+
     return this;
+  },
+
+  _initBinds: function () {
+    this.listenTo(this.model, 'change:state', this._setMapState);
   },
 
   _initMap: function () {
@@ -62,13 +82,11 @@ module.exports = Backbone.View.extend({
       }
     }
 
-    $.getJSON(COUNTRIES_SQL, function (data) {
-      L.geoJson(data, {
-        onEachFeature: onEachFeature.bind(this)
-      }).addTo(this._map);
+    L.geoJson(CountriesJSON, {
+      onEachFeature: onEachFeature.bind(this)
+    }).addTo(this._map);
 
-      this._getPhotos();
-    }.bind(this));
+    this._getPhotos();
   },
 
   _getPhotos: function () {
@@ -82,7 +100,8 @@ module.exports = Backbone.View.extend({
             return !!image.location;
           }
         },
-        INSTAGRAM_OPTS
+        INSTAGRAM_OPTS,
+        this._instagramConfig
       )
     );
     feed.run();
@@ -90,19 +109,53 @@ module.exports = Backbone.View.extend({
 
   _onSuccessPhotos: function (photos) {
     var markers = photos.data;
-    
-    _.each(markers, function (marker) {
-      if (marker.location) {
-        var circleMarker = new PhotoMarker(marker);
-        circleMarker.addTo(this._map);
+    this._addPhotos(markers);
+  },
+
+  _addPhotos: function (photos) {
+    setTimeout(function () {
+      var nextPhoto = photos.shift();
+      this._addPhoto(nextPhoto);
+      if (photos.length) {
+        this._addPhotos(photos);  
       }
-    }, this);
-    
+    }.bind(this), TIME_BETWEEN_MARKERS_APPEAR)
+  },
+
+  _addPhoto: function (marker) {
+    if (marker.location) {
+      var circleMarker = new PhotoMarker(marker);
+      circleMarker.addTo(this._map);
+      var path = circleMarker.getElement();
+      $(path).addClass('Experience-instagramMarker');
+    }
   },
 
   _belongsToAnyExperience: function (countryName) {
     return _.find(this._experiences, function (experience) {
       return _.contains(experience.countries, countryName);
     });
+  },
+
+  _setMapState: function () {
+    this._$mobile
+      .removeClass('in-map in-page')
+      .addClass(
+        this.model.get('state') === 'map'? 'in-map' : 'in-page'
+      );
+
+    this._$title.toggle(this.model.get('state') === 'page');
+  },
+
+  _initMobileStuff: function () {
+    this._setMapState();
+
+    this._$mobile.find('.js-navigate').on('click', function () {
+      this.model.set('state', 'map');
+    }.bind(this));
+
+    this._$mobile.find('.js-mapMobileBack').on('click', function () {
+      this.model.set('state', 'page');
+    }.bind(this));
   }
 });

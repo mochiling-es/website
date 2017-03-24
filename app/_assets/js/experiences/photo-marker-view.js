@@ -15,7 +15,7 @@ var template = _.template(
 );
 
 var CIRCLE_STYLE = {
-  radius: 5,
+  radius: 4,
   color: '#F88B52',
   fillColor: '#FFF',
   weight: 1,
