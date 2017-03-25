@@ -60,7 +60,7 @@
       color: rgba(white, 0.8);
     }
   }
-  .Color--linkSecondary.is-selected {
+  .Header-navListItemLink.is-selected {
     color: white;
     border-color: white;
   }
@@ -88,8 +88,10 @@
   .Header-subLinks .Header-navListItem {
     margin-top: 30px;
   }
-  .Header-navListItemLink.is-selected {
+  .Header-navListItemLink.is-selected,
+  .Header--light .Header-navListItemLink.is-selected {
     color: white;
+    border-color: transparent;
   }
   .Header-hamburguer {
     display: block;
