@@ -23,7 +23,7 @@
   list-style: none;
 }
 .Proposals-navItem {
-  padding: 15px 0;
+  padding: 15px 10px;
 }
 .Proposals-navItemButton {
   display: flex;
@@ -35,9 +35,9 @@
 .Proposals-navItemIcon {
   width: 45px;
   height: 45px;
+  margin-right: 10px;
   fill: rgba(#000, 0.2);
 }
-
 .Proposals-navItem:hover,
 .Proposals-navItem.is-selected {
   .Proposals-navItemIcon {
@@ -48,7 +48,7 @@
   }
 }
 .Proposals-navItem.is-selected {
-  border-top: 1px solid #FFF;
+  border-top: 2px solid #FFF;
   &:hover {
     cursor: default;
   }
@@ -133,5 +133,20 @@
   }
   .Proposals-featureItemTitle {
     color: #777!important;
+  }
+}
+
+
+@media (max-width: $mainSize) {
+  .Proposals-navItem {
+    padding: 10px 5px;
+  }
+  .Proposals-navItemIcon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 5px;
+  }
+  .Proposals-navItemButton {
+    flex-direction: column;
   }
 }
