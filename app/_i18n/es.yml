@@ -8,6 +8,41 @@ contact-us: Escríbenos
 
 proposals:
   title: Propuestas
+  subtitle: Nuestras propuestas
+  desc: |
+    Queremos que disfrutes de una experiencia Mochiling, es nuestro objetivo, así que estas son nuestras propuestas. 
+    Nada de agencias o grupos de turistas, experiencias impredecibles.
+  items:
+    explorer:
+      title: Explorer
+      desc: Sabes a donde vas, pero necesitas unos consejos o descubrir una ruta increible para completar tu experiencia.
+      point: Ten en cuenta que nuestro objetivo no es hacer dinero con Mochiling, queremos que disfrutes lo mismo que nosotros hemos vivido.
+  features:
+    title: Características
+    desc: |
+      ¿Qué es mejor, un taxi o un tuk-tuk?,<br/>
+      ¿Dónde encontrar al panadero local del pueblo?<br/>
+      Vamos a convertir tu viaje en algo diferente.
+    experience:
+      title: Experiencia única
+      desc: Una experiencia completamente diferente para tu viaje. Nosotros nos encargamos de todo. 
+    contact:
+      title: Contacto
+      desc: El contacto diario será a través del email o de Skype. Fácil y directo.
+    expert:
+      title: Experto Mochiling
+      desc: Disfrutarás de la experiencia completa con un experto Mochiling. ¿Suena bien :) ?
+    face-2-face:
+      title: Cara a cara
+      desc: No hay nada mejor que conocer tus expectativas de viaje tomando un café o una cerveza.
+    customer:
+      title: Servicio al viajero
+      desc:  Si algo sale como no estaba previsto, nosotros estamos ahí. <strong>24/7 dispuestos a ayudarte</strong>.
+    insurance:
+      title: Seguro de viaje
+      desc: No te preocupes por nada, <span class="Color--emphasis">Mochiling</span> ya ha pensado en esto, la seguridad es lo primero.
+  disclaimer: ¿Quieres comprobar dónde, cómo y qué hemos disfrutado nuestras vivencias <span class="Color--emphasis">Mochiling</span>?
+  experiences: Echa un ojo a nuestras experiencias
 contact:
   title: Contacto
   subtitle: Contáctanos
