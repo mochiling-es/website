@@ -43,3 +43,20 @@
 .Form-submit {
   text-align: left;
 }
+
+
+@media (max-width: $mainSize) {
+  .Form {
+    padding: 30px 20px;
+  }
+  .Form-field {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .Form-label {
+    width: 290px;
+    padding: 10px 0 10px;
+    text-align: left;
+  }
+}
