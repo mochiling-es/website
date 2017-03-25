@@ -39,8 +39,20 @@
     background: darken($color, 3);
   }
 }
+.Button--main {
+  background: $mainColor;
+  color: white;
+
+  &:hover,
+  &:focus {
+    background: darken($mainColor, 50);
+  }
+}
 .Button.is-disabled {
   opacity: 0.5;
+  &:hover {
+    cursor: default;
+  }
 }
 
 @media (max-width: $mainSize) {

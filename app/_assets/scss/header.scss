@@ -50,6 +50,18 @@
   border-top: 1px solid #333;
   cursor: default;
 }
+.Header--light {
+  .Color--emphasis {
+    color: white;
+  }
+  .Color--linkSecondary {
+    color: rgba(white, 0.57);
+  }
+  .Color--linkSecondary.is-selected {
+    color: #4A4A4A;
+    border-color: #4A4A4A;
+  }
+}
 
 @media (max-width: $mainSize) {
   .Header-subLinks {

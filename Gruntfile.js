@@ -58,7 +58,9 @@ module.exports = function (grunt) {
           '.tmp/js/member.js': ['<%= app.app %>/_assets/js/member.js'],
           '.tmp/js/members.js': ['<%= app.app %>/_assets/js/members.js'],
           '.tmp/js/experience.js': ['<%= app.app %>/_assets/js/experience.js'],
-          '.tmp/js/experiences.js': ['<%= app.app %>/_assets/js/experiences.js']
+          '.tmp/js/experiences.js': ['<%= app.app %>/_assets/js/experiences.js'],
+          '.tmp/js/contact.js': ['<%= app.app %>/_assets/js/contact.js'],
+          '.tmp/js/proposals.js': ['<%= app.app %>/_assets/js/proposals.js']
         }
       },
       dist: {
@@ -66,7 +68,9 @@ module.exports = function (grunt) {
           '<%= app.dist %>/js/member.js': ['<%= app.app %>/_assets/js/member.js'],
           '<%= app.dist %>/js/members.js': ['<%= app.app %>/_assets/js/members.js'],
           '<%= app.dist %>/js/experience.js': ['<%= app.app %>/_assets/js/experience.js'],
-          '<%= app.dist %>/js/experiences.js': ['<%= app.app %>/_assets/js/experiences.js']
+          '<%= app.dist %>/js/experiences.js': ['<%= app.app %>/_assets/js/experiences.js'],
+          '<%= app.dist %>/js/contact.js': ['<%= app.app %>/_assets/js/contact.js'],
+          '<%= app.dist %>/js/proposals.js': ['<%= app.app %>/_assets/js/proposals.js']
         }
       }
     },

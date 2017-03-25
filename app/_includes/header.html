@@ -1,7 +1,7 @@
 {% assign site_lang = site.lang | append: "/" %}
 {% assign current_page = page.url | strip %}
 
-<header class="Header">
+<header class="Header {{ include.theme }}">
   <div class="Header-child">
     <h1>
       <a class="Header-logo" href="/">

@@ -23,6 +23,9 @@
 .Color--light {
   color: white;
 }
+.Color--lightParagraph {
+  color: rgba(white, 0.78);
+}
 .Color--link {
   color: rgba($mainColor, 0.75);
   text-decoration: underline;

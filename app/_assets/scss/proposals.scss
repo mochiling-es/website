@@ -1,0 +1,137 @@
+@import 'vars';
+
+// Hello proposals!
+
+.Proposals-header {
+  position: relative;
+  padding-bottom: 120px;
+  background: $mainColor;
+}
+.Proposals-nav {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 0;
+  background: rgba(#000, 0.10);
+  z-index: 1;
+}
+.Proposals-navList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+.Proposals-navItem {
+  padding: 15px 0;
+}
+.Proposals-navItemButton {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgba(#000, 0.2);
+  outline: none;
+}
+.Proposals-navItemIcon {
+  width: 45px;
+  height: 45px;
+  fill: rgba(#000, 0.2);
+}
+
+.Proposals-navItem:hover,
+.Proposals-navItem.is-selected {
+  .Proposals-navItemIcon {
+    fill: #FFF;
+  }
+  .Proposals-navItemButton {
+    color: white;
+  }
+}
+.Proposals-navItem.is-selected {
+  border-top: 1px solid #FFF;
+  &:hover {
+    cursor: default;
+  }
+}
+
+// Colors for features
+.Proposals-featureColor--experience { color: #4D8683; }
+.Proposals-featureColor--skype { color: #00ADEF; }
+.Proposals-featureColor--expert { color: $mainColor }
+.Proposals-featureColor--face2face { color: #B2665E; }
+.Proposals-featureColor--customer { color: #415B76; }
+.Proposals-featureColor--insurance { color: #E74C3C; }
+
+.Proposals-features {
+  position: relative;
+  padding: 0 0 50px;
+}
+
+.Proposals-item {
+  width: 100%;
+  padding: 50px 0;
+  background: rgba(#9B9B9B, 0.05);
+  border-bottom: 1px solid rgba(#979797, 0.14);
+}
+.Proposals-itemList {
+  list-style: none;
+}
+.Proposals-itemInfo {
+  display: flex;
+  align-items: flex-end;
+}
+.Proposals-itemDesc {
+  flex: 8;
+}
+.Proposals-itemPrice {
+  flex: 2;
+  text-align: right;
+}
+.Proposals-itemPriceNumber {
+  font-size: 50px;
+  line-height: 50px;
+  letter-spacing: -5px;
+}
+
+.Proposals-map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+.Proposals-featuresInfo {
+  line-height: 22px;
+}
+.Proposals-featuresList {
+
+}
+.Proposals-featuresList .l-box {
+  margin: 8px;
+}
+.Proposals-featureItem {
+  position: relative;
+  padding: 20px;
+  background: #FFF;
+  box-shadow: 0 0 25px 1px rgba(black, 0.1);
+  text-align: center;
+  opacity: 1;
+}
+.Proposals-featureItemIcon {
+  font-size: 40px;
+}
+.Proposals-featureItemDesc {
+  line-height: 20px;
+}
+
+.Proposals-featureItem.is-disabled {
+  opacity: 0.4;
+
+  .Proposals-featureItemIcon {
+    color: #777!important;
+  }
+  .Proposals-featureItemTitle {
+    color: #777!important;
+  }
+}

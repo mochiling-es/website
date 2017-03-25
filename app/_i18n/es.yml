@@ -10,6 +10,21 @@ proposals:
   title: Propuestas
 contact:
   title: Contacto
+  subtitle: Contáctanos
+  desc: |
+    ¿Tienes alguna pregunta o duda? <br/>¿Te gustaría empezar una nueva aventura <span class="Color--emphasis">Mochiling</span>?
+  also: Además en
+  form:
+    name: Nombre
+    email: Email
+    proposal:
+      title: Propuesta
+      none: No estoy interesado aún
+      explorer: Propuesta Explorer
+      boy-scout: Propuesta Boy scout
+      voyager: Propuesta Voyager
+    desc: Descripción
+    send: Enviar
 team:
   title: Equipo
   subtitle: Nuestro equipo

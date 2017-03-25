@@ -8,8 +8,58 @@ contact-us: Contact us
 
 proposals:
   title: Proposals
+  subtitle: Our proposals
+  desc: |
+    We want to you to enjoy a real Mochiling experience, that’s our goal, so we propose these possibilities.
+    <br/>No agencies, no tourism groups, unpredictible experiences.
+  items:
+    explorer:
+      title: Explorer
+      desc: You know where to go, but just need advice and a great route in order to complete your experience.
+      point: Our goal is not make money with Mochiling, we want you to enjoy the same experience we have lived several times.
+  features:
+    title: Features
+    desc: |
+      What is better, a taxi or a tuk-tuk?<br/>
+      Where to find the local baker?<br/>
+      We will turn your travel in something different.
+    experience:
+      title: Unique experience
+      desc: A complete new experience for your trip. We will make all the hard work. 
+    contact:
+      title: Contact
+      desc: Daily management will be through mail and/or Skype. Easy and direct.
+    expert:
+      title: Mochiling expert
+      desc: You will enjoy the whole experience with one of our experts. How does it sound?
+    face-2-face:
+      title: Face 2 face
+      desc: What better than discuss your expectations together? Let's drink a coffee or beer.
+    customer:
+      title: Customer service
+      desc:  If something doesn’t work as you expected we are there. <strong>24/7  available to help you</strong>.
+    insurance:
+      title: Insurance
+      desc: Don’t worry a thing, <span class="Color--emphasis">Mochiling</span> will take  care of you, safety is first priority.
+  disclaimer: Do you want to check where, what and how we have lived <span class="Color--emphasis">Mochiling</span>?
+  experiences: Check out our experiences
 contact:
   title: Contact
+  subtitle: Contact us
+  desc: |
+    Do you have a question or a doubt? <br/>Would you like to start a <span class="Color--emphasis">Mochiling</span> adventure?
+  also: Also in
+  form:
+    name: Name
+    email: Email
+    proposal:
+      title: Proposal
+      none: Not interested in any yet
+      explorer: Explorer proposal
+      boy-scout: Boy scout proposal
+      voyager: Voyager proposal
+    desc: Description
+    send: Send
 team:
   title: Team
   subtitle: Our team
