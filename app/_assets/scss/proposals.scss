@@ -144,9 +144,10 @@
   .Proposals-navItemIcon {
     width: 35px;
     height: 35px;
-    margin-bottom: 5px;
+    margin: 0 auto 5px;
   }
   .Proposals-navItemButton {
     flex-direction: column;
+    justify-content: center;
   }
 }
