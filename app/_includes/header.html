@@ -14,9 +14,21 @@
   <div class="Header-child Header-subLinks">
     <nav class="Header-nav">
       <ul class="Header-navList Text Text--med Text--strong Text--uppercase">
-        {% capture proposals %}{% tl proposals {{ site.lang }} %}{% endcapture %}
+        {% capture proposals_url %}
+          {% tl proposals {{ site.lang }} %}
+        {% endcapture %}
+        {% assign proposals_url_strip = proposals_url | strip | remove: site_lang %}
+
+        {% capture proposals_selected_class %}
+          {% if current_page contains proposals_url %}
+            is-selected
+          {% elsif proposals_url_strip contains current_page %}
+            is-selected
+          {% endif %}
+        {% endcapture %}
+
         <li class="Header-navListItem">
-          <a class="Header-navListItemLink {% if page.url contains proposals %}is-selected{% endif %} Color--linkSecondary" href="{% tl proposals %}">{% t proposals.title %}</a>
+          <a class="Header-navListItemLink {{ proposals_selected_class }} Color--linkSecondary" href="{% tl proposals %}">{% t proposals.title %}</a>
         </li>
 
         {% capture experiences_url %}
@@ -51,9 +63,20 @@
           <a class="Header-navListItemLink {{ team_selected_class }} Color--linkSecondary" href="{% tl team %}">{% t team.title %}</a>
         </li>
 
-        {% capture contact_url %}{% tl contact {{ site.lang }} %}{% endcapture %}
+        {% capture contact_url %}
+          {% tl contact {{ site.lang }} %}
+        {% endcapture %}
+        {% assign contact_url_strip = contact_url | strip | remove: site_lang %}
+
+        {% capture contact_selected_class %}
+          {% if current_page contains contact_url %}
+            is-selected
+          {% elsif contact_url_strip contains current_page %}
+            is-selected
+          {% endif %}
+        {% endcapture %}
         <li class="Header-navListItem">
-          <a class="Header-navListItemLink {% if page.url == contact_url %}is-selected{% endif %} Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a>
+          <a class="Header-navListItemLink {{ contact_selected_class }} Color--linkSecondary" href="{% tl contact %}">{% t contact.title %}</a>
         </li>
 
         {% for lang in site.languages %}

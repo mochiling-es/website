@@ -55,11 +55,14 @@
     color: white;
   }
   .Color--linkSecondary {
-    color: rgba(white, 0.57);
+    color: rgba(white, 0.4);
+    &:hover {
+      color: rgba(white, 0.8);
+    }
   }
   .Color--linkSecondary.is-selected {
-    color: #4A4A4A;
-    border-color: #4A4A4A;
+    color: white;
+    border-color: white;
   }
 }
 
