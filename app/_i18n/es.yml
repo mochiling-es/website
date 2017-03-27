@@ -16,18 +16,17 @@ proposals:
     1:
       title: Explorer
       desc: Sabes a donde vas, pero necesitas unos consejos o descubrir una ruta increible para completar tu experiencia.
+      sub: ¿Qué es mejor, un taxi o un tuk-tuk?<br/>¿Dónde encontrar al panadero local del pueblo?<br/>Vamos a convertir tu viaje en algo diferente.
     2:
       title: Boy Scout
-      desc: Lo que sea
+      desc: Quieres viajar pero no quieres montar tu viaje, nosotros lo hacemos por tí.
+      sub: ¿Cúal es ese país que quieres visitar desde pequeño?<br/>Te ayudamos a hacerlo realidad.
     3:
       title: Voyager
-      desc: Lo que sea
+      desc: ¿Quieres vivir una experiencia Mochiling con uno de nuestros expertos?
+      sub: Puedes decidir tu viaje en cada instante, no hay un programa establecido, será una experiencia totalmente única.
   features:
     title: Características
-    desc: |
-      ¿Qué es mejor, un taxi o un tuk-tuk?,<br/>
-      ¿Dónde encontrar al panadero local del pueblo?<br/>
-      Vamos a convertir tu viaje en algo diferente.
     experience:
       title: Experiencia única
       desc: Una experiencia completamente diferente para tu viaje. Nosotros nos encargamos de todo. 

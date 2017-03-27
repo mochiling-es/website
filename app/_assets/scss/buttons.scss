@@ -45,7 +45,7 @@
 
   &:hover,
   &:focus {
-    background: darken($mainColor, 50);
+    background: darken($mainColor, 25);
   }
 }
 .Button.is-disabled {

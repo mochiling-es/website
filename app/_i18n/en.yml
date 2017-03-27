@@ -16,18 +16,17 @@ proposals:
     1:
       title: Explorer
       desc: You know where to go, but just need advice and a great route in order to complete your experience.
+      sub: What is better, a taxi or a tuk-tuk?<br/>Where to find the local baker?<br/>We will turn your travel in something different.
     2:
       title: Boy Scout
-      desc: Whatever
+      desc: You want to travel but you don\'t want to plan your trip, we will do it for you.
+      sub: Which is that country you want to visit when you were a child?<br/>We help you to make it happen.
     3:
       title: Voyager
-      desc: Whatever
+      desc: Do you want to live a real Mochiling experience with one of our experts?
+      sub: You can decide your travel at any moment, there is no establish route, a unique experience.
   features:
     title: Features
-    desc: |
-      What is better, a taxi or a tuk-tuk?<br/>
-      Where to find the local baker?<br/>
-      We will turn your travel in something different.
     experience:
       title: Unique experience
       desc: A complete new experience for your trip. We will make all the hard work. 

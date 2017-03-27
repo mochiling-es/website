@@ -24,11 +24,11 @@ permalink_en:     /proposals/
           <nav class="Proposals-nav">
             <ul class="Block-content Proposals-navList">
               {% for proposal in site.data.proposals %}
-                <li class="Proposals-navItem">
-                  <button class="Proposals-navItemButton">
+                <li class="Proposals-navItem js-navItem js-navItem{{ forloop.index + 1 }}">
+                  <a href="{% tl proposals %}#{{ forloop.index + 1 }}" class="Proposals-navItemButton">
                     {{ proposal.icon }}
                     <span class="Text Text--strong Text--large Text--uppercase">{% t {{ proposal.title }} %}</span>
-                  </button>
+                  </a>
                 </li>
               {% endfor %}
             </ul>
@@ -41,8 +41,8 @@ permalink_en:     /proposals/
           <div class="Proposals-item">
             <div class="Proposals-itemInfo Block-content">
               <div class="Proposals-itemDesc">
-                <p class="Text Text--large Color--secondary">{% t proposals.items.1.desc %}</p>
-                <a class="Button Button--main u-tSpace--l" href="{% tl contact %}?proposal=1">
+                <p class="Text Text--large Color--secondary js-itemDesc">{% t proposals.items.1.desc %}</p>
+                <a class="Button Button--main u-tSpace--l js-itemContactUrl" href="{% tl contact %}?prop=1">
                   {% t contact-us %}
                 </a>
               </div>
@@ -53,14 +53,14 @@ permalink_en:     /proposals/
           <div class=" Block-content">
             <div class="Proposals-featuresInfo Block-content Paragraph Paragraph--centered u-tSpace--xxl">
               <h4 class="Text--large Text--strong Text--uppercase Color--secondary">{% t proposals.features.title %}</h4>
-              <p class="Text Text--medLarge u-tSpace--m Color--paragraph">{% t proposals.features.desc %}</p>
+              <p class="Text Text--medLarge u-tSpace--m Color--paragraph js-itemSub">{% t proposals.items.1.sub %}</p>
             </div>
 
             <ul class="Proposals-featuresList u-bSpace--xxl pure-g">
               {% for feature in site.data.proposal-features %}
               <li class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">
                 <div class="l-box">
-                  <div class="Proposals-featureItem">
+                  <div class="Proposals-featureItem is-disabled js-feature js-feature-{{ feature.name }}">
                     <div class="{{ feature.color }} Proposals-featureItemIcon">
                       <fa class="fa {{ feature.icon }}">
                       </fa>
@@ -93,6 +93,7 @@ permalink_en:     /proposals/
           {
             title: '{% t {{ proposal.title }} %}',
             desc: '{% t {{ proposal.desc }} %}',
+            sub: '{% t {{ proposal.sub }} %}',
             features: ["{{ proposal.features | join: '", "' }}"]
           }{% if forloop.last == false %},{% endif %}
         {% endfor %}

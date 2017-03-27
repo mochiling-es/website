@@ -1,5 +1,6 @@
 - title: proposals.items.1.title
   desc: proposals.items.1.desc
+  sub: proposals.items.1.sub
   icon: |
     <svg version="1.1" class="Proposals-navItemIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 270.428 270.428" xml:space="preserve">
       <path color-rendering="auto" image-rendering="auto" shape-rendering="auto" color-interpolation="sRGB" d="M135.241,0
@@ -25,6 +26,7 @@
 
 - title: proposals.items.2.title
   desc: proposals.items.2.desc
+  sub: proposals.items.2.sub
   icon: |
     <svg version="1.1" class="Proposals-navItemIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 503.607 503.607" style="enable-background:new 0 0 503.607 503.607;" xml:space="preserve">      
       <g>
@@ -74,6 +76,7 @@
 
 - title: proposals.items.3.title
   desc: proposals.items.3.desc
+  sub: proposals.items.3.sub
   icon: |
     <svg version="1.1" class="Proposals-navItemIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
       <g>
@@ -102,4 +105,4 @@
           c0,5.12,3.413,8.533,8.533,8.533h25.6V272.067z"/>
         </g>
       </svg>
-  features: ['contact', 'experience', 'insurance', 'customer', 'expert', ]
+  features: ['contact', 'experience', 'insurance', 'customer', 'expert', 'face-2-face']
