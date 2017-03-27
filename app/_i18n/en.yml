@@ -13,10 +13,15 @@ proposals:
     We want to you to enjoy a real Mochiling experience, that’s our goal, so we propose these possibilities.
     <br/>No agencies, no tourism groups, unpredictible experiences.
   items:
-    explorer:
+    1:
       title: Explorer
       desc: You know where to go, but just need advice and a great route in order to complete your experience.
-      point: Our goal is not make money with Mochiling, we want you to enjoy the same experience we have lived several times.
+    2:
+      title: Boy Scout
+      desc: Whatever
+    3:
+      title: Voyager
+      desc: Whatever
   features:
     title: Features
     desc: |

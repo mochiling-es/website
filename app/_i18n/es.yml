@@ -13,10 +13,15 @@ proposals:
     Queremos que disfrutes de una experiencia Mochiling, es nuestro objetivo, así que estas son nuestras propuestas. 
     Nada de agencias o grupos de turistas, experiencias impredecibles.
   items:
-    explorer:
+    1:
       title: Explorer
       desc: Sabes a donde vas, pero necesitas unos consejos o descubrir una ruta increible para completar tu experiencia.
-      point: Ten en cuenta que nuestro objetivo no es hacer dinero con Mochiling, queremos que disfrutes lo mismo que nosotros hemos vivido.
+    2:
+      title: Boy Scout
+      desc: Lo que sea
+    3:
+      title: Voyager
+      desc: Lo que sea
   features:
     title: Características
     desc: |
