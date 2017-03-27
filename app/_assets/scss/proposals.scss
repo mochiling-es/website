@@ -30,14 +30,14 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: rgba(#000, 0.2);
+  color: rgba(#000, 0.3);
   outline: none;
 }
 .Proposals-navItemIcon {
   width: 45px;
   height: 45px;
   margin-right: 10px;
-  fill: rgba(#000, 0.2);
+  fill: rgba(#000, 0.3);
 }
 .Proposals-navItem:hover,
 .Proposals-navItem.is-selected {
@@ -83,10 +83,10 @@
   padding: 0 20px;
 }
 .Proposals-itemDesc {
-  flex: 8;
+  flex: 7;
 }
 .Proposals-itemPrice {
-  flex: 2;
+  flex: 3;
   text-align: right;
 }
 .Proposals-itemPriceNumber {
