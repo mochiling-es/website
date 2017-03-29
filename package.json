@@ -45,6 +45,7 @@
     "leaflet-hash": "0.2.1",
     "load-grunt-tasks": "~3.5.2",
     "time-grunt": "~1.0.0",
+    "select2": "4.0.3",
     "underscore": "^1.8.3"
   },
   "engines": {
