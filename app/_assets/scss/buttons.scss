@@ -39,6 +39,26 @@
     background: darken($color, 3);
   }
 }
+.Button--error {
+  $color: #E74C3C;
+  background: $color;
+  color: white;
+
+  &:hover,
+  &:focus {
+    background: darken($color, 3);
+  }
+}
+.Button--success {
+  $color: #62C791;
+  background: $color;
+  color: white;
+
+  &:hover,
+  &:focus {
+    background: darken($color, 3);
+  }
+}
 .Button--main {
   background: $mainColor;
   color: white;

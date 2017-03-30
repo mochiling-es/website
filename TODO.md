@@ -13,3 +13,6 @@ Things to do!
 - [x] Footer mobile.
 - [x] Finish last-experience block.
 - [ ] Finish next-experience block.
+- [ ] Implement the terms and conditions page.
+- [ ] Review experience page.
+- [ ] Implement the home page.

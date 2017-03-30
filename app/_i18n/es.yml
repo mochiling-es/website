@@ -64,6 +64,9 @@ contact:
       voyager: Propuesta Voyager
     desc: Descripción
     send: Enviar
+    sending: Enviando...
+    sent: Enviado
+    error: Error, volver a enviar
 team:
   title: Equipo
   subtitle: Nuestro equipo

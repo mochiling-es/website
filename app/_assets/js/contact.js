@@ -11,6 +11,7 @@ $(function () {
   }).render();
 
   var contactFormView = new ContactFormView({
-    el: $('.js-form')
+    el: $('.js-form'),
+    buttonStates: window.buttonStates
   }).render();
 });

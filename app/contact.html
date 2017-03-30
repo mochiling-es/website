@@ -21,19 +21,19 @@ permalink_en:     /contact/
           <p class="Text Text--large Color--paragraph u-tSpace--l">{% t contact.desc %}</p>
         </div>
 
-        <form class="Form Block-content js-form">
+        <form class="Form Block-content js-form" method="POST" action="http://formspree.io/mochiling.es@gmail.com">
           <div class="Form-field">
             <label class="Form-label">{% t contact.form.name %}</label>
-            <input type="text" class="Form-input" placeholder="{% t contact.form.name %}" />
+            <input type="text" class="Form-input js-name" name="name" placeholder="{% t contact.form.name %}" />
           </div>
           <div class="Form-field">
             <label class="Form-label">{% t contact.form.email %}</label>
-            <input type="email" class="Form-input" placeholder="{% t contact.form.email %}" />
+            <input type="email" class="Form-input js-email" name="email" placeholder="{% t contact.form.email %}" />
           </div>
           <div class="Form-field">
             <label class="Form-label">{% t contact.form.proposal.title %}</label>
-            <select class="Form-select js-select">
-              <option>{% t contact.form.proposal.none %}</option>
+            <select class="Form-select js-proposal" name="proposal">
+              <option value="0">{% t contact.form.proposal.none %}</option>
               <option value="1">{% t contact.form.proposal.explorer %}</option>
               <option value="2">{% t contact.form.proposal.boy-scout %}</option>
               <option value="3">{% t contact.form.proposal.voyager %}</option>
@@ -41,11 +41,11 @@ permalink_en:     /contact/
           </div>
           <div class="Form-field">
             <label class="Form-label">{% t contact.form.desc %}</label>
-            <textarea class="Form-input Form-textarea" placeholder="{% t contact.form.desc %}"></textarea>
+            <textarea class="Form-input Form-textarea js-description" name="description" placeholder="{% t contact.form.desc %}"></textarea>
           </div>
-          <div class="Form-field">
+          <div class="Form-field js-submitField">
             <label class="Form-label"></label>
-            <button type="submit" class="Form-submit Button Button--action is-disabled">{% t contact.form.send %}</button>
+            <button type="submit" class="Form-submit Button Button--action js-submit is-disabled">{% t contact.form.send %}</button>
           </div>
         </form>
 
@@ -57,6 +57,24 @@ permalink_en:     /contact/
     </div>
     {% include analytics.html %}
 
+    <script type="text/javascript">
+      var buttonStates = ' ' +
+        '<% if (state === "idle") { %>' +
+          '<button type="submit" class="Form-submit Button Button--action js-submit <%- isValid ? "" : "is-disabled" %>">{% t contact.form.send %}</button>' +
+        '<% } else if (state === "loading") { %>' +
+          '<button type="submit" class="Form-submit Button Button--action js-submit <%- isValid ? "" : "is-disabled" %>">' +
+            '<i class="fa fa-circle-o-notch fa-spin Color--light u-rSpace--m"></i>' +
+            '{% t contact.form.sending %}' +
+          '</button>' +
+        '<% } else if (state === "success") { %>' +
+          '<button type="submit" class="Form-submit Button Button--success js-submit <%- isValid ? "" : "is-disabled" %>">' +
+            '<i class="fa fa-check Color--light u-rSpace--m"></i>' +
+            '{% t contact.form.sent %}' +
+          '</button>' +
+        '<% } else if (state === "error") { %>' +
+          '<button type="submit" class="Form-submit Button Button--error js-submit <%- isValid ? "" : "is-disabled" %>">{% t contact.form.error %}</button>' +
+        '<% } %>';
+    </script>
     <script src="/js/contact.js"></script>
   </body>
 </html>
