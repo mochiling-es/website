@@ -12,10 +12,10 @@ Things to do!
 - [x] Finish footer.
 - [x] Footer mobile.
 - [x] Finish last-experience block.
-- [ ] Finish next-experience block.
-- [ ] Implement the terms and conditions page.
-- [ ] Review experience page.
-- [ ] Implement the home page.
-- [ ] Add meta tags for each page.
-- [ ] Improve deploy (minify html, css and js).
+- [x] Implement the terms and conditions page.
 - [ ] Translate cookies page to EN.
+- [ ] Finish next-experience block.
+- [ ] Review experience page.
+- [ ] Add meta tags for each page.
+- [ ] Implement the home page.
+- [ ] Improve deploy (minify html, css and js).

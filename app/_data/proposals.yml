@@ -72,7 +72,7 @@
           C427.066,387.616,421.19,401.046,410.279,411.118z"/>
       </g>
     </svg>
-  features: ['contact', 'experience', 'insurance', 'customer']
+  features: ['contact', 'experience', 'insurance', 'customer', 'face-2-face']
 
 - title: proposals.items.3.title
   desc: proposals.items.3.desc

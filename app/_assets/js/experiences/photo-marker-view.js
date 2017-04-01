@@ -15,16 +15,16 @@ var template = _.template(
 );
 
 var CIRCLE_STYLE = {
-  radius: 4,
+  radius: 5,
   color: '#F88B52',
   fillColor: '#FFF',
-  weight: 1,
-  opacity: 0.6,
-  fillOpacity: 0.6
+  weight: 2,
+  opacity: 0.7,
+  fillOpacity: 1
 };
 
 var CIRCLE_HOVER_STYLE = {
-  radius: 5,
+  radius: 7,
   color: '#F88B52',
   fillColor: '#FFF',
   weight: 2,
