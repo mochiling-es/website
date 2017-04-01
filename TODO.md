@@ -18,3 +18,4 @@ Things to do!
 - [ ] Implement the home page.
 - [ ] Add meta tags for each page.
 - [ ] Improve deploy (minify html, css and js).
+- [ ] Translate cookies page to EN.
