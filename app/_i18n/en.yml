@@ -1,11 +1,12 @@
-quote: "The new way of living a trip..."
 learn-more: Learn more
 last-experience: Last experience
 next-experience: Next experience
 rights-reserved: All rights reserved
-home: Home
 contact-us: Contact us
 
+home:
+  title: Home
+  desc: Are you ready for discovering how to live an authentic Mochiling experience? Time is getting over...
 proposals:
   title: Proposals
   subtitle: Our proposals

@@ -61,7 +61,8 @@ module.exports = function (grunt) {
           '.tmp/js/experiences.js': ['<%= app.app %>/_assets/js/experiences.js'],
           '.tmp/js/contact.js': ['<%= app.app %>/_assets/js/contact.js'],
           '.tmp/js/proposals.js': ['<%= app.app %>/_assets/js/proposals.js'],
-          '.tmp/js/cookies.js': ['<%= app.app %>/_assets/js/cookies.js']
+          '.tmp/js/cookies.js': ['<%= app.app %>/_assets/js/cookies.js'],
+          '.tmp/js/home.js': ['<%= app.app %>/_assets/js/home.js']
         }
       },
       dist: {
@@ -73,6 +74,7 @@ module.exports = function (grunt) {
           '<%= app.dist %>/js/contact.js': ['<%= app.app %>/_assets/js/contact.js'],
           '<%= app.dist %>/js/proposals.js': ['<%= app.app %>/_assets/js/proposals.js'],
           '<%= app.dist %>/js/cookies.js': ['<%= app.app %>/_assets/js/cookies.js'],
+          '<%= app.dist %>/js/home.js': ['<%= app.app %>/_assets/js/home.js']
         }
       }
     },

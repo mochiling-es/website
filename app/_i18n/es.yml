@@ -1,11 +1,12 @@
-quote: "La nueva manera de vivir un viaje..."
 learn-more: Saber más
 last-experience: Última experiencia
 next-experience: Siguiente experiencia
 rights-reserved: Todos los derechos reservados
-home: Inicio
 contact-us: Escríbenos
 
+home:
+  title: Inicio
+  desc: ¿Estás preparado para descubrir como se vive una experiencia Mochiling? Ya no queda nada...
 proposals:
   title: Propuestas
   subtitle: Nuestras propuestas
