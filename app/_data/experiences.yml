@@ -1,24 +1,156 @@
-new-zealand: 
-  title: new-zealand.title
-  subtitle: new-zealand.subtitle
-  short_desc: new-zealand.short_desc
-  date_start: 2016-03-23T10:20:00Z
-  date_end: 2016-04-23T10:20:00Z
-  countries: ["New Zealand"]
+usa: 
+  title: usa.title
+  subtitle: usa.subtitle
+  short_desc: usa.short_desc
+  date_start: 2006-08-01T00:00:00Z
+  date_end: 2006-09-21T10:20:00Z
+  countries: ["United States"]
   pois: [] 
-  video: https://www.youtube.com/embed/58sycxbESvU
-  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/17125832_640868046121717_970688550498467840_n.jpg
-  instagram_tag: 'mochiling'
+  video: https://www.youtube.com/embed/q-wdmp4dhVE
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13256621_290023667996647_224287923_n.jpg
+  instagram_tag: 'mochilingusa'
   mochiling_expert: victor
-cuba: 
-  title: cuba.title
-  subtitle: cuba.subtitle
-  short_desc: cuba.short_desc
-  date_start: 2017-03-23T10:20:00Z
-  date_end: 2017-04-23T10:20:00Z
-  countries: ["Cuba"]
+brazil:
+  title: brazil.title
+  subtitle: brazil.subtitle
+  short_desc: brasil.short_desc
+  date_start: 2008-02-01T00:00:00Z
+  date_end: 2008-03-01T10:20:00Z
+  countries: ["Brazil"]
   pois: [] 
-  video: https://www.youtube.com/embed/58sycxbESvU
-  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/16906699_772028626280435_8109765709392773120_n.jpg
-  instagram_tag: 'mochiling'
+  video: https://www.youtube.com/embed/Qhzd1Ltg-Vg
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14026702_1103552289693780_442065359_n.jpg
+  instagram_tag: 'mochilingbrazil'
+  mochiling_expert: victor
+south-cone:
+  title: south-cone.title
+  subtitle: south-cone.subtitle
+  short_desc: south-cone.short_desc
+  date_start: 2008-03-01T00:00:00Z
+  date_end: 2008-05-01T10:20:00Z
+  countries: ["Bolivia", "Uruguay", "Argentina", "Chile"]
+  pois: [] 
+  video: https://www.youtube.com/embed/zldpWTQZQtE
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14295599_129362277522891_4228892660124876800_n.jpg
+  instagram_tag: 'mochilingconosur'
+  mochiling_expert: victor
+central-africa:
+  title: central-africa.title
+  subtitle: central-africa.subtitle
+  short_desc: central-africa.short_desc
+  date_start: 2011-10-01T00:00:00Z
+  date_end: 2011-11-01T10:20:00Z
+  countries: ["Namibia", "Botswana", "Zimbabwe"]
+  pois: [] 
+  video: https://www.youtube.com/embed/tmJ5H6vD9LU
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13355635_131426397275936_411057511_n.jpg
+  instagram_tag: 'mochilingnbz'
+  mochiling_expert: victor
+australia:
+  title: australia.title
+  subtitle: australia.subtitle
+  short_desc: australia.short_desc
+  date_start: 2011-02-14T00:00:00Z
+  date_end: 2011-05-01T10:20:00Z
+  countries: ["Australia"]
+  pois: [] 
+  video: https://www.youtube.com/embed/t6sfvzqf_BQ
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14723705_222211031554204_3214793337567444992_n.jpg
+  instagram_tag: 'mochilingaustralia'
+  mochiling_expert: victor
+morocco:
+  title: morocco.title
+  subtitle: morocco.subtitle
+  short_desc: morocco.short_desc
+  date_start: 2012-02-01T00:00:00Z
+  date_end: 2015-03-15T10:20:00Z
+  countries: ["Morocco"]
+  pois: [] 
+  video: https://www.youtube.com/embed/yJ2AZO4cz4E
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13671282_859885554144951_376914941_n.jpg
+  instagram_tag: 'mochilingmarruecos'
+  mochiling_expert: victor
+thailand:
+  title: thailand.title
+  subtitle: thailand.subtitle
+  short_desc: thailand.short_desc
+  date_start: 2013-02-11T00:00:00Z
+  date_end: 2015-03-15T00:00:00Z
+  countries: ["Thailand"]
+  pois: [] 
+  video: https://www.youtube.com/embed/5cyxhM8sBxI
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13320306_114494885639239_1273166573_n.jpg
+  instagram_tag: 'mochilingthai'
+  mochiling_expert: victor
+myanmar:
+  title: myanmar.title
+  subtitle: myanmar.subtitle
+  short_desc: myanmar.short_desc
+  date_start: 2013-04-10T00:00:00Z
+  date_end: 2015-05-01T00:00:00Z
+  countries: ["Burma"]
+  pois: [] 
+  video: https://www.youtube.com/embed/q4k29WZZ9hA
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13534348_1174519119270864_936614697_n.jpg
+  instagram_tag: 'mochilingmyanmar'
+  mochiling_expert: victor
+philippines:
+  title: philippines.title
+  subtitle: philippines.subtitle
+  short_desc: philippines.short_desc
+  date_start: 2013-01-11T00:00:00Z
+  date_end: 2013-02-10T00:00:00Z
+  countries: ["Philippines"]
+  pois: [] 
+  video: https://www.youtube.com/embed/Ma6YLv08KNQ
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14027338_1253232454711546_243157063_n.jpg
+  instagram_tag: 'mochilingphillies'
+  mochiling_expert: victor
+india:
+  title: india.title
+  subtitle: india.subtitle
+  short_desc: india.short_desc
+  date_start: 2014-03-01T00:00:00Z
+  date_end: 2014-04-20T00:01:00Z
+  countries: ["India"]
+  pois: [] 
+  video: https://www.youtube.com/embed/-lFwqe8oYRs
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14374230_186242958474634_297428119_n.jpg
+  instagram_tag: 'mochilingindia'
+  mochiling_expert: victor
+korea:
+  title: korea.title
+  subtitle: korea.subtitle
+  short_desc: korea.short_desc
+  date_start: 2014-01-15T00:00:00Z
+  date_end: 2014-03-15T00:00:00Z
+  countries: ["Korea, Republic of"]
+  pois: [] 
+  video: https://www.youtube.com/embed/fe1uL2s-JBk
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13721217_921635134631009_1438431178_n.jpg
+  instagram_tag: 'mochilingkorea'
+  mochiling_expert: victor
+turkey:
+  title: turkey.title
+  subtitle: turkey.subtitle
+  short_desc: turkey.short_desc
+  date_start: 2015-12-15T00:00:00Z
+  date_end: 2016-01-01T00:00:00Z
+  countries: ["Turkey"]
+  pois: [] 
+  video: https://www.youtube.com/embed/lBf4FbtxTO8
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13722091_499026316949938_2095506267_n.jpg
+  instagram_tag: 'mochilingturkey'
+  mochiling_expert: victor
+cambodia-vietnam:
+  title: cambodia-vietnam.title
+  subtitle: cambodia-vietnam.subtitle
+  short_desc: cambodia-vietnam.short_desc
+  date_start: 2012-11-07T00:00:00Z
+  date_end: 2015-04-01T00:00:00Z
+  countries: ["Cambodia", "Viet Nam"]
+  pois: [] 
+  video: https://www.youtube.com/embed/0M_Q4PVdY5w
+  image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13712517_1738665453055121_153553268_n.jpg
+  instagram_tag: 'mochilingvc'
   mochiling_expert: victor

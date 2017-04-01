@@ -97,14 +97,58 @@ experiences:
     map: ¿Quieres navegar <i class="fa fa-hand-pointer-o"></i> por el mapa?
     enable: Vamos!
   share: Compartir en
-  new-zealand:
-    title: Nueva Zelanda
-    subtitle: Septiembre 2017
-    short_desc: No olvides de visitar los glaciares, los remontes y los lugares donde se filmó el Hobbit.
-  cuba:
-    title: Cuba
-    subtitle: Febrero 2017
-    short_desc: Descrube que hemos encontrado en este increible país caribeño.
+  usa:
+    title: Estados Unidos
+    subtitle: Agosto 2006
+    short_desc: El comienzo de todo.
+  brazil:
+    title: Brasil
+    subtitle: Febrero 2008
+    short_desc: Hola caipirinhas
+  south-cone:
+    title: Cono sur
+    subtitle: Marzo a Abril 2008
+    short_desc: Hola carnaza
+  central-africa:
+    title: África central
+    subtitle: Octubre 2011
+    short_desc: Hola sabana.
+  australia:
+    title: Australia
+    subtitle: Febrero a Mayo 2011
+    short_desc: Hola canguros
+  morocco:
+    title: Marruecos
+    subtitle: 2012-2015
+    short_desc: Hola pais vecino
+  thailand:
+    title: Tailandia
+    subtitle: 2013-2014-2015
+    short_desc: Hola pad-thai
+  myanmar:
+    title: Myanmar
+    subtitle: Abril 2013
+    short_desc: Hola teka
+  philippines:
+    title: Filipinas
+    subtitle: Enero 2013
+    short_desc: Hola filipino
+  india:
+    title: India
+    subtitle: Marzo 2013
+    short_desc: Hola india
+  korea:
+    title: Corea del Sur
+    subtitle: Enero a Marzo 2013
+    short_desc: Hola Corea
+  turkey:
+    title: Turquía
+    subtitle: Diciembre 2015
+    short_desc: Hola turquía
+  cambodia-vietnam:
+    title: Camboya & Viet Nam
+    subtitle: 2012-2015
+    short_desc: Hola VC
 cookies:
   title: Cookies
   disclaimer: Usamos cookies de Google Analytics para mejorar la experiencia de usuario

@@ -97,14 +97,58 @@ experiences:
     map: Do you want to <i class="fa fa-hand-pointer-o"></i> interact with the map?
     enable: Let's do it!
   share: Share in
-  new-zealand:
-    title: New Zealand
-    subtitle: September 2017
-    short_desc: Don't forget to visit the glaciars, sky resorts and Hobbit locations.
-  cuba:
-    title: Cuba
-    subtitle: February 2017
-    short_desc: Discover what we have found in this incredible Caribean country.
+  usa:
+    title: United States
+    subtitle: August 2006
+    short_desc: The beginning of everything.
+  brazil:
+    title: Brazil
+    subtitle: February-April 2008
+    short_desc: Hello caipinhas.
+  south-cone:
+    title: South cone
+    subtitle: March-May 2008
+    short_desc: Hello bbq.
+  central-africa:
+    title: Central Africa
+    subtitle: October 2011
+    short_desc: Hello sabanna.
+  australia:
+    title: Australia
+    subtitle: February-May 2011
+    short_desc: Hello kangaroos
+  morocco:
+    title: Morocco
+    subtitle: 2012-2015
+    short_desc: Hello neightboor country
+  thailand:
+    title: Thailand
+    subtitle: 2013-2014-2015
+    short_desc: Hello pad-thai
+  myanmar:
+    title: Myanmar
+    subtitle: April 2013
+    short_desc: Hello teka
+  philippines:
+    title: Philippines
+    subtitle: Januray 2013
+    short_desc: Hello filipino
+  india:
+    title: India
+    subtitle: March 2013
+    short_desc: Hello india
+  korea:
+    title: South Korea
+    subtitle: Januray 2013
+    short_desc: Hello korea
+  turkey:
+    title: Turkey
+    subtitle: December 2015
+    short_desc: Hello turkey
+  cambodia-vietnam:
+    title: Cambodia & Viet Nam
+    subtitle: 2012-2015
+    short_desc: Hello VC
 cookies:
   title: Cookies
   disclaimer: We use Google Analytics cookies for improving your user experience
