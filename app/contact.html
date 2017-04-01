@@ -11,8 +11,10 @@ permalink_en:     /contact/
   {% include head.html %}
   <body>
     <div class="Canvas js-canvas">
+      {% include cookies.html %}
+
       <div class="Block">
-        <div class="Members-map" id="js-map"></div>
+        <div class="LeafletMap" id="js-map"></div>
 
         {% include header.html %}
 

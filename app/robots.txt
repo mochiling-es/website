@@ -2,22 +2,7 @@
 layout: null
 ---
 User-agent: *
-Disallow: 404.html
-Disallow: /propuestas/
-Disallow: /proposals/
-Disallow: /experiencias/
-Disallow: /experiences/
-Disallow: /experiencias/nueva-zelanda
-Disallow: /experiences/new-zealand
-Disallow: /experiencias/cuba
-Disallow: /experiences/cuba
-Disallow: /equipo/
-Disallow: /team/
-Disallow: /equipo/victor
-Disallow: /team/victor
-Disallow: /equipo/jamon
-Disallow: /team/jamon
-Disallow: /contacto/
-Disallow: /contact/
+Disallow: /cookies/
+Disallow: /en/cookies/
 
 Sitemap: {{ site.url }}/sitemap.xml

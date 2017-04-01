@@ -2,6 +2,7 @@ var $ = require('jquery');
 var MemberMapView = require('./member/member-map-view');
 var MemberInstagramView = require('./member/member-instagram-view');
 var ResponsiveHeaderHelper = require('./components/responsive-header');
+var CookiesView = require('./components/cookies-view');
 
 $(function () {
   var visitedCountries = window.visitedCountries;
@@ -13,6 +14,9 @@ $(function () {
   if (!bornLocation) throw new Error('bornLocation is required');
 
   ResponsiveHeaderHelper($('.js-canvas'));
+  new CookiesView({
+    el: $('.js-cookies')
+  }).render();
 
   var memberMap = new MemberMapView({
     el: $('#js-map'),

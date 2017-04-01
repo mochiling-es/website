@@ -3,9 +3,13 @@ global.jQuery = $;
 var ExperienceInstagramView = require('./experience/experience-instagram-view');
 var ExperienceMapView = require('./experience/experience-map-view');
 var ResponsiveHeaderHelper = require('./components/responsive-header');
+var CookiesView = require('./components/cookies-view');
 
 $(function () {
   ResponsiveHeaderHelper($('.js-canvas'));
+  new CookiesView({
+    el: $('.js-cookies')
+  }).render();
 
   var experiencesMapView = new ExperienceMapView({
     el: $('.js-map'),

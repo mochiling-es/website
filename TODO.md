@@ -16,3 +16,5 @@ Things to do!
 - [ ] Implement the terms and conditions page.
 - [ ] Review experience page.
 - [ ] Implement the home page.
+- [ ] Add meta tags for each page.
+- [ ] Improve deploy (minify html, css and js).

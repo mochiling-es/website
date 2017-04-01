@@ -8,8 +8,17 @@ var POLYGON_STYLE = {
   weight: 1,
   opacity: 0.65
 };
+var DEFAULT_OPTS = {
+  center: [29.142566, -33.925781],
+  zoom: 3
+}
 
 module.exports = Backbone.View.extend({
+
+  initialize: function (opts) {
+    this._center = opts.center || DEFAULT_OPTS.center;
+    this._zoom = opts.zoom || DEFAULT_OPTS.zoom;
+  },
 
   render: function () {
     var map = L.map(this.el, {
@@ -21,7 +30,7 @@ module.exports = Backbone.View.extend({
       zoomControl: false,
       touchZoom: false,
       keyboard: false
-    }).setView([29.142566, -33.925781], 3);
+    }).setView(this._center, this._zoom);
 
     L.geoJson(CountriesJSON, {
       style: POLYGON_STYLE

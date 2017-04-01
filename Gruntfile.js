@@ -60,7 +60,8 @@ module.exports = function (grunt) {
           '.tmp/js/experience.js': ['<%= app.app %>/_assets/js/experience.js'],
           '.tmp/js/experiences.js': ['<%= app.app %>/_assets/js/experiences.js'],
           '.tmp/js/contact.js': ['<%= app.app %>/_assets/js/contact.js'],
-          '.tmp/js/proposals.js': ['<%= app.app %>/_assets/js/proposals.js']
+          '.tmp/js/proposals.js': ['<%= app.app %>/_assets/js/proposals.js'],
+          '.tmp/js/cookies.js': ['<%= app.app %>/_assets/js/cookies.js']
         }
       },
       dist: {
@@ -70,7 +71,8 @@ module.exports = function (grunt) {
           '<%= app.dist %>/js/experience.js': ['<%= app.app %>/_assets/js/experience.js'],
           '<%= app.dist %>/js/experiences.js': ['<%= app.app %>/_assets/js/experiences.js'],
           '<%= app.dist %>/js/contact.js': ['<%= app.app %>/_assets/js/contact.js'],
-          '<%= app.dist %>/js/proposals.js': ['<%= app.app %>/_assets/js/proposals.js']
+          '<%= app.dist %>/js/proposals.js': ['<%= app.app %>/_assets/js/proposals.js'],
+          '<%= app.dist %>/js/cookies.js': ['<%= app.app %>/_assets/js/cookies.js'],
         }
       }
     },
