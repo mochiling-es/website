@@ -2,7 +2,11 @@ var _ = require('underscore');
 var L = require('leaflet');
 var template = _.template(
   '<div class="Popup Popup--vertical">' +
-    '<a href="<%- experienceLink %>">' +
+    '<% if (experienceLink) { %>' +
+      '<a href="<%- experienceLink %>">' +
+    '<% } else { %>' +
+      '<div>' +
+    '<% } %>' +
       '<div class="Popup-image">' +
         '<i class="fa fa-circle-o-notch fa-2x fa-spin Color--emphasis Popup-imageLoader"></i>' +
         '<img src="<%- imageUrl %>" alt="<%- title %>" title="<%- title %>" />' +
@@ -11,7 +15,11 @@ var template = _.template(
         '<h4 class="Text--large Color--secondary"><%- title %><i class="fa fa-link Popup-link u-lSpace"></i></h4>' +
         '<p class="Text--med Color--paragraph u-tSpace--m"><%- desc %></p>' +
       '</div>' +
-    '</a>' +
+    '<% if (experienceLink) { %>' +
+      '</a>' +
+    '<% } else { %>' +
+      '</div>' +
+    '<% } %>' +
   '</div>'
 );
 
