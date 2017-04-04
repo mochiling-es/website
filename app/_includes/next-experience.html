@@ -1,26 +1,32 @@
+{% assign next_experience = '' %}
+{% assign current_experience = site.data.experiences[include.experience] %}
+
 {% for experience in site.data.experiences %}
-  {% if last_experience == '' %}
-    {% assign last_experience = experience %}
-  {% endif %}
+  {% capture nextunix %}{{next_experience[1].date_end | date: '%s'}}{% endcapture %}
+  {% capture experienceunix %}{{experience[1].date_end | date: '%s'}}{% endcapture %}
+  {% capture currentunix %}{{current_experience.date_end | date: '%s'}}{% endcapture %}
 
-  {% capture lastunix %}{{last_experience[1].date_end | date: '%s'}}{% endcapture %}
-  {% capture currentunix %}{{experience[1].date_end | date: '%s'}}{% endcapture %}
-
-  {% if lastunix < currentunix %}
-    {% assign last_experience = experience %}
+  {% if (currentunix < experienceunix) and (experience != current_experience) %}
+    {% if next_experience != '' %}
+      {% if experienceunix < nextunix %}
+        {% assign next_experience = experience %}
+      {% endif %}
+    {% else %}
+      {% assign next_experience = experience %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 
 <div class="pure-g Banner Bkg--light">
   <div class="pure-u-1-1 pure-u-sm-1-2 Banner-image">
-    <img src="{{ last_experience[1].image }}" class="pure-img" alt="{% t experiences.{{last_experience[1].title}} %}" title="{% t experiences.{{last_experience[1].title}} %}"/>
+    <img src="{{ next_experience[1].image }}" class="pure-img" alt="{% t experiences.{{next_experience[1].title}} %}" title="{% t experiences.{{next_experience[1].title}} %}"/>
   </div>
   <div class="pure-u-1-1 pure-u-sm-1-2 Banner-info">
     <div class="Banner-infoContent">
       <h4 class="Text Text--small Color--desc Text--uppercase">{% t 'next-experience' %}</h4>
-      <h3 class="Text Text--huge Color--dark Text--strong">{% t experiences.{{last_experience[1].title}} %}</h3>
-      <p class="Text Text--large Color--paragraph u-tSpace--l">{% t experiences.{{last_experience[1].short_desc}} %}</p>
-      <a href="{% tl {{last_experience[0]}} {{site.lang}} %}" class="Button Button--light u-tSpace--l">{% t 'learn-more'%}</a>
+      <h3 class="Text Text--huge Color--dark Text--strong">{% t experiences.{{next_experience[1].title}} %}</h3>
+      <p class="Text Text--large Color--paragraph u-tSpace--l">{% t experiences.{{next_experience[1].short_desc}} %}</p>
+      <a href="{% tl {{next_experience[0]}} {{site.lang}} %}" class="Button Button--light u-tSpace--l">{% t 'learn-more'%}</a>
     </div>
   </div>
 </div>
