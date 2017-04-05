@@ -13,7 +13,7 @@ usa:
 brazil:
   title: brazil.title
   subtitle: brazil.subtitle
-  short_desc: brasil.short_desc
+  short_desc: brazil.short_desc
   date_start: 2008-02-01T00:00:00Z
   date_end: 2008-03-01T10:20:00Z
   countries: ["Brazil"]
