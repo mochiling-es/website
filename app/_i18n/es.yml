@@ -116,7 +116,7 @@ experiences:
   australia:
     title: Australia
     subtitle: Febrero a Mayo 2011
-    short_desc: Hola canguros
+    short_desc: Simplemente Down Under
   morocco:
     title: Marruecos
     subtitle: 2012-2015
@@ -124,31 +124,31 @@ experiences:
   thailand:
     title: Tailandia
     subtitle: 2013-2014-2015
-    short_desc: Hola pad-thai
+    short_desc: La inspiración de Mochiling
   myanmar:
     title: Myanmar
     subtitle: Abril 2013
-    short_desc: Hola teka
+    short_desc: La gema escondida
   philippines:
     title: Filipinas
     subtitle: Enero 2013
-    short_desc: Hola filipino
+    short_desc: El sorprendente paraiso
   india:
     title: India
     subtitle: Marzo 2013
-    short_desc: Hola india
+    short_desc: "Sab kuch munkin he"
   korea:
     title: Corea del Sur
     subtitle: Enero a Marzo 2013
-    short_desc: Hola Corea
+    short_desc: Un paseo en el tiempo
   turkey:
     title: Turquía
     subtitle: Diciembre 2015
-    short_desc: Hola turquía
+    short_desc: La Frontera encantadora
   cambodia-vietnam:
     title: Camboya & Viet Nam
     subtitle: 2012-2015
-    short_desc: Hola VC
+    short_desc: El alma de las piedras
 cookies:
   title: Cookies
   disclaimer: Usamos cookies de Google Analytics para mejorar la experiencia de usuario
