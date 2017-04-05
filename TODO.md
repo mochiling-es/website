@@ -13,9 +13,11 @@ Things to do!
 - [x] Footer mobile.
 - [x] Finish last-experience block.
 - [x] Implement the terms and conditions page.
-- [ ] Translate cookies page to EN.
-- [ ] Finish next-experience block.
-- [ ] Review experience page.
+- [x] Finish next-experience block.
 - [ ] Add meta tags for each page.
+- [ ] Translate cookies page to EN.
+- [ ] Add key images for members and experiences.
+- [ ] Review experience page.
+- [ ] Add share link in experience and make it work.
 - [ ] Implement the home page.
 - [ ] Improve deploy (minify html, css and js).

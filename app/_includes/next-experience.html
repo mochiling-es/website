@@ -2,8 +2,6 @@
 {% assign current_experience = site.data.experiences[include.experience] %}
 {% assign first_experience = site.data.experiences | first %}
 
-{{ current_experience.date_end | date: '%s' }}
-
 {% for experience in site.data.experiences %}
   {% capture nextunix %}{{next_experience[1].date_end | date: '%s'}}{% endcapture %}
   {% capture experienceunix %}{{experience[1].date_end | date: '%s'}}{% endcapture %}

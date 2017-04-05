@@ -1,13 +1,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-    {% if page.translated_title %}
-      {% t page.translated_title %} ·
-    {% else %}
-      {{ page.title }} ·
-    {% endif %}{{ site.title }}</title>
-  <meta name="description" content="" />
+  <title>{% if page.translated_title %}{% t page.translated_title %} · {% else %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.translated_desc %}{% capture description %}{% t page.translated_desc %}{% endcapture %}{{ description | strip_html | strip_newlines }}{% else %}{% t default-description %}{% endif %}" />
   <meta name="keywords" content="" />
   <meta name="distribution" content="Global">
   <meta name="author" content="xavijam">
