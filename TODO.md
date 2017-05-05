@@ -21,3 +21,6 @@ Things to do!
 - [ ] Add share link in experience and make it work.
 - [ ] Implement the home page.
 - [ ] Improve deploy (minify html, css and js).
+
+
+- [ ] Change Boy scout <> voyager
