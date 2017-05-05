@@ -1,4 +1,4 @@
-### Mochiling
+# Mochiling
 
 In order to run Mochiling in your computer:
 
