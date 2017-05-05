@@ -11,7 +11,7 @@ In order to run Mochiling in your computer:
 - Install bundler.
 ```
 gem install bundler
-``
+```
 - Install ruby dependencies.
 ```
 bundle install
