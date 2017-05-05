@@ -2,13 +2,24 @@
 
 In order to run Mochiling in your computer:
 
-- Install ruby (ruby 2.2.2p95).
+- Follow this [guide](https://gorails.com/setup/osx/10.12-sierra) for installing all necessary components.
+  - Homebrew
+  - Ruby (`ruby 2.2.2p95` if possible)
+  - Git
+  - Rails
+
 - Install bundler.
+```
+gem install bundler
+``
 - Install ruby dependencies.
 ```
 bundle install
 ```
-- Install node (0.10.43) and npm (2.14.20).
+- Install node (6.9.2) and npm.
+```
+brew install node
+```
 - Install grunt.
 ```
 npm install -g grunt-cli
