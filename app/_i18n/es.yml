@@ -98,58 +98,6 @@ experiences:
     map: ¿Quieres navegar <i class="fa fa-hand-pointer-o"></i> por el mapa?
     enable: Vamos!
   share: Compartir en
-  usa:
-    title: Estados Unidos
-    subtitle: Agosto 2006
-    short_desc: El comienzo de todo.
-  brazil:
-    title: Brasil
-    subtitle: Febrero 2008
-    short_desc: Uno de los lugares más cautivadores del planeta
-  south-cone:
-    title: Cono sur
-    subtitle: Marzo a Abril 2008
-    short_desc: Fin del mundo… principio de todo.
-  central-africa:
-    title: África central
-    subtitle: Octubre 2011
-    short_desc: La Pureza de Afica.
-  australia:
-    title: Australia
-    subtitle: Febrero a Mayo 2011
-    short_desc: Simplemente Down Under
-  morocco:
-    title: Marruecos
-    subtitle: 2012-2015
-    short_desc: Mi fascinante vecino
-  thailand:
-    title: Tailandia
-    subtitle: 2013-2014-2015
-    short_desc: La inspiración de Mochiling
-  myanmar:
-    title: Myanmar
-    subtitle: Abril 2013
-    short_desc: La gema escondida
-  philippines:
-    title: Filipinas
-    subtitle: Enero 2013
-    short_desc: El sorprendente paraiso
-  india:
-    title: India
-    subtitle: Marzo 2013
-    short_desc: "Sab kuch munkin he"
-  korea:
-    title: Corea del Sur
-    subtitle: Enero a Marzo 2013
-    short_desc: Un paseo en el tiempo
-  turkey:
-    title: Turquía
-    subtitle: Diciembre 2015
-    short_desc: La Frontera encantadora
-  cambodia-vietnam:
-    title: Camboya & Viet Nam
-    subtitle: 2012-2015
-    short_desc: El alma de las piedras
 cookies:
   title: Cookies
   disclaimer: Usamos cookies de Google Analytics para mejorar la experiencia de usuario

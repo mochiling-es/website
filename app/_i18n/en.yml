@@ -98,58 +98,6 @@ experiences:
     map: Do you want to <i class="fa fa-hand-pointer-o"></i> interact with the map?
     enable: Let's do it!
   share: Share in
-  usa:
-    title: United States
-    subtitle: August 2006
-    short_desc: The beginning of everything.
-  brazil:
-    title: Brazil
-    subtitle: February-April 2008
-    short_desc: One of the most captivating places in the whole planet.
-  south-cone:
-    title: South cone
-    subtitle: March-May 2008
-    short_desc: End of the world beginning of everything.
-  central-africa:
-    title: Central Africa
-    subtitle: October 2011
-    short_desc: The african pureness.
-  australia:
-    title: Australia
-    subtitle: February-May 2011
-    short_desc: Simply Down Under
-  morocco:
-    title: Morocco
-    subtitle: 2012-2015
-    short_desc: My fascinating neighbour
-  thailand:
-    title: Thailand
-    subtitle: 2013-2014-2015
-    short_desc: The mochiling inspiration
-  myanmar:
-    title: Myanmar
-    subtitle: April 2013
-    short_desc: The hidden gem
-  philippines:
-    title: Philippines
-    subtitle: Januray 2013
-    short_desc: The surprising paradise
-  india:
-    title: India
-    subtitle: March 2013
-    short_desc: "Sab kuch munkin he"
-  korea:
-    title: South Korea
-    subtitle: Januray 2013
-    short_desc: A time walk
-  turkey:
-    title: Turkey
-    subtitle: December 2015
-    short_desc: The charming border
-  cambodia-vietnam:
-    title: Cambodia & Viet Nam
-    subtitle: 2012-2015
-    short_desc: The stones soul
 cookies:
   title: Cookies
   disclaimer: We use Google Analytics cookies for improving your user experience
