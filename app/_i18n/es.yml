@@ -12,7 +12,7 @@ proposals:
   title: Propuestas
   subtitle: Nuestras propuestas
   desc: |
-    Queremos que disfrutes de una experiencia Mochiling, es nuestro objetivo, así que estas son nuestras propuestas. 
+    Queremos que disfrutes de una experiencia Mochiling, es nuestro objetivo, así que estas son nuestras propuestas.
     Nada de agencias o grupos de turistas, experiencias impredecibles.
   items:
     1:
@@ -31,7 +31,7 @@ proposals:
     title: Características
     experience:
       title: Experiencia única
-      desc: Una experiencia completamente diferente para tu viaje. Nosotros nos encargamos de todo. 
+      desc: Una experiencia completamente diferente para tu viaje. Nosotros nos encargamos de todo.
     contact:
       title: Contacto
       desc: El contacto diario será a través del email o de Skype. Fácil y directo.
@@ -80,7 +80,7 @@ team:
   follow:
     male: Síguele
     female: Síguela
-  roles: 
+  roles:
     founder: Fundador
     webmaster: Webmaster
     expert: Expert@
