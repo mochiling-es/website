@@ -9,7 +9,7 @@ usa:
   video: https://www.youtube.com/embed/q-wdmp4dhVE
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13256621_290023667996647_224287923_n.jpg
   instagram_tag: 'mochilingusa'
-  mochiling_expert: victor
+  author: victor
 brazil:
   title: brazil.title
   subtitle: brazil.subtitle
@@ -21,7 +21,7 @@ brazil:
   video: https://www.youtube.com/embed/Qhzd1Ltg-Vg
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14026702_1103552289693780_442065359_n.jpg
   instagram_tag: 'mochilingbrazil'
-  mochiling_expert: victor
+  author: victor
 south-cone:
   title: south-cone.title
   subtitle: south-cone.subtitle
@@ -33,7 +33,7 @@ south-cone:
   video: https://www.youtube.com/embed/zldpWTQZQtE
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14295599_129362277522891_4228892660124876800_n.jpg
   instagram_tag: 'mochilingconosur'
-  mochiling_expert: victor
+  author: victor
 central-africa:
   title: central-africa.title
   subtitle: central-africa.subtitle
@@ -45,7 +45,7 @@ central-africa:
   video: https://www.youtube.com/embed/tmJ5H6vD9LU
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13355635_131426397275936_411057511_n.jpg
   instagram_tag: 'mochilingnbz'
-  mochiling_expert: victor
+  author: victor
 australia:
   title: australia.title
   subtitle: australia.subtitle
@@ -57,7 +57,7 @@ australia:
   video: https://www.youtube.com/embed/t6sfvzqf_BQ
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14723705_222211031554204_3214793337567444992_n.jpg
   instagram_tag: 'mochilingaustralia'
-  mochiling_expert: victor
+  author: victor
 morocco:
   title: morocco.title
   subtitle: morocco.subtitle
@@ -69,7 +69,7 @@ morocco:
   video: https://www.youtube.com/embed/yJ2AZO4cz4E
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/s750x750/sh0.08/e35/13671282_859885554144951_376914941_n.jpg
   instagram_tag: 'mochilingmarruecos'
-  mochiling_expert: victor
+  author: victor
 thailand:
   title: thailand.title
   subtitle: thailand.subtitle
@@ -81,7 +81,7 @@ thailand:
   video: https://www.youtube.com/embed/5cyxhM8sBxI
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13320306_114494885639239_1273166573_n.jpg
   instagram_tag: 'mochilingthai'
-  mochiling_expert: victor
+  author: victor
 myanmar:
   title: myanmar.title
   subtitle: myanmar.subtitle
@@ -93,7 +93,7 @@ myanmar:
   video: https://www.youtube.com/embed/q4k29WZZ9hA
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13534348_1174519119270864_936614697_n.jpg
   instagram_tag: 'mochilingmyanmar'
-  mochiling_expert: victor
+  author: victor
 philippines:
   title: philippines.title
   subtitle: philippines.subtitle
@@ -105,7 +105,7 @@ philippines:
   video: https://www.youtube.com/embed/Ma6YLv08KNQ
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14027338_1253232454711546_243157063_n.jpg
   instagram_tag: 'mochilingphillies'
-  mochiling_expert: victor
+  author: victor
 india:
   title: india.title
   subtitle: india.subtitle
@@ -117,7 +117,7 @@ india:
   video: https://www.youtube.com/embed/-lFwqe8oYRs
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/14374230_186242958474634_297428119_n.jpg
   instagram_tag: 'mochilingindia'
-  mochiling_expert: victor
+  author: victor
 korea:
   title: korea.title
   subtitle: korea.subtitle
@@ -129,7 +129,7 @@ korea:
   video: https://www.youtube.com/embed/fe1uL2s-JBk
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13721217_921635134631009_1438431178_n.jpg
   instagram_tag: 'mochilingkorea'
-  mochiling_expert: victor
+  author: victor
 turkey:
   title: turkey.title
   subtitle: turkey.subtitle
@@ -141,7 +141,7 @@ turkey:
   video: https://www.youtube.com/embed/lBf4FbtxTO8
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13722091_499026316949938_2095506267_n.jpg
   instagram_tag: 'mochilingturkey'
-  mochiling_expert: victor
+  author: victor
 cambodia-vietnam:
   title: cambodia-vietnam.title
   subtitle: cambodia-vietnam.subtitle
@@ -153,4 +153,4 @@ cambodia-vietnam:
   video: https://www.youtube.com/embed/0M_Q4PVdY5w
   image: https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/13712517_1738665453055121_153553268_n.jpg
   instagram_tag: 'mochilingvc'
-  mochiling_expert: victor
+  author: victor
