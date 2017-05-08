@@ -17,7 +17,7 @@
         
         <div class="Breadcrumb">
           <ul class="Breadcrumb-inner">
-            <li class="Breadcrumb-item"><a href="{% tl experiences {{lang}} %}" class="Breadcrumb-link">{% t experiences.title %}</a></li>
+            <li class="Breadcrumb-item"><a href="{% tl experiences %}" class="Breadcrumb-link">{% t experiences.title %}</a></li>
             <li class="Breadcrumb-item Breadcrumb-item--separator">></li>
             <li class="Breadcrumb-item">{{ experience_title }}</li>
           </ul>
@@ -29,8 +29,11 @@
             <h2 class="Color--main Text Text--giant Text--strong">{{ experience_title }}</h2>
             <div class="Text Color--paragraph Experience-author">
               {% t by %}
-              <img class="Experience-authorImage" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
-              {{ experience_author.complete_name }}
+              {{ experience_author[0] }}
+              <a href="{% tl {{ experience.author }} %}" class="Experience-authorLink">
+                <img class="Experience-authorImage" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
+                {{ experience_author.complete_name }}
+              </a>
             </div>
           </div>
 
