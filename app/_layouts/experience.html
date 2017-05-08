@@ -1,4 +1,7 @@
 {% assign experience = site.data.experiences[page.namespace] %}
+{% assign experience_title = experience.title[site.lang] %}
+{% assign experience_subtitle = experience.subtitle[site.lang] %}
+{% assign experience_author = site.data.members[experience.author] %}
 
 <!DOCTYPE html>
 <html>
@@ -16,14 +19,19 @@
           <ul class="Breadcrumb-inner">
             <li class="Breadcrumb-item"><a href="{% tl experiences {{lang}} %}" class="Breadcrumb-link">{% t experiences.title %}</a></li>
             <li class="Breadcrumb-item Breadcrumb-item--separator">></li>
-            <li class="Breadcrumb-item"><a href="{% tl {{ page.namespace }} {{ lang }} %}" class="Breadcrumb-link">{% t experiences.{{experience.title}} %}</a></li>
+            <li class="Breadcrumb-item">{{ experience_title }}</li>
           </ul>
         </div>
 
         <div class="Experience-content Block-content">
           <div class="Experience-info u-tSpace--xxl">
-            <h4 class="Color--paragraph Text Text--uppercase Text--med">{% t experiences.{{experience.subtitle}} %}</h4>
-            <h2 class="Color--main Text Text--giant Text--strong">{% t experiences.{{experience.title}} %}</h2>
+            <h4 class="Color--paragraph Text Text--uppercase Text--med">{{ experience_subtitle }}</h4>
+            <h2 class="Color--main Text Text--giant Text--strong">{{ experience_title }}</h2>
+            <div class="Text Color--paragraph Experience-author">
+              {% t by %}
+              <img class="Experience-authorImage" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
+              {{ experience_author.complete_name }}
+            </div>
           </div>
 
           <div class="Experience-text Text Text--large Color--paragraph Paragraph Paragraph--lefty u-tSpace--xxl">
@@ -44,7 +52,7 @@
 
         <div class="Experience-videoWrapper">
           <div class="Block-content">
-            <iframe class="u-tSpace--xxl" src="{{ experience.video }}" frameborder="0" allowfullscreen></iframe>
+            <iframe class="u-tSpace--xxl u-bSpace--xxl" src="{{ experience.video }}" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
       {% endif %}

@@ -13,6 +13,9 @@
   {% endif %}
 {% endfor %}
 
+{% assign title = last_experience[1].title[site.lang] %}
+{% assign short_desc = last_experience[1].short_desc[site.lang] %}
+
 <div class="pure-g Banner Bkg--light">
   <div class="pure-u-1-1 pure-u-sm-1-2 Banner-image">
     <img src="{{ last_experience[1].image }}" class="pure-img" alt="{% t experiences.{{last_experience[1].title}} %}" title="{% t experiences.{{last_experience[1].title}} %}"/>
@@ -20,8 +23,8 @@
   <div class="pure-u-1-1 pure-u-sm-1-2 Banner-info">
     <div class="Banner-infoContent">
       <h4 class="Text Text--small Color--desc Text--uppercase">{% t 'last-experience' %}</h4>
-      <h3 class="Text Text--huge Color--dark Text--strong">{% t experiences.{{last_experience[1].title}} %}</h3>
-      <p class="Text Text--large Color--paragraph u-tSpace--l">{% t experiences.{{last_experience[1].short_desc}} %}</p>
+      <h3 class="Text Text--huge Color--dark Text--strong">{{ title }}</h3>
+      <p class="Text Text--large Color--paragraph u-tSpace--l">{{ short_desc }}.</p>
       <a href="{% tl {{last_experience[0]}} {{site.lang}} %}" class="Button Button--light u-tSpace--l">{% t 'learn-more' %}</a>
     </div>
   </div>

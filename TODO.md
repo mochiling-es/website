@@ -19,5 +19,6 @@ Things to do!
 - [ ] Add key images for members and experiences.
 - [ ] Review experience page.
 - [ ] Add share link in experience and make it work.
+- [ ] Make contact work.
 - [ ] Implement the home page.
 - [ ] Improve deploy (minify html, css and js).
