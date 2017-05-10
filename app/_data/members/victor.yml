@@ -1,0 +1,15 @@
+complete_name:      Victor García
+short_desc:
+  es:               Viajero por herencia
+  en:               Heritage Traveler
+image:              victor.png
+gender:             male
+role:               founder
+languages:          [es, pt, it, gb]
+facebook:           victor.garcia.1272
+twitter:            mochilinges
+instagram:          mochiling.es
+instagram_id:       3286677168
+born_location:      [40.412279, -3.88877]
+visited_countries:  ["Spain", "France", "Italy", "India", "China", "Australia", "Cuba", "Argentina", "Brazil", "Belgium", "Mexico", "Costa Rica", "Korea, Republic of", "Bosnia and Herzegovina", "Germany", "United Kingdom", "Thailand", "Netherlands", "Panama", "Uruguay", "Paraguay", "Chile", "United States", "Cambodia", "Viet Nam", "Malta", "Portugal", "Greece", "Albania", "Serbia", "Croatia", "Switzerland", "Montenegro", "Zimbabwe", "Turkey", "Slovenia", "San Marino", "Philippines", "Namibia", "Burma", "Morocco", "Malaysia", "Macedonia", "Lao People's Democratic Republic", "Jordan", "Indonesia", "Czech Republic", "Canada", "Botswana", "Austria", "Bolivia", "Andorra", "Austria", "Israel", "Egypt"]
+banner:             instagram

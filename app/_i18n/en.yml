@@ -31,7 +31,7 @@ proposals:
     title: Features
     experience:
       title: Unique experience
-      desc: A complete new experience for your trip. We will make all the hard work. 
+      desc: A complete new experience for your trip. We will make all the hard work.
     contact:
       title: Contact
       desc: Daily management will be through mail and/or Skype. Easy and direct.
@@ -80,17 +80,11 @@ team:
   follow:
     male: Follow him
     female: Follow her
-  roles: 
+  roles:
     president: President
     webmaster: Webmaster
     expert: Expert
-  members: 
-    victor: Heritage Traveler
-    daniel: Musician and adventure
-    pau: Gastromaster and dreamer
-    mariaje: Travel freak & dreams organizer
-    jamon: Looking for the marvelous place within the keyboard
-experiences: 
+experiences:
   title: Experiences
   subtitle: Our experiences
   desc: There is no better way to learn what <span class="Color--emphasis">Mochiling</span> can offer than check the places where we have enjoyed. Do you want us to help you to create yours?
