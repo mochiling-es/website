@@ -14,19 +14,19 @@ proposals:
   subtitle: Nuestras propuestas
   desc: |
     Queremos que disfrutes de una experiencia Mochiling, es nuestro objetivo, así que estas son nuestras propuestas.
-    Nada de agencias o grupos de turistas, experiencias impredecibles.
+    Nada de agencias o grupos de turistas, experiencias impredecibles. Aprovéchate para poder contactar con todos los amigos de mochiling alrededor del mundo , y hacer de tu viaje una experiencia única y especial
   items:
     1:
-      title: Explorer
-      desc: ¿Vais a viajar y quieres algún consejo de alguien que ya estuvo allí? Pregunta a los miembros de #teammochiling.
+      title: TippingAround
+      desc: "¿Vais a viajar y quieres algún consejo de alguien que ya estuvo allí? Pregunta a los miembros de #teammochiling."
       sub: ¿Qué es mejor, un taxi o un tuk-tuk?<br/>¿Dónde encontrar al panadero local del pueblo?<br/>Vamos a convertir tu viaje en algo diferente.
     2:
-      title: Boy Scout
-      desc: Quieres viajar pero no quieres montar tu viaje, nosotros lo hacemos por tí.
+      title: TravelAround
+      desc: Te gusta viajar mas tranquilo y con todo mas o menos organizado??…Te montamos TU viaje, a la carta…
       sub: ¿Cúal es ese país que quieres visitar desde pequeño?<br/>Te ayudamos a hacerlo realidad.
     3:
-      title: Voyager
-      desc: ¿Quieres vivir una experiencia Mochiling con uno de nuestros expertos?
+      title: MochilingAround
+      desc: "Decide tu viaje minuto a minuto; sin programas preestablecidos,sin ataduras. Un guia de #teammochiling os acompañara para hacer de vuestro viaje algo completamente UNICO y PERSONAL."
       sub: Puedes decidir tu viaje en cada instante, no hay un programa establecido, será una experiencia totalmente única.
   features:
     title: Características
@@ -85,12 +85,6 @@ team:
     founder: Fundador
     webmaster: Webmaster
     expert: Expert@
-  members:
-    victor: Viajero por herencia
-    daniel: Músico y aventurero
-    pau: Gastromaster y soñador
-    mariaje: Travel freak & organizadora de sueños
-    jamon: Buscando el lugar perfecto entre las teclas
 experiences:
   title: Experiencias
   subtitle: Nuestras experiencias

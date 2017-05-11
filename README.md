@@ -33,5 +33,5 @@ grunt serve
 
 - Do you want to publish it?:
 ```
-grunt publish
+grunt deploy
 ```
