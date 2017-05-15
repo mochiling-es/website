@@ -19,15 +19,19 @@ proposals:
   items:
     1:
       title: TippingAround
-      desc: You know where to go, but just need advice and a great route in order to complete your experience.
+      desc: Are you travelling somewhere and you want any tips from people that already been there??? Ask the #teammochiling members.
+
       sub: What is better, a taxi or a tuk-tuk?<br/>Where to find the local baker?<br/>We will turn your travel in something different.
     2:
       title: TravelAround
-      desc: You want to travel but you don\'t want to plan your trip, we will do it for you.
+      desc: You like to travel more calm and with more or less everything organized??…We make you a tailored trip for you.
+
       sub: Which is that country you want to visit when you were a child?<br/>We help you to make it happen.
     3:
       title: MochilingAround
-      desc: Do you want to live a real Mochiling experience with one of our experts?
+      desc: Decide your trip minute by minute; without pre establish programs, without chains.
+A #teammochiling guide will accompany to make your trip in something completely UNIQUE & PERSONAL.
+
       sub: You can decide your travel at any moment, there is no establish route, a unique experience.
   features:
     title: Features
