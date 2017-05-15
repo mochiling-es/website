@@ -14,18 +14,19 @@ proposals:
   subtitle: Our proposals
   desc: |
     We want to you to enjoy a real Mochiling experience, that’s our goal, so we propose these possibilities.
-    <br/>No agencies, no tourism groups, unpredictible experiences.
+    <br/>No agencies, no tourism groups, unpredictible experiences.The opportunity to be in touch with all our friends from Mochiling,
+    all around the world, to make your trip unique and special…
   items:
     1:
-      title: Explorer
+      title: TippingAround
       desc: You know where to go, but just need advice and a great route in order to complete your experience.
       sub: What is better, a taxi or a tuk-tuk?<br/>Where to find the local baker?<br/>We will turn your travel in something different.
     2:
-      title: Boy Scout
+      title: TravelAround
       desc: You want to travel but you don\'t want to plan your trip, we will do it for you.
       sub: Which is that country you want to visit when you were a child?<br/>We help you to make it happen.
     3:
-      title: Voyager
+      title: MochilingAround
       desc: Do you want to live a real Mochiling experience with one of our experts?
       sub: You can decide your travel at any moment, there is no establish route, a unique experience.
   features:
