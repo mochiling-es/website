@@ -1,12 +1,16 @@
 var L = require('leaflet');
-var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var CountriesJSON = require('../countries.json');
 
 var POLYGON_STYLE = {
   color: '#EFEFEF',
-  weight: 1,
+  weight: 0.7,
+  opacity: 0.45
+};
+var POLYGON_HIGHLIGHTED_STYLE = {
+  color: '#F88B52',
+  weight: 0.8,
   opacity: 0.65
 };
 
@@ -15,6 +19,8 @@ module.exports = Backbone.View.extend({
   initialize: function (opts) {
     if (!opts.experienceCountries) throw new Error('experience countries are needed');
     this._experienceCountries = opts.experienceCountries;
+    this._center = opts.center;
+    this._zoom = opts.zoom;
   },
 
   render: function () {
@@ -27,7 +33,10 @@ module.exports = Backbone.View.extend({
       zoomControl: false,
       touchZoom: false,
       keyboard: false
-    }).setView([43, -3], 7);
+    }).setView(
+      this._center || [43, -3],
+      this._zoom || 7
+    );
 
     var bounds = L.latLngBounds();
 
@@ -36,7 +45,7 @@ module.exports = Backbone.View.extend({
         var countryName = feature.properties.name;
         var belongsToThisExperience = _.contains(this._experienceCountries, countryName);
         if (belongsToThisExperience) {
-          layer.setStyle(POLYGON_STYLE);
+          layer.setStyle(POLYGON_HIGHLIGHTED_STYLE);
           bounds.extend(layer.getBounds());
         } else {
           layer.setStyle(POLYGON_STYLE);
@@ -44,7 +53,9 @@ module.exports = Backbone.View.extend({
       }.bind(this)
     }).addTo(map);
 
-    map.fitBounds(bounds, { maxZoom: 30 });
+    if (!this._center) {
+      map.fitBounds(bounds, { maxZoom: 10 });
+    }
 
     return this;
   }

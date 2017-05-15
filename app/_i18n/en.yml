@@ -93,6 +93,9 @@ experiences:
     map: Do you want to <i class="fa fa-hand-pointer-o"></i> interact with the map?
     enable: Let's do it!
   share: Share in
+  other-experiences:
+    title: other experiences
+    desc: There are more experiences in the same countries. Check them out!
 cookies:
   title: Cookies
   disclaimer: We use Google Analytics cookies for improving your user experience

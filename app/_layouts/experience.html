@@ -12,9 +12,9 @@
 
       <div class="Experience Block u-bSpace--xxl">
         <div class="Experience-map js-map"></div>
-        
+
         {% include header.html %}
-        
+
         <div class="Breadcrumb">
           <ul class="Breadcrumb-inner">
             <li class="Breadcrumb-item"><a href="{% tl experiences %}" class="Breadcrumb-link">{% t experiences.title %}</a></li>
@@ -79,6 +79,8 @@
         </div>
       {% endif %}
 
+      {% include experiences-countries.html experience=page.namespace %}
+
       <div class="Breadcrumb">
         <ul class="Breadcrumb-inner">
           <li class="Breadcrumb-item u-rSpace--xl">{% t experiences.share %}</li>
@@ -95,7 +97,7 @@
           </li>
         </ul>
       </div>
-      
+
       {% include next-experience.html experience=page.namespace %}
       {% include footer.html %}
     </div>
@@ -103,6 +105,8 @@
     {% include analytics.html %}
     <script src="/js/experience.js"></script>
     <script>
+      var zoom = {{ experience.zoom }};
+      var center = {{ experience.center | join: "," | prepend: "[" | append: "]"}};
       var experienceCountries = [
         {% for country in experience.countries %}
           "{{ country }}"

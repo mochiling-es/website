@@ -40,8 +40,7 @@
     <div class="Banner-infoContent">
       <h4 class="Text Text--small Color--desc Text--uppercase">{% t 'next-experience' %}</h4>
       <h3 class="Text Text--huge Color--dark Text--strong">{{ title }}</h3>
-      <div class="Text Color--paragraph Experience-author">
-        {% t by %}
+      <div class="Text Text--med Color--paragraph Experience-author">
         <a href="{% tl {{author}} %}" class="Experience-authorLink">
           <img class="Experience-authorImage" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
           {{ experience_author.complete_name }}

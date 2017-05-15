@@ -13,6 +13,8 @@ $(function () {
 
   var experiencesMapView = new ExperienceMapView({
     el: $('.js-map'),
+    zoom: window.zoom,
+    center: window.center,
     experienceCountries: window.experienceCountries
   });
   experiencesMapView.render();

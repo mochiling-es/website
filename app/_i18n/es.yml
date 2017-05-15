@@ -93,6 +93,9 @@ experiences:
     map: ¿Quieres navegar <i class="fa fa-hand-pointer-o"></i> por el mapa?
     enable: Vamos!
   share: Compartir en
+  other-experiences:
+    title: Otras experiencias
+    desc: Hay más experiencias en los mismos países. ¡Échales un vistazo!
 cookies:
   title: Cookies
   disclaimer: Usamos cookies de Google Analytics para mejorar la experiencia de usuario
