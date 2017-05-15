@@ -10,7 +10,7 @@
     <div class="Canvas js-canvas">
       {% include cookies.html %}
 
-      <div class="Experience Block u-bSpace--xxl">
+      <div class="Experience Block">
         <div class="Experience-map js-map"></div>
 
         {% include header.html %}
@@ -105,8 +105,12 @@
     {% include analytics.html %}
     <script src="/js/experience.js"></script>
     <script>
-      var zoom = {{ experience.zoom }};
-      var center = {{ experience.center | join: "," | prepend: "[" | append: "]"}};
+      {% if experience.zoom %}
+        var zoom = {{ experience.zoom }};
+      {% endif %}
+      {% if experience.center %}
+        var center = {{ experience.center | join: "," | prepend: "[" | append: "]"}};
+      {% endif %}
       var experienceCountries = [
         {% for country in experience.countries %}
           "{{ country }}"

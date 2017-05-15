@@ -2,16 +2,17 @@ var L = require('leaflet');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var CountriesJSON = require('../countries.json');
+var isMobileDevice = require('ismobilejs');
 
 var POLYGON_STYLE = {
   color: '#EFEFEF',
   weight: 0.7,
-  opacity: 0.45
+  opacity: 0.65
 };
 var POLYGON_HIGHLIGHTED_STYLE = {
   color: '#F88B52',
   weight: 0.8,
-  opacity: 0.65
+  opacity: 0.35
 };
 
 module.exports = Backbone.View.extend({
@@ -54,7 +55,12 @@ module.exports = Backbone.View.extend({
     }).addTo(map);
 
     if (!this._center) {
-      map.fitBounds(bounds, { maxZoom: 10 });
+      map.fitBounds(bounds, { maxZoom: 4, animate: false });
+    }
+
+    if (!isMobileDevice.any) {
+      var mapHeight = this.$el.outerHeight();
+      map.panBy([-200, -(mapHeight / 4)]);
     }
 
     return this;
