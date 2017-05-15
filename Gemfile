@@ -7,3 +7,8 @@ group :jekyll_plugins do
   gem 'jekyll-admin'
   gem 'jekyll-multiple-languages-plugin'
 end
+
+group :development do
+  gem 'rake'
+  gem 'highline'
+end

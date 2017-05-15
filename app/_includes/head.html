@@ -1,14 +1,47 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{% if page.translated_title %}{% t page.translated_title %} · {% else %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{% if page.translated_desc %}{% capture description %}{% t page.translated_desc %}{% endcapture %}{{ description | strip_html | strip_newlines }}{% else %}{% t default-description %}{% endif %}" />
+  <title>
+    {% if page.layout == 'experience' %}
+      {% assign title = site.data.experiences[page.namespace].title[site.lang] %}
+      {{ title | strip_html | strip_newlines }}
+    {% elsif page.layout == 'member' %}
+      {% assign title = site.data.members[page.namespace].complete_name %}
+      {{ title | strip_html | strip_newlines }}
+    {% elsif page.translated_title %}
+      {% capture translated_title %}
+        {% t page.translated_title %}
+      {% endcapture %}
+      {{ translated_title | strip_html | strip_newlines }}
+    {% else page.title %}
+      {{ page.title }}
+    {% endif %} ·
+    {{ site.title }}
+  </title>
+  <meta name="description" content="
+    {% if page.layout == 'experience' %}
+      {% assign desc = site.data.experiences[page.namespace].short_desc[site.lang] %}
+      {{ desc | strip_html | strip_newlines }}
+    {% elsif page.layout == 'member' %}
+      {% assign desc = site.data.members[page.namespace].short_desc[site.lang] %}
+      {{ desc | strip_html | strip_newlines }}
+    {% elsif page.translated_desc %}
+      {% capture translated_desc %}
+        {% t page.translated_desc %}
+      {% endcapture %}
+      {{ translated_desc | strip_html | strip_newlines }}
+    {% elsif page.description %}
+      {{ page.description }}
+    {% else %}
+      {% t default-description %}
+    {% endif %}"
+  />
   <meta name="keywords" content="" />
   <meta name="distribution" content="Global">
   <meta name="author" content="xavijam">
   <meta name="detail" content="{{ site.title }}">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  
+
   <link rel="canonical" href="{{ site.url }}">
   <link href="/favicon.ico" rel="icon">
 
