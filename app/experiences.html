@@ -13,10 +13,10 @@ permalink_en:     /experiences/
   <body>
     <div class="Canvas js-canvas">
       {% include cookies.html %}
-      
+
       <div class="Experiences Block">
         <div class="Experiences-map js-map"></div>
-        
+
         <div class="Experiences-mapMobile js-mapMobile">
           <button class="Experiences-mapMobileBack js-mapMobileBack">x</button>
           <div class="Experiences-mapMobileDisclaimer">
@@ -56,11 +56,11 @@ permalink_en:     /experiences/
         clientId: '{{ site.instagramConfig.clientId }}',
         accessToken: '{{ site.instagramConfig.accessToken }}'
       };
+      var language = '{{ site.lang }}';
       var experiences = [
         {% for place in site.data.experiences %}
           {% assign title = place[1].title[site.lang] %}
           {% assign short_desc = place[1].short_desc[site.lang] %}
-
           {
             title: '{{ title }}',
             image: '{{ place[1].image }}',

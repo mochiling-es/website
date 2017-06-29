@@ -70,13 +70,13 @@ module.exports = Backbone.View.extend({
       maxZoom: 6
     }).setView([43, -3], 3, false);
 
-    var hash = new L.Hash(this._map);
+    this._map._hash = new L.Hash(this._map);
 
-    function onEachFeature(feature, layer) {
+    function onEachFeature (feature, layer) {
       var countryName = feature.properties.name;
       var experience = this._belongsToAnyExperience(countryName);
       if (experience) {
-        experiencePolygon(layer, experience);
+        experiencePolygon(layer, this._map, experience, countryName);
       } else {
         layer.setStyle(POLYGON_STYLE);
       }
@@ -96,7 +96,7 @@ module.exports = Backbone.View.extend({
           tagName: 'mochiling',
           template: '',
           success: this._onSuccessPhotos.bind(this),
-          filter: function(image) {
+          filter: function (image) {
             return !!image.location;
           }
         },
@@ -117,9 +117,9 @@ module.exports = Backbone.View.extend({
       var nextPhoto = photos.shift();
       this._addPhoto(nextPhoto);
       if (photos.length) {
-        this._addPhotos(photos);  
+        this._addPhotos(photos);
       }
-    }.bind(this), TIME_BETWEEN_MARKERS_APPEAR)
+    }.bind(this), TIME_BETWEEN_MARKERS_APPEAR);
   },
 
   _addPhoto: function (marker) {
@@ -143,7 +143,7 @@ module.exports = Backbone.View.extend({
     this._$mobile
       .removeClass('in-map in-page')
       .addClass(
-        currentState === 'map'? 'in-map' : 'in-page'
+        currentState === 'map' ? 'in-map' : 'in-page'
       );
 
     if (currentState === 'map') {

@@ -80,6 +80,8 @@
   border-radius: 60px;
 }
 @media (max-width: $mainSize) {
-  width: 100%;
-  height: 280px;
+  .Experience-videoWrapper iframe {
+    width: 100%;
+    height: 280px;
+  }
 }
