@@ -138,14 +138,24 @@ $default-border-radius: 6px;
   }
 }
 
-.Tooltip {
-  position: absolute;
-  font-family: 'Arial';
-  font-weight: normal;
-  font-size: 12px;
-  color: #000;
-  text-shadow: 0 0 0 #FFF;
+.leaflet-tooltip {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  font-family: 'Helvetica', 'Arial', Sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  color: #333;
+  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
   z-index: 10;
+}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-right:before,
+.leaflet-tooltip-left:before {
+  border: 0;
+  border-color: transparent;
 }
 
 @media (max-width: $mainSize + 70) {

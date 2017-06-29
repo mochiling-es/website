@@ -80,6 +80,8 @@ module.exports = Backbone.View.extend({
       } else {
         layer.setStyle(POLYGON_STYLE);
       }
+
+      layer.on('popupopen', this._hideTitle.bind(this));
     }
 
     L.geoJson(CountriesJSON, {
@@ -153,6 +155,10 @@ module.exports = Backbone.View.extend({
     }
 
     this._$title.toggle(currentState === 'page');
+  },
+
+  _hideTitle: function () {
+    this._$title.fadeOut();
   },
 
   _initMobileStuff: function () {

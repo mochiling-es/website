@@ -14,5 +14,17 @@
   "brazil": {
     "en": "Brazil",
     "es": "Brasil"
+  },
+  "australia": {
+    "en": "Australia",
+    "es": "Australia"
+  },
+  "korea, republic of": {
+    "en": "Republic of Korea",
+    "es": "Corea del Sur"
+  },
+  "philippines": {
+    "en": "Philippines",
+    "es": "Filipinas"
   }
 }

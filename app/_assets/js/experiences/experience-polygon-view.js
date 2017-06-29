@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var L = require('leaflet');
-require('leaflet-tooltip');
+// require('leaflet-tooltip');
 var countryNames = require('../countries-i18n.json');
 
 var template = _.template(
@@ -39,45 +39,39 @@ var HIGHLIGHT_HOVER_STYLE = {
 };
 
 module.exports = function (layer, map, experienceData, countryName) {
-  layer.tooltip = new L.tooltip({
-    position: 'top',
-    className: 'Tooltip',
-    noWrap: true,
-    offset: [0, 10]
-  });
-
   var countryLower = countryName.toLowerCase();
   var countryTranslated = countryNames[countryLower] && countryNames[countryLower][window.language];
   var content = countryTranslated || countryName;
 
-  layer.tooltip.setContent(content);
-  layer.setStyle(HIGHLIGHT_STYLE);
-
-  var closeTooltip = function () {
-    layer.tooltip.hide();
-    layer.tooltip.remove();
+  var tooltipOptions = {
+    direction: 'top',
+    permanent: false,
+    sticky: true,
+    offset: [0, 0]
   };
 
+  var bindTooltip = function () {
+    layer.bindTooltip(content, tooltipOptions);
+  };
+
+  var unbindTooltip = function () {
+    layer.unbindTooltip();
+  };
+
+  layer.setStyle(HIGHLIGHT_STYLE);
+
   layer.on('mouseover', function () {
-    layer.tooltip
-      .setLatLng(layer.getCenter())
-      .addTo(map)
-      .show();
     layer.setStyle(HIGHLIGHT_HOVER_STYLE);
   });
 
-  layer.on('mousemove', function (ev) {
-    layer.tooltip.setLatLng(ev.latlng);
-  });
-
   layer.on('mouseout', function () {
-    closeTooltip();
     layer.setStyle(HIGHLIGHT_STYLE);
   });
 
-  layer.on('click', function () {
-    closeTooltip();
-  });
+  layer.on('popupopen', unbindTooltip);
+  layer.on('popupclose', bindTooltip);
+
+  bindTooltip();
 
   layer.bindPopup(
     template({
