@@ -14,7 +14,7 @@ var INSTAGRAM_OPTS = {
   resolution: 'thumbnail',
   get: 'tagged',
   sortBy: 'random',
-  limit: 300
+  limit: 1000
 };
 
 var POLYGON_STYLE = {
@@ -72,16 +72,18 @@ module.exports = Backbone.View.extend({
 
     this._map._hash = new L.Hash(this._map);
 
+    if (!isMobileDevice.any) {
+      this._map.once('popupopen', this._hideTitle.bind(this));
+    }
+
     function onEachFeature (feature, layer) {
       var countryName = feature.properties.name;
-      var experience = this._belongsToAnyExperience(countryName);
-      if (experience) {
-        experiencePolygon(layer, this._map, experience, countryName);
+      var experiences = this._belongsToAnyExperience(countryName);
+      if (experiences.length > 0) {
+        experiencePolygon(layer, this._map, experiences, countryName);
       } else {
         layer.setStyle(POLYGON_STYLE);
       }
-
-      layer.on('popupopen', this._hideTitle.bind(this));
     }
 
     L.geoJson(CountriesJSON, {
@@ -134,7 +136,7 @@ module.exports = Backbone.View.extend({
   },
 
   _belongsToAnyExperience: function (countryName) {
-    return _.find(this._experiences, function (experience) {
+    return _.filter(this._experiences, function (experience) {
       return _.contains(experience.countries, countryName);
     });
   },

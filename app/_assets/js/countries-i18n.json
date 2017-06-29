@@ -26,5 +26,53 @@
   "philippines": {
     "en": "Philippines",
     "es": "Filipinas"
+  },
+  "india": {
+    "en": "India",
+    "es": "India"
+  },
+  "viet nam": {
+    "en": "Viet Nam",
+    "es": "Vietnam"
+  },
+  "thailand": {
+    "en": "Thailand",
+    "es": "Tailandia"
+  },
+  "cambodia": {
+    "en": "Cambodia",
+    "es": "Camboya"
+  },
+  "burma": {
+    "en": "Myanmar",
+    "es": "Myanmar"
+  },
+  "zimbabwe": {
+    "en": "Zimbabwe",
+    "es": "Zimbabue"
+  },
+  "namibia": {
+    "en": "Namibia",
+    "es": "Namibia"
+  },
+  "botswana": {
+    "en": "Botswana",
+    "es": "Botsuana"
+  },
+  "uruguay": {
+    "en": "Uruguay",
+    "es": "Uruguay"
+  },
+  "argentina": {
+    "en": "Argentina",
+    "es": "Argentina"
+  },
+  "bolivia": {
+    "en": "Bolivia",
+    "es": "Bolivia"
+  },
+  "chile": {
+    "en": "Chile",
+    "es": "Chile"
   }
 }

@@ -8,9 +8,6 @@ var template = _.template(
         '<img src="<%- imageUrl %>" alt="<%- title %>" title="<%- title %>" />' +
       '</a>' +
     '</div>' +
-    '<div class="Popup-info Text Text--med Color--secondary">' +
-      '<%- location %>' +
-    '</div>' +
   '</div>'
 );
 
@@ -37,7 +34,7 @@ module.exports = function (marker) {
   var location = marker.location.name;
   var imageUrl = marker.images.thumbnail.url;
   var imageLink = marker.link;
-  var circleMarker = new L.circleMarker(latlng, CIRCLE_STYLE);
+  var circleMarker = new L.CircleMarker(latlng, CIRCLE_STYLE);
 
   circleMarker.on('mouseover', function () {
     this.setStyle(CIRCLE_HOVER_STYLE);
@@ -46,7 +43,7 @@ module.exports = function (marker) {
   circleMarker.on('mouseout', function () {
     this.setStyle(CIRCLE_STYLE);
   });
-  
+
   circleMarker.bindPopup(
     template({
       imageLink: imageLink,
@@ -56,4 +53,4 @@ module.exports = function (marker) {
     })
   );
   return circleMarker;
-}
+};
