@@ -57,6 +57,23 @@
   margin-left: -15px;
   margin-top: -15px;
 }
+.Experience-other {
+  background: #535765;
+  box-shadow: inset 0 20px 10px rgba(#000, 0.05), inset 0 -20px 10px rgba(#000, 0.05);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 400%;
+    height: 500%;
+    background: url('/img/backpacks.png') repeat 0 0;
+    transform: rotate(30deg);
+    opacity: 0.3;
+    z-index: 0;
+  }
+}
 .Experience-otherList {
   display: flex;
   justify-content: center;
@@ -78,6 +95,8 @@
   width: 60px;
   height: 60px;
   border-radius: 60px;
+  border: 1px solid #DDD;
+  box-shadow: 0 0 1px #333;
 }
 @media (max-width: $mainSize) {
   .Experience-videoWrapper iframe {

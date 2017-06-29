@@ -14,14 +14,8 @@
 {% assign experiences = experiences | split: ',' %}
 
 {% if experiences.size > 0 %}
-<div class="Breadcrumb">
-  <ul class="Breadcrumb-inner">
-    <li class="Breadcrumb-item u-rSpace--xl">
-      {% t experiences.other-experiences.title %}
-    </li>
-  </ul>
-</div>
-<div class="Banner Bkg--others">
+<div class="Breadcrumb"></div>
+<div class="Banner Experience-other">
   <div class="Block-content Paragraph Paragraph--centered u-tSpace--xxl">
     <h4 class="Text Text--big Text--strong Color--lightParagraph">{% t experiences.other-experiences.desc %}</h4>
     <ul class="Experience-otherList u-tSpace--xl">

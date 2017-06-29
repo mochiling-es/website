@@ -15,10 +15,11 @@ Things to do!
 - [x] Implement the terms and conditions page.
 - [x] Finish next-experience block.
 - [x] Add meta tags for each page.
+- [x] Add key images for members and experiences.
+- [x] Review experience page.
+- [ ] Implement the home page.
+- [ ] Implement 404 page.
+- [ ] Improve deploy (minify html, css and js).
 - [ ] Translate cookies page to EN.
-- [ ] Add key images for members and experiences.
-- [ ] Review experience page.
 - [ ] Add share link in experience and make it work.
 - [ ] Make contact work.
-- [ ] Implement the home page.
-- [ ] Improve deploy (minify html, css and js).
