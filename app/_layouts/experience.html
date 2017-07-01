@@ -2,6 +2,7 @@
 {% assign experience_title = experience.title[site.lang] %}
 {% assign experience_subtitle = experience.subtitle[site.lang] %}
 {% assign experience_author = site.data.members[experience.author] %}
+{% assign experience_url = site.url | append: page.url | cgi_escape %}
 
 <!DOCTYPE html>
 <html>
@@ -85,13 +86,12 @@
         <ul class="Breadcrumb-inner">
           <li class="Breadcrumb-item u-rSpace--xl">{% t experiences.share %}</li>
           <li class="Breadcrumb-item u-rSpace--xl">
-            <a href="http://www.facebook.com/sharer.php?u={{ site.url | append: page.url | cgi_escape }}" target="_blank" class="Breadcrumb-link">
+            <a href="http://www.facebook.com/sharer.php?u={{ experience_url }}" target="_blank" class="Breadcrumb-link">
               <i class="fa fa-facebook u-rSpace"></i>Facebook
             </a>
           </li>
           <li class="Breadcrumb-item u-rSpace--xl">
-            {% capture title %}{% t experiences.{{experience.title}} %}{% endcapture %}
-            <a href="https://twitter.com/intent/tweet?text=&url={{ title | strip | escape }}&via=Mochiling.es" target="_blank" class="Breadcrumb-link">
+            <a href="https://twitter.com/intent/tweet?text={{ experience_title | strip | escape }}&url={{ experience_url }}&via=Mochiling.es" target="_blank" class="Breadcrumb-link">
               <i class="fa fa-twitter u-rSpace"></i>Twitter
             </a>
           </li>

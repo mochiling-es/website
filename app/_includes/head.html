@@ -1,46 +1,65 @@
+{% if page.layout == 'experience' %}
+  {% assign title = site.data.experiences[page.namespace].title[site.lang] | strip_html | strip_newlines %}
+{% elsif page.layout == 'member' %}
+  {% assign title = site.data.members[page.namespace].complete_name | strip_html | strip_newlines %}
+{% elsif page.translated_title %}
+  {% capture translated_title %}
+    {% t page.translated_title %}
+  {% endcapture %}
+  {% assign title = translated_title | strip_html | strip_newlines %}
+{% else page.title %}
+  {% assign title = page.title %}
+{% endif %}
+
+{% if page.layout == 'experience' %}
+  {% assign desc = site.data.experiences[page.namespace].short_desc[site.lang] | strip_html | strip_newlines %}
+{% elsif page.layout == 'member' %}
+  {% assign desc = site.data.members[page.namespace].short_desc[site.lang] | strip_html | strip_newlines %}
+{% elsif page.translated_desc %}
+  {% capture translated_desc %}
+    {% t page.translated_desc %}
+  {% endcapture %}
+  {% assign desc = translated_desc | strip_html | strip_newlines %}
+{% elsif page.description %}
+  {% assign desc = page.description %}
+{% else %}
+  {% capture translated_desc %}
+    {% t default-description %}
+  {% endcapture %}
+  {% assign desc = translated_desc %}
+{% endif %}
+
+{% assign url = site.url | append: page.url %}
+
+{% if page.layout == 'experience' %}
+  {% assign image = site.data.experiences[page.namespace].image %}
+{% endif %}
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-    {% if page.layout == 'experience' %}
-      {% assign title = site.data.experiences[page.namespace].title[site.lang] %}
-      {{ title | strip_html | strip_newlines }}
-    {% elsif page.layout == 'member' %}
-      {% assign title = site.data.members[page.namespace].complete_name %}
-      {{ title | strip_html | strip_newlines }}
-    {% elsif page.translated_title %}
-      {% capture translated_title %}
-        {% t page.translated_title %}
-      {% endcapture %}
-      {{ translated_title | strip_html | strip_newlines }}
-    {% else page.title %}
-      {{ page.title }}
-    {% endif %} ·
-    {{ site.title }}
-  </title>
-  <meta name="description" content="
-    {% if page.layout == 'experience' %}
-      {% assign desc = site.data.experiences[page.namespace].short_desc[site.lang] %}
-      {{ desc | strip_html | strip_newlines }}
-    {% elsif page.layout == 'member' %}
-      {% assign desc = site.data.members[page.namespace].short_desc[site.lang] %}
-      {{ desc | strip_html | strip_newlines }}
-    {% elsif page.translated_desc %}
-      {% capture translated_desc %}
-        {% t page.translated_desc %}
-      {% endcapture %}
-      {{ translated_desc | strip_html | strip_newlines }}
-    {% elsif page.description %}
-      {{ page.description }}
-    {% else %}
-      {% t default-description %}
-    {% endif %}"
-  />
-  <meta name="keywords" content="" />
+  <title>{{ title }} · {{ site.title }}</title>
+  <meta name="description" content="{{ desc }}"/>
+  <meta name="keywords" content="{{ site.keywords }},{{ title }}" />
   <meta name="distribution" content="Global">
-  <meta name="author" content="xavijam">
+  <meta name="author" content="{{ site.title }}">
   <meta name="detail" content="{{ site.title }}">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta property="og:title" content="{{ site.title }}" />
+  <meta property="og:site_name" content="{{ title }}" />
+  <meta property="og:description" content="{{ title }} - {{ desc }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ url }}" />
+  <meta property="og:image" content="{{ image }}">
+  <meta property="fb:app_id" content="" />
+  <meta property="fb:admins" content="" />
+  <meta property="article:publisher" content="https://www.facebook.com/mochiling.es" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mochilinges">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ desc }}">
+  <meta name="twitter:image" content="{{ image }}">
 
   <link rel="canonical" href="{{ site.url }}">
   <link href="/favicon.ico" rel="icon">

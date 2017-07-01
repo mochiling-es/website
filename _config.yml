@@ -1,6 +1,7 @@
 title: Mochiling
-email: xavijam@gmail.com
+email: mochiling.es@gmail.com
 baseurl: ""
+keywords: "mochiling,backpack,backpacking,aventura,viaje diferente,mochileo,explorar"
 url: "http://mochiling.es"
 languages: ["es", "en"]
 exclude_from_localizations: ["img", "_assets"]

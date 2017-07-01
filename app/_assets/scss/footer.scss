@@ -3,9 +3,25 @@
 // Footer styles
 
 .Footer {
+  position: relative;
   background: #333;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -50%;
+    width: 400%;
+    height: 600%;
+    background: url('/img/backpacks.png') repeat 0 0;
+    transform: rotate(15deg);
+    opacity: 0.15;
+    z-index: 1;
+  }
 }
 .Footer-inner {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,8 +30,10 @@
   margin: 0 auto;
   padding: 40px 0;
   text-align: center;
+  z-index: 2;
 }
 .Footer-navList {
+  position: relative;
   display: flex;
   justify-content: center;
   padding: 0 30px;
@@ -31,5 +49,5 @@
 @media (max-width: $mainSize) {
   .Footer-navigationLinks {
     display: none;
-  } 
+  }
 }

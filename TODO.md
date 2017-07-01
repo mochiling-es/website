@@ -19,7 +19,7 @@ Things to do!
 - [x] Review experience page.
 - [x] Translate cookies page to EN.
 - [x] Improve deploy (minify html, css and js).
-- [ ] Add share link in experience and make it work.
-- [ ] Implement the home page.
+- [x] Add share link in experience and make it work.
 - [ ] Implement 404 page.
+- [ ] Implement the home page.
 - [ ] Make contact work.

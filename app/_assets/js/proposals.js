@@ -24,7 +24,7 @@ $(function () {
       proposalNumber = 1;
     }
     var proposal = proposals[proposalNumber - 1];
-    
+
     // On proposal click, we have to change
     // - proposal selected
     $('.js-navItem').removeClass('is-selected');
@@ -46,10 +46,10 @@ $(function () {
     // Initiate the router
   var AppRouter = Backbone.Router.extend({
     routes: {
-      "*proposal": setRoute
+      '*proposal': setRoute
     }
   });
 
-  var router = new AppRouter();
+  window.router = new AppRouter();
   Backbone.history.start();
 });
