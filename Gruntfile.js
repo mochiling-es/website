@@ -243,13 +243,20 @@ module.exports = function (grunt) {
     concat: {},
     // Usemin adds files to uglify
     uglify: {
-      // options: {
-      //   banner: '/*! Grunt Uglify <%= grunt.template.today("yyyy-mm-dd") %> */ '
-      // },
-      // build: {
-      //   src: 'bundle.js',
-      //   dest: 'bundle.min.js'
-      // }
+      options: {
+        compress: {
+          drop_console: true
+        },
+        banner: '/*! Mochiling JS uglified <%= grunt.template.today("yyyy-mm-dd") %> */ '
+      },
+      build: {
+        files: [{
+          expand: true,
+          cwd: '<%= app.dist %>/js',
+          src: '**/*.js',
+          dest: '<%= app.dist %>/js'
+        }]
+      }
     },
     // Usemin adds files to cssmin
     cssmin: {
