@@ -17,9 +17,9 @@ Things to do!
 - [x] Add meta tags for each page.
 - [x] Add key images for members and experiences.
 - [x] Review experience page.
+- [x] Translate cookies page to EN.
 - [ ] Implement the home page.
 - [ ] Implement 404 page.
 - [ ] Improve deploy (minify html, css and js).
-- [ ] Translate cookies page to EN.
 - [ ] Add share link in experience and make it work.
 - [ ] Make contact work.

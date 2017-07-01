@@ -449,20 +449,20 @@ module.exports = function (grunt) {
     'autoprefixer:dist',
     'cssmin',
     'browserify:dist',
-    // 'uglify',
+    'uglify',
     'imagemin',
     'svgmin',
     'filerev',
     'usemin',
     'htmlmin'
-    ]);
+  ]);
 
   grunt.registerTask('deploy', [
     // 'check',
     // 'test',
     'build',
     'buildcontrol:pages'
-    ]);
+  ]);
 
   grunt.registerTask('default', [
     'check',
