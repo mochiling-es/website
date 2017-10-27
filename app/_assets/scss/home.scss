@@ -8,9 +8,15 @@
   text-align: center;
 }
 .Home-logo {
+  position: relative;
+  display: inline-block;
   margin: 0;
   padding: 0;
-  fill: $mainColor;
+}
+.Home-logoSub {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
 }
 .Home-share {
   display: flex;

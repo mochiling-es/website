@@ -25,9 +25,11 @@ permalink_en: /
         </div>
 
         <div class="Block-content Home-content js-title">
-          <h1 class="Home-logo">{% include logo.html width="40px" height="45px" %}</h1>
-          <h2 class="Text Text--big Text--strong Color--emphasis">{{ site.title }}</h2>
-          <p class="Text Text--large Color--paragraph u-tSpace--m">{% t home.desc %}</p>
+          <h1 class="Home-logo">
+            {% include logo.html width="260" height="58" %}
+            <span class="Home-logoSub Text Text--strong Text--med Color--emphasis">{% t subtitle %}</span>
+          </h1>
+          <p class="Text Text--large Color--paragraph u-tSpace--l">{% t home.desc %}</p>
           <ul class="Home-share u-tSpace--m">
             {% for social in site.social %}
               <li>

@@ -1,12 +1,17 @@
 {% assign site_lang = site.lang | append: "/" %}
 {% assign current_page = page.url | strip %}
 
-<header class="Header {{ include.theme }}">
+<header class="Header {% if include.theme == 'light'  %} Header--light {% endif %}">
   <div class="Header-child">
     <h1>
       <a class="Header-logo" href="/">
-        <span class="Header-logoObj u-rSpace--m">{% include logo.html width="40px" height="41px" %}</span>
-        <span class="Text Text--med Text--strong Text--uppercase Color--emphasis">{{ site.title }}.</span>
+        <span class="Header-logoObj u-rSpace--m">
+          {% if include.theme == 'light'  %}
+            {% include logo2.html width="130" height="28" %}
+          {% else %}
+            {% include logo.html width="130" height="28" %}
+          {% endif %}
+        </span>
       </a>
     </h1>
   </div>
