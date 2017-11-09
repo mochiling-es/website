@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
+var SimpleBar = require('SimpleBar');
 var DefaultMapView = require('./components/default-map-view');
 var ResponsiveHeaderHelper = require('./components/responsive-header');
 var CookiesView = require('./components/cookies-view');
@@ -42,6 +43,10 @@ $(function () {
       $('.js-feature-' + feature).removeClass('is-disabled');
     });
   };
+
+  if ($('.js-itemsList').length > 0) {
+    new SimpleBar($('.js-itemsList')[0]); 
+  }
 
     // Initiate the router
   var AppRouter = Backbone.Router.extend({

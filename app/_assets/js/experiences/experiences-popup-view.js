@@ -9,7 +9,6 @@ var arrowsTemplate = _.template(
   '</button>'
 );
 var contentTemplate = _.template(
-  '<div class="Popup js-popup Popup--vertical">' +
     '<% if (experienceLink) { %>' +
       '<a href="<%- experienceLink %>">' +
     '<% } else { %>' +
@@ -27,8 +26,7 @@ var contentTemplate = _.template(
       '</a>' +
     '<% } else { %>' +
       '</div>' +
-    '<% } %>' +
-  '</div>'
+    '<% } %>'
 );
 
 module.exports = Backbone.View.extend({
@@ -37,6 +35,8 @@ module.exports = Backbone.View.extend({
     'click .js-left': '_goLeft',
     'click .js-right': '_goRight'
   },
+
+  className: 'Popup js-popup Popup--vertical',
 
   initialize: function (opts) {
     if (!opts || !opts.experiencesData) throw new Error('experiencesData is needed');

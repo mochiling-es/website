@@ -1,6 +1,6 @@
 {% assign lately_experiences =  site.data.experiences | date_sort | reverse %}
 <div class="Banner Bkg--light">
-  <div class="Banner-wrapper">
+  <div class="Banner-wrapper js-itemsList">
     <ul class="Banner-list">
     {% for experiencee in lately_experiences limit:10 %}
       {% assign title = experiencee.title[site.lang] %}

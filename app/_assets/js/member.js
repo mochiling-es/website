@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var SimpleBar = require('SimpleBar');
 var MemberMapView = require('./member/member-map-view');
 var MemberInstagramView = require('./member/member-instagram-view');
 var ResponsiveHeaderHelper = require('./components/responsive-header');
@@ -25,6 +26,10 @@ $(function () {
   });
 
   memberMap.render();
+
+  if ($('.js-itemsList').length > 0) {
+    new SimpleBar($('.js-itemsList')[0]); 
+  }
 
   if (instagramId && $('#instafeed').length) {
     var memberInstagram = new MemberInstagramView({

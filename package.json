@@ -41,7 +41,7 @@
     "jit-grunt": "~0.10.0",
     "jquery": "^3.1.1",
     "jshint-stylish": "~2.2.1",
-    "leaflet": "^1.0.3",
+    "leaflet": "^1.2.0",
     "leaflet-hash": "0.2.1",
     "load-grunt-tasks": "~3.5.2",
     "time-grunt": "~1.0.0",
@@ -52,6 +52,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "local-storage": "^1.4.2"
+    "local-storage": "^1.4.2",
+    "simplebar": "^2.5.0"
   }
 }
