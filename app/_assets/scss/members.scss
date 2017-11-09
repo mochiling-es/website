@@ -25,7 +25,10 @@ $border-color: #EEE;
 .Members-list {
   width: 100%;
   max-width: $mainSize + 180px;
-  margin: 30px auto 80px;
+  margin: 100px auto 80px;
+}
+.Members-list--centered {
+  justify-content: center;
 }
 .Members-list .l-box {
   margin: 10px;
@@ -35,6 +38,7 @@ $border-color: #EEE;
   padding: 20px;
   background: white;
   box-shadow: 0 0 25px 1px rgba(black, 0.1);
+  border-radius: 3px;
 }
 .Members-itemImage {
   position: relative;
@@ -60,37 +64,35 @@ $border-color: #EEE;
   right: -19px;
   bottom: 50%;
   background: rgba($border-color, 0.45);
+  border-radius: 3px 3px 0 0;
   z-index: 0;
 }
 .Members-itemInfo {
   display: block;
-  text-align: left;
+  text-align: center;
   padding: 0;
 }
 .Members-itemFooter {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid $border-color;
-  text-align: left;
-  margin-top: 20px;
+  display: block;
+  text-align: center;
+  margin-top: 15px;
   padding-top: 10px;
 }
 .Members-itemTitle {
   font-weight: bold;
-  font-family: 'Lato';
-  text-transform: uppercase;
+  font-size: 18px;
+  text-decoration: none;
 }
 .Members-itemDesc {
+  margin-top: 20px;
   font-size: 14px;
   font-family: 'Lato';
   line-height: 22px;
   color: #666666;
 }
 .Members-itemRole {
-  flex: 10;
-  color: #999;
+  margin-top: 3px;
+  color: #AAA;
   text-transform: capitalize;
   font-size: 14px;
 }

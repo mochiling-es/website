@@ -1,51 +1,38 @@
 @import 'vars';
 
-// Member styles
+// Banner styles
 
 .Banner {
   position: relative;
+  width: 100%;
+  min-height: 420px;
+  text-align: left;
   overflow: hidden;
 }
-.Banner-logo {
-  position: relative;
+.Banner-wrapper {
+  width: 120%;
+}
+.Banner-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-}
-.Banner-image img {
-  max-height: 600px;
-}
-.Banner-logo .instagram-logo {
-  transform: scale(0.6);
-  font-size: 80px;
-}
-.Banner-social {
-  margin: 0 auto;
-  padding: 70px 25px 0;
-  max-width: 750px;
-  width: 100%;
-  min-width: 300px;
-  box-sizing: border-box;
+  justify-content: first;
 }
 .Banner-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 375px;
-  margin: 0 auto;
-  padding: 40px;
-  text-align: left;
-  z-index: 1;
+  position: relative;
+  width: auto;
+  height: 420px;
+  max-height: 420px;
+  overflow: hidden;
 }
-
-@media (max-width: 567px) {
-  .Banner-logo {
-    display: none;
-  }
+.Banner-infoImage {
+  width: auto;
+  height: 420px;
 }
-@media all and (min-width: $mainSize) {
-  .Banner-info {
-    padding: 40px 0;
-  }
+.Banner-infoContent {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+.Banner-infoContentShadow {
+  $shadow: rgba(#000, 0.4);
+  text-shadow: 2px 2px 2px $shadow, 2px -2px 2px $shadow, -2px 2px 2px $shadow;
 }

@@ -28,14 +28,12 @@
 }
 .Color--link {
   color: rgba($mainColor, 0.75);
-  text-decoration: underline;
   &:hover {
     color: $mainColor;
   }
 }
 .Color--linkSecondary {
   color: #AAA;
-  text-decoration: none;
   &:hover {
     color: #555555;
   }

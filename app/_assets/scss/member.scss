@@ -40,24 +40,6 @@
 .Member-text > p {
   margin: 20px 0;
 }
-.Member-instagram {
-  position: relative;
-  min-height: 250px;
-}
-.Member-instagram img {
-  position: relative;
-  background: rgba(black, 0.05);
-  max-height: 600px;
-  z-index: 2;
-}
-.Member-instagramImageInfo {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  background: rgba(black, 0.6);
-  z-index: 3;
-}
 .Member-instagramLoader {
   position: absolute;
   top: 50%;

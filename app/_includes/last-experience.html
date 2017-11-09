@@ -1,40 +1,41 @@
-{% assign last_experience = '' %}
+{% assign lately_experiences =  site.data.experiences | date_sort | reverse %}
+<div class="Banner Bkg--light">
+  <div class="Banner-wrapper">
+    <ul class="Banner-list">
+    {% for experiencee in lately_experiences limit:10 %}
+      {% assign title = experiencee.title[site.lang] %}
+      {% assign short_desc = experiencee.short_desc[site.lang] %}
+      {% assign author = experiencee.author %}
+      {% assign image = experiencee.image %}
+      {% assign experiencee_author = site.data.members[author] %}
 
-{% for experience in site.data.experiences %}
-  {% if last_experience == '' %}
-    {% assign last_experience = experience %}
-  {% endif %}
+      {% capture experience_index %}
+        {{experiencee.title.en | downcase }}-{{author}}
+      {% endcapture %}
 
-  {% capture lastunix %}{{last_experience[1].date_end | date: '%s'}}{% endcapture %}
-  {% capture currentunix %}{{experience[1].date_end | date: '%s'}}{% endcapture %}
-
-  {% if lastunix < currentunix %}
-    {% assign last_experience = experience %}
-  {% endif %}
-{% endfor %}
-
-{% assign title = last_experience[1].title[site.lang] %}
-{% assign short_desc = last_experience[1].short_desc[site.lang] %}
-{% assign author = last_experience[1].author %}
-{% assign experience_author = site.data.members[author] %}
-
-<div class="pure-g Banner Bkg--light">
-  <div class="pure-u-1-1 pure-u-sm-1-2 Banner-image">
-    <img src="{{ last_experience[1].image }}" class="pure-img" alt="{% t experiences.{{last_experience[1].title}} %}" title="{% t experiences.{{last_experience[1].title}} %}"/>
-  </div>
-  <div class="pure-u-1-1 pure-u-sm-1-2 Banner-info">
-    <div class="Banner-infoContent">
-      <h4 class="Text Text--small Color--desc Text--uppercase">{% t 'last-experience' %}</h4>
-      <h3 class="Text Text--huge Color--dark Text--strong">{{ title }}</h3>
-      <div class="Text Color--paragraph Experience-author">
-        {% t by %}
-        <a href="{% tl {{author}} %}" class="Experience-authorLink">
-          <img class="Experience-authorImage" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
-          {{ experience_author.complete_name }}
-        </a>
-      </div>
-      <p class="Text Text--large Color--paragraph u-tSpace--l">{{ short_desc }}.</p>
-      <a href="{% tl {{last_experience[0]}} {{site.lang}} %}" class="Button Button--light u-tSpace--l">{% t 'learn-more' %}</a>
-    </div>
+      {% if experiencee.title %}
+        <li class="Banner-listItem">
+          <div class="Banner-info">
+            <a href="{% tl {{experience_index}} {{site.lang}} %}">
+              <img src="{{ image }}" class="Banner-infoImage" alt="{{ title }}" title="{{ title }}"/>
+            </a>
+            <div class="Banner-infoContent">
+              <h3 class="Banner-infoContentShadow Text Text--huge Color--light Text--strong">
+                <a href="{% tl {{experience_index}} {{site.lang}} %}">{{ title }}</a>
+              </h3>
+              <div class="Text Color--paragraph Experience-author">
+                <a href="{% tl {{author}} %}" class="Experience-authorLink Color--light Banner-infoContentShadow">
+                  <img class="Experience-authorImage" src="/img/members/{{ experiencee_author.image }}" title="{{ experiencee_author.complete_name }}" alt="{{ experiencee_author.complete_name }}" />
+                  {{ experiencee_author.complete_name }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
   </div>
 </div>
+
+

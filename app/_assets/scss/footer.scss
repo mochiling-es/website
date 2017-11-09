@@ -4,27 +4,13 @@
 
 .Footer {
   position: relative;
-  background: #333;
-  overflow: hidden;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    left: -50%;
-    width: 400%;
-    height: 600%;
-    background: url('/img/backpacks.png') repeat 0 0;
-    transform: rotate(15deg);
-    opacity: 0.15;
-    z-index: 1;
-  }
 }
 .Footer-inner {
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: $mainSize;
   margin: 0 auto;
@@ -40,14 +26,5 @@
   list-style: none;
 }
 .Footer-navListItem {
-  padding: 0 20px;
-}
-.Footer-navListItem--social {
-  margin-right: 3px;
-}
-
-@media (max-width: $mainSize) {
-  .Footer-navigationLinks {
-    display: none;
-  }
+  padding: 0 0 0 10px;
 }

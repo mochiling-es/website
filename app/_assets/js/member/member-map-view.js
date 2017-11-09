@@ -33,6 +33,7 @@ module.exports = Backbone.View.extend({
   render: function () {
     this._map = L.map(this.el, {
       doubleClickZoom: false,
+      preferCanvas: true,
       boxZoom: false,
       dragging: false,
       attributionControl: false,

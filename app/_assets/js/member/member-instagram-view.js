@@ -5,19 +5,21 @@ var Instafeed = require('instafeed.js');
 var INSTAGRAM_OPTS = {
   resolution: 'standard_resolution',
   get: 'user',
-  limit: 1
+  limit: 8
 };
 
 var IMAGE_TEMPLATE = '' +
-  '<a href="{{link}}" target="_blank">' +
-    '<img class="pure-img" title="{{caption}}" alt="{{caption}}" src="{{image}}" />' +
-    '<div class="Member-instagramImageInfo Text Text--med Text--strong Color--light">' +
-      '<i class="fa fa-map-marker u-lSpace--m u-rSpace"></i>' +
-      '{{location}}' +
-      '<i class="fa fa-heart u-lSpace--m u-rSpace"></i>' +
-      '{{likes}}' +
-      '<i class="fa fa-comment u-lSpace--m u-rSpace"></i>' +
-      '{{comments}}' +
+  '<a href="{{link}}" target="_blank" class="Banner-listItem">' +
+    '<div class="Banner-info">' +
+      '<img class="Banner-infoImage" title="{{caption}}" alt="{{caption}}" src="{{image}}" />' +
+      '<div class="Banner-infoContent Banner-infoContentShadow Text Text--med Text--strong Color--light">' +
+        '<i class="fa fa-map-marker u-lSpace--m u-rSpace"></i>' +
+        '{{location}}' +
+        '<i class="fa fa-heart u-lSpace--m u-rSpace"></i>' +
+        '{{likes}}' +
+        '<i class="fa fa-comment u-lSpace--m u-rSpace"></i>' +
+        '{{comments}}' +
+      '</div>' +
     '</div>' +
   '</a>';
 

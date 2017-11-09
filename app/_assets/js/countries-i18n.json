@@ -74,5 +74,13 @@
   "chile": {
     "en": "Chile",
     "es": "Chile"
+  },
+  "new zealand": {
+    "en": "New Zealand",
+    "es": "Nueva Zelanda"
+  },
+  "fiji": {
+    "en": "Fiji",
+    "es": "Fidji"
   }
 }
