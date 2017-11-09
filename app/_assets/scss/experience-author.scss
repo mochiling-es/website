@@ -1,0 +1,18 @@
+
+// Experience author styles
+
+.Experience-author,
+.Experience-authorLink {
+  $shadow: rgba(#000, 0.6);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-shadow: 2px 2px 2px $shadow, 2px -2px 2px $shadow, -2px 2px 2px $shadow;
+  color: #FFFFFF;
+}
+.Experience-authorImage {
+  height: 24px;
+  margin: 0 7px 0 0;
+  border: 1px solid rgba(#000, 0.2);
+  border-radius: 100%;
+}

@@ -9,7 +9,7 @@ var INSTAGRAM_OPTS = {
   accessToken: '9841730.ba4c844.3ce456308101453787eb5443d358c259',
   resolution: 'low_resolution',
   get: 'tagged',
-  limit: 20
+  limit: 30
 };
 var IMAGE_TEMPLATE = '' +
   '<div class="cell" alt="{{caption}}" title="{{caption}}" style="width: {{width}}px; height: {{height}}px; background: url({{image}}) no-repeat;">' +
@@ -53,7 +53,6 @@ module.exports = Backbone.View.extend({
     wall.reset({
       selector: '.cell',
       animate: true,
-      cellW: 306,
       fixSize: 0,
       onResize: fitOnResize
     });

@@ -39,6 +39,10 @@
 .Text--italic {
   font-style: italic;
 }
+.Text--withShadow {
+  $shadow: rgba(#000, 0.4);
+  text-shadow: 2px 2px 2px $shadow, 2px -2px 2px $shadow, -2px 2px 2px $shadow;
+}
 
 @media (max-width: $mainSize) {
   .Text--giant {
