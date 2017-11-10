@@ -19,8 +19,8 @@
             <a href="{% tl {{experience_index}} {{site.lang}} %}">
               <img src="{{ image }}" class="Banner-infoImage" alt="{{ title }}" title="{{ title }}"/>
             </a>
-            <div class="Banner-infoContent">
-              <h3 class="Text Text--withShadow Text--huge Color--light Text--strong">
+            <div class="Banner-infoContent Text Text--withShadow Color--light">
+              <h3 class="Text--huge Text--strong">
                 <a href="{% tl {{experience_index}} {{site.lang}} %}">{{ title }}</a>
               </h3>
               <div class="Text Text--med Experience-author">
@@ -29,6 +29,7 @@
                   {{ experiencee_author.complete_name }}
                 </a>
               </div>
+              <p class="Text--large u-tSpace--l">{{ short_desc }}</p>
             </div>
           </div>
         </li>
