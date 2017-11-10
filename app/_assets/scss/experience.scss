@@ -68,12 +68,33 @@
   margin-top: -15px;
 }
 
-@media (max-width: 680px) {
-  .Experience-wrapper {
-    height: 400px;
+@media (max-width: 585px) and (orientation: portrait) {
+  $height: 75vh;
+  $minHeight: 400px;
+
+  .Experience-wrapper,
+  .Experience-image,
+  .Experience-imageItem {
+    height: $height;
+    min-height: $minHeight;
   }
+  .Experience-imageItem {
+    width: auto;
+  }
+}
+
+@media (max-width: 680px) and (orientation: landscape) {
+  $height: 75vh;
+  $minHeight: 400px;
+
+  .Experience-wrapper,
   .Experience-image {
-    height: 400px;
+    height: $height;
+    min-height: $minHeight;
+  }
+  .Experience-imageItem {
+    width: 100%;
+    height: auto;
   }
 }
 

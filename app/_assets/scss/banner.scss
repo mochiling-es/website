@@ -10,11 +10,13 @@
   overflow: hidden;
 }
 .Banner-wrapper {
-  width: 120%;
+  width: 100%;
 }
 .Banner-list {
   display: flex;
   justify-content: first;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 .Banner-info {
   position: relative;
