@@ -8,7 +8,7 @@ permalink_en:     /experiences/
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.lang }}">
   {% include head.html %}
   <body>
     <div class="Canvas js-canvas">
@@ -71,7 +71,7 @@ permalink_en:     /experiences/
             date_end: '{{ place[1].date_end }}',
             authorName: '{{ site.data.members[author].name }}',
             author: '{{ author }}',
-            authorImage: '{{ site.data.members[author].image }}',
+            authorImage: '/img/members/{{ site.data.members[author].image }}',
             authorLink: '{% tl {{ author }} site.lang %}',
             link: '{% tl {{place[0]}} %}'
           }{% if forloop.last == false %},{% endif %}
