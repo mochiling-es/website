@@ -95,9 +95,13 @@ experiences:
     enable: Let's do it!
   share: Share in
   other-experiences:
-    title: other experiences
+    title: other experiences here
     desc: There are more experiences in the same countries. Check them out!
 cookies:
   title: Cookies
   disclaimer: We use Google Analytics cookies for improving your user experience
   desc: At <span class="Color--emphasis">Mochiling</span> we try to improve your user experience with Google Analytics
+error:
+  title: Error
+  subtitle: Oh! We are lost
+  desc: Something wrong has happened and the page requested doesn't exist. Check our map for visiting our experiences.

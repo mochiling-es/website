@@ -14,23 +14,20 @@
 {% assign experiences = experiences | split: ',' %}
 
 {% if experiences.size > 0 %}
-<div class="Breadcrumb"></div>
-<div class="Banner Experience-other">
-  <div class="Block-content Paragraph Paragraph--centered u-tSpace--xxl">
-    <h4 class="Text Text--big Text--strong Color--lightParagraph">{% t experiences.other-experiences.desc %}</h4>
-    <ul class="Experience-otherList u-tSpace--xl">
-      {% for experience in experiences %}
-        <li class="Experience-otherItem">
-          {% assign author = site.data.experiences[experience].author %}
-          {% assign author_data = site.data.members[author] %}
-          {% assign title = site.data.experiences[experience].title[site.lang] %}
-          <a href="{% tl experience %}" class="Experience-otherLink Color--light">
-            <span class="Text Text--large Text--strong Text--uppercase Experience-otherTitle">{{title}}</span>
-            <img src="/img/members/{{ author_data.image }}" class="Experience-otherAuthor u-tSpace" alt="{{ author_data.complete_name }}" title="{{ author_data.complete_name }}" />
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+<div class="Experience-contentSameExperiences Color--light Text--withShadow">
+  <h4 class="Text--small Text--uppercase">{% t experiences.other-experiences.title %}</h4>
+  <ul class="Experience-contentSameExperiencesList u-tSpace--m">
+    {% for experience in experiences %}
+      <li>
+        {% assign author = site.data.experiences[experience].author %}
+        {% assign author_data = site.data.members[author] %}
+        {% assign title = site.data.experiences[experience].title[site.lang] %}
+
+        <a href="{% tl experience %}" class="Experience-authorLink Color--light js-tippy" data-theme="light" data-arrow="true" title="{{title}}">
+          <img src="/img/members/{{ author_data.image }}" class="Experience-authorImage Experience-authorImage--med u-tSpace" alt="{{ author_data.complete_name }}" title="{{ author_data.complete_name }}" />
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
 {% endif %}

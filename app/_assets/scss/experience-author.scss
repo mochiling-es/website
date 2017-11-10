@@ -12,7 +12,11 @@
 }
 .Experience-authorImage {
   height: 24px;
-  margin: 0 7px 0 0;
+  width: 24px;
   border: 1px solid rgba(#000, 0.2);
   border-radius: 100%;
+}
+.Experience-authorImage--med {
+  height: 40px;
+  width: 40px;
 }

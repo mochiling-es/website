@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var DefaultMapView = require('./components/default-map-view');
 var ResponsiveHeaderHelper = require('./components/responsive-header');
+var SimpleBar = require('SimpleBar');
 
 $(function () {
   ResponsiveHeaderHelper($('.js-canvas'));
@@ -11,4 +12,8 @@ $(function () {
   });
 
   defaultMap.render();
+
+  if ($('.js-itemsList').length > 0) {
+  	new SimpleBar($('.js-itemsList')[0]);	
+  }
 });

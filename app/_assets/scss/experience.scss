@@ -48,11 +48,22 @@
 
 .Experience-content {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
   height: 100%;
   padding-bottom: 50px;
+}
+.Experience-socialList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.Experience-contentSameExperiencesList {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .Experience-photos {
@@ -83,7 +94,7 @@
   }
 }
 
-@media (max-width: 680px) and (orientation: landscape) {
+@media (max-width: 780px) and (orientation: landscape) {
   $height: 75vh;
   $minHeight: 400px;
 
@@ -108,6 +119,20 @@
   }
   .Experience-photos .cell {
     left: auto!important;
+  }
+}
+
+@media (max-width: 780px) {
+  .Experience-content {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .Experience-contentSameExperiences {
+    margin-top: 40px;
+  }
+  .Experience-contentSameExperiencesList {
+    justify-content: flex-start;
   }
 }
 

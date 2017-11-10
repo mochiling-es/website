@@ -1,5 +1,6 @@
 var $ = require('jquery');
 global.jQuery = $;
+var tippy = require('tippy.js');
 var ExperienceInstagramView = require('./experience/experience-instagram-view');
 var ResponsiveHeaderHelper = require('./components/responsive-header');
 var CookiesView = require('./components/cookies-view');
@@ -31,4 +32,6 @@ $(function () {
       $('.Experience-wrapper').append($iframe);
     });
   }
+
+  tippy('.js-tippy');
 });

@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "local-storage": "^1.4.2",
-    "simplebar": "^2.5.0"
+    "simplebar": "^2.5.0",
+    "tippy.js": "^1.4.1"
   }
 }

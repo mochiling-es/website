@@ -28,25 +28,46 @@
           </div>
 
           <div class="Experience-content Text--withShadow Block-content">
-            <h4 class="Color--light Text Text--uppercase Text--med">{{ experience_subtitle }}</h4>
-            <h2 class="Color--light Text Text--giant Text--strong">{{ experience_title }}</h2>
-            <div class="Text Color--light Experience-author">
-              {{ experience_author[0] }}
-              <a href="{% tl {{ experience.author }} %}" class="Experience-authorLink Text--med Color--light">
-                <img class="Experience-authorImage" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
-                {{ experience_author.complete_name }}
-              </a>
+            <div class="Experience-contentInfo">
+              <h4 class="Color--light Text Text--uppercase Text--med">{{ experience_subtitle }}</h4>
+              <h2 class="Color--light Text Text--giant Text--strong">{{ experience_title }}</h2>
+              <div class="Text Color--light Experience-author">
+                {{ experience_author[0] }}
+                <a href="{% tl {{ experience.author }} %}" class="Experience-authorLink Text--med Color--light">
+                  <img class="Experience-authorImage" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
+                  {{ experience_author.complete_name }}
+                </a>
+              </div>
+
+              <div class="Experience-text Text Text--large Color--light Paragraph Paragraph--lefty u-tSpace--xl">
+                {{ content }}
+              </div>
+
+              <div class="Experience-social Color--light u-tSpace--m">
+                <ul class="Experience-socialList">
+                  {% if experience.video %}
+                    <li class="u-rSpace--xl">
+                      <button class="js-playVideo">
+                        <i class="fa fa-youtube-play fa-2x"></i>
+                      </button>
+                    </li>
+                  {% endif %}
+
+                  <li class="u-rSpace--m">
+                    <a href="http://www.facebook.com/sharer.php?u={{ experience_url }}" target="_blank">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/intent/tweet?text={{ experience_title | strip | escape }}&url={{ experience_url }}&via=Mochiling.es" target="_blank">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <div class="Experience-text Text Text--large Color--light Paragraph Paragraph--lefty u-tSpace--xl">
-              {{ content }}
-            </div>
-
-            {% if experience.video %}
-              <button class="Color--light u-tSpace--m js-playVideo">
-                <i class="fa fa-youtube-play fa-2x"></i>
-              </button>
-            {% endif %}
+            {% include experiences-countries.html experience=page.namespace %}
           </div>
         </div>
 
