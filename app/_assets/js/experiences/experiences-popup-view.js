@@ -14,6 +14,7 @@ var contentTemplate = _.template(
     '<% } else { %>' +
       '<div>' +
     '<% } %>' +
+      '<img class="Popup-author u-rSpace" src="/img/members/<%- authorImage %>" title="<%- authorName %>" alt="<%- authorName %>" />' +
       '<div class="Popup-image">' +
         '<i class="fa fa-circle-o-notch fa-2x fa-spin Color--emphasis Popup-imageLoader"></i>' +
         '<img src="<%- imageUrl %>" alt="<%- title %>" title="<%- title %>" />' +
@@ -49,14 +50,19 @@ module.exports = Backbone.View.extend({
 
   render: function () {
     var currentIndex = this.model.get('index');
+    var data = this.experiencesData[currentIndex];
 
     this.$el.empty();
 
     this.$el.html(
       contentTemplate({
-        experienceLink: this.experiencesData[currentIndex].link,
-        imageUrl: this.experiencesData[currentIndex].image,
-        title: this.experiencesData[currentIndex].title,
+        experienceLink: data.link,
+        imageUrl: data.image,
+        title: data.title,
+        author: data.author,
+        authorName: data.authorName,
+        authorLink: data.authorLink,
+        authorImage: data.authorImage,
         desc: this.experiencesData[currentIndex].short_desc
       })
     );

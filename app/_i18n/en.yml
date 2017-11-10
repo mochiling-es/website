@@ -58,15 +58,18 @@ contact:
     Do you have a question or a doubt? <br/>Would you like to start a <span class="Color--emphasis">Mochiling</span> adventure?
   also: Also in
   form:
-    name: Name
-    email: Email
+    name: name
+    email: email
+    name-placeholder: Marco Polo
+    email-placeholder: whatever@wherever.org
     proposal:
       title: Proposal
-      none: Not interested in any yet
+      none: Empty
       explorer: Explorer proposal
       boy-scout: Boy scout proposal
       voyager: Voyager proposal
-    desc: Description
+    desc: description
+    desc-placeholder: I'd like to mention... 
     send: Send
     sending: Sending
     sent: Sent
@@ -103,5 +106,5 @@ cookies:
   desc: At <span class="Color--emphasis">Mochiling</span> we try to improve your user experience with Google Analytics
 error:
   title: Error
-  subtitle: Oh! We are lost
+  subtitle: Oh! We are lost :(
   desc: Something wrong has happened and the page requested doesn't exist. Check our map for visiting our experiences.

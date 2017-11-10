@@ -24,33 +24,37 @@ permalink_en:     /contact/
           <p class="Text Text--large Color--paragraph u-tSpace--l">{% t contact.desc %}</p>
         </div>
 
-        <form class="Form Block-content js-form" method="POST" action="http://formspree.io/mochiling.es@gmail.com">
-          <div class="Form-field">
-            <label class="Form-label">{% t contact.form.name %}</label>
-            <input type="text" class="Form-input js-name" name="name" placeholder="{% t contact.form.name %}" />
+        <div class="Contact-formWrapper">
+          <div class="Block-content Contact-form">
+            <form class="Form Block-content js-form" method="POST" action="http://formspree.io/mochiling.es@gmail.com">
+              <div class="Form-field js-field">
+                <label class="Form-label">{% t contact.form.name %}</label>
+                <input type="text" class="Form-input js-name" name="name" placeholder="{% t contact.form.name-placeholder %}" />
+              </div>
+              <div class="Form-field js-field">
+                <label class="Form-label">{% t contact.form.email %}</label>
+                <input type="email" class="Form-input js-email" name="email" placeholder="{% t contact.form.email-placeholder %}" />
+              </div>
+              <div class="Form-field js-field">
+                <label class="Form-label">{% t contact.form.proposal.title %}</label>
+                <select class="Form-select js-proposal" name="proposal">
+                  <option value="0">{% t contact.form.proposal.none %}</option>
+                  <option value="1">{% t contact.form.proposal.explorer %}</option>
+                  <option value="2">{% t contact.form.proposal.boy-scout %}</option>
+                  <option value="3">{% t contact.form.proposal.voyager %}</option>
+                </select>
+              </div>
+              <div class="Form-field js-field">
+                <label class="Form-label">{% t contact.form.desc %}</label>
+                <textarea class="Form-input Form-textarea js-description" name="description" placeholder="{% t contact.form.desc-placeholder %}"></textarea>
+              </div>
+              <div class="Form-field Form-field--noBorder js-submitField">
+                <label class="Form-label"></label>
+                <button type="submit" class="Form-submit Button Button--action js-submit is-disabled">{% t contact.form.send %}</button>
+              </div>
+            </form>
           </div>
-          <div class="Form-field">
-            <label class="Form-label">{% t contact.form.email %}</label>
-            <input type="email" class="Form-input js-email" name="email" placeholder="{% t contact.form.email %}" />
-          </div>
-          <div class="Form-field">
-            <label class="Form-label">{% t contact.form.proposal.title %}</label>
-            <select class="Form-select js-proposal" name="proposal">
-              <option value="0">{% t contact.form.proposal.none %}</option>
-              <option value="1">{% t contact.form.proposal.explorer %}</option>
-              <option value="2">{% t contact.form.proposal.boy-scout %}</option>
-              <option value="3">{% t contact.form.proposal.voyager %}</option>
-            </select>
-          </div>
-          <div class="Form-field">
-            <label class="Form-label">{% t contact.form.desc %}</label>
-            <textarea class="Form-input Form-textarea js-description" name="description" placeholder="{% t contact.form.desc %}"></textarea>
-          </div>
-          <div class="Form-field js-submitField">
-            <label class="Form-label"></label>
-            <button type="submit" class="Form-submit Button Button--action js-submit is-disabled">{% t contact.form.send %}</button>
-          </div>
-        </form>
+        </div>
 
         {% include social-breadcrumb.html %}
       </div>

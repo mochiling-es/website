@@ -9,6 +9,8 @@ module.exports = Backbone.View.extend({
   events: {
     'keyup .js-email': '_onChange',
     'keyup .js-name': '_onChange',
+    'focus .js-field': '_onFocus',
+    'blur .js-field': '_onBlur',
     'keyup .js-description': '_onChange',
     'change .js-proposal': '_onChange',
     'submit': '_onSubmit'
@@ -94,6 +96,14 @@ module.exports = Backbone.View.extend({
       proposal: this.$('.js-proposal').val(),
       description: this.$('.js-description').val()
     })
+  },
+
+  _onFocus: function (ev) {
+    $(ev.target).closest('.js-field').addClass('Form-field--focus');
+  },
+
+  _onBlur: function (ev) {
+    $(ev.target).closest('.js-field').removeClass('Form-field--focus');
   },
 
   _onSubmit: function (ev) {

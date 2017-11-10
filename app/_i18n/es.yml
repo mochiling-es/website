@@ -58,15 +58,18 @@ contact:
     ¿Tienes alguna pregunta o duda? <br/>¿Te gustaría empezar una nueva aventura <span class="Color--emphasis">Mochiling</span>?
   also: Además en
   form:
-    name: Nombre
-    email: Email
+    name: nombre
+    name-placeholder: Ernest Shackleton
+    email: email
+    email-placeholder: loquesea@dedondesea.org
     proposal:
       title: Propuesta
-      none: No estoy interesado aún
+      none: Ninguna
       explorer: Propuesta Explorer
       boy-scout: Propuesta Boy scout
       voyager: Propuesta Voyager
-    desc: Descripción
+    desc: descripción
+    desc-placeholder: Pues me gustaría...
     send: Enviar
     sending: Enviando...
     sent: Enviado
@@ -104,5 +107,5 @@ cookies:
   desc: En <span class="Color--emphasis">Mochiling</span> intentamos mejorar vuestra experiencia de usuario con Google Analytics
 error:
   title: Error
-  subtitle: Oh! Nos hemos perdido
+  subtitle: Oh! Nos hemos perdido :(
   desc: Algo ha pasado y la página que querías visitar no existe. Aprovecha y echa un vistazo a nuestras experiencias.

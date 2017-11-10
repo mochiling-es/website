@@ -80,6 +80,16 @@ $default-border-radius: 6px;
   width: 100%;
   height: auto;
 }
+.Popup-author {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid #333;
+  z-index: 3;
+}
 .Popup-imageLoader {
   position: absolute;
   top: 50%;

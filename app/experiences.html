@@ -61,6 +61,7 @@ permalink_en:     /experiences/
         {% for place in site.data.experiences %}
           {% assign title = place[1].title[site.lang] %}
           {% assign short_desc = place[1].short_desc[site.lang] %}
+          {% assign author = place[1].author %}
           {
             title: '{{ title }}',
             image: '{{ place[1].image }}',
@@ -68,6 +69,10 @@ permalink_en:     /experiences/
             short_desc: "{{ short_desc }}",
             date_start: '{{ place[1].date_start }}',
             date_end: '{{ place[1].date_end }}',
+            authorName: '{{ site.data.members[author].name }}',
+            author: '{{ author }}',
+            authorImage: '{{ site.data.members[author].image }}',
+            authorLink: '{% tl {{ author }} site.lang %}',
             link: '{% tl {{place[0]}} %}'
           }{% if forloop.last == false %},{% endif %}
         {% endfor %}

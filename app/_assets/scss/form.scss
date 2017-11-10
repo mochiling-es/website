@@ -3,43 +3,74 @@
 // Form for contact!
 
 .Form {
-  padding: 30px 0 80px;
+  padding: 20px 0 80px;
+  width: 320px;
 }
 .Form-field {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
   margin: 20px 0;
+  padding: 0;
+  border: 1px solid #DDD;
+  background: white;
+  border-radius: 3px;
+}
+.Form-field--focus {
+  border-color: #888;
+}
+.Form-field--noBorder {
+  border: none;
+  background: white;
 }
 .Form-label {
-  width: 240px;
-  padding: 12px 20px 0;
+  padding: 10px 10px 0;
   font: bold 11px 'Lato';
   text-transform: uppercase;
-  text-align: right;
+  text-align: left;
 }
 .Form-select {
-  width: 290px;
+  width: 100%;
+  margin-top: 5px;
 }
 .Form-input {
-  width: 290px;
-  padding: 8px;
+  width: 100%;
+  margin-top: 5px;
+  padding: 0 10px 10px;
   font: normal 14px 'Lato';
-  color: #444;
-  border: 2px solid #999;
-  border-radius: 4px;
+  color: #333;
+  border: none;
   outline: none;
-  background: rgba(white, 0.5);
-  
-  &:focus {
-    border-color: #666;
+  background: none;
+
+  $placeholderColor: #BBB;
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $placeholderColor;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $placeholderColor;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $placeholderColor;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $placeholderColor;
   }
 }
+
 .Form-textarea {
-  max-width: 290px;
-  max-height: 200px;
-  height: 120px;
+  max-width: 100%;
+  max-height: 180px;
+  min-width: 100%;
+  min-height: 180px;
+  resize: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 .Form-submit {
   text-align: left;
@@ -47,17 +78,5 @@
 
 
 @media (max-width: $mainSize) {
-  .Form {
-    padding: 30px 20px;
-  }
-  .Form-field {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .Form-label {
-    width: 290px;
-    padding: 10px 0 10px;
-    text-align: left;
-  }
+
 }

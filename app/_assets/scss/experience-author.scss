@@ -10,6 +10,10 @@
   text-shadow: 2px 2px 2px $shadow, 2px -2px 2px $shadow, -2px 2px 2px $shadow;
   color: #FFFFFF;
 }
+.Experience-authorLink--noShadow {
+  text-shadow: none;
+  color: #AAA;
+}
 .Experience-authorImage {
   height: 24px;
   width: 24px;
