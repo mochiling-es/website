@@ -12,7 +12,7 @@ var IMAGE_TEMPLATE = '' +
   '<a href="{{link}}" target="_blank" class="Banner-listItem">' +
     '<div class="Banner-info">' +
       '<img class="Banner-infoImage" title="{{caption}}" alt="{{caption}}" src="{{image}}" />' +
-      '<div class="Banner-infoContent Banner-infoContentShadow Text Text--med Text--strong Color--light">' +
+      '<div class="Banner-infoContent Text Text--withShadow Text--med Text--strong Color--light">' +
         '<i class="fa fa-map-marker u-lSpace--m u-rSpace"></i>' +
         '{{location}}' +
         '<i class="fa fa-heart u-lSpace--m u-rSpace"></i>' +

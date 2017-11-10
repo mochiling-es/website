@@ -221,7 +221,7 @@ module.exports = function (grunt) {
       },
       html: ['<%= app.dist %>/**/*.html'],
       css: ['<%= app.dist %>/css/**/*.css'],
-      // js: '<%= app.dist %>/js/**/*.js'
+      js: '<%= app.dist %>/js/**/*.js'
     },
     htmlmin: {
       dist: {

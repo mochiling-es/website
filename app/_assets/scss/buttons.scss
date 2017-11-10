@@ -60,12 +60,15 @@
   }
 }
 .Button--main {
-  background: $mainColor;
-  color: white;
+  background: none;
+  color: $mainColor;
+  border: 2px solid $mainColor;
 
   &:hover,
   &:focus {
-    background: darken($mainColor, 25);
+    $color: darken($mainColor, 10);
+    border-color: $color;
+    color: $color;
   }
 }
 .Button.is-disabled {

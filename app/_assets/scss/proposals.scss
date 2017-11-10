@@ -4,22 +4,26 @@
 
 .Proposals-header {
   position: relative;
-  padding-bottom: 120px;
-  background: $mainColor;
+  padding-bottom: 140px;
+  background: linear-gradient(to bottom, rgba($mainColor, 1), rgba($mainColor, 0.9));
   overflow: hidden;
-
+  
   &:before {
     content: '';
     position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 400%;
-    height: 500%;
-    background: url('/img/backpacks.png') repeat 0 0;
-    transform: rotate(-30deg);
-    opacity: 0.6;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: -webkit-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
     z-index: 0;
   }
+}
+.Proposals-header .Paragraph {
+  padding-top: 80px;
 }
 .Proposals-nav {
   position: absolute;
@@ -32,12 +36,12 @@
 }
 .Proposals-navList {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   list-style: none;
 }
 .Proposals-navItem {
-  padding: 15px 10px;
+  padding: 20px 20px;
   border-top: 2px solid transparent;
 }
 .Proposals-navItemButton {
@@ -120,16 +124,16 @@
 .Proposals-featuresInfo {
   line-height: 22px;
 }
-.Proposals-featuresList {
-
-}
+.Proposals-featuresList {}
 .Proposals-featuresList .l-box {
   margin: 8px;
 }
 .Proposals-featureItem {
   position: relative;
-  padding: 10px;
-  text-align: left;
+  padding: 40px;
+  text-align: center;
+  background: rgba(#F3F3F3, 0.6);
+  border-radius: 2px;
   opacity: 1;
 }
 .Proposals-featureItemIcon {

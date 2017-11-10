@@ -28,8 +28,7 @@ permalink_en:     /proposals/
               {% for proposal in site.data.proposals %}
                 <li class="Proposals-navItem js-navItem js-navItem{{ forloop.index + 1 }}">
                   <a href="{% tl proposals %}#{{ forloop.index + 1 }}" class="Proposals-navItemButton">
-                    {{ proposal.icon }}
-                    <span class="Text Text--strong Text--large Text--uppercase">{% t {{ proposal.title }} %}</span>
+                    <span class="Text Text--strong Text--medLarge Text--uppercase">{% t {{ proposal.title }} %}</span>
                   </a>
                 </li>
               {% endfor %}
@@ -55,7 +54,6 @@ permalink_en:     /proposals/
           <div class=" Block-content">
             <div class="Proposals-featuresInfo Block-content Paragraph Paragraph--centered u-tSpace--xxl">
               <h4 class="Text--large Text--strong Text--uppercase Color--secondary">{% t proposals.features.title %}</h4>
-              <p class="Text Text--medLarge u-tSpace--m Color--paragraph js-itemSub">{% t proposals.items.1.sub %}</p>
             </div>
 
             <ul class="Proposals-featuresList u-bSpace--xxl pure-g">

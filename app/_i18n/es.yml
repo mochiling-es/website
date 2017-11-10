@@ -15,7 +15,7 @@ proposals:
   subtitle: Nuestras propuestas
   desc: |
     Queremos que disfrutes de una experiencia Mochiling, es nuestro objetivo, así que estas son nuestras propuestas.
-    Nada de agencias o grupos de turistas, experiencias impredecibles. Aprovéchate para poder contactar con todos los amigos de mochiling alrededor del mundo , y hacer de tu viaje una experiencia única y especial
+    Nada de agencias o grupos de turistas, experiencias impredecibles.
   items:
     1:
       title: TippingAround
@@ -27,10 +27,10 @@ proposals:
       sub: ¿Cúal es ese país que quieres visitar desde pequeño?<br/>Te ayudamos a hacerlo realidad.
     3:
       title: MochilingAround
-      desc: "Decide tu viaje minuto a minuto; sin programas preestablecidos,sin ataduras. Un guia de #teammochiling os acompañara para hacer de vuestro viaje algo completamente UNICO y PERSONAL."
+      desc: "Decide tu viaje minuto a minuto; sin programas preestablecidos,sin ataduras. Un guia de #teammochiling os acompañara para hacer de vuestro viaje algo completamente ÚNICO y PERSONAL."
       sub: Puedes decidir tu viaje en cada instante, no hay un programa establecido, será una experiencia totalmente única.
   features:
-    title: Características
+    title: que ofrecemos
     experience:
       title: Experiencia única
       desc: Una experiencia diferente para tu viaje. Nosotros nos encargamos de todo.
