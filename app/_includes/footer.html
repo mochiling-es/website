@@ -1,6 +1,6 @@
 <footer class="Footer">
   <div class="Footer-inner">
-    <p class="u-tSpace--m Text Text--med Color--paragraph">®{{ site.time | date: '%Y' }} {{site.title}}.es</p>
+    <p class="u-lSpace--xl Text Text--med Color--paragraph">© {{ site.time | date: '%Y' }} {{site.title | downcase}}.es</p>
     <nav class="Footer-nav">
       <ul class="Footer-navList">
         {% for social_network in site.social %}

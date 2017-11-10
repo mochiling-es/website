@@ -31,8 +31,6 @@
   position: absolute;
   bottom: 30px;
   left: 30px;
-}
-.Banner-infoContentShadow {
-  $shadow: rgba(#000, 0.4);
-  text-shadow: 2px 2px 2px $shadow, 2px -2px 2px $shadow, -2px 2px 2px $shadow;
+  width: 50%;
+  z-index: 1;
 }
