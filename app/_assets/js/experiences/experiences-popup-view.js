@@ -14,7 +14,7 @@ var contentTemplate = _.template(
     '<% } else { %>' +
       '<div>' +
     '<% } %>' +
-      '<img class="Popup-author u-rSpace" src="<%- authorImage %>" title="<%- authorName %>" alt="<%- authorName %>" />' +
+      '<!--img class="Popup-author u-rSpace" src="<%- authorImage %>" title="<%- authorName %>" alt="<%- authorName %>" /-->' +
       '<div class="Popup-image">' +
         '<i class="fa fa-circle-o-notch fa-2x fa-spin Color--emphasis Popup-imageLoader"></i>' +
         '<img src="<%- imageUrl %>" alt="<%- title %>" title="<%- title %>" />' +

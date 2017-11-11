@@ -32,22 +32,10 @@
 {% assign author = next_experience[1].author %}
 {% assign experience_author = site.data.members[author] %}
 
-<div class="pure-g Banner Bkg--light">
-  <div class="pure-u-1-1 pure-u-sm-1-2 Banner-image">
-    <img src="{{ next_experience[1].image }}" class="pure-img" alt="{% t experiences.{{next_experience[1].title}} %}" title="{% t experiences.{{next_experience[1].title}} %}"/>
-  </div>
-  <div class="pure-u-1-1 pure-u-sm-1-2 Banner-info">
-    <div class="Banner-infoContent">
-      <h4 class="Text Text--small Color--desc Text--uppercase">{% t 'next-experience' %}</h4>
-      <h3 class="Text Text--huge Color--dark Text--strong">{{ title }}</h3>
-      <div class="Text Text--med Color--paragraph Experience-author">
-        <a href="{% tl {{author}} %}" class="Experience-authorLink">
-          <img class="Experience-authorImage" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
-          {{ experience_author.complete_name }}
-        </a>
-      </div>
-      <p class="Text Text--large Color--paragraph u-tSpace--l">{{ short_desc }}.</p>
-      <a href="{% tl {{next_experience[0]}} {{site.lang}} %}" class="Button Button--light u-tSpace--l">{% t 'learn-more'%}</a>
-    </div>
+<div class="Block Bkg--light">
+  <div class="Block-content Paragraph--centered Text">
+    <h4 class="Text--strong Text--big u-tSpace--xxl">{% t experiences.next-experience.title %}</h4>
+    <p class="Text--large u-tSpace--l">{{ short_desc }}</p>
+    <a href="{% tl {{next_experience[0]}} {{ site.lang }} %}" class="Button Button--main u-tSpace--l">{{ title }}</a>
   </div>
 </div>

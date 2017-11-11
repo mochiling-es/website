@@ -1,7 +1,5 @@
 subtitle: desorganiza tu viaje
 learn-more: Saber más
-last-experience: Última experiencia
-next-experience: Siguiente experiencia
 rights-reserved: Todos los derechos reservados
 contact-us: Escríbenos
 default-description: Una nueva forma de vivir un viaje real
@@ -100,6 +98,9 @@ experiences:
   other-experiences:
     title: Otras experiencias aquí
     desc: Hay más experiencias en los mismos países. ¡Échales un vistazo!
+  next-experience:
+    title: '¿Quieres descubrir la siguiente experiencia?'
+    desc: 'está experándote'
 cookies:
   title: Cookies
   disclaimer: Usamos cookies de Google Analytics para mejorar la experiencia de usuario
