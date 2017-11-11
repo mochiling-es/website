@@ -16,16 +16,16 @@ proposals:
     <br/>The opportunity to be in touch with all our friends from Mochiling, all around the world, to make your trip unique and special…
   items:
     1:
-      title: TippingAround
-      desc: Are you travelling somewhere and you want any tips from people that already been there??? Ask the \#teammochiling members.
+      title: Tipping
+      desc: 'Are you travelling somewhere and you want <span class="Color--emphasis">any tips</span> from people that already been there??? Ask the mochiling members.'
       sub: What is better, a taxi or a tuk-tuk?<br/>Where to find the local baker?<br/>We will turn your travel in something different.
     2:
-      title: TravelAround
-      desc: You like to travel more calm and with more or less everything organized??… We make you a tailored trip for you.
+      title: Travel
+      desc: You like to travel more calm and with more or less everything organized?… We make you a <span class="Color--emphasis">tailored trip</span> for you.
       sub: Which is that country you want to visit when you were a child?<br/>We help you to make it happen.
     3:
-      title: MochilingAround
-      desc: Decide your trip minute by minute; without pre establish programs, without chains. A \#teammochiling guide will accompany to make your trip in something completely UNIQUE & PERSONAL.
+      title: Mochiling
+      desc: 'Decide your trip minute by minute, <span class="Color--emphasis">without pre establish</span> programs, without chains. A <span class="Color--emphasis">mochiling member</span> will accompany to make your trip in something completely UNIQUE & PERSONAL.'
       sub: You can decide your travel at any moment, there is no establish route, a unique experience.
   features:
     title: what we offer
@@ -63,9 +63,9 @@ contact:
     proposal:
       title: Proposal
       none: Empty
-      explorer: Explorer proposal
-      boy-scout: Boy scout proposal
-      voyager: Voyager proposal
+      explorer: Tipping proposal
+      boy-scout: Travel proposal
+      voyager: Mochiling proposal
     desc: description
     desc-placeholder: I'd like to mention... 
     send: Send
