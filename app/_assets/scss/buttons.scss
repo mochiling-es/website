@@ -4,7 +4,7 @@
 
 .Button {
   display: inline-block;
-  padding: 10px 44px;
+  padding: 10px 45px;
   line-height: 15px;
   background: transparent;
   outline: none;
@@ -80,7 +80,7 @@
 
 @media (max-width: $mainSize) {
   .Button {
-    padding: 10px 24px;
+    padding: 10px 45px;
     font-size: 12px;
   }
 }

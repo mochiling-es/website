@@ -99,8 +99,7 @@ experiences:
     title: Otras experiencias aquí
     desc: Hay más experiencias en los mismos países. ¡Échales un vistazo!
   next-experience:
-    title: '¿Quieres descubrir la siguiente experiencia?'
-    desc: 'está experándote'
+    title: '¿List@ para la siguiente?'
 cookies:
   title: Cookies
   disclaimer: Usamos cookies de Google Analytics para mejorar la experiencia de usuario

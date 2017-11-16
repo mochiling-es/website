@@ -31,11 +31,17 @@
 {% assign short_desc = next_experience[1].short_desc[site.lang] %}
 {% assign author = next_experience[1].author %}
 {% assign experience_author = site.data.members[author] %}
+{% assign image = next_experience[1].image %}
 
-<div class="Block Bkg--light">
-  <div class="Block-content Paragraph--centered Text">
-    <h4 class="Text--strong Text--big u-tSpace--xxl">{% t experiences.next-experience.title %}</h4>
-    <p class="Text--large u-tSpace--l">{{ short_desc }}</p>
-    <a href="{% tl {{next_experience[0]}} {{ site.lang }} %}" class="Button Button--main u-tSpace--l">{{ title }}</a>
+<div class="Block Bkg--light Experience-nextOne">
+  <div class="Experience-nextOneImage" style="background-image:url({{ image }})"></div>
+  <div class="Experience-nextOneContent">
+    <div class="Block-content Paragraph--centered Text ">
+      <h4 class="Text--strong Text--huge Color--secondary">{% t experiences.next-experience.title %}</h4>
+      <p class="Text--large u-tSpace--l Color--paragraph">{{ short_desc }}</p>
+      <a href="{% tl {{next_experience[0]}} {{ site.lang }} %}" class="Button Button--main u-tSpace--l">
+        <i class="fa fa-globe fa-lg"></i> {{ title }}
+      </a>
+    </div>
   </div>
 </div>

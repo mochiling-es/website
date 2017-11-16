@@ -99,8 +99,7 @@ experiences:
     title: other experiences here
     desc: There are more experiences in the same countries. Check them out!
   next-experience:
-    title: 'Do you wanna discover the next experience?'
-    desc: 'is waiting you'
+    title: 'Ready for the next one?'
 cookies:
   title: Cookies
   disclaimer: We use Google Analytics cookies for improving your user experience
