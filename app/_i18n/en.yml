@@ -6,8 +6,22 @@ contact-us: Contact us
 by: by
 
 home:
-  title: Home
-  desc: Are you ready for discovering how to live an authentic Mochiling experience? Time is getting over...
+  title: 
+  subtitle: Live a new way of travelling
+  desc: Are you ready to know how to live a real Mochiling experience?
+  more: Know more
+  proposals:
+    title: What do we propose?
+    desc: We have three options to choose whatever it fits better in your travel.
+  features:
+    title: Our compromise
+    desc: Our proposals don't travel alone, they are thought for helping you and for letting you to enjoy.
+  experiences: 
+    title: Do you wanne see experiences?
+    desc: Beecause Mochiling experts have enjoyed most of the planet, now it is your call.
+  team: 
+    title: Let our experts to give you advice
+    desc: Because they have lived lot of experiences and know how to help in yours.
 proposals:
   title: Proposals
   subtitle: Our proposals

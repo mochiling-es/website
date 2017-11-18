@@ -1,7 +1,10 @@
 @import 'vars';
 
 .Bkg {
-  background: white;
+  background: #FFF;
+}
+.Bkg--lighter {
+  background-color: rgba(#EFEFEF, 0.5);
 }
 .Bkg--light {
   background-color: #F2F6F9;
@@ -12,5 +15,5 @@
     linear-gradient( 200deg, #d047d1, #ff0000,    #ffff00);
 }
 .Bkg--others {
-  background: #535765;
+  background: #343434;
 }

@@ -6,3 +6,103 @@ permalink: /
 permalink_en: /
 layout: default
 ---
+
+<!-- Slider main container -->
+<div class="Block Home-presentation">
+	<div class="swiper-container Home-slider">
+	  <div class="swiper-wrapper">
+	    <div class="swiper-slide">
+	    	<img src="https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/23348192_144557719512000_7997792600566267904_b.jpg" />
+	    </div>
+	    <div class="swiper-slide">
+	    	<img src="https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/19533832_502212106787228_6112708209988861952_b.jpg" />
+	    </div>
+	    <div class="swiper-slide">
+	    	<img src="https://scontent-mad1-1.cdninstagram.com/t51.2885-15/e35/19429575_1492630274093784_8485630344848998400_b.jpg" />
+	    </div>
+	  </div>
+		
+		<div class="Home-sliderMamufas"></div>
+	  <div class="swiper-pagination"></div>
+	  <div class="swiper-button-prev">
+	  	
+	  </div>
+	  <div class="swiper-button-next">
+	  	
+	  </div>
+	</div>
+
+	<div class="Block-content">
+		<div class="Home-banner  Paragraph Text Color--light Text--withShadow">
+	  	<h2 class="Text--giant Text--strong">{% t home.subtitle %}</h2>
+		  <p class="Text--big u-tSpace--l">{% t home.desc %}</p>
+		  <button class="Button Button--light u-tSpace--l">{% t home.more %}</button>
+	  </div>
+	</div>
+</div>
+
+<div class="Block Block--spaced">
+	<div class="Block-content Paragraph Paragraph--centered">
+		<h4 class="Text--huge Text--strong Color--secondary">{% t home.proposals.title %}</h4>
+	    <p class="Text--large u-tSpace--l Color--paragraph">{% t home.proposals.desc %}</p>
+	</div>
+</div>
+
+<div class="Block Block--spaced Bkg--lighter">
+	<div class="Block-content">
+	  <div class="Proposals-featuresInfo Block-content Paragraph Paragraph--centered">
+	    <h4 class="Text--huge Text--strong Color--secondary">{% t home.features.title %}</h4>
+	    <p class="Text--large u-tSpace--l Color--paragraph">{% t home.features.desc %}</p>
+	  </div>
+
+	  <ul class="Proposals-featuresList u-bSpace--xxl pure-g">
+	    {% for feature in site.data.proposal-features %}
+	    <li class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">
+	      <div class="l-box">
+	        <div class="Proposals-featureItem Proposals-featureItem--noBkg">
+	          <div class="Proposals-featureItemIcon Color--paragraph">
+	            <fa class="fa {{ feature.icon }}">
+	            </fa>
+	          </div>
+	          <h5 class="Proposals-featureItemTitle Text Text--medLarge Text--strong Text--uppercase Color--paragraph u-tSpace--m">{% t {{ feature.title }} %}</h5>
+	          <p class="Proposals-featureItemDesc Text Text--medLarge u-tSpace--m Color">{% t {{ feature.desc }} %}</p>
+	        </div>
+	      </div>
+	    </li>
+	    {% endfor %}
+	  </ul>
+	</div>
+</div>
+
+<div class="Block Block--spaced Home-members" id="js-members">
+	<div class="LeafletMap" id="js-map"></div>
+
+	<div class="Block-content">
+	  <div class="Paragraph Paragraph--lefty Paragraph--superSpaced">
+	    <h4 class="Text--huge Text--strong Color--emphasis">{% t home.team.title %}</h4>
+	    <p class="Text--large u-tSpace--l Color--paragraph">{% t home.team.desc %}</p>
+	  </div>
+	</div>
+
+	<div>
+		{% for member in site.data.members reversed limit:5 %}
+		  <a class="Home-member Home-member--pos{{ forloop.index }} {% cycle 'Home-member--big', 'Home-member--small', '', 'Home-member--small' %} js-tippy" href="{% tl member[0] {{ site.lang }} %}" data-theme="dark" title="{{ member[1].complete_name }}">
+				<img src="/img/members/{{ member[1].image }}" title="{{ member[1].complete_name }}" alt="{{ member[1].complete_name }}" />
+			</a>
+	  {% endfor %}
+	</div>
+</div>
+
+<div class="Block Bkg--others Experience-nextOne">
+  <div class="Experience-nextOneContent">
+    <div class="Block-content Paragraph--centered Text">
+      <h4 class="Text--strong Text--giant Color--light">{% t home.experiences.title %}</h4>
+      <p class="Text--large u-tSpace--l Color--light">{% t home.experiences.desc %}</p>
+      <a href="{% tl experiences {{ site.lang }} %}" class="Button Button--light u-tSpace--l">
+        <i class="fa fa-globe fa-lg u-rSpace"></i> {% t experiences.title %}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="/js/home.js"></script>

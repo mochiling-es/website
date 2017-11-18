@@ -1,4 +1,89 @@
 @import 'vars';
 
-.Home {
+.Home-slider {
+	min-height: 480px;
+	max-height: 750px;
+	background: #CCC;
+}
+.swiper-slide img {
+	width: 100%;
+}
+.Home-sliderMamufas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(to right, rgba(#000, 0.4), rgba(#000, 0));
+	z-index: 1;
+}
+.Home-banner {
+	position: absolute;
+	bottom: 100px;
+	z-index: 2;
+}
+
+.Home-member {
+	position: absolute;
+	display: block;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	opacity: 0;
+
+	img {
+		width: 80px;
+		height: 80px;
+		border: 2px solid $mainColor;
+		border-radius: 80%;
+	}
+}
+.is-visible .Home-member--pos1 {
+	animation: fadeInFromNone 0.5s forwards;
+	transform: translateX(-200px) translateY(-250px);
+}
+.is-visible .Home-member--pos2 {
+	animation: fadeInFromNone 0.5s forwards;
+	transform: translateX(20px) translateY(130px);
+	animation-delay: 0.2s;
+}
+.is-visible .Home-member--pos3 {
+	animation: fadeInFromNone 0.5s forwards;
+	transform: translateX(400px) translateY(-180px);
+	animation-delay: 0.4s;
+}
+.is-visible .Home-member--pos4 {
+	animation: fadeInFromNone 0.5s forwards;
+	transform: translateX(150px) translateY(-150px);
+	animation-delay: 0.6s;
+}
+.is-visible .Home-member--pos5 {
+	animation: fadeInFromNone 0.5s forwards;
+	transform: translateX(-450px) translateY(80px);
+	animation-delay: 0.8s;
+}
+.Home-member--small img {
+	width: 60px;
+	height: 60px;
+}
+.Home-member--big img {
+	width: 100px;
+	height: 100px;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
 }

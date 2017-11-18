@@ -2,10 +2,13 @@
 <html lang="{{ site.lang }}">
   {% include head.html %}
   <body>
-    {% include header.html %}
-    {{ content }}
-    {% include last-experience.html %}
-    {% include footer.html %}
-    {% include analytics.html %}
+  	<div class="Canvas js-canvas">
+      {% include cookies.html %}
+	    {% include header.html %}
+	    {{ content }}
+	    {% include last-experience.html %}
+	    {% include footer.html %}
+	    {% include analytics.html %}
+	  </div>
   </body>
 </html>

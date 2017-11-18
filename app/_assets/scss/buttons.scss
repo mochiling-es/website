@@ -21,12 +21,15 @@
   }
 }
 .Button--light {
-  background: #9B9B9B;
-  color: white;
+  $light: #EEE;
+  border: 2px solid $light; 
+  color: $light;
 
   &:hover,
   &:focus {
-    background: #666;
+    $white: #FFF;
+    border-color: $white;
+    color: $white;
   }
 }
 .Button--action {

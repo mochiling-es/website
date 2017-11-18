@@ -18,11 +18,23 @@
 }
 .Paragraph--lefty {
   // Implicit
+  margin-left: 200px;
+}
+.Paragraph--superSpaced {
+  padding-top: 250px;
+  padding-bottom: 250px;
 }
 
 @media (max-width: $mainSize) {
   .Paragraph--centered,
   .Paragraph--centeredBig {
     margin: 20px auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .Paragraph--lefty {
+    // Implicit
+    margin-left: 15%;
   }
 }
