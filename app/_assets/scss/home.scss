@@ -87,3 +87,16 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 640px) {
+	.Home-slider {
+		height: 480px;
+	}
+	.swiper-slide img {
+		width: auto;
+		height: 100%;
+	}
+	.Home-banner {
+		bottom: 40px;
+	}
+}
