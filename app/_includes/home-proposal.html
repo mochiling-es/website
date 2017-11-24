@@ -1,0 +1,11 @@
+{% assign index = include.proposalIndex %}
+{% assign proposal = site.data.proposals[index] %}
+
+<li class="Home-proposal pure-u-1 pure-u-sm-1-1 pure-u-md-1-3 pure-u-lg-1-3">
+	<div class="l-box Text">
+  	<div class="Home-proposalIcon {% if index == 2 %} Home-proposalIcon--emphasis {% endif %}">{{ proposal.icon }}</div>
+  	<h4 class="Text--large Text--uppercase {% if index != 2 %} Color--paragraph {% else %} Color--emphasis {% endif %} u-tSpace--l">{% t {{ proposal.title }} %}</h4>
+  	<p class="Text--medLarge Color--paragraph u-tSpace--m">{% t {{ proposal.desc }} %}</p>
+  	<a class="Button {% if index != 2 %} Button--small Button--secondary {% else %} Button--main {% endif %} u-tSpace--l" href="{% tl proposals {{ site.lang }} %}#{{ index | plus: 1 }}">{% t learn-more %}</a>
+	</div>
+</li>

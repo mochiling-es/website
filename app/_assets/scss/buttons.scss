@@ -32,6 +32,18 @@
     color: $white;
   }
 }
+.Button--secondary {
+  $color: #666;
+  border: 2px solid $color;
+  color: $color;
+
+  &:hover,
+  &:focus {
+    $color: #333;
+    border-color: $color;
+    color: $color;
+  }
+}
 .Button--action {
   $color: #0078e7;
   background: $color;
@@ -74,6 +86,10 @@
     color: $color;
   }
 }
+.Button--small {
+  padding: 8px 35px;
+}
+
 .Button.is-disabled {
   opacity: 0.5;
   &:hover {
@@ -84,6 +100,11 @@
 @media (max-width: $mainSize) {
   .Button {
     padding: 10px 45px;
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  .Button--small {
+    padding: 6px 35px;
+    font-size: 10px;
   }
 }

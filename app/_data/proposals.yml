@@ -2,7 +2,7 @@
   desc: proposals.items.1.desc
   sub: proposals.items.1.sub
   icon: |
-    <svg version="1.1" class="Proposals-navItemIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 270.428 270.428" xml:space="preserve">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 270.428 270.428" xml:space="preserve">
       <path color-rendering="auto" image-rendering="auto" shape-rendering="auto" color-interpolation="sRGB" d="M135.241,0
         c-15.677-0.012-29.409,10.313-33.914,25.09C48.788,39.882,10.214,88.194,10.214,145.428c0,68.976,56.024,125,125,125
         c68.976,0,125-56.024,125-125c0-57.235-38.574-105.549-91.115-120.34C164.599,10.334,150.898,0.012,135.241,0L135.241,0z
@@ -28,7 +28,7 @@
   desc: proposals.items.2.desc
   sub: proposals.items.2.sub
   icon: |
-    <svg version="1.1" class="Proposals-navItemIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 503.607 503.607" style="enable-background:new 0 0 503.607 503.607;" xml:space="preserve">      
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 503.607 503.607" style="enable-background:new 0 0 503.607 503.607;" xml:space="preserve">      
       <g>
         <path d="M192.049,133.295h117.508c5.036,0,8.393-3.357,8.393-8.393V57.754c0-5.036-3.357-8.393-8.393-8.393H192.049
           c-5.036,0-8.393,3.357-8.393,8.393v67.148C183.656,129.938,187.013,133.295,192.049,133.295z M200.443,66.148h100.721v50.361
@@ -78,7 +78,7 @@
   desc: proposals.items.3.desc
   sub: proposals.items.3.sub
   icon: |
-    <svg version="1.1" class="Proposals-navItemIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
       <g>
         <path d="M262.827,374.467c-28.16,0-51.2,23.04-51.2,51.2s23.04,51.2,51.2,51.2s51.2-23.04,51.2-51.2
           S290.987,374.467,262.827,374.467z M262.827,459.8c-18.773,0-34.133-15.36-34.133-34.133s15.36-34.133,34.133-34.133

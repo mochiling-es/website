@@ -38,7 +38,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{{ title }} · {{ site.title }}</title>
+  <title>{% if page.namespace == "index" %}{{site.title}}{% else %}{{ title }} · {{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ desc }}"/>
   <meta name="keywords" content="{{ site.keywords }}" />
   <meta name="distribution" content="Global">

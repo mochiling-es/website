@@ -39,18 +39,26 @@ layout: default
 	</div>
 
 	<div class="Block-content js-more">
-		<div class="Home-banner  Paragraph Text Color--light Text--withShadow">
+		<div class="Home-banner Paragraph Text Color--light Text--withShadow">
 	  	<h2 class="Text--giant Text--strong">{% t home.subtitle %}</h2>
 		  <p class="Text--big u-tSpace--l">{% t home.desc %}</p>
-		  <button class="Button Button--light u-tSpace--l">{% t home.more %}</button>
+		  <a href="#proposals" class="Button Button--light u-tSpace--l">{% t home.more %}</a>
 	  </div>
 	</div>
 </div>
 
-<div class="Block Block--spaced">
+<div class="Block Block--spaced" id="proposals">
 	<div class="Block-content Paragraph Paragraph--centered">
 		<h4 class="Text--huge Text--strong Color--secondary">{% t home.proposals.title %}</h4>
 	    <p class="Text--large u-tSpace--l Color--paragraph">{% t home.proposals.desc %}</p>
+	</div>
+
+	<div class="Block-content">
+		<ul class="Home-proposals pure-g">
+			{% include home-proposal.html proposalIndex=0 %}
+			{% include home-proposal.html proposalIndex=2 %}
+			{% include home-proposal.html proposalIndex=1 %}
+	  </ul>
 	</div>
 </div>
 
@@ -92,7 +100,7 @@ layout: default
 
 	<div>
 		{% for member in site.data.members reversed limit:5 %}
-		  <a class="Home-member Home-member--pos{{ forloop.index }} {% cycle 'Home-member--big', 'Home-member--small', '', 'Home-member--small' %} js-tippy" href="{% tl member[0] {{ site.lang }} %}" data-theme="dark" title="{{ member[1].complete_name }}">
+		  <a class="Home-member Home-member--pos{{ forloop.index }} {% cycle 'Home-member--big', 'Home-member--small', '', 'Home-member--small' %} js-tippy" href="{% tl {{member[0]}} {{ site.lang }} %}" data-theme="dark" title="{{ member[1].complete_name }}">
 				<img src="/img/members/{{ member[1].image }}" title="{{ member[1].complete_name }}" alt="{{ member[1].complete_name }}" />
 			</a>
 	  {% endfor %}

@@ -26,10 +26,12 @@
         {% assign proposals_url_strip = proposals_url | strip | remove: site_lang %}
 
         {% capture proposals_selected_class %}
-          {% if current_page contains proposals_url %}
-            is-selected
-          {% elsif proposals_url_strip contains current_page %}
-            is-selected
+          {% if current_page != '/' %}
+            {% if current_page contains proposals_url %}
+              is-selected
+            {% elsif proposals_url_strip contains current_page %}
+              is-selected
+            {% endif %}
           {% endif %}
         {% endcapture %}
 
@@ -43,10 +45,12 @@
         {% assign experiences_url_strip = experiences_url | strip | remove: site_lang %}
 
         {% capture experiences_selected_class %}
-          {% if current_page contains experiences_url_strip %}
-            is-selected
-          {% elsif experiences_url_strip contains current_page %}
-            is-selected
+          {% if current_page != '/' %}
+            {% if current_page contains experiences_url_strip %}
+              is-selected
+            {% elsif experiences_url_strip contains current_page %}
+              is-selected
+            {% endif %}
           {% endif %}
         {% endcapture %}
         <li class="Header-navListItem">
@@ -59,10 +63,12 @@
         {% assign team_url_strip = team_url | strip | remove: site_lang %}
 
         {% capture team_selected_class %}
-          {% if current_page contains team_url_strip %}
-            is-selected
-          {% elsif team_url_strip contains current_page %}
-            is-selected
+          {% if current_page != '/' %}
+            {% if current_page contains team_url_strip %}
+              is-selected
+            {% elsif team_url_strip contains current_page %}
+              is-selected
+            {% endif %}
           {% endif %}
         {% endcapture %}
         <li class="Header-navListItem">
@@ -75,10 +81,12 @@
         {% assign contact_url_strip = contact_url | strip | remove: site_lang %}
 
         {% capture contact_selected_class %}
-          {% if current_page contains contact_url %}
-            is-selected
-          {% elsif contact_url_strip contains current_page %}
-            is-selected
+          {% if current_page != '/' %}
+            {% if current_page contains contact_url %}
+              is-selected
+            {% elsif contact_url_strip contains current_page %}
+              is-selected
+            {% endif %}
           {% endif %}
         {% endcapture %}
         <li class="Header-navListItem">
