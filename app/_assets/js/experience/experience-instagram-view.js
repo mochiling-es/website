@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 var Instafeed = require('instafeed.js');
 var Freewall = require('freewall');
 
-var MIN_WIDTH = 400;
+var MIN_WIDTH = 480;
 
 var INSTAGRAM_OPTS = {
   clientId: '8edddd77898d4100bfac8f4b58e54c25',
