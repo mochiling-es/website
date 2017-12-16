@@ -1,8 +1,10 @@
-// var $ = require('jquery');
+var $ = require('jquery');
 var _ = require('underscore');
 var Backbone = require('backbone');
 var Instafeed = require('instafeed.js');
 var Freewall = require('freewall');
+
+var MIN_WIDTH = 400;
 
 var INSTAGRAM_OPTS = {
   clientId: '8edddd77898d4100bfac8f4b58e54c25',
@@ -11,6 +13,7 @@ var INSTAGRAM_OPTS = {
   get: 'tagged',
   limit: 30
 };
+
 var IMAGE_TEMPLATE = '' +
   '<div class="cell" alt="{{caption}}" title="{{caption}}" style="width: {{width}}px; height: {{height}}px; background: url({{image}}) no-repeat;">' +
     '<a href="{{link}}" target="_blank" class="Instagram-item"></a>' +
@@ -45,18 +48,30 @@ module.exports = Backbone.View.extend({
 
   _onImagesAdded: function () {
     this.$('.js-instagramLoader').remove();
-    
-    var wall = new Freewall.freewall('#instafeed');
-    var fitOnResize = function () {
-      wall.fitWidth();
-    };
-    wall.reset({
+    this._generateImagesWall();
+  },
+
+  _isWidthBiggerEnough: function () {
+    return $(window).outerWidth() > MIN_WIDTH;
+  },
+
+  _generateImagesWall: function () {
+    this.wall = new Freewall.freewall('#instafeed');
+    this.wall.reset({
       selector: '.cell',
       animate: true,
       fixSize: 0,
-      onResize: fitOnResize
+      onResize: this._fitOnResize.bind(this)
     });
-    
-    fitOnResize();
+
+    this._fitOnResize();
+  },
+
+  _fitOnResize: function () {
+    if (this._isWidthBiggerEnough()) {
+      this.wall.fitWidth();
+    } else {
+      this.wall.reset();
+    }
   }
 });
