@@ -3,14 +3,16 @@ var ExperiencesPopupView = require('./experiences-popup-view');
 var countryNames = require('../countries-i18n.json');
 
 var HIGHLIGHT_STYLE = {
-  color: '#AAA',
-  weight: 1.5,
+  color: '#999',
+  fillColor: '#AAA',
+  weight: 0.5,
   opacity: 0.65
 };
 
 var HIGHLIGHT_HOVER_STYLE = {
   color: '#F88B52',
-  weight: 1.5,
+  fillColor: '#F88B52',
+  weight: 1,
   opacity: 0.65
 };
 

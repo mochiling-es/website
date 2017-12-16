@@ -143,6 +143,9 @@ $default-border-radius: 6px;
   text-decoration: none;
   text-align: left;
 }
+.Popup-info p {
+  line-height: 17px;
+}
 .Popup:hover {
   .Popup-link {
     display: inline-block;
