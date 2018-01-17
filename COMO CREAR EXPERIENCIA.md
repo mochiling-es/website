@@ -44,8 +44,8 @@ author: victor
 
 2. Crear la página del contenido de la experiencia.
 
-Crear un fichero nuevo en la carpeta app/experiences
-```<pais-experiencia>-<miembro>.html```
+Crear un fichero nuevo en la carpeta ```app/experiences```, de tipo
+```<pais-experiencia>-<miembro>.html```.
 
 Como ejemplo partimos de: ```india-vidal.html```
 
