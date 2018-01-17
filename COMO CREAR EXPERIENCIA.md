@@ -1,8 +1,10 @@
 0. No arrancar el servidor aún.
 
+---
+
 1. Añadir datos de la experiencia:
 
-Añadir los datos pertenecientes a la experiencia, que se encuentra en ```app/_data/experiences```. Se debería crear un fichero tipo ```<pais-experiencia>-<miembro>.yml```.
+Añadir los datos pertenecientes a la experiencia, que se encuentra en ```app/_data/experiences```. Se debería crear un fichero tipo ``<pais-experiencia>-<miembro>.yml```.
 
 
 Cosas complicadas:
@@ -33,6 +35,7 @@ author: victor
 
 ```
 
+---
 
 2. Crear la página del contenido de la experiencia.
 
@@ -56,6 +59,7 @@ permalink_en:     /experiences/vidal/india/
 
 ```
 
+---
 
 3. Crear contenido en español e inglés:
 
@@ -72,6 +76,8 @@ Crear fichero de contenido en español en la carpeta ```app/_i18n/es/experiences
 ```
 Alaska es distinta de cualquier otro destino del mundo. Cada día brinda un recuerdo imborrable: Hacer snowboard, literalmente hasta el Pacífico, conducir por las heladas carreteras, glaciares y montañas, culturas nativas únicas en un marco absolutamente incomparable.
 ```
+
+---
 
 4. Llegado a este punto, arrancar el servidor y comprobar que aparece.
 
