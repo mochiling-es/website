@@ -49,7 +49,7 @@ Crear un fichero nuevo en la carpeta app/experiences
 
 Como ejemplo partimos de: ```india-vidal.html```
 
-2. En ese fichero nuevo escribir lo que se necesita para las rutas, basicamente copiarlo de otro que ya haya y sustituir con el nombre de la experiencia y el miembro. Ejemplo abajo:
+En ese fichero nuevo escribir lo que se necesita para las rutas, basicamente copiarlo de otro que ya haya y sustituir con el nombre de la experiencia y el miembro. Ejemplo abajo:
 
 ```
 ---
