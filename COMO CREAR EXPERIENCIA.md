@@ -4,7 +4,7 @@
 
 1. Añadir datos de la experiencia:
 
-Añadir los datos pertenecientes a la experiencia, que se encuentra en ```app/_data/experiences```. Se debería crear un fichero tipo ``<pais-experiencia>-<miembro>.yml```.
+Añadir los datos pertenecientes a la experiencia, que se encuentra en ```app/_data/experiences```. Se debería crear un fichero tipo ```<pais-experiencia>-<miembro>.yml```.
 
 
 Cosas complicadas:
