@@ -31,7 +31,9 @@ $(function () {
   }).render();
 
   if ($('.js-itemsList').length > 0) {
-  	new SimpleBar($('.js-itemsList')[0]);	
+  	new SimpleBar($('.js-itemsList')[0], {
+      autoHide: false
+    });	
   }
 
   var controller = new ScrollMagic.Controller();
