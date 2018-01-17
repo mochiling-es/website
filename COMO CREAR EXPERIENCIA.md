@@ -1,11 +1,16 @@
+### COMO CREAR EXPERIENCIA PASO A PASO
+
+**Nunca crear ficheros con espacios, siempre hacerlo en minúsculas, no añadir acentos o apóstrofes.**
+
+---
+
 0. No arrancar el servidor aún.
 
 ---
 
 1. Añadir datos de la experiencia:
 
-Añadir los datos pertenecientes a la experiencia, que se encuentra en ```app/_data/experiences```. Se debería crear un fichero tipo ```<pais-experiencia>-<miembro>.yml```.
-
+Añadir los datos pertenecientes a la experiencia, que se encuentra en ```app/_data/experiences```. Se debería crear un fichero tipo ```<pais-experiencia>-<miembro>.yml```. Ejemplo ```india-vidal.yml```. Luego añadir el contenido según la experiencia.
 
 Cosas complicadas:
 
@@ -65,13 +70,13 @@ permalink_en:     /experiences/vidal/india/
 
 En la carpeta ```app/_i18n``` se encuentran los contenidos para ambos lenguajes. ```es``` para español y ```en``` para inglés.
 
-Crear fichero de contenido en inglés en la carpeta ```app/_i18n/en/experiences``` de tipo ```<pais-experiencia>-<miembro>.html```.  Ejemplo:
+Crear fichero de contenido en inglés en la carpeta ```app/_i18n/en/experiences``` de tipo ```<pais-experiencia>-<miembro>.html```.  Ejemplo: ```india-vidal.html```
 
 ```
 Alaska is different from every other destination in the world. Every day offers an unforgettable memory: Snowboarding until the Pacific shore, drive through the icy roads, glaciers and mountains, unique Native cultures, in a absolutely incomparable frame.
 ```
 
-Crear fichero de contenido en español en la carpeta ```app/_i18n/es/experiences``` de tipo ```<pais-experiencia>-<miembro>.html```.  Ejemplo:
+Crear fichero de contenido en español en la carpeta ```app/_i18n/es/experiences``` de tipo ```<pais-experiencia>-<miembro>.html```.  Ejemplo: ```india-vidal.html```
 
 ```
 Alaska es distinta de cualquier otro destino del mundo. Cada día brinda un recuerdo imborrable: Hacer snowboard, literalmente hasta el Pacífico, conducir por las heladas carreteras, glaciares y montañas, culturas nativas únicas en un marco absolutamente incomparable.
