@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  text-shadow: 2px 2px 2px $shadow, 2px -2px 2px $shadow, -2px 2px 2px $shadow;
+  text-shadow: rgba(0, 0, 0, 0.6) 1px 0 1px, rgba(0, 0, 0, 0.6) -1px 0 1px, rgba(0, 0, 0, 0.6) 0 1px 1px, rgba(0, 0, 0, 0.6) 0 -1px 1px;
   color: #FFFFFF;
 }
 .Experience-authorLink--noShadow {
