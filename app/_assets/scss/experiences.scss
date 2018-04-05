@@ -21,7 +21,6 @@
   animation-duration: 0.8s;
   animation-iteration-count: 1;
   animation-name: markerTransition;
-  transform-origin: center center;
 }
 .Experiences-mapMobile {
   display: none;
@@ -87,9 +86,9 @@
 
 @keyframes markerTransition {
   from {
-    transform: scale(0);
+    opacity: 0;
   }
   to {
-    transform: scale(1);
+    opacity: 1;
   }
 }
