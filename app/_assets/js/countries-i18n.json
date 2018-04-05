@@ -3,7 +3,7 @@
     "en": "Turkey",
     "es": "Turquía"
   },
-  "united states": {
+  "united states of america": {
     "en": "United States",
     "es": "Estados Unidos"
   },
@@ -19,8 +19,8 @@
     "en": "Australia",
     "es": "Australia"
   },
-  "korea, republic of": {
-    "en": "Republic of Korea",
+  "south korea": {
+    "en": "South Korea",
     "es": "Corea del Sur"
   },
   "philippines": {
@@ -31,8 +31,8 @@
     "en": "India",
     "es": "India"
   },
-  "viet nam": {
-    "en": "Viet Nam",
+  "vietnam": {
+    "en": "Vietnam",
     "es": "Vietnam"
   },
   "thailand": {
@@ -43,7 +43,7 @@
     "en": "Cambodia",
     "es": "Camboya"
   },
-  "burma": {
+  "myanmar": {
     "en": "Myanmar",
     "es": "Myanmar"
   },
@@ -86,5 +86,25 @@
   "peru": {
     "en": "Peru",
     "es": "Perú"
+  },
+  "spain": {
+    "en": "Spain",
+    "es": "España"
+  },
+  "france": {
+    "en": "France",
+    "es": "Francia"
+  },
+  "germany": {
+    "en": "Germany",
+    "es": "Alemania"
+  },
+  "united kingdom": {
+    "en": "United Kingdom",
+    "es": "Reino Unido"
+  },
+  "italy": {
+    "en": "Italy",
+    "es": "Italia"
   }
 }
