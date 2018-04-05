@@ -23,19 +23,8 @@
   width: auto;
   height: 420px;
   max-height: 420px;
-  border-right: 1px solid #333;
   overflow: hidden;
-
-  &:before {
-    position: absolute;
-    content: '';
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(#000, 0.5), rgba(#000, 0));
-    left: 0;
-    z-index: 0;
-  }
+  border-right: 1px solid #333;
 }
 .Banner-infoImage {
   width: auto;
