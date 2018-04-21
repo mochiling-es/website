@@ -132,6 +132,13 @@
   }
 }
 
+@media (max-width: 1060px) {
+	.Home-banner {
+    right: 60px;
+    left: 60px;
+  }
+}
+
 @media (max-width: 640px) {
 	.Home-slider {
 		height: 480px;
@@ -141,7 +148,10 @@
 		height: 100%;
 	}
 	.Home-banner {
-		bottom: 40px;
+    right: 40px;
+    bottom: 40px;
+    left: 40px;
+    text-align: center;
 	}
 	.Home-proposal,
 	.Home-proposal:first-child,

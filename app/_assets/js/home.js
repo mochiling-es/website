@@ -17,6 +17,9 @@ $(function () {
 	var mySwiper = new Swiper ('.swiper-container', {
     direction: 'horizontal',
     loop: true,
+    autoplay: {
+      delay: 2000
+    },
     pagination: {
       el: '.swiper-pagination'
     },
