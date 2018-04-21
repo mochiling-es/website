@@ -44,22 +44,22 @@ proposals:
     title: esta propuesta ofrece
     experience:
       title: Experiencia única
-      desc: Una experiencia diferente para tu viaje. Nosotros nos encargamos de todo.
+      desc: Un viaje diferente. Nosotros nos encargamos de todo.
     contact:
       title: Contacto
-      desc: El contacto diario será a través del email o de Skype. Fácil y directo.
+      desc: Pregunta a los miembros de team Mochiling por tu próximo viaje.
     expert:
       title: Experto Mochiling
-      desc: Disfrutarás de la experiencia completa con un experto Mochiling. ¿Suena bien :) ?
+      desc: Disfrutarás de la experiencia completa con un guía Mochiling.
     face-2-face:
-      title: Cara a cara
-      desc: No hay nada mejor que conocer tus expectativas de viaje tomando un café o una cerveza.
+      title: A la cartè
+      desc: Tu decides y nosotros lo conseguimos.
     customer:
       title: Servicio al viajero
-      desc:  Si algo sale como no estaba previsto, nosotros estamos ahí. <strong>24/7 dispuestos a ayudarte</strong>.
+      desc:  Si algo sale como no estaba previsto, nosotros estamos ahí.
     insurance:
       title: Seguro de viaje
-      desc: No te preocupes por nada, <span class="Color--emphasis">Mochiling</span> ya ha pensado en esto, la seguridad es lo primero.
+      desc: No te preocupes por nada, ya hemos pensado en esto.
   disclaimer: ¿Quieres comprobar dónde, cómo y qué hemos disfrutado nuestras vivencias <span class="Color--emphasis">Mochiling</span>?
   experiences: Echa un ojo a nuestras experiencias
 contact:

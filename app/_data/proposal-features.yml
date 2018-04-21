@@ -1,12 +1,12 @@
 - name: experience
   title: proposals.features.experience.title 
-  icon: fa-map-o
+  icon: fa-globe
   color: Proposals-featureColor--experience
   desc: proposals.features.experience.desc
 
 - name: contact
   title: proposals.features.contact.title 
-  icon: fa-skype
+  icon: fa-info
   color: Proposals-featureColor--skype
   desc: proposals.features.contact.desc
 
@@ -18,7 +18,7 @@
 
 - name: face-2-face
   title: proposals.features.face-2-face.title
-  icon: fa-coffee
+  icon: fa-map-o
   color: Proposals-featureColor--face2face
   desc: proposals.features.face-2-face.desc
 
