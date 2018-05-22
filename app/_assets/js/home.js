@@ -2,6 +2,7 @@ var $ = require('jquery');
 var tippy = require('tippy.js');
 var SimpleBar = require('SimpleBar');
 var DefaultMapView = require('./components/default-map-view');
+var EmbedVideo = require('./components/embed-video');
 var ScrollMagic = require('scrollmagic');
 var Swiper = require('swiper');
 var ResponsiveHeaderHelper = require('./components/responsive-header');
@@ -32,6 +33,11 @@ $(function () {
 	var defaultMap = new DefaultMapView({
     el: $('#js-map')
   }).render();
+
+  var homeVideo = new EmbedVideo({
+    el: $('#embed-video'),
+    videoID: '8HM5zKnj_lM'
+  }).render()
 
   if ($('.js-itemsList').length > 0) {
   	new SimpleBar($('.js-itemsList')[0], {
