@@ -1,4 +1,4 @@
-### COMO CREAR EXPERIENCIA PASO A PASO
+### COMO CREAR EXPERIENCIA PASO A PASO.
 
 **Nunca crear ficheros con espacios, siempre hacerlo en minúsculas, no añadir acentos o apóstrofes.**
 
@@ -25,8 +25,8 @@ title:
   en: Cambodia & Viet Nam
   es: Camboya & Vietnam
 subtitle:
-  en: 
-  es: 
+  en:
+  es:
 short_desc:
   en: The stones soul
   es: El alma de las piedras
@@ -85,5 +85,3 @@ Alaska es distinta de cualquier otro destino del mundo. Cada día brinda un recu
 ---
 
 4. Llegado a este punto, arrancar el servidor y comprobar que aparece.
-
-
