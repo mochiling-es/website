@@ -1,4 +1,4 @@
-### COMO AÑADIR MIEMBRO PASO A PASO
+### COMO AÑADIR MIEMBRO PASO A PASO ###
 
 **Nunca crear ficheros con espacios, siempre hacerlo en minúsculas, no añadir acentos o apóstrofes.**
 
@@ -91,5 +91,3 @@ Crear fichero de contenido en español en la carpeta ```app/_i18n/es/members``` 
 ---
 
 4. Llegado a este punto, arrancar el servidor y comprobar que aparece.
-
-

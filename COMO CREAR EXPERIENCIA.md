@@ -1,4 +1,4 @@
-### COMO CREAR EXPERIENCIA PASO A PASO.
+### COMO CREAR EXPERIENCIA PASO A PASO..
 
 **Nunca crear ficheros con espacios, siempre hacerlo en minúsculas, no añadir acentos o apóstrofes.**
 
