@@ -1,0 +1,106 @@
+{
+  "routes": {
+    "proposals": "proposals",
+    "proposal": "proposal",
+    "experience": "experience",
+    "experiences": "experiences",
+    "team": "team",
+    "member": "member",
+    "contact": "contact"
+  },
+  "subtitle": "disorganize your trip",
+  "learn-more": "Learn more",
+  "rights-reserved": "All rights reserved",
+  "default-description": "A new way of living a real trip",
+  "contact-us": "Contact us",
+  "by": "by",
+  "home": {
+    "title": null,
+    "subtitle": "Live a new way of travelling",
+    "desc": "Are you ready to know how to live a real Mochiling experience?",
+    "more": "Know more",
+    "proposals": {
+      "title": "What do we propose?",
+      "desc": "We have three options to choose whatever it fits better in your travel."
+    },
+    "features": {
+      "title": "Our compromise",
+      "desc": "Our proposals don't travel alone, they are thought for helping you and for letting you to enjoy."
+    },
+    "experiences": {
+      "title": "Do you wanna see experiences?",
+      "desc": "Because Mochiling experts have enjoyed most of the planet, now it is your call."
+    },
+    "team": {
+      "title": "Let our experts to give you advice",
+      "desc": "Because they have lived lot of experiences and know how to help in yours."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Contact us",
+    "desc": "Do you have a question or a doubt? <br/>Would you like to start a <span class=\"Color--emphasis\">Mochiling</span> adventure?\n",
+    "also": "Also in",
+    "form": {
+      "name": "name",
+      "email": "email",
+      "name-placeholder": "Marco Polo",
+      "email-placeholder": "whatever@wherever.org",
+      "proposal": {
+        "title": "Proposal",
+        "none": "Empty",
+        "explorer": "Tipping proposal",
+        "boy-scout": "Travel proposal",
+        "voyager": "Mochiling proposal"
+      },
+      "desc": "description",
+      "desc-placeholder": "I'd like to mention...",
+      "send": "Send",
+      "sending": "Sending",
+      "sent": "Sent",
+      "error": "Error, try again"
+    }
+  },
+  "team": {
+    "title": "Team",
+    "subtitle": "Our team",
+    "desc": "We have a qualified and adventurous team ready to help you in your\n<span class=\"Color--emphasis\">Mochiling</span> experience. Check the profiles\nin order to find the best fit for your route.\n",
+    "join": "Would you like to join our <span class=\"Color--emphasis\">Mochiling</span> team?",
+    "follow": {
+      "male": "Follow him",
+      "female": "Follow her"
+    },
+    "roles": {
+      "president": "President",
+      "webmaster": "Webmaster",
+      "expert": "Expert"
+    }
+  },
+  "experiences": {
+    "title": "Experiences",
+    "subtitle": "Our experiences",
+    "desc": "There is no better way to learn what <span class=\"Color--emphasis\">Mochiling</span> can offer than check the places where we have enjoyed. Do you want us to help you to create yours?",
+    "navigate": {
+      "map": "Do you want to <i class=\"fa fa-hand-pointer-o\"></i> interact with the map?",
+      "enable": "Let's do it!"
+    },
+    "share": "Share in",
+    "other-experiences": {
+      "title": "other experiences here",
+      "desc": "There are more experiences in the same countries. Check them out!"
+    },
+    "next-experience": {
+      "title": "Ready for the next one?"
+    }
+  },
+  "cookies": {
+    "title": "Cookies",
+    "disclaimer": "We use Google Analytics cookies for improving your user experience",
+    "desc": "At <span class=\"Color--emphasis\">Mochiling</span> we try to improve your user experience with Google Analytics"
+  },
+  "error": {
+    "title": "Error",
+    "subtitle": "No one find its path without getting lost several times",
+    "desc": "Something wrong has happened and the page requested doesn't exist. Check our map for visiting our experiences."
+  }
+}

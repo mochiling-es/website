@@ -1,61 +1,107 @@
 {
-  "name": "Mochiling",
-  "version": "0.0.1",
-  "description": "Mochiling",
-  "author": "xavijam@gmail.com",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xavijam/mochiling.git"
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.18.0",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "humps": "^2.0.1",
+    "immutable": "^3.8.2",
+    "lodash": "^4.17.11",
+    "next": "^7.0.2",
+    "next-i18next": "^0.23.2",
+    "next-redux-wrapper": "^3.0.0-alpha.0",
+    "next-routes": "^1.4.2",
+    "node-sass": "^4.9.3",
+    "normalize-scss": "^7.0.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-fontawesome": "^1.6.1",
+    "react-redux": "^6.0.0",
+    "react-simple-maps": "^0.12.1",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^7.1.0",
+    "styled-jsx-css-loader": "^0.3.0"
   },
-  "bugs": {
-    "url": "https://github.com/xavijam/mochiling/issues"
-  },
-  "homepage": "https://github.com/xavijam/mochiling",
+  "name": "nextjs-redux-starter",
+  "version": "1.0.0",
+  "main": "server/index.js",
   "devDependencies": {
-    "backbone": "^1.3.3",
-    "freewall": "1.0.8",
-    "grunt": "~1.0.1",
-    "grunt-autoprefixer": "~3.0.4",
-    "grunt-browserify": "^5.0.0",
-    "grunt-build-control": "~0.7.1",
-    "grunt-concurrent": "~2.3.1",
-    "grunt-contrib-clean": "~1.0.0",
-    "grunt-contrib-concat": "~1.0.1",
-    "grunt-contrib-connect": "~1.0.2",
-    "grunt-contrib-copy": "~1.0.0",
-    "grunt-contrib-cssmin": "~1.0.2",
-    "grunt-contrib-htmlmin": "~2.0.0",
-    "grunt-contrib-imagemin": "~1.0.1",
-    "grunt-contrib-uglify": "~3.0.1",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-critical": "~0.1.1",
-    "grunt-filerev": "~2.3.1",
-    "grunt-jekyll": "~0.4.4",
-    "grunt-sass": "~2.0.0",
-    "grunt-svgmin": "~2.0.0",
-    "grunt-uncss": "~0.4.0",
-    "grunt-usemin": "~3.1.1",
-    "instafeed.js": "^1.4.1",
-    "ismobilejs": "^0.4.0",
-    "jit-grunt": "~0.10.0",
-    "jquery": "^3.1.1",
-    "jshint-stylish": "~2.2.1",
-    "leaflet": "^1.2.0",
-    "leaflet-hash": "0.2.1",
-    "load-grunt-tasks": "~3.5.2",
-    "time-grunt": "~1.0.0",
-    "select2": "4.0.3",
-    "underscore": "^1.8.3"
+    "@babel/core": "^7.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.0.0",
+    "babel-plugin-inline-dotenv": "^1.1.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-react-app": "^3.0.6",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.2.1",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.0.0",
+    "lint-staged": "^8.1.0",
+    "nodemon": "^1.12.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.16.3",
+    "raf": "^3.4.0",
+    "react-test-renderer": "^16.2.0",
+    "rimraf": "^2.6.2",
+    "snazzy": "^8.0.0",
+    "standard": "^12.0.1",
+    "webpack-bundle-analyzer": "^3.0.2"
+  },
+  "scripts": {
+    "lint-staged": "lint-staged",
+    "build": "NODE_ENV=production next build",
+    "test:ci": "jest --maxWorkers=2 --ci",
+    "test": "jest --watch",
+    "start": "nodemon -w server server/index.js",
+    "serve": "NODE_ENV=production node server/index.js",
+    "clean": "rimraf node_modules/.cache .next",
+    "lint": "standard --verbose | snazzy",
+    "now-start": "yarn serve",
+    "lint:fix": "standard --fix --verbose | snazzy"
+  },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": [
+      "yarn lint:fix",
+      "git add"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "env": [
+      "jest"
+    ]
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">= 8"
   },
-  "dependencies": {
-    "local-storage": "^1.4.2",
-    "scrollmagic": "^2.0.5",
-    "simplebar": "^2.5.0",
-    "swiper": "^4.0.6",
-    "tippy.js": "^1.4.2"
-  }
+  "jest": {
+    "modulePaths": [
+      "./src"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/src/test/__mocks__/styleMock.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/test/jest.setup.js"
+    ]
+  },
+  "repository": "CodementorIO/nextjs-redux-starter",
+  "bugs": "https://github.com/CodementorIO/nextjs-redux-starter/issues",
+  "author": "Ian Wang <gogoenwon@gmail.com> (https://github.com/IanWang)",
+  "license": "ISC",
+  "description": "Opinionated Next.js starter with Express, Redux, SASS, and Jest."
 }

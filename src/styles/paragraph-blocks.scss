@@ -1,0 +1,38 @@
+// Styles for default paragraphs
+
+.Paragraph {
+  position: relative;
+  max-width: 400px;
+}
+.Paragraph--centered {
+  max-width: 480px;
+  margin: 60px auto;
+  text-align: center;
+}
+.Paragraph--centeredBig {
+  max-width: $mainSize;
+  margin: 60px auto;
+  text-align: center; 
+}
+.Paragraph--lefty {
+  // Implicit
+  margin-left: 200px;
+}
+.Paragraph--superSpaced {
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+@media (max-width: $mainSize) {
+  .Paragraph--centered,
+  .Paragraph--centeredBig {
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .Paragraph--lefty {
+    // Implicit
+    margin-left: 15%;
+  }
+}

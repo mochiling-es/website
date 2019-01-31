@@ -1,0 +1,51 @@
+{
+  "title": "Proposals",
+  "subtitle": "Our proposals",
+  "desc": "We want to you to enjoy a real Mochiling experience, that’s our goal, so we propose these possibilities.\n<br/>The opportunity to be in touch with all our friends from Mochiling, all around the world, to make your trip unique and special…\n",
+  "items": {
+    "1": {
+      "title": "Tipping",
+      "desc": "Are you travelling somewhere and you want <span class=\"Color--emphasis\">any tips</span> from people that already been there??? Ask the mochiling members.",
+      "sub": "What is better, a taxi or a tuk-tuk?<br/>Where to find the local baker?<br/>We will turn your travel in something different."
+    },
+    "2": {
+      "title": "Travel",
+      "desc": "You like to travel more calm and with more or less everything organized?… We make you a <span class=\"Color--emphasis\">tailored trip</span> for you.",
+      "sub": "Which is that country you want to visit when you were a child?<br/>We help you to make it happen."
+    },
+    "3": {
+      "title": "Mochiling",
+      "desc": "Decide your trip minute by minute, <span class=\"Color--emphasis\">without pre establish</span> programs, without chains. A <span class=\"Color--emphasis\">mochiling member</span> will accompany to make your trip in something completely UNIQUE & PERSONAL.",
+      "sub": "You can decide your travel at any moment, there is no establish route, a unique experience."
+    }
+  },
+  "features": {
+    "title": "what we offer",
+    "experience": {
+      "title": "Unique experience",
+      "desc": "A different trip. We will make all the hard work."
+    },
+    "contact": {
+      "title": "Contact",
+      "desc": "Ask to Mochiling team members for your next trip."
+    },
+    "expert": {
+      "title": "Mochiling expert",
+      "desc": "Enjoy the whole experience with one of our guides."
+    },
+    "face-2-face": {
+      "title": "A la cartè",
+      "desc": "You decide your way and we will make it."
+    },
+    "customer": {
+      "title": "Customer service",
+      "desc": "If something doesn’t work as you expected, we are there."
+    },
+    "insurance": {
+      "title": "Travel insurance",
+      "desc": "Don’t worry a thing, we will be there for helping."
+    }
+  },
+  "disclaimer": "Do you want to check where, what and how we have lived <span class=\"Color--emphasis\">Mochiling</span>?",
+  "experiences": "Check out our experiences"
+}

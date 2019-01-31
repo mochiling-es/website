@@ -1,0 +1,16 @@
+@import 'vars';
+
+// Normalize
+@import "~normalize-scss/sass/normalize/import-now";
+// Font awesome
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+// Lato font
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+@import './blocks.scss';
+@import './colors.scss';
+@import './utils.scss';
+@import './text.scss';
+@import './paragraph-blocks.scss';
+@import './header.scss';
+@import './footer.scss';
