@@ -38,31 +38,32 @@ class Header extends Component {
           <nav className="Header-nav">
             <ul className="Header-navList Text Text--med Text--strong">
               <li className="Header-navListItem">
-                <Link href={`${urlPrefix}/${t('proposals')}`} activeClassName="is-selected">
+                <Link href={`/proposals`} activeClassName="is-selected">
                   <a className="Header-navListItemLink Color--linkSecondary">{t('routes.proposals')}</a>
                 </Link>
               </li>
               <li className="Header-navListItem">
-                <Link href={`${urlPrefix}/${t('experiences')}`} activeClassName="is-selected">
+                <Link href={`/experiences`} activeClassName="is-selected">
                   <a className="Header-navListItemLink Color--linkSecondary">{t('routes.experiences')}</a>
                 </Link>
               </li>
               <li className="Header-navListItem">
-                <Link href={`${urlPrefix}/${t('team')}`} activeClassName="is-selected">
+                <Link href={`/team`} activeClassName="is-selected">
                   <a className="Header-navListItemLink Color--linkSecondary">{t('routes.team')}</a>
                 </Link>
               </li>
               <li className="Header-navListItem">
-                <Link href={`${urlPrefix}/${t('contact')}`} activeClassName="is-selected">
+                <Link href={`contact`} activeClassName="is-selected">
                   <a className="Header-navListItemLink Color--linkSecondary">{t('routes.contact')}</a>
                 </Link>
               </li>
               <li className="Header-navListItem">
-                <Link href={`${otherLang === 'en' ? otherLang : ''}/`} activeClassName="is-selected">
-                  <a className="Color--linkSecondary">
-                    <FontAwesome name="globe" /> {otherLang}
-                  </a>
-                </Link>
+                <button
+                  className="Color--linkSecondary"
+                  onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')}
+                >
+                  <FontAwesome name="globe" /> {otherLang}
+                </button>
               </li>
             </ul>
           </nav>

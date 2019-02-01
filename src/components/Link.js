@@ -1,5 +1,5 @@
 import { withRouter } from 'next/router'
-import Link from 'next/link'
+import { Link } from '../../i18n'
 import React, { Children } from 'react'
 
 const ActiveLink = ({ router, children, ...props }) => {

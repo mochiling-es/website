@@ -1,14 +1,14 @@
 {
   "title": "Team",
   "subtitle": "Our team",
-  "desc": "We have a qualified and adventurous team ready to help you in your\n<span class=\"Color--emphasis\">Mochiling</span> experience. Check the profiles\nin order to find the best fit for your route.\n",
+  "desc": "We have a qualified and adventurous team ready to help you in your <0>Mochiling</0> experience. Check the profiles in order to find the best fit for your route.",
   "join": "Would you like to join our <0>Mochiling</0> team?",
   "follow": {
     "male": "Follow him",
     "female": "Follow her"
   },
   "roles": {
-    "president": "President",
+    "founder": "Founder",
     "webmaster": "Webmaster",
     "expert": "Expert"
   }

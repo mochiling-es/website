@@ -12,6 +12,15 @@ app.prepare().then(() => {
 
   server.use(nextI18NextMiddleware(nextI18next))
 
+  server.get('/experiences/:memberId/:experienceId', (req, res) => {
+    const { query, params } = req
+    return app.render(req, res, '/experience', {
+      ...query,
+      memberId: params.memberId,
+      experienceId: params.experienceId
+    })
+  })
+
   server.get('/team/:memberId', (req, res) => {
     const { query, params } = req
     return app.render(req, res, '/member', { ...query, memberId: params.memberId })
