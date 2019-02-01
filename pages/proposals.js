@@ -13,7 +13,7 @@ class Proposals extends Component {
 }
 
 Proposals.propTypes = {
-  t: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 }
 
 export default withNamespaces('proposals')(Proposals)

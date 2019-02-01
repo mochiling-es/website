@@ -1,21 +1,41 @@
-import React, { Fragment } from 'react'
-import Head from 'next/head'
+import React, { Fragment, Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
+import { fetchMembers } from '../src/actions/TeamActions'
+import Head from '../src/components/Head'
 import { withNamespaces } from '../i18n'
 
-class Index extends React.Component {
-  render() {
+class Index extends Component {
+  componentDidMount () {
+    this.props.fetchMembers()
+  }
+
+  render () {
+    const { t, members } = this.props
+
     return (
       <Fragment>
-        <Head>
-          <title>Mochiling</title>
-          <meta name="title" content="Mochiling" />
-          <meta name="description" content=''  />
-        </Head>
+        <Head />
         <div>home</div>
       </Fragment>
     )
   }
 }
 
-export default withNamespaces(['index', 'common'])(Index)
+function mapStateToProps (state) {
+  return {
+    members: state.members
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchMembers: bindActionCreators(fetchMembers, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withNamespaces(['index', 'common'])(Index))

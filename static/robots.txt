@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /cookies/
+Disallow: /en/cookies/
+
+Sitemap: http://mochiling.es/sitemap.xml
+Sitemap: http://mochiling.es/en/sitemap.xml

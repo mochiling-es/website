@@ -1,23 +1,22 @@
+import React from 'react'
 import withRedux from 'next-redux-wrapper'
-import { withRouter } from 'next/router'
 import { Provider } from 'react-redux'
 import App, { Container } from 'next/app'
-import createStore from 'store/createStore'
 
-import Header from '../src/components/Header'
-import Footer from '../src/components/Footer'
-import { appWithTranslation, i18n } from '../i18n'
+import makeStore from 'store/createStore'
+
+import { appWithTranslation } from '../i18n'
+import Layout from '../src/layouts/Default'
+
 import '../src/styles/common.scss'
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps ({ Component, ctx }) {
     const lang = ctx.query.lang
 
     return {
       lang,
-      pageProps: Component.getInitialProps
-        ? await Component.getInitialProps(ctx)
-        : {}
+      pageProps: Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
     }
   }
 
@@ -29,20 +28,19 @@ class MyApp extends App {
     // }
   }
 
-  render() {
+  render () {
     const { Component, pageProps, store, router } = this.props
+
     return (
       <Container>
         <Provider store={store}>
-          <div className="Canvas js-canvas">
-            <Header />
+          <Layout>
             <Component router={router} {...pageProps} />
-            <Footer />
-          </div>
+          </Layout>
         </Provider>
       </Container>
     )
   }
 }
 
-export default withRedux(createStore)(withRouter(appWithTranslation(MyApp)))
+export default withRedux(makeStore)(appWithTranslation(MyApp))

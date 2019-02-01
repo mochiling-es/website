@@ -1,4 +1,4 @@
-import { USER_UPDATED, USER_LOGOUT, USER_ERROR } from '../actions'
+import { USER_UPDATED, USER_LOGOUT, USER_ERROR } from '../actions/types'
 
 const initialState = {
   state: 'idle',

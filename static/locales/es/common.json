@@ -61,21 +61,6 @@
       "error": "Error, volver a enviar"
     }
   },
-  "team": {
-    "title": "Equipo",
-    "subtitle": "Nuestro equipo",
-    "desc": "Tenemos un equipo cualificado y aventurero preparado para ayudarte en tu\nexperiencia <span class=\"Color--emphasis\">mochiling</span>. Visita los perfiles y\nencuentra el que mejor se podría ajustar a tu ruta.\n",
-    "join": "¿Te gustaría unirte a nuestro equipo <span class=\"Color--emphasis\">Mochiling</span>?",
-    "follow": {
-      "male": "Síguele",
-      "female": "Síguela"
-    },
-    "roles": {
-      "founder": "Fundador",
-      "webmaster": "Webmaster",
-      "expert": "Expert@"
-    }
-  },
   "experiences": {
     "title": "Experiencias",
     "subtitle": "Nuestras experiencias",

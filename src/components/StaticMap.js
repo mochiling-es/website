@@ -15,8 +15,10 @@ const wrapperStyles = {
 const polygonStyles = {
   fill: '#EFEFEF',
   stroke: '#EFEFEF',
-  strokeWidth: 1,
-  fillOpacity: 0.3,
+  strokeWidth: '1',
+  opacity: '0.65',
+  fillOpacity: '0.35',
+  strokeOpacity: '1',
   outline: 'none'
 }
 
@@ -40,7 +42,7 @@ export default () => {
         }}
       >
         <ZoomableGroup center={[0, 20]} disablePanning>
-          <Geographies geography="/static/data/world-50m.json">
+          <Geographies geography='/static/assets/data/world-50m.json'>
             {(geographies, projection) =>
               geographies.map(
                 (geography, i) =>
