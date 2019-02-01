@@ -21,9 +21,23 @@ app.prepare().then(() => {
     })
   })
 
+  server.get('/experiences/:memberId/:experienceId/edit', (req, res) => {
+    const { query, params } = req
+    return app.render(req, res, '/admin/experience', {
+      ...query,
+      memberId: params.memberId,
+      experienceId: params.experienceId
+    })
+  })
+
   server.get('/team/:memberId', (req, res) => {
     const { query, params } = req
     return app.render(req, res, '/member', { ...query, memberId: params.memberId })
+  })
+
+  server.get('/team/:memberId/edit', (req, res) => {
+    const { query, params } = req
+    return app.render(req, res, '/admin/member', { ...query, memberId: params.memberId })
   })
 
   server.get('*', (req, res) => {

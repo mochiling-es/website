@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { map } from 'lodash'
+import Link from '../components/Link'
 import FontAwesome from 'react-fontawesome'
 
 import { i18n, withNamespaces } from '../../i18n'
@@ -16,15 +17,17 @@ class MemberListItem extends Component {
         <div className="l-box">
           <div className="Members-item">
             <div className="Members-itemImage">
-              <a href="---">
-                <img className="pure-img" src={data.avatarURL} title={data.name} alt={data.name} />
-              </a>
+              <Link as={`/team/${data.id}`} href={`/member?memberId=${data.id}`}>
+                <a>
+                  <img className="pure-img" src={data.avatarURL} title={data.name} alt={data.name} />
+                </a>
+              </Link>
             </div>
             <div className="Members-itemInfo">
               <h4 className="Members-itemTitle Text">
-                <a href="---" className="Color--link">
-                  {data.name}
-                </a>
+                <Link as={`/team/${data.id}`} href={`/member?memberId=${data.id}`}>
+                  <a className="Color--link">{data.name}</a>
+                </Link>
               </h4>
               <p className="Members-itemRole Text Text--paragraph">{t(`roles.${data.role}`)}</p>
               <p className="Text Text--paragraph Members-itemDesc Color--dark u-tSpace--m">{data.desc[lang]}.</p>
