@@ -1,0 +1,17 @@
+{
+  "title": "Experiencias",
+  "subtitle": "Nuestras experiencias",
+  "desc": "No hay mejor manera de aprender que puede ofrecer <span class=\"Color--emphasis\">Mochiling</span> que comprobando los lugares que hemos disfrutado. ¿Quieres que te ayudemos a crear tu experiencia?",
+  "navigate": {
+    "map": "¿Quieres navegar <i class=\"fa fa-hand-pointer-o\"></i> por el mapa?",
+    "enable": "Vamos!"
+  },
+  "share": "Compartir en",
+  "other-experiences": {
+    "title": "Otras experiencias aquí",
+    "desc": "Hay más experiencias en los mismos países. ¡Échales un vistazo!"
+  },
+  "next-experience": {
+    "title": "¿List@ para la siguiente?"
+  }
+}

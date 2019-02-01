@@ -3,24 +3,24 @@ import withRedux from 'next-redux-wrapper'
 import { Provider } from 'react-redux'
 import App, { Container } from 'next/app'
 
-import makeStore from 'store/createStore'
-
+import createStore from 'store/createStore'
+import { i18n } from '../i18n'
 import { appWithTranslation } from '../i18n'
 import Layout from '../src/layouts/Default'
 
 import '../src/styles/common.scss'
 
 class MyApp extends App {
-  static async getInitialProps ({ Component, ctx }) {
-    const lang = ctx.query.lang
+  static async getInitialProps({ Component, ctx }) {
+    // let i18nProps = i18n.getInitialProps(ctx.req, "common")
 
     return {
-      lang,
       pageProps: Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
+      // i18nProps
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     // if (this.props.lang) {
     //   i18n.changeLanguage(this.props.lang)
     // } else {
@@ -28,8 +28,8 @@ class MyApp extends App {
     // }
   }
 
-  render () {
-    const { Component, pageProps, store, router } = this.props
+  render() {
+    const { Component, pageProps, store, router, i18nProps } = this.props
 
     return (
       <Container>
@@ -43,4 +43,4 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(makeStore)(appWithTranslation(MyApp))
+export default withRedux(createStore)(appWithTranslation(MyApp))

@@ -7,23 +7,23 @@ import Head from '../src/components/Head'
 import { withNamespaces } from '../i18n'
 
 class Index extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchMembers()
   }
 
-  render () {
+  render() {
     const { t, members } = this.props
 
     return (
       <Fragment>
         <Head />
-        <div>home</div>
+        <div>home?</div>
       </Fragment>
     )
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     members: state.members
   }
