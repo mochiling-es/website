@@ -1,0 +1,4 @@
+{
+  "hello": "hola, {{ name }}",
+  "error": "Lo siento, pero no puedes acceder"
+}

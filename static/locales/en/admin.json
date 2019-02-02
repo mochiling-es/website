@@ -1,0 +1,4 @@
+{
+  "hello": "hi, {{ name }}",
+  "error": "Sorry, but you are not allowed"
+}

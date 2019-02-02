@@ -10,7 +10,7 @@ import Link from '../src/components/Link'
 import MemberListItem from '../src/components/MemberListItem'
 import config from '../utils/config'
 
-import '../src/styles/members.scss'
+import '../src/styles/team.scss'
 
 class Team extends Component {
   render() {

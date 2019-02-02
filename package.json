@@ -22,6 +22,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-firebaseui": "^3.1.2",
     "react-fontawesome": "^1.6.1",
     "react-redux": "^6.0.0",
     "react-simple-maps": "^0.12.1",
@@ -67,7 +68,13 @@
     "extends": "react-app"
   },
   "nodemonConfig": {
-    "ignore": ["src/*", "pages/*", "static/*", "utils/*", "lib/*"]
+    "ignore": [
+      "src/*",
+      "pages/*",
+      "static/*",
+      "utils/*",
+      "lib/*"
+    ]
   },
   "browserslist": [
     ">0.2%",
