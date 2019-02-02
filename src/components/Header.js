@@ -59,7 +59,7 @@ class Header extends Component {
                 </Link>
               </li>
               <li className="Header-navListItem">
-                <Link href={`contact`} activeClassName="is-selected">
+                <Link href={`/contact`} activeClassName="is-selected">
                   <a className="Header-navListItemLink Color--linkSecondary">{t('routes.contact')}</a>
                 </Link>
               </li>

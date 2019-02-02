@@ -76,8 +76,6 @@ class Default extends Component {
       )
     }
 
-    console.log(showHeader)
-
     return (
       <div
         className={`Canvas ${showHeader ? 'is-headerVisible' : ''}`}
