@@ -7,12 +7,12 @@
   "contact-us": "Escríbenos",
   "by": "por",
   "routes": {
-    "proposals": "propuestas",
-    "proposal": "propuesta",
-    "experience": "experiencia",
-    "experiences": "experiencias",
-    "team": "equipo",
-    "member": "miembro",
-    "contact": "contacto"
+    "proposals": "Propuestas",
+    "proposal": "Propuesta",
+    "experience": "Experiencia",
+    "experiences": "Experiencias",
+    "team": "Equipo",
+    "member": "Miembro",
+    "contact": "Contacto"
   }
 }

@@ -7,12 +7,12 @@
   "contact-us": "Contact us",
   "by": "by",
   "routes": {
-    "proposals": "proposals",
-    "proposal": "proposal",
-    "experience": "experience",
-    "experiences": "experiences",
-    "team": "team",
-    "member": "member",
-    "contact": "contact"
+    "proposals": "Proposals",
+    "proposal": "Proposal",
+    "experience": "Experience",
+    "experiences": "Experiences",
+    "team": "Team",
+    "member": "Member",
+    "contact": "Contact"
   }
 }
