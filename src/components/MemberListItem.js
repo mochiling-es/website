@@ -30,7 +30,7 @@ class MemberListItem extends Component {
                 </Link>
               </h4>
               <p className="Members-itemRole Text Text--paragraph">{t(`roles.${data.role}`)}</p>
-              <p className="Text Text--paragraph Members-itemDesc Color--dark u-tSpace--m">{data.desc[lang]}.</p>
+              <p className="Text Text--paragraph Members-itemDesc Color--dark u-tSpace--m">{data.shortDesc[lang]}.</p>
             </div>
             <nav className="Members-itemFooter">
               {map(socialTypes, socialName => {

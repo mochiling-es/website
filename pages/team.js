@@ -1,32 +1,18 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { find, map, filter } from 'lodash'
-import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 
 import { withNamespaces, Trans } from '../i18n'
 import StaticMap from '../src/components/StaticMap'
 import Head from '../src/components/Head'
+import Link from '../src/components/Link'
 import MemberListItem from '../src/components/MemberListItem'
-import { fetchMembers } from '../src/actions/TeamActions'
 import config from '../utils/config'
 
 import '../src/styles/members.scss'
 
 class Team extends Component {
-  static async getInitialProps({ store, isServer }) {
-    store.dispatch(fetchMembers())
-
-    return {
-      namespacesRequired: ['team'],
-      isServer
-    }
-  }
-
-  componentDidMount() {
-    this.props.fetchMembers()
-  }
-
   render() {
     const { t, members } = this.props
     const founderData = find(members, ['role', 'founder'])
@@ -34,11 +20,19 @@ class Team extends Component {
       return m.role !== 'founder'
     })
 
+    const ContactUs = () => {
+      return (
+        <Link href="/contact">
+          <a className="Color--linkSecondary">{t('contact-us')}</a>
+        </Link>
+      )
+    }
+
     return (
       <Fragment>
         <Head title={t('title')} />
 
-        <div style={{}}>
+        <div className="Block">
           <StaticMap />
           <div className="Block-content">
             <div className="Paragraph Paragraph--centered u-tSpace--xxl">
@@ -62,6 +56,20 @@ class Team extends Component {
               </ul>
             )}
           </div>
+
+          <div className="Breadcrumb u-tSpace--xxl">
+            <ul className="Breadcrumb-inner">
+              <li className="Breadcrumb-item u-rSpace--xl">
+                <Trans
+                  i18nKey="join"
+                  components={[
+                    <span className="Color--emphasis">{config.name}</span>,
+                    <ContactUs>{t('contact-us')}</ContactUs>
+                  ]}
+                />{' '}
+              </li>
+            </ul>
+          </div>
         </div>
       </Fragment>
     )
@@ -79,13 +87,7 @@ function mapStateToProps(state) {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchMembers: bindActionCreators(fetchMembers, dispatch)
-  }
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(withNamespaces('team')(Team))
+  null
+)(withNamespaces(['team'])(Team))

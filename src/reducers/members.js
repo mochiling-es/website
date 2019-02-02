@@ -8,6 +8,6 @@ export default (state, action) => {
     case FETCH_MEMBERS:
       return [].concat(action.payload)
     default:
-      return initialState
+      return state || initialState
   }
 }

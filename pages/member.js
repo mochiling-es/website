@@ -26,7 +26,6 @@ class Member extends Component {
     const { memberId, members } = this.props
     const memberData = find(members, ['id', memberId])
 
-    console.log(members)
     return (
       <div>
         <p>{memberId}</p> {memberData && memberData.name}

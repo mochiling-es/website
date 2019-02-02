@@ -2,7 +2,8 @@
   "title": "Equipo",
   "subtitle": "Nuestro equipo",
   "desc": "Tenemos un equipo cualificado y aventurero preparado para ayudarte en tu experiencia <0>Mochiling</0>. Visita los perfiles y encuentra el que mejor se podría ajustar a tu ruta.",
-  "join": "¿Te gustaría unirte a nuestro equipo <0>Mochiling</0>?",
+  "join": "¿Te gustaría unirte a nuestro equipo <0>Mochiling</0>? <1>Escríbenos</1>",
+  "contact-us": "Escríbenos",
   "follow": {
     "male": "Síguele",
     "female": "Síguela"

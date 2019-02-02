@@ -4,10 +4,6 @@ import { createStore, applyMiddleware } from 'redux'
 
 import rootReducer from '../reducers'
 
-const exampleInitialState = {
-  members: []
-}
-
-export default function (initialState = exampleInitialState, context) {
+export default function(initialState) {
   return createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)))
 }

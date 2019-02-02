@@ -1,17 +1,17 @@
 import { loadDB } from '../../lib/db'
 import { extend } from 'lodash'
-import { FETCH_MEMBERS } from './types'
+import { FETCH_EXPERIENCES } from './types'
 
 // ACTIONS
 
-// This sets up the listener to fetch members.
+// This sets up the listener to fetch experiences.
 // Sets a listener so as new posts fill in their are added to the top.
-export const fetchMembers = () => async dispatch => {
+export const fetchExperiences = () => async dispatch => {
   const db = await loadDB()
 
   db.firestore()
-    .collection('members')
-    .orderBy('createdAt', 'desc')
+    .collection('experiences')
+    .orderBy('startDate', 'desc')
     .onSnapshot(snapshot => {
       let newState = []
 
@@ -20,7 +20,7 @@ export const fetchMembers = () => async dispatch => {
       })
 
       dispatch({
-        type: FETCH_MEMBERS,
+        type: FETCH_EXPERIENCES,
         payload: newState
       })
     })
