@@ -9,7 +9,7 @@ class HTMLHead extends Component {
     const { t } = this.props
     const title = this.props.title ? `${this.props.title} · ${config.name}` : config.name
     const description = this.props.description || t('description')
-    const image = this.props.image || '/static/assets/images/logo.png'
+    const image = this.props.image || '/static/assets/favicon/favicon-96x96.png'
     const keywords = this.props.keywords || t('keywords')
 
     return (
