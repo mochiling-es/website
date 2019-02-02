@@ -15,8 +15,9 @@ export const logoutUser = data => async dispatch => {
   })
 }
 
-export const errorUser = error => async dispatch => {
+export const errorUser = data => async dispatch => {
   dispatch({
-    type: USER_ERROR
+    type: USER_ERROR,
+    payload: data
   })
 }

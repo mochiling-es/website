@@ -28,8 +28,6 @@ class Default extends Component {
   }
 
   manageAuth = user => {
-    const { t } = this.props
-
     if (user) {
       this.props.loginUser(
         extend(user.toJSON(), {
@@ -38,13 +36,14 @@ class Default extends Component {
       )
 
       user.getIdTokenResult().then(idTokenResult => {
-        if (true) {
-          //(!!idTokenResult.claims.admin) {
+        if (!!idTokenResult.claims.admin) {
           this.props.loginUser({
             state: 'logged'
           })
         } else {
-          this.props.errorUser()
+          this.props.errorUser({
+            state: 'error'
+          })
         }
       })
     } else {

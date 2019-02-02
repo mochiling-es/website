@@ -27,8 +27,6 @@ class Admin extends Component {
   render() {
     const { user, t } = this.props
 
-    console.log(user)
-
     return (
       <div className="Login">
         <StaticMap />
@@ -40,17 +38,17 @@ class Admin extends Component {
             </h3>
 
             <button className="mt2 as-button as-button--small as-button--primary" onClick={this.onLogout}>
-              <span className="as-caption as-link as-font--semibold relative ttu">sign out</span>
+              <span className="as-caption as-link as-font--semibold relative ttu">{t('logout')}</span>
             </button>
           </Fragment>
         )}
 
         {user.state === 'loading' && <FontAwesome className="Color--desc" name="compass" size="3x" spin />}
 
-        {user.state === 'idle' && (
+        {user.state === 'error' && (
           <Fragment>
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-            {user.error && <p className="as-caption as-font--semibold as-color--error">{user.error}</p>}
+            <p className="as-caption as-font--semibold as-color--error">{t('error')}</p>
           </Fragment>
         )}
       </div>

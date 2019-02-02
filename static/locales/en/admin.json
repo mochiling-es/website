@@ -1,4 +1,5 @@
 {
   "hello": "hi, {{ name }}",
-  "error": "Sorry, but you are not allowed"
+  "error": "Sorry, but you are not allowed",
+  "logout": "Logout"
 }
