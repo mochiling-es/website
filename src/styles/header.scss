@@ -79,17 +79,18 @@
 
 @media (max-width: $mainSize) {
   .Header-subLinks {
-    display: none;
-  }
-  .Header-subLinks.is-headerVisible {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -200px;
     bottom: 0;
     display: block;
     width: 200px;
     background: #333;
     z-index: 1000;
+    transition: right 0.1s linear;
+  }
+  .Header-subLinks.is-headerVisible {
+    right: 0;
   }
   .Header-subLinks .Header-navList {
     flex-direction: column;

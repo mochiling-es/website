@@ -2,8 +2,12 @@
 .Login {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
   overflow: hidden;
+}
+.Login--avatar {
+  border-radius: 100%;
 }

@@ -7,6 +7,7 @@ export default {
     storageBucket: 'mochiling-production.appspot.com'
   },
   name: 'Mochiling',
+  baseURL: 'https://mochiling.es',
   twitterId: 'mochilinges',
   facebookId: 'mochiling.es',
   instagramId: 'mochiling.es',

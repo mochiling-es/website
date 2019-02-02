@@ -14,9 +14,15 @@ class Header extends Component {
     }
   }
 
+  onHamburguerClick = ev => {
+    const { onHamburguerClick } = this.props
+    ev.stopPropagation()
+    ev.preventDefault()
+    onHamburguerClick && onHamburguerClick()
+  }
+
   render() {
-    const { light, t } = this.props
-    const urlPrefix = i18n.language === 'es' ? '' : i18n.language
+    const { light, t, showHeader } = this.props
     const otherLang = i18n.language === 'es' ? 'en' : 'es'
 
     return (
@@ -34,7 +40,7 @@ class Header extends Component {
           </h1>
         </div>
 
-        <div className="Header-child Header-subLinks">
+        <div className={`Header-child Header-subLinks ${showHeader ? 'is-headerVisible' : ''}`}>
           <nav className="Header-nav">
             <ul className="Header-navList Text Text--med Text--strong">
               <li className="Header-navListItem">
@@ -69,9 +75,9 @@ class Header extends Component {
           </nav>
         </div>
 
-        <div className="Header-child Header-hamburguer js-responsiveHeader">
+        <button className="Header-child Header-hamburguer js-responsiveHeader" onClick={this.onHamburguerClick}>
           <FontAwesome className="Color--linkSecondary" name="bars" />
-        </div>
+        </button>
       </header>
     )
   }
@@ -79,7 +85,10 @@ class Header extends Component {
 
 Header.propTypes = {
   light: PropTypes.bool,
-  t: PropTypes.func.isRequired
+  canvas: PropTypes.element,
+  t: PropTypes.func.isRequired,
+  showHeader: PropTypes.bool.isRequired,
+  onHamburguerClick: PropTypes.func.isRequired
 }
 
 export default withNamespaces('common')(withRouter(Header))

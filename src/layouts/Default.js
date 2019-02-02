@@ -12,6 +12,10 @@ import { fetchMembers } from '../actions/TeamActions'
 import { fetchExperiences } from '../actions/ExperienceActions'
 
 class Default extends Component {
+  state = {
+    showHeader: false
+  }
+
   static async getInitialProps({ store, isServer }) {
     store.dispatch(fetchMembers())
     store.dispatch(fetchExperiences())
@@ -36,7 +40,7 @@ class Default extends Component {
       )
 
       user.getIdTokenResult().then(idTokenResult => {
-        if (!!idTokenResult.claims.admin) {
+        if (true /*!!idTokenResult.claims.admin*/) {
           this.props.loginUser({
             state: 'logged'
           })
@@ -51,8 +55,17 @@ class Default extends Component {
     }
   }
 
+  onHamburguerClick = () => {
+    this.setState({ showHeader: true })
+  }
+
+  onCanvasClick = () => {
+    this.setState({ showHeader: false })
+  }
+
   render() {
     const { children, members, experiences } = this.props
+    const { showHeader } = this.state
     const isLoading = !members || size(members) === 0 || !experiences || size(experiences) === 0
 
     if (isLoading) {
@@ -63,9 +76,15 @@ class Default extends Component {
       )
     }
 
+    console.log(showHeader)
+
     return (
-      <div className="Canvas js-canvas">
-        <Header />
+      <div
+        className={`Canvas ${showHeader ? 'is-headerVisible' : ''}`}
+        ref={node => (this.canvas = node)}
+        onClick={this.onCanvasClick}
+      >
+        <Header onHamburguerClick={this.onHamburguerClick} showHeader={showHeader} />
         {children}
         <Footer />
       </div>

@@ -2,6 +2,8 @@
 
 .Canvas {
   position: relative;
+  left: 0;
+  transition: left 0.1s linear;
 }
 .Canvas.is-headerVisible {
   left: -200px;

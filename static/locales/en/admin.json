@@ -1,5 +1,6 @@
 {
-  "hello": "hi, {{ name }}",
+  "title": "Admin",
+  "hello": "Hi, {{ name }}",
   "error": "Sorry, but you are not allowed",
   "logout": "Logout"
 }
