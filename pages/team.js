@@ -6,13 +6,22 @@ import PropTypes from 'prop-types'
 import { withNamespaces, Trans } from '../i18n'
 import StaticMap from '../src/components/StaticMap'
 import Head from '../src/components/Head'
+import Header from '../src/components/Header'
 import Link from '../src/components/Link'
 import MemberListItem from '../src/components/MemberListItem'
 import config from '../utils/config'
+import LastExperiences from '../src/components/LastExperiences'
 
 import '../src/styles/team.scss'
 
 class Team extends Component {
+  static async getInitialProps({ isServer }) {
+    return {
+      namespacesRequired: ['team'],
+      isServer
+    }
+  }
+
   render() {
     const { t, members } = this.props
     const founderData = find(members, ['role', 'founder'])
@@ -30,10 +39,10 @@ class Team extends Component {
 
     return (
       <Fragment>
-        <Head title={t('title')} />
+        <Head title={t('title')} description={t('desc')} />
+        <StaticMap />
 
         <div className="Block">
-          <StaticMap />
           <div className="Block-content">
             <div className="Paragraph Paragraph--centered u-tSpace--xxl">
               <h2 className="Text Text--giant Text--strong Color--emphasis">{t('subtitle')}</h2>
@@ -71,6 +80,8 @@ class Team extends Component {
             </ul>
           </div>
         </div>
+
+        <LastExperiences limit={6} />
       </Fragment>
     )
   }

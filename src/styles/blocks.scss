@@ -4,14 +4,11 @@
   position: relative;
   left: 0;
   transition: left 0.1s linear;
-}
-.Canvas.is-headerVisible {
-  left: -200px;
-  overflow-x: hidden;
-  
+
   &:after {
     content: '';
     position: absolute;
+    display: none;
     top: 0;
     right: 200px;
     bottom: 0;
@@ -19,6 +16,14 @@
     width: 100%;
     background: rgba(white, 0.8);
     z-index: 100;
+  }
+}
+.Canvas.is-headerVisible {
+  left: -200px;
+  overflow-x: hidden;
+  
+  &:after {
+    display: block;
   }
 }
 .Block {

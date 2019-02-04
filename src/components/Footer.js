@@ -4,45 +4,45 @@ import FontAwesome from 'react-fontawesome'
 import config from '../../utils/config'
 
 class Footer extends Component {
-  render () {
+  render() {
     const year = new Date().getFullYear()
 
     return (
-      <footer className='Footer'>
-        <div className='Footer-inner'>
-          <p className='u-lSpace--xl Text Text--med Color--paragraph'>
+      <footer className="Footer">
+        <div className="Footer-inner">
+          <p className="u-lSpace--xl Text Text--med Color--paragraph">
             © {year} {config.name}.es
           </p>
-          <nav className='Footer-nav'>
-            <ul className='Footer-navList'>
-              <li className='Footer-navListItem'>
+          <nav className="Footer-nav">
+            <ul className="Footer-navList">
+              <li className="Footer-navListItem">
                 <a
                   href={`https://facebook.com/${config.facebookId}`}
-                  className='Text Text--med Color--linkSecondary'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  className="Text Text--med Color--linkSecondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <FontAwesome name='facebook' />
+                  <FontAwesome name="facebook" />
                 </a>
               </li>
-              <li className='Footer-navListItem'>
+              <li className="Footer-navListItem">
                 <a
                   href={`https://instagram.com/${config.instagramId}`}
-                  className='Text Text--med Color--linkSecondary'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  className="Text Text--med Color--linkSecondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <FontAwesome name='instagram' />
+                  <FontAwesome name="instagram" />
                 </a>
               </li>
-              <li className='Footer-navListItem'>
+              <li className="Footer-navListItem">
                 <a
                   href={`https://twitter.com/${config.twitterId}`}
-                  className='Text Text--med Color--linkSecondary'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  className="Text Text--med Color--linkSecondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <FontAwesome name='twitter' />
+                  <FontAwesome name="twitter" />
                 </a>
               </li>
             </ul>
