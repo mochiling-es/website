@@ -67,6 +67,11 @@ class Default extends Component {
     const { children, members, experiences } = this.props
     const { showHeader } = this.state
     const isLoading = !members || size(members) === 0 || !experiences || size(experiences) === 0
+    const childrenWithHeader = React.Children.map(children, child =>
+      React.cloneElement(child, null, [
+        <Header key="header" onHamburguerClick={this.onHamburguerClick} showHeader={showHeader} />
+      ])
+    )
 
     if (isLoading) {
       return (
@@ -82,8 +87,7 @@ class Default extends Component {
         ref={node => (this.canvas = node)}
         onClick={this.onCanvasClick}
       >
-        <Header onHamburguerClick={this.onHamburguerClick} showHeader={showHeader} />
-        {children}
+        {childrenWithHeader}
         <Footer />
       </div>
     )

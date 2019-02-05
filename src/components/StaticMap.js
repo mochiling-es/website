@@ -10,6 +10,7 @@ const wrapperStyles = {
   bottom: '0',
   width: '100%',
   height: '100%',
+  overflow: 'hidden',
   zIndex: -1
 }
 
@@ -35,9 +36,13 @@ const polygonStyles = isItIncluded => ({
 export default props => {
   const countries = props.countries || []
   const markers = props.markers || []
-  const center = props.center || [0, 10]
+  const center = props.center || [-3, 43]
   const rotation = props.rotation || [0, 0, 0]
-  const scale = props.cale || 350
+  const scale = props.scale || 350
+  const height = props.height || 900
+  const width = props.width || 900
+  const yOffset = props.yOffset || 0
+  const xOffset = props.xOffset || 0
   const _markerStyles = markerStyles()
 
   return (
@@ -45,14 +50,17 @@ export default props => {
       <ComposableMap
         projection={'mercator'}
         projectionConfig={{
+          yOffset,
+          xOffset,
           scale,
           rotation
         }}
-        width={980}
-        height={980}
+        width={width}
+        height={height}
         style={{
           position: 'absolute',
           width: '100%',
+          minWidth: '950px',
           left: '0',
           right: '0',
           height: 'auto',
@@ -60,7 +68,7 @@ export default props => {
         }}
       >
         <ZoomableGroup center={center} disablePanning>
-          <Geographies geography="/static/assets/data/world-50m.json">
+          <Geographies geography="/static/assets/data/world-50m.json" disableOptimization={true}>
             {(geographies, projection) =>
               geographies.map((geography, i) => {
                 const countryName = geography.properties.name

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import { withNamespaces, Trans } from '../i18n'
 import StaticMap from '../src/components/StaticMap'
 import Head from '../src/components/Head'
-import Header from '../src/components/Header'
 import Link from '../src/components/Link'
 import MemberListItem from '../src/components/MemberListItem'
 import config from '../utils/config'
@@ -23,7 +22,7 @@ class Team extends Component {
   }
 
   render() {
-    const { t, members } = this.props
+    const { t, members, children } = this.props
     const founderData = find(members, ['role', 'founder'])
     const restMembers = filter(members, m => {
       return m.role !== 'founder'
@@ -40,9 +39,10 @@ class Team extends Component {
     return (
       <Fragment>
         <Head title={t('title')} description={t('desc')} />
-        <StaticMap />
 
         <div className="Block">
+          <StaticMap />
+          {children} {/*Header*/}
           <div className="Block-content">
             <div className="Paragraph Paragraph--centered u-tSpace--xxl">
               <h2 className="Text Text--giant Text--strong Color--emphasis">{t('subtitle')}</h2>
@@ -65,7 +65,6 @@ class Team extends Component {
               </ul>
             )}
           </div>
-
           <div className="Breadcrumb u-tSpace--xxl">
             <ul className="Breadcrumb-inner">
               <li className="Breadcrumb-item u-rSpace--xl">
@@ -89,7 +88,8 @@ class Team extends Component {
 
 Team.propTypes = {
   t: PropTypes.func.isRequired,
-  members: PropTypes.instanceOf(Array).isRequired
+  members: PropTypes.instanceOf(Array).isRequired,
+  children: PropTypes.array.isRequired
 }
 
 function mapStateToProps(state) {

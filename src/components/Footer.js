@@ -10,7 +10,7 @@ class Footer extends Component {
     return (
       <footer className="Footer">
         <div className="Footer-inner">
-          <p className="u-lSpace--xl Text Text--med Color--paragraph">
+          <p className="Text Text--med Color--paragraph">
             © {year} {config.name}.es
           </p>
           <nav className="Footer-nav">

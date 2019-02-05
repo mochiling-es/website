@@ -26,38 +26,40 @@ class Admin extends Component {
   }
 
   render() {
-    const { user, t } = this.props
+    const { user, t, children } = this.props
 
     return (
       <Fragment>
         <Head title={t('title')} description="" />
-        <div className="Login">
+
+        <div className="Block">
           <StaticMap />
-          {user.state === 'logged' && (
-            <Fragment>
-              <img
-                className="Login--avatar"
-                width="60"
-                src={user.photoURL}
-                alt={user.displayName}
-                title={user.displayName}
-              />
-              <h3 className="Text--big Color--main u-tSpace--l">{t('hello', { name: user.displayName })}!</h3>
+          {children} {/*Header*/}
+          <div className="Login">
+            {user.state === 'logged' && (
+              <Fragment>
+                <img
+                  className="Login--avatar"
+                  width="60"
+                  src={user.photoURL}
+                  alt={user.displayName}
+                  title={user.displayName}
+                />
+                <h3 className="Text--big Color--main u-tSpace--l">{t('hello', { name: user.displayName })}!</h3>
 
-              <button className="Button Button--secondary u-tSpace--l" onClick={this.onLogout}>
-                {t('logout')}
-              </button>
-            </Fragment>
-          )}
-
-          {user.state === 'loading' && <FontAwesome className="Color--desc" name="compass" size="3x" spin />}
-
-          {(user.state === 'error' || user.state === 'idle') && (
-            <Fragment>
-              <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-              {user.state === 'error' && <p className="Text--med Color--error">{t('error')}</p>}
-            </Fragment>
-          )}
+                <button className="Button Button--secondary u-tSpace--l" onClick={this.onLogout}>
+                  {t('logout')}
+                </button>
+              </Fragment>
+            )}
+            {user.state === 'loading' && <FontAwesome className="Color--desc" name="compass" size="3x" spin />}
+            {(user.state === 'error' || user.state === 'idle') && (
+              <Fragment>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                {user.state === 'error' && <p className="Text--med Color--error">{t('error')}</p>}
+              </Fragment>
+            )}
+          </div>
         </div>
       </Fragment>
     )
@@ -66,7 +68,8 @@ class Admin extends Component {
 
 Admin.propTypes = {
   t: PropTypes.func.isRequired,
-  user: PropTypes.instanceOf(Object).isRequired
+  user: PropTypes.instanceOf(Object).isRequired,
+  children: PropTypes.array.isRequired
 }
 
 function mapStateToProps(state) {
