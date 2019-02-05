@@ -34,7 +34,7 @@ const polygonStyles = isItIncluded => ({
 })
 
 export default props => {
-  const countries = props.countries || []
+  const countriesCode = props.countriesCode || []
   const markers = props.markers || []
   const center = props.center || [-3, 43]
   const rotation = props.rotation || [0, 0, 0]
@@ -70,24 +70,22 @@ export default props => {
           <Geographies geography="/static/assets/data/world-50m.json" disableOptimization={true}>
             {(geographies, projection) =>
               geographies.map((geography, i) => {
-                const countryName = geography.properties.name
+                const countryCode = geography.id
                 const isItIncluded =
-                  (countries && countryName && countries.includes(countryName.toLowerCase())) || false
+                  (countriesCode && countryCode && countriesCode.includes(countryCode.toLowerCase())) || false
                 const _polygonStyles = polygonStyles(isItIncluded)
 
                 return (
-                  geography.id !== 'ATA' && (
-                    <Geography
-                      key={i}
-                      geography={geography}
-                      projection={projection}
-                      style={{
-                        default: _polygonStyles,
-                        hover: _polygonStyles,
-                        pressed: _polygonStyles
-                      }}
-                    />
-                  )
+                  <Geography
+                    key={i}
+                    geography={geography}
+                    projection={projection}
+                    style={{
+                      default: _polygonStyles,
+                      hover: _polygonStyles,
+                      pressed: _polygonStyles
+                    }}
+                  />
                 )
               })
             }

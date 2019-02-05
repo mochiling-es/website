@@ -12,5 +12,69 @@
     "founder": "Fundador",
     "webmaster": "Webmaster",
     "expert": "Expert@"
+  },
+  "id": {
+    "label": "Identificador",
+    "desc": "Tiene que ser único, y no puede contener caracteres extraños."
+  },
+  "name": {
+    "label": "Nombre completo"
+  },
+  "avatarURL": {
+    "label": "Avatar",
+    "desc": "Las fotos con mayor tamaño de 120x120 se recortan automáticamente."
+  },
+  "gender": {
+    "label": "Género",
+    "desc": "Mujer o hombre :)",
+    "female": "Mujer",
+    "male": "Hombre",
+    "error": "Tienes que elegir un género"
+  },
+  "bornLocation": {
+    "label": "Lugar de nacimiento",
+    "desc": "Hay que añadir la longitud y la latitud. Para ello tienes la opción de buscarlo en http://latlong.net",
+    "here": "aquí",
+    "longitude": "Longitud",
+    "latitude": "Latitud"
+  },
+  "shortDesc": {
+    "label": "Descripción corta",
+    "desc": "Es el texto del miembro que se muestra en el listado del equipo",
+    "en": "En inglés",
+    "es": "En español"
+  },
+  "longDesc": {
+    "label": "Descripción larga",
+    "desc": "Es el texto del miembro que se muestra en su página",
+    "en": "En inglés",
+    "es": "En español"
+  },
+  "role": {
+    "label": "Rol",
+    "desc": "El papel que desempeña en Mochiling",
+    "founder": "Fundador",
+    "webmaster": "Programador",
+    "expert": "Experto"
+  },
+  "instagramId": {
+    "label": "Id de Instagram",
+    "desc": "Ve a tu cuenta de Instagram, y mira el nombre de tu usuario en la URL"
+  },
+  "twitterId": {
+    "label": "Id de Twitter",
+    "desc": "Ve a tu cuenta de Twitter, y mira el nombre de tu usuario en la URL"
+  },
+  "facebookId": {
+    "label": "Id de Facebook",
+    "desc": "Ve a tu cuenta de Facebook, y mira el nombre de tu usuario en la URL"
+  },
+  "visitedCountries": {
+    "label": "Paises visitados",
+    "desc": "Es un selector múltiple, cuando quieras elegir más de uno mantén presionado el command (⌘). Los paises que elijas son los que se seleccionarán."
+  },
+  "languages": {
+    "label": "Lenguajes",
+    "desc": "Es un selector múltiple, cuando quieras elegir más de uno mantén presionado el command (⌘). La bandera que eligas es la que aparecerá."
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { map } from 'lodash'
+import { connect } from 'react-redux'
 import Link from '../components/Link'
 import FontAwesome from 'react-fontawesome'
 
@@ -9,13 +10,22 @@ const socialTypes = ['facebook', 'instagram', 'twitter']
 
 class MemberListItem extends Component {
   render() {
-    const { data, t } = this.props
+    const { data, user, t } = this.props
+    const userLogged = user.state === 'logged'
     const lang = i18n.language
 
     return (
       <li className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-4">
         <div className="l-box">
           <div className="Members-item">
+            {userLogged && (
+              <Link as={`/team/${data.id}/edit`} href={`/admin/member?memberId=${data.id}`}>
+                <a className="Members-itemEdit">
+                  <FontAwesome name="pencil" className="Color--action" />
+                </a>
+              </Link>
+            )}
+
             <div className="Members-itemImage">
               <Link as={`/team/${data.id}`} href={`/member?memberId=${data.id}`}>
                 <a>
@@ -58,4 +68,10 @@ class MemberListItem extends Component {
   }
 }
 
-export default withNamespaces('team')(MemberListItem)
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(withNamespaces('team')(MemberListItem))

@@ -1,7 +1,9 @@
 // Buttons for actions!
 
 .Button {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px 45px;
   line-height: 15px;
   background: transparent;
@@ -88,7 +90,8 @@
   padding: 8px 35px;
 }
 
-.Button.is-disabled {
+.Button.is-disabled,
+.Button[disabled] {
   opacity: 0.5;
   &:hover {
     cursor: default;

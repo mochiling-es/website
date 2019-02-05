@@ -82,7 +82,7 @@ class Member extends Component {
 
         <div className="Block" ref={node => (this.block = node)}>
           <StaticMap
-            countries={map(memberData.visitedCountries, country => country.toLowerCase())}
+            countriesCode={map(memberData.visitedCountries, countryCode => countryCode.toLowerCase())}
             markers={[marker]}
             center={memberData.bornLocation}
             scale={300}
@@ -118,7 +118,7 @@ class Member extends Component {
                     {map(memberData.languages, language => {
                       return (
                         <li key={language} className="Member-language">
-                          <img src={`/static/assets/images/flags/${language}.png`} alt={language} title={language} />
+                          {language}
                         </li>
                       )
                     })}

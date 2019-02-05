@@ -1,6 +1,6 @@
 import { loadDB } from '../../lib/db'
-import { extend } from 'lodash'
-import { FETCH_MEMBERS } from './types'
+import { extend, omit } from 'lodash'
+import { FETCH_MEMBERS, ADD_MEMBER, REMOVE_MEMBER, UPDATE_MEMBER } from './types'
 
 // ACTIONS
 
@@ -9,7 +9,8 @@ import { FETCH_MEMBERS } from './types'
 export const fetchMembers = () => async dispatch => {
   const db = await loadDB()
 
-  db.firestore()
+  return await db
+    .firestore()
     .collection('members')
     .orderBy('createdAt', 'desc')
     .onSnapshot(snapshot => {
@@ -23,5 +24,70 @@ export const fetchMembers = () => async dispatch => {
         type: FETCH_MEMBERS,
         payload: newState
       })
+    })
+}
+
+export const updateMember = data => async dispatch => {
+  const db = await loadDB()
+
+  return await db
+    .firestore()
+    .collection('members')
+    .doc(data.id)
+    .update(omit(data, ['id']))
+    .then(doc => {
+      dispatch({
+        type: UPDATE_MEMBER
+      })
+
+      return { data, error: null }
+    })
+    .catch(error => {
+      return { data: null, error }
+    })
+}
+
+export const deleteMember = memberId => async dispatch => {
+  const db = await loadDB()
+
+  return await db
+    .firestore()
+    .collection('members')
+    .doc(memberId)
+    .delete()
+    .then(function() {
+      dispatch({
+        type: REMOVE_MEMBER
+      })
+
+      return { data: memberId, error: null }
+    })
+    .catch(function(error) {
+      return { data: null, error }
+    })
+}
+
+export const createMember = data => async dispatch => {
+  const db = await loadDB()
+
+  return await db
+    .firestore()
+    .collection('members')
+    .doc(data.id)
+    .set(
+      extend(omit(data, ['id']), {
+        createdAt: db.firestore.FieldValue.serverTimestamp()
+      }),
+      { merge: true }
+    )
+    .then(doc => {
+      dispatch({
+        type: ADD_MEMBER
+      })
+
+      return { data, error: null }
+    })
+    .catch(error => {
+      return { data: null, error }
     })
 }
