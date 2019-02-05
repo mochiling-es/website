@@ -11,5 +11,6 @@ export default {
   twitterId: 'mochilinges',
   facebookId: 'mochiling.es',
   instagramId: 'mochiling.es',
-  googleAnalyticsId: 'UA-6602253-17'
+  googleAnalyticsId: 'UA-6602253-17',
+  email: 'mochiling.es@gmail.com'
 }

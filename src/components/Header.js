@@ -5,6 +5,7 @@ import Link from './Link'
 import PropTypes from 'prop-types'
 
 import Logo from './Logo'
+import config from '../../utils/config'
 import { withNamespaces, i18n } from '../../i18n'
 
 class Header extends Component {
@@ -59,9 +60,9 @@ class Header extends Component {
                 </Link>
               </li>
               <li className="Header-navListItem">
-                <Link href={`/contact`} activeClassName="is-selected">
-                  <a className="Header-navListItemLink Color--linkSecondary">{t('routes.contact')}</a>
-                </Link>
+                <a href={`mailto:${config.email}`} className="Header-navListItemLink Color--linkSecondary">
+                  {t('routes.contact')}
+                </a>
               </li>
               <li className="Header-navListItem">
                 <button
