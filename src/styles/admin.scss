@@ -5,7 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 75vh;
+  height: calc(100vh - 166px);
+  min-height: 400px;
   overflow: hidden;
 }
 .Login--avatar {
