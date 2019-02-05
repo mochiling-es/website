@@ -62,7 +62,7 @@ class MemberEdit extends Component {
 
     return (
       <Fragment>
-        <Head />
+        <Head title={memberData.name} />
 
         <div className="Block" ref={node => (this.block = node)}>
           {children} {/*Header*/}
