@@ -78,7 +78,7 @@ class Image extends Component {
         <ul className="Form-imageList u-tSpace--xl">
           {map(images, (image, i) => {
             return (
-              <li className="Form-imageItem">
+              <li key={i} className="Form-imageItem">
                 <button className="Form-imageDelete" onClick={() => this.onDelete(image)}>
                   <FontAwesome name="times" className="Color--error" />
                 </button>
@@ -86,9 +86,6 @@ class Image extends Component {
                   image={{
                     src: image,
                     className: 'Form-imagePreview'
-                  }}
-                  zoomImage={{
-                    src: 'image'
                   }}
                 />
               </li>

@@ -129,12 +129,10 @@ class Member extends Component {
               {memberData.longDesc && memberData.longDesc[lang] && (
                 <ReactMarkdown
                   source={memberData.longDesc[lang]}
+                  className="Member-text Color Text Text--large"
                   renderers={{
                     strong: props => {
                       return <span className="Color--emphasis">{props.children}</span>
-                    },
-                    paragraph: props => {
-                      return <div className="Member-text Color Text Text--large">{props.children}</div>
                     }
                   }}
                 />

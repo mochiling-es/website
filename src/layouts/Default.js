@@ -40,7 +40,7 @@ class Default extends Component {
       )
 
       user.getIdTokenResult().then(idTokenResult => {
-        if (true /*!!idTokenResult.claims.admin*/) {
+        if (!!idTokenResult.claims.admin) {
           this.props.loginUser({
             state: 'logged'
           })

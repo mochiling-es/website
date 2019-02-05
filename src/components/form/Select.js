@@ -37,9 +37,9 @@ export default ({
             {placeholder}
           </Option>
         )}
-        {map(options, option => {
+        {map(options, (option, i) => {
           return (
-            <Option key={option.value || option} value={option.value || option}>
+            <Option key={`${option.value || option}-${i}`} value={option.value || option}>
               {(optionRender && optionRender(option)) || option.label || option}
             </Option>
           )
