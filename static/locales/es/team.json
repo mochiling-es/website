@@ -22,7 +22,7 @@
   },
   "avatarURL": {
     "label": "Avatar",
-    "desc": "Las fotos con mayor tamaño de 120x120 se recortan automáticamente."
+    "desc": "Sólo sube fotos que sean cuadradas. Además, fotos mayores de 120x120 se recortan automáticamente."
   },
   "gender": {
     "label": "Género",

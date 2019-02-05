@@ -78,42 +78,6 @@ export default ({ members, memberId, t }) => {
       ]
     },
     {
-      id: 'shortDesc',
-      label: t('shortDesc.label'),
-      desc: t('shortDesc.desc'),
-      type: 'obj',
-      items: [
-        {
-          id: 'en',
-          label: t('shortDesc.en'),
-          type: 'string'
-        },
-        {
-          id: 'es',
-          label: t('shortDesc.es'),
-          type: 'string'
-        }
-      ]
-    },
-    {
-      id: 'longDesc',
-      label: t('longDesc.label'),
-      desc: t('longDesc.desc'),
-      type: 'obj',
-      items: [
-        {
-          id: 'en',
-          label: t('longDesc.en'),
-          type: 'textarea'
-        },
-        {
-          id: 'es',
-          label: t('longDesc.es'),
-          type: 'textarea'
-        }
-      ]
-    },
-    {
       id: 'role',
       type: 'select',
       label: t('role.label'),
@@ -137,6 +101,43 @@ export default ({ members, memberId, t }) => {
         return value !== 'founder' && value !== 'webmaster' && value !== 'expert' ? t('role.error') : null
       }
     },
+    {
+      id: 'longDesc',
+      label: t('longDesc.label'),
+      desc: t('longDesc.desc'),
+      type: 'obj',
+      items: [
+        {
+          id: 'en',
+          label: t('longDesc.en'),
+          type: 'textarea'
+        },
+        {
+          id: 'es',
+          label: t('longDesc.es'),
+          type: 'textarea'
+        }
+      ]
+    },
+    {
+      id: 'shortDesc',
+      label: t('shortDesc.label'),
+      desc: t('shortDesc.desc'),
+      type: 'obj',
+      items: [
+        {
+          id: 'en',
+          label: t('shortDesc.en'),
+          type: 'string'
+        },
+        {
+          id: 'es',
+          label: t('shortDesc.es'),
+          type: 'string'
+        }
+      ]
+    },
+
     {
       id: 'instagramId',
       type: 'string',

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { map, size, omit } from 'lodash'
+import { map, size, pull } from 'lodash'
 import FileUploader from 'react-firebase-file-uploader'
 import { Text } from 'informed'
 import ImageZoom from 'react-medium-image-zoom'
 import FontAwesome from 'react-fontawesome'
 
 import { loadDB } from '../../../lib/db'
+import { withNamespaces } from '../../../i18n'
 
 class Image extends Component {
   state = {
@@ -30,15 +31,15 @@ class Image extends Component {
     this.db = loadDB()
   }
 
-  deleteImage = url => {
+  onDelete = url => {
     const { images } = this.state
-    this.setState({ images: omit(images, url) })
+    this.setState({ images: pull(images, url) })
   }
 
   handleUploadStart = () => this.setState({ isUploading: true, progress: 0 })
 
   handleUploadError = error => {
-    this.setError({ isUploading: false, error: error.message })
+    this.setState({ isUploading: false, error: error.message })
   }
 
   handleUploadSuccess = filename => {
@@ -52,15 +53,15 @@ class Image extends Component {
       .getDownloadURL()
       .then(url => {
         images.push(url)
-        this.setState({ images })
+        this.setState({ images, isUploading: false })
       })
   }
 
   handleProgress = progress => this.setState({ progress })
 
   render() {
-    const { id, label, desc, mask, validate, options, disabled, readOnly } = this.props
-    const { images, limit } = this.state
+    const { id, label, desc, mask, validate, options, disabled, readOnly, t } = this.props
+    const { images, limit, isUploading, error } = this.state
 
     if (!this.db) {
       return null
@@ -74,18 +75,17 @@ class Image extends Component {
           </label>
         )}
         {desc && <p className="Form-fieldDesc Text Text--medLarge Color--paragraph u-tSpace--m">{desc}</p>}
-        <ul className="Form-imageList">
+        <ul className="Form-imageList u-tSpace--xl">
           {map(images, (image, i) => {
             return (
               <li className="Form-imageItem">
-                <button className="Form-imageDelete">
-                  <FontAwesome name="crossbar" />
+                <button className="Form-imageDelete" onClick={() => this.onDelete(image)}>
+                  <FontAwesome name="times" className="Color--error" />
                 </button>
                 <ImageZoom
                   image={{
                     src: image,
-                    className: 'Form-imagePreview',
-                    style: { height: '120px' }
+                    className: 'Form-imagePreview'
                   }}
                   zoomImage={{
                     src: 'image'
@@ -96,19 +96,24 @@ class Image extends Component {
           })}
         </ul>
 
-        {limit < size(images) && (
-          <FileUploader
-            accept="image/*"
-            name="avatar"
-            randomizeFilename
-            maxHeight={options.maxHeight || 512}
-            maxWidth={options.maxWidth || 512}
-            storageRef={this.db.storage().ref(options.ref)}
-            onUploadStart={this.handleUploadStart}
-            onUploadError={this.handleUploadError}
-            onUploadSuccess={this.handleUploadSuccess}
-            onProgress={this.handleProgress}
-          />
+        {limit > size(images) && (
+          <label disabled={isUploading} className="Form-imageButton Button Button--secondary u-tSpace--l">
+            {t('upload')}
+
+            {isUploading && <FontAwesome className="u-lSpace--m" name="circle-o-notch" spin size="lg" />}
+            <FileUploader
+              hidden
+              accept="image/*"
+              randomizeFilename
+              maxHeight={options.maxHeight || 512}
+              maxWidth={options.maxWidth || 512}
+              storageRef={this.db.storage().ref(options.ref)}
+              onUploadStart={this.handleUploadStart}
+              onUploadError={this.handleUploadError}
+              onUploadSuccess={this.handleUploadSuccess}
+              onProgress={this.handleProgress}
+            />
+          </label>
         )}
 
         <Text
@@ -120,9 +125,11 @@ class Image extends Component {
           id={`field-${id}`}
           initialValue={images.join(',')}
         />
+
+        {error && <p className="Text Text--medLarge Color--error u-tSpace--l">{error}</p>}
       </div>
     )
   }
 }
 
-export default Image
+export default withNamespaces('form')(Image)
