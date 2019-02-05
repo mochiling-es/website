@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { map, take, find, filter } from 'lodash'
 import PropTypes from 'prop-types'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 import { i18n } from '../../i18n'
 import Link from './Link'
@@ -26,7 +27,7 @@ class LastExperiences extends Component {
 
     return (
       <div className="Banner Bkg--light">
-        <div className="Banner-wrapper js-itemsList">
+        <Scrollbars style={{ height: '420px' }} className="Banner-wrapper js-itemsList">
           <ul className="Banner-list">
             {map(limitedExperiences, experience => {
               const { id, published, title = {}, authors = [], shortDesc = {}, mainImageURL } = experience
@@ -79,7 +80,7 @@ class LastExperiences extends Component {
               )
             })}
           </ul>
-        </div>
+        </Scrollbars>
       </div>
     )
   }
