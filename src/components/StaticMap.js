@@ -24,8 +24,8 @@ const markerStyles = () => ({
 })
 
 const polygonStyles = isItIncluded => ({
-  fill: isItIncluded ? '#CDCDCD' : '#EFEFEF',
-  stroke: isItIncluded ? '#CDCDCD' : '#EFEFEF',
+  fill: isItIncluded ? '#EAEAEA' : '#F8F8F8',
+  stroke: isItIncluded ? '#DCDCDC' : '#EFEFEF',
   strokeWidth: 1,
   opacity: '0.65',
   fillOpacity: '0.65',
@@ -60,7 +60,6 @@ export default props => {
         style={{
           position: 'absolute',
           width: '100%',
-          minWidth: '950px',
           left: '0',
           right: '0',
           height: 'auto',

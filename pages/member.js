@@ -19,7 +19,6 @@ const socialTypes = ['facebook', 'instagram', 'twitter']
 
 class Member extends Component {
   state = {
-    width: 900,
     height: 900
   }
 
@@ -34,10 +33,9 @@ class Member extends Component {
   }
 
   updateDimensions = debounce(() => {
-    const width = this.block.offsetWidth
     const height = this.block.offsetHeight
 
-    this.setState({ width: width, height: height })
+    this.setState({ height: height })
   }, 500)
 
   componentWillMount = () => {
@@ -54,11 +52,11 @@ class Member extends Component {
 
   render() {
     const { memberId, members, t, children } = this.props
-    const { width, height } = this.state
+    const { height } = this.state
+    const width = window.innerWidth
     const memberData = find(members, ['id', memberId])
     const lang = i18n.language
-    let xOffset
-    let yOffset
+    let yOffset, xOffset
 
     if (!memberId || !memberData) {
       return <Error status={404} />
@@ -67,16 +65,15 @@ class Member extends Component {
     // Born location
     const marker = {
       markerOffset: 0,
-      coordinates: memberData.bornLocation
+      coordinates: memberData.bornLocation || []
     }
 
     if (width < 900) {
-      xOffset = -60
-      yOffset = -120
-    } else {
+      yOffset = 0
       xOffset = 0
-      yOffset = 900 - width
-      console.log(960 - width)
+    } else {
+      yOffset = (125 - height / 4) / 2
+      xOffset = -(900 / 6)
     }
 
     return (
@@ -88,9 +85,11 @@ class Member extends Component {
             countries={map(memberData.visitedCountries, country => country.toLowerCase())}
             markers={[marker]}
             center={memberData.bornLocation}
-            scale={200}
-            yOffset={xOffset}
-            xOffset={yOffset}
+            scale={300}
+            height={height}
+            yOffset={yOffset}
+            xOffset={xOffset}
+            width={window.innerWidth}
           />
           {children} {/*Header*/}
           <div className="Breadcrumb">
