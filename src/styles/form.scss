@@ -34,6 +34,16 @@
     border-color: #999;
   }
 }
+.Form-fieldCheckbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+
+  .Form-fieldInput {
+    margin-top: 3px;
+  }
+}
 .Form-fieldSelect {
   width: 200px;
   height: 44px;

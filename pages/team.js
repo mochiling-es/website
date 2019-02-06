@@ -22,10 +22,29 @@ class Team extends Component {
   }
 
   render() {
-    const { t, members, children } = this.props
-    const founderData = find(members, ['role', 'founder'])
-    const restMembers = filter(members, m => {
-      return m.role !== 'founder'
+    const { t, members, children, user } = this.props
+    const isUserLogged = user.state === 'logged'
+    const founderData = find(members, member => {
+      if (member.role === 'founder') {
+        if (!isUserLogged) {
+          return member.published
+        } else {
+          return true
+        }
+      } else {
+        return false
+      }
+    })
+    const restMembers = filter(members, member => {
+      if (member.role !== 'founder') {
+        if (!isUserLogged) {
+          return member.published
+        } else {
+          return true
+        }
+      } else {
+        return false
+      }
     })
 
     const ContactUs = () => {
@@ -88,12 +107,14 @@ class Team extends Component {
 
 Team.propTypes = {
   t: PropTypes.func.isRequired,
+  user: PropTypes.instanceOf(Object).isRequired,
   members: PropTypes.instanceOf(Array).isRequired,
   children: PropTypes.array.isRequired
 }
 
 function mapStateToProps(state) {
   return {
+    user: state.user,
     members: state.members
   }
 }

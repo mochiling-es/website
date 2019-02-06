@@ -4,21 +4,18 @@
   "desc": "Tenemos un equipo cualificado y aventurero preparado para ayudarte en tu experiencia <0>Mochiling</0>. Visita los perfiles y encuentra el que mejor se podría ajustar a tu ruta.",
   "join": "¿Te gustaría unirte a nuestro equipo <0>Mochiling</0>? <1>Escríbenos</1>",
   "contact-us": "Escríbenos",
+  "delete": "¿Quieres eliminar a {{name}} del equipo?",
   "follow": {
     "male": "Síguele",
     "female": "Síguela"
-  },
-  "roles": {
-    "founder": "Fundador",
-    "webmaster": "Webmaster",
-    "expert": "Expert@"
   },
   "id": {
     "label": "Identificador",
     "desc": "Tiene que ser único, y no puede contener caracteres extraños."
   },
   "name": {
-    "label": "Nombre completo"
+    "label": "Nombre completo",
+    "name": "Tiene nombre, ¿no?"
   },
   "avatarURL": {
     "label": "Avatar",
@@ -29,6 +26,7 @@
     "desc": "Mujer o hombre :)",
     "female": "Mujer",
     "male": "Hombre",
+    "placeholder": "Elige uno",
     "error": "Tienes que elegir un género"
   },
   "bornLocation": {
@@ -55,7 +53,9 @@
     "desc": "El papel que desempeña en Mochiling",
     "founder": "Fundador",
     "webmaster": "Programador",
-    "expert": "Experto"
+    "expert": "Experto",
+    "error": "El Rol es necesario",
+    "placeholder": "Elige uno"
   },
   "instagramId": {
     "label": "Id de Instagram",
@@ -68,6 +68,10 @@
   "facebookId": {
     "label": "Id de Facebook",
     "desc": "Si no lo sabes, obtenlo [aquí](https://findmyfbid.com/)"
+  },
+  "published": {
+    "label": "Visible?",
+    "desc": "¿Quieres que sea visible?"
   },
   "visitedCountries": {
     "label": "Paises visitados",

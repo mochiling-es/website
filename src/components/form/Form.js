@@ -9,6 +9,7 @@ import Textarea from './Textarea'
 import Select from './Select'
 import Number from './Number'
 import Image from './Image'
+import Checkbox from './Checkbox'
 import Arr from './Array'
 import Obj from './Map'
 import { withNamespaces } from '../../../i18n'
@@ -18,6 +19,7 @@ const fieldTypes = {
   number: Number,
   string: String,
   textarea: Textarea,
+  checkbox: Checkbox,
   arr: Arr,
   obj: Obj,
   image: Image

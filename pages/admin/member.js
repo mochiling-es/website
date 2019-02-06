@@ -9,7 +9,7 @@ import Head from '../../src/components/Head'
 import Form from '../../src/components/form/Form'
 import genFields from './memberFields'
 import { withNamespaces } from '../../i18n'
-import { updateMember, deleteMember, createMember } from '../../src/actions/TeamActions'
+import { updateMember, createMember } from '../../src/actions/TeamActions'
 
 class MemberEdit extends Component {
   state = {
@@ -101,8 +101,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => {
   return {
     createMember: bindActionCreators(createMember, dispatch),
-    updateMember: bindActionCreators(updateMember, dispatch),
-    deleteMember: bindActionCreators(deleteMember, dispatch)
+    updateMember: bindActionCreators(updateMember, dispatch)
   }
 }
 

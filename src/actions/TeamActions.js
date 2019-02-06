@@ -55,14 +55,14 @@ export const deleteMember = memberId => async dispatch => {
     .collection('members')
     .doc(memberId)
     .delete()
-    .then(function() {
+    .then(() => {
       dispatch({
         type: REMOVE_MEMBER
       })
 
       return { data: memberId, error: null }
     })
-    .catch(function(error) {
+    .catch(error => {
       return { data: null, error }
     })
 }

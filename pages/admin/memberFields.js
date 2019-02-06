@@ -60,6 +60,7 @@ export default ({ members, memberId, t }) => {
       type: 'select',
       label: t('gender.label'),
       desc: t('gender.desc'),
+      placeholder: t('gender.placeholder'),
       options: [
         {
           label: t('gender.male'),
@@ -104,6 +105,7 @@ export default ({ members, memberId, t }) => {
       type: 'select',
       label: t('role.label'),
       desc: t('role.desc'),
+      placeholder: t('role.placeholder'),
       options: [
         {
           label: t('role.founder'),
@@ -177,6 +179,12 @@ export default ({ members, memberId, t }) => {
       type: 'string',
       label: t('twitterId.label'),
       desc: textWithLinks(t('twitterId.desc'))
+    },
+    {
+      id: 'published',
+      type: 'checkbox',
+      label: t('published.label'),
+      desc: t('published.desc')
     },
     {
       id: 'languages',

@@ -32,6 +32,7 @@
     "react-medium-image-zoom": "^3.0.15",
     "react-redux": "^6.0.0",
     "react-simple-maps": "^0.12.1",
+    "react-tooltip": "^3.9.2",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",

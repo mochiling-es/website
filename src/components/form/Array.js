@@ -34,7 +34,7 @@ export default ({ mask, desc, disabled, readOnly, validate, id, value, label, it
                 label={item.label}
                 disabled={disabled || item.readOnly || readOnly}
                 validate={item.validate}
-                value={value[index]}
+                value={(value && value[index]) || ''}
               />
             )
           }
