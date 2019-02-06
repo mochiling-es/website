@@ -35,6 +35,7 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [ ] Create experience edition/creation page
 - [ ] Migrate 404 page
 
+---
 
 ## Environments
 
