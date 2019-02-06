@@ -16,14 +16,6 @@ class MyApp extends App {
     }
   }
 
-  componentDidMount() {
-    // if (this.props.lang) {
-    //   i18n.changeLanguage(this.props.lang)
-    // } else {
-    //   i18n.changeLanguage('es')
-    // }
-  }
-
   render() {
     const { Component, pageProps, store, router } = this.props
 
