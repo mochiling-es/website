@@ -22,7 +22,7 @@
   },
   "avatarURL": {
     "label": "Avatar",
-    "desc": "Sólo sube fotos que sean cuadradas. Además, fotos mayores de 120x120 se recortan automáticamente."
+    "desc": "Sólo sube fotos que sean cuadradas. Fotos mayores de **120x120** se recortan automáticamente"
   },
   "gender": {
     "label": "Género",
@@ -33,7 +33,7 @@
   },
   "bornLocation": {
     "label": "Lugar de nacimiento",
-    "desc": "Hay que añadir la longitud y la latitud. Para ello tienes la opción de buscarlo en http://latlong.net",
+    "desc": "Hay que añadir la longitud y la latitud. Para ello tienes la opción de buscarlo [aquí](http://latlong.net)",
     "here": "aquí",
     "longitude": "Longitud",
     "latitude": "Latitud"
@@ -59,15 +59,15 @@
   },
   "instagramId": {
     "label": "Id de Instagram",
-    "desc": "Ve a tu cuenta de Instagram, y mira el nombre de tu usuario en la URL"
+    "desc": "Si no lo sabes, obtenlo [aquí](https://www.otzberg.net/iguserid/)"
   },
   "twitterId": {
     "label": "Id de Twitter",
-    "desc": "Ve a tu cuenta de Twitter, y mira el nombre de tu usuario en la URL"
+    "desc": "No importa si lo añades con **@** o sin ella"
   },
   "facebookId": {
     "label": "Id de Facebook",
-    "desc": "Ve a tu cuenta de Facebook, y mira el nombre de tu usuario en la URL"
+    "desc": "Si no lo sabes, obtenlo [aquí](https://findmyfbid.com/)"
   },
   "visitedCountries": {
     "label": "Paises visitados",

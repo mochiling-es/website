@@ -1,5 +1,24 @@
+import React from 'react'
 import { find, map, sortBy, filter } from 'lodash'
 import { countries } from 'country-data'
+import ReactMarkdown from 'react-markdown'
+
+const textWithLinks = text => {
+  return (
+    <ReactMarkdown
+      source={text}
+      renderers={{
+        link: props => {
+          return (
+            <a href={props.href} target="_blank" rel="noopener noreferrer" className="Color--emphasis">
+              {props.children}
+            </a>
+          )
+        }
+      }}
+    />
+  )
+}
 
 export default ({ members, memberId, t }) => {
   return [
@@ -31,7 +50,7 @@ export default ({ members, memberId, t }) => {
         maxWidth: 120
       },
       label: t('avatarURL.label'),
-      desc: t('avatarURL.desc')
+      desc: textWithLinks(t('avatarURL.desc'))
     },
     {
       id: 'gender',
@@ -56,7 +75,7 @@ export default ({ members, memberId, t }) => {
     {
       id: 'bornLocation',
       label: t('bornLocation.label'),
-      desc: t('bornLocation.desc'),
+      desc: textWithLinks(t('bornLocation.desc')),
       type: 'arr',
       items: [
         {
@@ -142,19 +161,19 @@ export default ({ members, memberId, t }) => {
       id: 'instagramId',
       type: 'string',
       label: t('instagramId.label'),
-      desc: t('instagramId.desc')
+      desc: textWithLinks(t('instagramId.desc'))
     },
     {
       id: 'facebookId',
       type: 'string',
       label: t('facebookId.label'),
-      desc: t('facebookId.desc')
+      desc: textWithLinks(t('facebookId.desc'))
     },
     {
       id: 'twitterId',
       type: 'string',
       label: t('twitterId.label'),
-      desc: t('twitterId.desc')
+      desc: textWithLinks(t('twitterId.desc'))
     },
     {
       id: 'languages',
