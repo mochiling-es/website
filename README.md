@@ -45,7 +45,7 @@ Taking for granted you have installed [node](http://nodejs.org) and you are usin
 
 ```bash
 > yarn
-> yarn start
+> yarn dev
 ```
 
 ### Staging
