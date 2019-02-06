@@ -12,6 +12,7 @@ import config from '../utils/config'
 import LastExperiences from '../src/components/LastExperiences'
 
 import '../src/styles/team.scss'
+import { auth } from 'firebase'
 
 class Team extends Component {
   static async getInitialProps({ isServer }) {
@@ -82,6 +83,14 @@ class Team extends Component {
                   <MemberListItem key={member.id} data={member} />
                 ))}
               </ul>
+            )}
+
+            {isUserLogged && (
+              <div style={{ display: 'flex', justifyContent: 'center', width: 'auto' }}>
+                <Link as={`/team/new`} href={`/admin/member?memberId=`}>
+                  <a className="Button Button--action">{t('add')}</a>
+                </Link>
+              </div>
             )}
           </div>
           <div className="Breadcrumb u-tSpace--xxl">

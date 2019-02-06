@@ -30,6 +30,11 @@ app.prepare().then(() => {
     })
   })
 
+  server.get('/team/new', (req, res) => {
+    const { query } = req
+    return app.render(req, res, '/admin/member', { ...query })
+  })
+
   server.get('/team/:memberId', (req, res) => {
     const { query, params } = req
     return app.render(req, res, '/member', { ...query, memberId: params.memberId })

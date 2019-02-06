@@ -32,7 +32,23 @@ export default ({ members, memberId, t }) => {
       desc: t('id.desc'),
       readOnly: !!memberId,
       validate: value => {
-        return memberId ? null : find(members, ['id', value]) ? t('id.error') : null
+        if (memberId) {
+          return null
+        }
+
+        if (find(members, ['id', value])) {
+          return t('id.unique')
+        }
+
+        if (!value) {
+          return t('id.empty')
+        }
+
+        if (!/[a-z]+/.test(value)) {
+          return t('id.weird')
+        }
+
+        return null
       }
     },
     {

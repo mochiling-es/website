@@ -59,8 +59,10 @@ class Form extends Component {
             {disabled && <FontAwesome className="u-lSpace--m" name="circle-o-notch" spin size="lg" />}
           </button>
           <div className="Form-errors">
-            {map(errors, error => (
-              <p className="Text Color--error u-tSpace--m">{error}</p>
+            {map(errors, (error, i) => (
+              <p key={i} className="Text Color--error u-tSpace--m">
+                {error}
+              </p>
             ))}
           </div>
         </div>

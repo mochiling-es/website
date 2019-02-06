@@ -28,7 +28,7 @@ class MemberEdit extends Component {
   }
 
   onSubmit = async data => {
-    const { memberId, updateMember } = this.props
+    const { memberId, updateMember, createMember } = this.props
     const onDone = ({ data, error }) => {
       return error
     }
@@ -40,6 +40,9 @@ class MemberEdit extends Component {
       error = await updateMember(data).then(onDone)
     } else {
       error = await createMember(data).then(onDone)
+      if (!error) {
+        window.location.href = '/team'
+      }
     }
 
     this.setState({ loading: false, error: (error && error.message) || null })
@@ -48,7 +51,7 @@ class MemberEdit extends Component {
   render() {
     const { memberId, user, members, t, children } = this.props
     const { loading, error } = this.state
-    let memberData
+    let memberData = {}
 
     const fields = genFields({ t, members, memberId })
 

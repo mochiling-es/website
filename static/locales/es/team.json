@@ -4,6 +4,7 @@
   "desc": "Tenemos un equipo cualificado y aventurero preparado para ayudarte en tu experiencia <0>Mochiling</0>. Visita los perfiles y encuentra el que mejor se podría ajustar a tu ruta.",
   "join": "¿Te gustaría unirte a nuestro equipo <0>Mochiling</0>? <1>Escríbenos</1>",
   "contact-us": "Escríbenos",
+  "add": "Añadir uno nuevo",
   "delete": "¿Quieres eliminar a {{name}} del equipo?",
   "follow": {
     "male": "Síguele",
@@ -11,11 +12,14 @@
   },
   "id": {
     "label": "Identificador",
-    "desc": "Tiene que ser único, y no puede contener caracteres extraños."
+    "desc": "Tiene que ser único, y no puede contener caracteres extraños.",
+    "unique": "Ese identificador ya existe",
+    "empty": "El identificador es necesario",
+    "weird": "En el identificador, nada de caracteres raros, ni espacios, ni mayúsculas..."
   },
   "name": {
     "label": "Nombre completo",
-    "name": "Tiene nombre, ¿no?"
+    "error": "Tiene nombre, ¿no?"
   },
   "avatarURL": {
     "label": "Avatar",
