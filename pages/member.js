@@ -78,7 +78,11 @@ class Member extends Component {
 
     return (
       <Fragment>
-        <Head title={memberData.name} description={`${memberData.name} · ${memberData.shortDesc[lang]}`} />
+        <Head
+          title={memberData.name}
+          description={`${memberData.name} · ${memberData.shortDesc[lang]}`}
+          image={memberData.avatarURL}
+        />
 
         <div className="Block" ref={node => (this.block = node)}>
           <StaticMap

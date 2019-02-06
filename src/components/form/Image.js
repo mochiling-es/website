@@ -1,12 +1,41 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { map, size, pull } from 'lodash'
 import FileUploader from 'react-firebase-file-uploader'
-import { Text } from 'informed'
+import { asField } from 'informed'
 import ImageZoom from 'react-medium-image-zoom'
 import FontAwesome from 'react-fontawesome'
 
 import { loadDB } from '../../../lib/db'
 import { withNamespaces } from '../../../i18n'
+
+const ImagesInput = asField(({ fieldState, fieldApi, ...props }) => {
+  const { value } = fieldState
+  const { setValue, setTouched } = fieldApi
+  const { onChange, onBlur, initialValue, forwardedRef, ...rest } = props
+
+  return (
+    <Fragment>
+      <input
+        {...rest}
+        ref={forwardedRef}
+        hidden
+        value={!value && value !== 0 ? '' : value}
+        onChange={e => {
+          setValue(e.target.value)
+          if (onChange) {
+            onChange(e)
+          }
+        }}
+        onBlur={e => {
+          setTouched()
+          if (onBlur) {
+            onBlur(e)
+          }
+        }}
+      />
+    </Fragment>
+  )
+})
 
 class Image extends Component {
   state = {
@@ -31,9 +60,21 @@ class Image extends Component {
     this.db = loadDB()
   }
 
-  onDelete = url => {
+  componentDidUpdate = (prevProps, prevState) => {
     const { images } = this.state
-    this.setState({ images: pull(images, url) })
+
+    if (size(prevState.images) !== size(images) && this.input) {
+      const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set
+      nativeInputValueSetter.call(this.input, images.join(','))
+      const event = new Event('input', { bubbles: true })
+      this.input.dispatchEvent(event)
+    }
+  }
+
+  onDelete = url => {
+    this.setState(prevState => ({
+      images: prevState.images.filter(item => item !== url)
+    }))
   }
 
   handleUploadStart = () => this.setState({ isUploading: true, progress: 0 })
@@ -44,7 +85,6 @@ class Image extends Component {
 
   handleUploadSuccess = filename => {
     const { options } = this.props
-    const { images } = this.state
 
     this.db
       .storage()
@@ -52,8 +92,10 @@ class Image extends Component {
       .child(filename)
       .getDownloadURL()
       .then(url => {
-        images.push(url)
-        this.setState({ images, isUploading: false })
+        this.setState(prevState => ({
+          images: [...prevState.images, url],
+          isUploading: false
+        }))
       })
   }
 
@@ -113,14 +155,14 @@ class Image extends Component {
           </label>
         )}
 
-        <Text
-          hidden
+        <ImagesInput
           mask={mask}
           disabled={disabled || readOnly}
           field={id}
           validate={validate}
           id={`field-${id}`}
-          initialValue={images.join(',')}
+          forwardedRef={node => (this.input = node)}
+          initialValue={this.props.value}
         />
 
         {error && <p className="Text Text--medLarge Color--error u-tSpace--l">{error}</p>}

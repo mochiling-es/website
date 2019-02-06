@@ -8,6 +8,9 @@ const textWithLinks = text => {
     <ReactMarkdown
       source={text}
       renderers={{
+        paragraph: props => {
+          return props.children
+        },
         link: props => {
           return (
             <a href={props.href} target="_blank" rel="noopener noreferrer" className="Color--emphasis">
