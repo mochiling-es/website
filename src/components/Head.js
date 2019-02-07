@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
 
-import { withNamespaces } from '../../i18n'
+import { translate } from 'react-i18next'
 import config from '../../utils/config'
 
 class HTMLHead extends Component {
@@ -102,4 +102,4 @@ class HTMLHead extends Component {
   }
 }
 
-export default withNamespaces(['common'])(HTMLHead)
+export default translate(['common'])(HTMLHead)

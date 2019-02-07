@@ -2,17 +2,17 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { find, map, filter } from 'lodash'
 import PropTypes from 'prop-types'
+import { translate, Trans } from 'react-i18next'
 
-import { withNamespaces, Trans } from '../i18n'
 import StaticMap from '../src/components/StaticMap'
 import Head from '../src/components/Head'
 import Link from '../src/components/Link'
 import MemberListItem from '../src/components/MemberListItem'
 import config from '../utils/config'
 import LastExperiences from '../src/components/LastExperiences'
+import { wrapper } from '../src/components/i18n'
 
 import '../src/styles/team.scss'
-import { auth } from 'firebase'
 
 class Team extends Component {
   static async getInitialProps({ isServer }) {
@@ -128,7 +128,6 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  null
-)(withNamespaces(['team'])(Team))
+export default wrapper(translate(['team'])(connect(
+  mapStateToProps
+)(Team)))

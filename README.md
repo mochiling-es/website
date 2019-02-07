@@ -26,7 +26,7 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Add SEO capabilities
 - [x] Create login/admin page
 - [x] Create member edition/creation page
-- [ ] Enable CI (deploy to stating & production)
+- [x] Enable CI (deploy to staging & production)
 - [ ] Add Cookies banner
 - [ ] Create a better terms-of-user page
 - [ ] Migrate experience page

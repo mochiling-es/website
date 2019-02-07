@@ -3,18 +3,13 @@ import { withRouter } from 'next/router'
 import FontAwesome from 'react-fontawesome'
 import Link from './Link'
 import PropTypes from 'prop-types'
+import { translate } from 'react-i18next'
 
 import Logo from './Logo'
 import config from '../../utils/config'
-import { withNamespaces, i18n } from '../../i18n'
+import { i18nHelper } from './i18n'
 
 class Header extends Component {
-  static async getInitialProps() {
-    return {
-      namespacesRequired: ['common']
-    }
-  }
-
   onHamburguerClick = ev => {
     const { onHamburguerClick } = this.props
     ev.stopPropagation()
@@ -24,7 +19,7 @@ class Header extends Component {
 
   render() {
     const { light, t, showHeader } = this.props
-    const otherLang = i18n.language === 'es' ? 'en' : 'es'
+    const otherLang = i18nHelper.getCurrentLanguage() === 'es' ? 'en' : 'es'
 
     return (
       <header className={`Header ${light ? 'Header--light' : ''}`}>
@@ -67,7 +62,7 @@ class Header extends Component {
               <li className="Header-navListItem">
                 <button
                   className="Color--linkSecondary"
-                  onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'es' : 'en')}
+                  onClick={() => i18nHelper.setCurrentLanguage(otherLang)}
                 >
                   <FontAwesome name="globe" /> {otherLang}
                 </button>
@@ -92,4 +87,4 @@ Header.propTypes = {
   onHamburguerClick: PropTypes.func.isRequired
 }
 
-export default withNamespaces('common')(withRouter(Header))
+export default translate(['common'])(withRouter(Header))

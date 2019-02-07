@@ -1,28 +1,23 @@
 import React, { Component, Fragment } from 'react'
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import FontAwesome from 'react-fontawesome'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import { translate } from 'react-i18next'
 
-import { withNamespaces } from '../../i18n'
 import StaticMap from '../../src/components/StaticMap'
+import { wrapper } from '../../src/components/i18n'
 import Head from '../../src/components/Head'
 
 import '../../src/styles/admin.scss'
 
-const uiConfig = {
-  signInFlow: 'popup',
-  signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
-  callbacks: {
-    signInSuccessWithAuthResult: () => false
-  }
-}
-
 class Admin extends Component {
   onLogout = () => {
     firebase.auth().signOut()
+  }
+
+  onLogin = () => {
+    var provider = new firebase.auth.GoogleAuthProvider()
+    firebase.auth().signInWithPopup(provider)
   }
 
   render() {
@@ -55,7 +50,7 @@ class Admin extends Component {
             {user.state === 'loading' && <FontAwesome className="Color--desc" name="compass" size="3x" spin />}
             {(user.state === 'error' || user.state === 'idle') && (
               <Fragment>
-                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                <button className="Button Button--action" onClick={this.onLogin}>Login</button>
                 {user.state === 'error' && <p className="Text--med Color--error">{t('error')}</p>}
               </Fragment>
             )}
@@ -78,7 +73,6 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  null
-)(withNamespaces(['admin'])(Admin))
+export default wrapper(translate(['admin'])(connect(
+  mapStateToProps
+)(Admin)))

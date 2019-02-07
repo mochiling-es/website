@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "website",
+  "public": true,
+  "regions": ["bru"],
+  "routes": [
+    { "src": "/team/(?<memberId>[^/]+)$", "dest": "/member?memberId=$memberId" },
+    { "src": "/team/new$", "dest": "/admin/member?memberId=" },
+    { "src": "/team/(?<memberId>[^/]+)/edit$", "dest": "/admin/member?memberId=$memberId" }
+  ],
+  "builds": [
+      { "src": "package.json", "use": "@now/next" }
+  ]
+}

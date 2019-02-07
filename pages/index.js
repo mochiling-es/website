@@ -1,10 +1,10 @@
 import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { translate } from 'react-i18next'
 
+import { wrapper } from '../src/components/i18n'
 import { fetchMembers } from '../src/actions/TeamActions'
-import Head from '../src/components/Head'
-import { withNamespaces } from '../i18n'
 
 class Index extends Component {
   componentDidMount() {
@@ -16,8 +16,7 @@ class Index extends Component {
 
     return (
       <Fragment>
-        <Head />
-        <div>home?</div>
+        <div>hola</div>
       </Fragment>
     )
   }
@@ -38,4 +37,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withNamespaces(['index', 'common'])(Index))
+)((Index))

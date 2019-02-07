@@ -4,13 +4,15 @@ import { bindActionCreators } from 'redux'
 import ReactMarkdown from 'react-markdown'
 import { find, map, debounce } from 'lodash'
 import FontAwesome from 'react-fontawesome'
+import { translate } from 'react-i18next'
 
 import Error from './_error'
 import Link from '../src/components/Link'
 import Head from '../src/components/Head'
 import StaticMap from '../src/components/StaticMap'
 import LastExperiences from '../src/components/LastExperiences'
-import { withNamespaces, i18n } from '../i18n'
+import { i18nHelper, wrapper } from '../src/components/i18n'
+
 import { fetchMembers } from '../src/actions/TeamActions'
 
 import '../src/styles/member.scss'
@@ -55,7 +57,7 @@ class Member extends Component {
     const { height } = this.state
     const width = window.innerWidth
     const memberData = find(members, ['id', memberId])
-    const lang = i18n.language
+    const lang = i18nHelper.getCurrentLanguage()
     let yOffset, xOffset
 
     if (!memberId || !memberData) {
@@ -188,7 +190,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
+export default wrapper(translate(['team'])(connect(
   mapStateToProps,
   mapDispatchToProps
-)(withNamespaces('team')(Member))
+)(Member)))

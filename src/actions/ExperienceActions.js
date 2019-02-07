@@ -7,9 +7,9 @@ import { FETCH_EXPERIENCES } from './types'
 // This sets up the listener to fetch experiences.
 // Sets a listener so as new posts fill in their are added to the top.
 export const fetchExperiences = () => async dispatch => {
-  const db = await loadDB()
+  const app = await loadDB()
 
-  db.firestore()
+  app.firestore()
     .collection('experiences')
     .orderBy('startDate', 'desc')
     .onSnapshot(snapshot => {

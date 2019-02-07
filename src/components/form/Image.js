@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
-import { map, size, pull } from 'lodash'
+import { map, size } from 'lodash'
 import FileUploader from 'react-firebase-file-uploader'
 import { asField } from 'informed'
 import ImageZoom from 'react-medium-image-zoom'
 import FontAwesome from 'react-fontawesome'
 
 import { loadDB } from '../../../lib/db'
-import { withNamespaces } from '../../../i18n'
+import { translate } from 'react-i18next'
 
 const ImagesInput = asField(({ fieldState, fieldApi, ...props }) => {
   const { value } = fieldState
@@ -171,4 +171,4 @@ class Image extends Component {
   }
 }
 
-export default withNamespaces('form')(Image)
+export default translate(['form'])(Image)

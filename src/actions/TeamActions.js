@@ -7,9 +7,9 @@ import { FETCH_MEMBERS, ADD_MEMBER, REMOVE_MEMBER, UPDATE_MEMBER } from './types
 // This sets up the listener to fetch members.
 // Sets a listener so as new posts fill in their are added to the top.
 export const fetchMembers = () => async dispatch => {
-  const db = await loadDB()
+  const app = await loadDB()
 
-  return await db
+  return await app
     .firestore()
     .collection('members')
     .orderBy('createdAt', 'desc')
@@ -28,9 +28,9 @@ export const fetchMembers = () => async dispatch => {
 }
 
 export const updateMember = data => async dispatch => {
-  const db = await loadDB()
+  const app = await loadDB()
 
-  return await db
+  return await app
     .firestore()
     .collection('members')
     .doc(data.id)
@@ -48,9 +48,9 @@ export const updateMember = data => async dispatch => {
 }
 
 export const deleteMember = memberId => async dispatch => {
-  const db = await loadDB()
+  const app = await loadDB()
 
-  return await db
+  return await app
     .firestore()
     .collection('members')
     .doc(memberId)
@@ -68,9 +68,9 @@ export const deleteMember = memberId => async dispatch => {
 }
 
 export const createMember = data => async dispatch => {
-  const db = await loadDB()
+  const app = await loadDB()
 
-  return await db
+  return await app
     .firestore()
     .collection('members')
     .doc(data.id)

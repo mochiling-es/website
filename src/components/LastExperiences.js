@@ -4,7 +4,7 @@ import { map, take, find, filter } from 'lodash'
 import PropTypes from 'prop-types'
 import { Scrollbars } from 'react-custom-scrollbars'
 
-import { i18n } from '../../i18n'
+import { i18nHelper } from './i18n'
 import Link from './Link'
 
 import '../styles/experience.scss'
@@ -12,7 +12,7 @@ import '../styles/experience.scss'
 class LastExperiences extends Component {
   render() {
     const { experiences, user, members, limit = 10 } = this.props
-    const lang = i18n.language
+    const lang = i18nHelper.getCurrentLanguage()
     const isUserLogged = user.state === 'logged'
     const limitedExperiences = take(
       filter(experiences, experience => {

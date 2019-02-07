@@ -4,10 +4,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FontAwesome from 'react-fontawesome'
 import ReactTooltip from 'react-tooltip'
+import { translate } from 'react-i18next'
 
 import Link from '../components/Link'
 import { deleteMember } from '../actions/TeamActions'
-import { i18n, withNamespaces } from '../../i18n'
+import { i18nHelper } from './i18n'
 
 const socialTypes = ['facebook', 'instagram', 'twitter']
 
@@ -41,7 +42,7 @@ class MemberListItem extends Component {
     const { data, user, t } = this.props
     const { error, loading } = this.state
     const userLogged = user.state === 'logged'
-    const lang = i18n.language
+    const lang = i18nHelper.getCurrentLanguage()
 
     return (
       <li className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-4">
@@ -132,4 +133,4 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withNamespaces('team')(MemberListItem))
+)(translate(['team'])(MemberListItem))

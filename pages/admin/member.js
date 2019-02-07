@@ -2,14 +2,15 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { find } from 'lodash'
+import { translate } from 'react-i18next'
 
 import Error from '../_error'
 import Link from '../../src/components/Link'
 import Head from '../../src/components/Head'
 import Form from '../../src/components/form/Form'
 import genFields from './memberFields'
-import { withNamespaces } from '../../i18n'
 import { updateMember, createMember } from '../../src/actions/TeamActions'
+import { wrapper } from '../../src/components/i18n'
 
 class MemberEdit extends Component {
   state = {
@@ -22,7 +23,6 @@ class MemberEdit extends Component {
 
     return {
       memberId,
-      namespacesRequired: ['team'],
       isServer
     }
   }
@@ -108,7 +108,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
+export default wrapper(translate(['team'])(connect(
   mapStateToProps,
   mapDispatchToProps
-)(withNamespaces('team')(MemberEdit))
+)(MemberEdit)))

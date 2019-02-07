@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { map } from 'lodash'
 import { Form as TheForm } from 'informed'
 import FontAwesome from 'react-fontawesome'
+import { translate } from 'react-i18next'
 
 import String from './String'
 import Textarea from './Textarea'
@@ -12,7 +13,7 @@ import Image from './Image'
 import Checkbox from './Checkbox'
 import Arr from './Array'
 import Obj from './Map'
-import { withNamespaces } from '../../../i18n'
+import { wrapper } from '../i18n'
 
 const fieldTypes = {
   select: Select,
@@ -78,4 +79,4 @@ Form.propTypes = {
   formData: PropTypes.instanceOf(Object)
 }
 
-export default withNamespaces('form')(Form)
+export default wrapper(translate(['form'])(Form))

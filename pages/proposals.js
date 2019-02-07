@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { translate } from 'react-i18next'
 
-import { withNamespaces } from '../i18n'
+import { wrapper } from '../src/components/i18n'
 
 class Proposals extends Component {
   render () {
@@ -16,4 +17,4 @@ Proposals.propTypes = {
   t: PropTypes.func.isRequired
 }
 
-export default withNamespaces('proposals')(Proposals)
+export default wrapper(translate(['proposals'])(Proposals))
