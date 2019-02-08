@@ -13,5 +13,71 @@
   },
   "next-experience": {
     "title": "Ready for the next one?"
+  },
+  "add": "Add new",
+  "delete": "Do you want to remove {{title}} from experiences?",
+  "slug": {
+    "label": "Id",
+    "desc": "It has to be unique, and it can't contain weird characters.",
+    "unique": "That id already exists",
+    "empty": "The id is necessary",
+    "weird": "In the Id, no weird characters, spaces, capital letters..."
+  },
+  "name": {
+    "label": "Title",
+    "desc": "Experience title",
+    "error": "It has title, doesn't it?",
+    "en": "English",
+    "es": "Español"
+  },
+  "_subtitle": {
+    "label": "Subtitle",
+    "desc": "A short message as subtitle",
+    "en": "English",
+    "es": "Español"
+  },
+  "mainImageURL": {
+    "label": "Key image",
+    "desc": "The highlighted image of the experience"
+  },
+  "imagesListURL": {
+    "label": "Secondary images",
+    "desc": "These images will appear in the list of the experience page."
+  },
+  "shortDesc": {
+    "label": "Short description",
+    "desc": "This is the short description of the experience",
+    "en": "English",
+    "es": "Español"
+  },
+  "longDesc": {
+    "label": "Long description",
+    "desc": "This is the text that appears in the experience page",
+    "en": "English",
+    "es": "Español"
+  },
+  "startDate": {
+    "label": "Trip start date",
+    "desc": "Experience start. Format **YYYY/MM/DD**"
+  },
+  "endDate": {
+    "label": "Trip end date",
+    "desc": "Experience end. Format **YYYY/MM/DD**"
+  },
+  "youtubeURL": {
+    "label": "Video URL",
+    "desc": "YouTube share URL. Remember it has to be like **https://www.youtube.com/embed/lBf4FbtxTO8**"
+  },
+  "published": {
+    "label": "Visible?",
+    "desc": "Do you want it to be public?"
+  },
+  "countries": {
+    "label": "Visited countries",
+    "desc": "All the visited countries during the experience"
+  },
+  "authors": {
+    "label": "Trip members",
+    "desc": "Mochiling members who did the trip"
   }
 }

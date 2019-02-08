@@ -61,6 +61,10 @@ class MemberEdit extends Component {
 
     if (memberId) {
       memberData = find(members, ['id', memberId])
+
+      if (!memberData) {
+        return <Error status={404} />
+      }
     }
 
     return (

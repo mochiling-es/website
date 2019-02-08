@@ -76,7 +76,7 @@ export const createMember = data => async dispatch => {
     .doc(data.id)
     .set(
       extend(omit(data, ['id']), {
-        createdAt: db.firestore.FieldValue.serverTimestamp()
+        createdAt: app.firestore.FieldValue.serverTimestamp()
       }),
       { merge: true }
     )

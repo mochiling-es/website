@@ -14,11 +14,15 @@ import Checkbox from './Checkbox'
 import Arr from './Array'
 import Obj from './Map'
 import { wrapper } from '../i18n'
+import Hidden from './Hidden'
+import Date from './Date'
 
 const fieldTypes = {
   select: Select,
   number: Number,
   string: String,
+  hidden: Hidden,
+  date: Date,
   textarea: Textarea,
   checkbox: Checkbox,
   arr: Arr,
@@ -79,4 +83,4 @@ Form.propTypes = {
   formData: PropTypes.instanceOf(Object)
 }
 
-export default wrapper(translate(['form'])(Form))
+export default translate(['form'])(Form)

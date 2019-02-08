@@ -50,7 +50,9 @@ class Admin extends Component {
             {user.state === 'loading' && <FontAwesome className="Color--desc" name="compass" size="3x" spin />}
             {(user.state === 'error' || user.state === 'idle') && (
               <Fragment>
-                <button className="Button Button--action" onClick={this.onLogin}>Login</button>
+                <button className="Button Button--action" onClick={this.onLogin}>
+                  Login
+                </button>
                 {user.state === 'error' && <p className="Text--med Color--error">{t('error')}</p>}
               </Fragment>
             )}
@@ -73,6 +75,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default wrapper(translate(['admin'])(connect(
-  mapStateToProps
-)(Admin)))
+export default wrapper(translate(['admin'])(connect(mapStateToProps)(Admin)))

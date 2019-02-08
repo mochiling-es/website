@@ -50,7 +50,7 @@ class Image extends Component {
     super(props)
 
     if (props.value) {
-      this.state.images = [props.value]
+      this.state.images = Array.isArray(props.value) ? props.value : [props.value]
     }
 
     if (props.options && props.options.limit) {

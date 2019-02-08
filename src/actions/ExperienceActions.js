@@ -1,6 +1,6 @@
 import { loadDB } from '../../lib/db'
-import { extend } from 'lodash'
-import { FETCH_EXPERIENCES } from './types'
+import { extend, omit } from 'lodash'
+import { FETCH_EXPERIENCES, REMOVE_EXPERIENCE, UPDATE_EXPERIENCE, ADD_EXPERIENCE } from './types'
 
 // ACTIONS
 
@@ -9,7 +9,8 @@ import { FETCH_EXPERIENCES } from './types'
 export const fetchExperiences = () => async dispatch => {
   const app = await loadDB()
 
-  app.firestore()
+  app
+    .firestore()
     .collection('experiences')
     .orderBy('startDate', 'desc')
     .onSnapshot(snapshot => {
@@ -23,5 +24,68 @@ export const fetchExperiences = () => async dispatch => {
         type: FETCH_EXPERIENCES,
         payload: newState
       })
+    })
+}
+
+export const updateExperience = data => async dispatch => {
+  const app = await loadDB()
+
+  return await app
+    .firestore()
+    .collection('experiences')
+    .doc(data.id)
+    .update(omit(data, ['id']))
+    .then(doc => {
+      dispatch({
+        type: UPDATE_EXPERIENCE
+      })
+
+      return { data, error: null }
+    })
+    .catch(error => {
+      return { data: null, error }
+    })
+}
+
+export const deleteExperience = experienceId => async dispatch => {
+  const app = await loadDB()
+
+  return await app
+    .firestore()
+    .collection('experiences')
+    .doc(experienceId)
+    .delete()
+    .then(() => {
+      dispatch({
+        type: REMOVE_EXPERIENCE
+      })
+
+      return { data: experienceId, error: null }
+    })
+    .catch(error => {
+      return { data: null, error }
+    })
+}
+
+export const createExperience = data => async dispatch => {
+  const app = await loadDB()
+
+  return await app
+    .firestore()
+    .collection('experiences')
+    .add(
+      extend(omit(data, ['id']), {
+        createdAt: app.firestore.FieldValue.serverTimestamp()
+      })
+    )
+    .then(doc => {
+      dispatch({
+        type: ADD_EXPERIENCE
+      })
+
+      return { data, error: null }
+    })
+    .catch(error => {
+      return { data: null, error }
     })
 }

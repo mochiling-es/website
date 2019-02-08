@@ -13,5 +13,71 @@
   },
   "next-experience": {
     "title": "¿List@ para la siguiente?"
+  },
+  "add": "Añadir nueva",
+  "delete": "¿Quieres eliminar {{title}} de las experiencias?",
+  "slug": {
+    "label": "Identificador",
+    "desc": "Tiene que ser único, y no puede contener caracteres extraños.",
+    "unique": "Ese identificador ya existe",
+    "empty": "El identificador es necesario",
+    "weird": "En el identificador, nada de caracteres raros, ni espacios, ni mayúsculas..."
+  },
+  "name": {
+    "label": "Título",
+    "desc": "El título de la experiencia",
+    "error": "¿Tiene título no?",
+    "en": "En inglés",
+    "es": "En español"
+  },
+  "_subtitle": {
+    "label": "Subtítulo",
+    "desc": "Un mensaje muy corto como subtítulo",
+    "en": "En inglés",
+    "es": "En español"
+  },
+  "mainImageURL": {
+    "label": "Imagen principal",
+    "desc": "Esta es la imagen destacada de la experiencia"
+  },
+  "imagesListURL": {
+    "label": "Imágenes secundarias",
+    "desc": "Las imágenes que apareceran en la lista dentro de la página de la experiencia"
+  },
+  "shortDesc": {
+    "label": "Descripción corta",
+    "desc": "Es el texto de la experiencia que se muestra en el listado del equipo",
+    "en": "En inglés",
+    "es": "En español"
+  },
+  "longDesc": {
+    "label": "Descripción larga",
+    "desc": "Es el texto de la experiencia que se muestra en su página",
+    "en": "En inglés",
+    "es": "En español"
+  },
+  "startDate": {
+    "label": "Fecha comienzo viaje",
+    "desc": "De comienzo de la experiencia. Formato **AAAA/MM/DD** (año/mes/día)"
+  },
+  "endDate": {
+    "label": "Fecha final viaje",
+    "desc": "Del final de la experiencia. Formato **AAAA/MM/DD** (año/mes/día)"
+  },
+  "youtubeURL": {
+    "label": "URL del video",
+    "desc": "Es la URL de compartir de YouTube. Recuerda que debería ser algo como **https://www.youtube.com/embed/lBf4FbtxTO8**"
+  },
+  "published": {
+    "label": "Visible?",
+    "desc": "¿Quieres que sea visible?"
+  },
+  "countries": {
+    "label": "Paises visitados",
+    "desc": "Indica los países que se han visitado durante esta experiencia."
+  },
+  "authors": {
+    "label": "Miembros del viaje",
+    "desc": "Selecciona los miembros Mochiling que hicieron este viaje. Ten en cuenta que miembros no publicados no aparecen en la lista."
   }
 }
