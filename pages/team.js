@@ -128,6 +128,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default wrapper(translate(['team'])(connect(
-  mapStateToProps
-)(Team)))
+export default wrapper(translate(['team'])(connect(mapStateToProps)(Team)))
