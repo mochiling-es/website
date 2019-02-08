@@ -4,8 +4,11 @@
   "public": true,
   "regions": ["bru"],
   "routes": [
-    { "src": "/team/(?<memberId>[^/]+)$", "dest": "/member?memberId=$memberId" },
+    { "src": "/experiences/new$", "dest": "/admin/experience?memberId=&experienceSlug=" },
+    { "src": "/experiences/(?<memberId>[^/]+)/?<experienceSlug>[^/]+)$", "dest": "/experience?memberId=$memberId&experienceSlug=$experienceSlug" },
+    { "src": "/experiences/(?<memberId>[^/]+)/?<experienceSlug>[^/]+)/edit$", "dest": "/admin/experience?memberId=$memberId&experienceSlug=$experienceSlug" },
     { "src": "/team/new$", "dest": "/admin/member?memberId=" },
+    { "src": "/team/(?<memberId>[^/]+)$", "dest": "/member?memberId=$memberId" },
     { "src": "/team/(?<memberId>[^/]+)/edit$", "dest": "/admin/member?memberId=$memberId" }
   ],
   "builds": [
