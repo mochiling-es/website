@@ -33,7 +33,11 @@ class ExperienceEdit extends Component {
       if (key === 'startDate' || key === 'endDate') {
         return new Date(value)
       } else if (key === 'imagesListURL') {
-        return (value && size(value) > 0 && value.split(',')) || []
+        if (Array.isArray(value)) {
+          return value
+        } else {
+          return (value && size(value) > 0 && value.split(',')) || []
+        }
       } else {
         return value
       }

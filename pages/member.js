@@ -117,7 +117,7 @@ class Member extends Component {
                 </div>
                 <div className="Member-desc">
                   {memberData.role && (
-                    <h4 className="Color--paragraph Text Text--uppercase Text--med">{t(`roles.${memberData.role}`)}</h4>
+                    <h4 className="Color--paragraph Text Text--uppercase Text--med">{t(`role.${memberData.role}`)}</h4>
                   )}
                   <h2 className="Color--main Text Text--giant Text--strong">{memberData.name}</h2>
                   <ul className="Member-languages u-tSpace">

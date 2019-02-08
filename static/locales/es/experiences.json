@@ -7,10 +7,8 @@
     "enable": "Vamos!"
   },
   "share": "Compartir en",
-  "other-experiences": {
-    "title": "Otras experiencias aquí",
-    "desc": "Hay más experiencias en los mismos países. ¡Échales un vistazo!"
-  },
+  "other-experiences": "Experiencias alrededor",
+  "n-members": "{{count}} viajeros",
   "next-experience": "¿List@ para la siguiente?",
   "add": "Añadir nueva",
   "delete": "¿Quieres eliminar {{title}} de las experiencias?",

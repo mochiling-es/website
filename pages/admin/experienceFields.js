@@ -62,7 +62,7 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
       desc: t('published.desc')
     },
     {
-      id: 'name',
+      id: 'title',
       label: t('name.label'),
       desc: t('name.desc'),
       type: 'obj',

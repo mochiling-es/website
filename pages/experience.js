@@ -4,10 +4,13 @@ import { find, size, map } from 'lodash'
 import { translate } from 'react-i18next'
 import PropTypes from 'prop-types'
 import Masonry from 'react-masonry-component'
+import FontAwesome from 'react-fontawesome'
 
 import Error from './_error'
 import Link from '../src/components/Link'
+import Authors from '../src/components/Authors'
 import Head from '../src/components/Head'
+import ExperiencesAround from '../src/components/ExperiencesAround'
 import { wrapper, i18nHelper } from '../src/components/i18n'
 import NextExperience from '../src/components/NextExperience'
 
@@ -25,7 +28,7 @@ class Experience extends Component {
   }
 
   render() {
-    const { memberId, user, members, experiences, experienceSlug, t, children } = this.props
+    const { memberId, members, experiences, experienceSlug, t, children } = this.props
     let experienceData = {}
     let nextExperience
     let experiencePosition
@@ -52,8 +55,8 @@ class Experience extends Component {
     const subtitle = (experienceData.title && experienceData.subtitle[lang]) || ''
     const shortDesc = (experienceData.title && experienceData.shortDesc[lang]) || ''
     const longDesc = (experienceData.title && experienceData.longDesc[lang]) || ''
-    const instagramTag = experienceData.instagramTag
-    const imagesListURL = experienceData.imagesListURL
+
+    const { authors, youtubeURL, imagesListURL, instagramTag, mainImageURL } = experienceData
 
     if (size(experiences) > 1) {
       let nextExperiencePos = experiencePosition + 1
@@ -68,7 +71,7 @@ class Experience extends Component {
       <Fragment>
         <Head title={title} description={shortDesc} image={experienceData.mainImageURL} />
 
-        <div className="Block" ref={node => (this.block = node)}>
+        <div className="Block Experience" ref={node => (this.block = node)}>
           {children} {/*Header*/}
           <div className="Breadcrumb">
             <ul className="Breadcrumb-inner">
@@ -81,43 +84,37 @@ class Experience extends Component {
               <li className="Breadcrumb-item">{title}</li>
             </ul>
           </div>
-
-          <div class="Experience-wrapper">
-          <div class="Experience-image">
-            <img src="{{ experience.image }}" class="Experience-imageItem" alt="{% t experiences.title %}" title="{% t experiences.title %}"/>
-          </div>
-
-          <div class="Experience-content Text--withShadow Block-content">
-            <div class="Experience-contentInfo">
-              <h4 class="Color--light Text Text--uppercase Text--med">{subtitle}</h4>
-              <h2 class="Color--light Text Text--giant Text--strong">{ title }</h2>
-              <div class="Text Color--light Experience-author">
-                {'author'}
-                <a href="{% tl {{ experience.author }} %}" class="Experience-authorLink Text--med Color--light">
-                  <img class="Experience-authorImage u-rSpace" src="/img/members/{{ experience_author.image }}" title="{{ experience_author.complete_name }}" alt="{{ experience_author.complete_name }}" />
-                  {{ experience_author.complete_name }}
-                </a>
-              </div>
-
-              <div class="Experience-text u-tSpace--xl">
-                <p className="Text Text--large Color--light Paragraph">{longDesc}</p>
-              </div>
-
-              <div class="Experience-social Color--light u-tSpace--m">
-                <ul class="Experience-socialList">
-                  {youtubeURL && (<li class="u-rSpace--xl">
-                      <button class="js-playVideo">
-                        <i class="fa fa-youtube-play fa-2x"></i>
-                      </button>
-                    </li>)}
-                </ul>
-              </div>
+          <div className="Experience-wrapper">
+            <div className="Experience-image">
+              <img src={mainImageURL} className="Experience-imageItem" alt={title} title={title} />
             </div>
+            <div className="Experience-content Text--withShadow Block-content">
+              <div className="Experience-contentInfo">
+                <h4 className="Color--light Text Text--uppercase Text--med">{subtitle}</h4>
+                <h2 className="Color--light Text Text--giant Text--strong">{title}</h2>
+                <Authors members={members} authors={authors} />
 
-            {% include experiences-countries.html experience=page.namespace %}
+                <div className="Experience-text u-tSpace--xl">
+                  <p className="Text Text--large Color--light Paragraph">{longDesc}</p>
+                </div>
+
+                <div className="Experience-social Color--light u-tSpace--m">
+                  <ul className="Experience-socialList">
+                    {youtubeURL && (
+                      <li className="u-rSpace--xl">
+                        <button className="js-playVideo">
+                          <FontAwesome name="youtube-play" size="2x" />
+                        </button>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+
+              <ExperiencesAround currentExperience={experienceData} experiences={experiences} />
+              {/* {% include experiences-countries.html experience=page.namespace %} */}
+            </div>
           </div>
-
-
           {instagramTag && (
             <div className="Breadcrumb">
               <ul className="Breadcrumb-inner">
@@ -168,7 +165,6 @@ class Experience extends Component {
 
 Experience.propTypes = {
   t: PropTypes.func.isRequired,
-  user: PropTypes.instanceOf(Object).isRequired,
   members: PropTypes.instanceOf(Array).isRequired,
   experiences: PropTypes.instanceOf(Array).isRequired,
   children: PropTypes.array.isRequired
@@ -177,8 +173,7 @@ Experience.propTypes = {
 function mapStateToProps(state) {
   return {
     members: state.members,
-    experiences: state.experiences,
-    user: state.user
+    experiences: state.experiences
   }
 }
 

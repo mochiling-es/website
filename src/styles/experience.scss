@@ -90,28 +90,36 @@
   opacity: 0.06;
 }
 
-.Experience-author,
+.Experience-authors,
+.Experience-authorText,
 .Experience-authorLink {
   $shadow: rgba(#000, 0.6);
-  display: flex;
-  align-items: center;
-  width: 100%;
   text-shadow: rgba(0, 0, 0, 0.6) 1px 0 1px, rgba(0, 0, 0, 0.6) -1px 0 1px, rgba(0, 0, 0, 0.6) 0 1px 1px, rgba(0, 0, 0, 0.6) 0 -1px 1px;
   color: #FFFFFF;
 }
-.Experience-authorLink--noShadow {
+
+.Experience-authors {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 6px;
+}
+.Experience-author:nth-child(n+2) {
+  margin-left: -15px;
+}
+.Experience-around--noShadow {
   text-shadow: none;
-  color: #AAA;
+  color: #666;
 }
 .Experience-authorImage {
-  height: 24px;
-  width: 24px;
-  border: 1px solid rgba(#000, 0.2);
+  height: 28px;
+  width: 28px;
+  border: 1px solid rgba(#000, 0.5);
   border-radius: 100%;
 }
-.Experience-authorImage--med {
-  height: 40px;
-  width: 40px;
+.Experience-aroundImage {
+  height: 50px;
+  border: 1px solid rgba(#000, 0.5);
 }
 
 .Experience-photos .cell {

@@ -27,15 +27,32 @@
   overflow: hidden;
   border-right: 1px solid #333;
 }
+.Banner-infoLink {
+  position: relative;
+  display: block;
+}
 .Banner-infoImage {
+  position: relative;
   width: auto;
   height: 420px;
   background: #EDEDED;
+  z-index: 1;
+}
+.Banner-infoImageMamufas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(#000, 0.5), rgba(#000, 0.1));
+  z-index: 2;
 }
 .Banner-infoContent {
   position: absolute;
   bottom: 30px;
   left: 30px;
   right: 30px;
-  z-index: 1;
+  z-index: 3;
 }
