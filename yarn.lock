@@ -3023,6 +3023,11 @@ hosted-git-info@^2.1.4:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
 
+hotkeys-js@^3.3.8:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.4.3.tgz#20d4d30cb1362264f57fe03170a9ffbba226f2aa"
+  integrity sha512-uSiEF2r7ElQ+cnbgICRCYId1cZEZIdbEe8Hhjdly7tN+QIEzU6mP1VEcQCK9bhu5/RV1h327zRK9Mc/m5vT+Cg==
+
 html-entities@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
@@ -4916,6 +4921,13 @@ react-fontawesome@^1.6.1:
   resolved "https://registry.yarnpkg.com/react-fontawesome/-/react-fontawesome-1.6.1.tgz#eddce17e7dc731aa09fd4a186688a61793a16c5c"
   dependencies:
     prop-types "^15.5.6"
+
+react-hot-keys@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-hot-keys/-/react-hot-keys-1.2.2.tgz#079dcecb15db7fa669300eeb844cfda8f920d4a4"
+  integrity sha512-6jNsx6kthQm+xEeSdys6esX3eJSBB+JoacHWTORkUIeK7nuZHYdb+GUi/Ppx/FdquNaWB2xwhHaRA0W5zeMn3w==
+  dependencies:
+    hotkeys-js "^3.3.8"
 
 react-i18next@7.11.0:
   version "7.11.0"

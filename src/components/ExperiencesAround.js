@@ -32,7 +32,7 @@ export default translate(['experiences'])(({ currentExperience, experiences, t }
           const experienceTitle = (experience.title && experience.title[lang]) || ''
 
           return (
-            <li key={experience.id} data-tip={experienceTitle}>
+            <li key={experience.id} data-tip={experienceTitle} data-for={`experience-around-${experience.id}`}>
               <Link href={experienceHref} as={experienceAs}>
                 <a className="Experience-authorLink Color--light">
                   <img
@@ -41,8 +41,8 @@ export default translate(['experiences'])(({ currentExperience, experiences, t }
                     alt={experienceTitle}
                     title={experienceTitle}
                   />
-                  <ReactTooltip effect="solid" place="top" type="light">
-                    <span className="Text Text--med Experience-around--noShadow">{experienceTitle}</span>
+                  <ReactTooltip effect="solid" place="top" type="light" id={`experience-around-${experience.id}`}>
+                    <span className="Text Text--med Experience-text--noShadow">{experienceTitle}</span>
                   </ReactTooltip>
                 </a>
               </Link>

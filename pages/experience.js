@@ -5,6 +5,8 @@ import { translate } from 'react-i18next'
 import PropTypes from 'prop-types'
 import Masonry from 'react-masonry-component'
 import FontAwesome from 'react-fontawesome'
+import ReactTooltip from 'react-tooltip'
+import Hotkeys from 'react-hot-keys'
 
 import Error from './_error'
 import Link from '../src/components/Link'
@@ -17,6 +19,10 @@ import NextExperience from '../src/components/NextExperience'
 import '../src/styles/experience.scss'
 
 class Experience extends Component {
+  state = {
+    displayVideo: false
+  }
+
   static async getInitialProps({ store, query, isServer }) {
     const { experienceSlug, memberId } = query
 
@@ -27,8 +33,17 @@ class Experience extends Component {
     }
   }
 
+  onVideoClick = () => {
+    this.setState({ displayVideo: true })
+  }
+
+  onEsc = () => {
+    this.setState({ displayVideo: false })
+  }
+
   render() {
     const { memberId, members, experiences, experienceSlug, t, children } = this.props
+    const { displayVideo } = this.state
     let experienceData = {}
     let nextExperience
     let experiencePosition
@@ -70,94 +85,109 @@ class Experience extends Component {
     return (
       <Fragment>
         <Head title={title} description={shortDesc} image={experienceData.mainImageURL} />
-
-        <div className="Block Experience" ref={node => (this.block = node)}>
-          {children} {/*Header*/}
-          <div className="Breadcrumb">
-            <ul className="Breadcrumb-inner">
-              <li className="Breadcrumb-item">
-                <Link href="/experiences">
-                  <a className="Breadcrumb-link">{t('title')}</a>
-                </Link>
-              </li>
-              <li className="Breadcrumb-item Breadcrumb-item--separator">></li>
-              <li className="Breadcrumb-item">{title}</li>
-            </ul>
-          </div>
-          <div className="Experience-wrapper">
-            <div className="Experience-image">
-              <img src={mainImageURL} className="Experience-imageItem" alt={title} title={title} />
-            </div>
-            <div className="Experience-content Text--withShadow Block-content">
-              <div className="Experience-contentInfo">
-                <h4 className="Color--light Text Text--uppercase Text--med">{subtitle}</h4>
-                <h2 className="Color--light Text Text--giant Text--strong">{title}</h2>
-                <Authors members={members} authors={authors} />
-
-                <div className="Experience-text u-tSpace--xl">
-                  <p className="Text Text--large Color--light Paragraph">{longDesc}</p>
-                </div>
-
-                <div className="Experience-social Color--light u-tSpace--m">
-                  <ul className="Experience-socialList">
-                    {youtubeURL && (
-                      <li className="u-rSpace--xl">
-                        <button className="js-playVideo">
-                          <FontAwesome name="youtube-play" size="2x" />
-                        </button>
-                      </li>
-                    )}
-                  </ul>
-                </div>
-              </div>
-
-              <ExperiencesAround currentExperience={experienceData} experiences={experiences} />
-              {/* {% include experiences-countries.html experience=page.namespace %} */}
-            </div>
-          </div>
-          {instagramTag && (
+        <Hotkeys keyName="esc" onKeyDown={this.onEsc}>
+          <div className="Block Experience" ref={node => (this.block = node)}>
+            {children} {/*Header*/}
             <div className="Breadcrumb">
               <ul className="Breadcrumb-inner">
-                <li className="Breadcrumb-item u-rSpace--xl">Instagram</li>
-                <li className="Breadcrumb-item u-rSpace--xl">
-                  <a
-                    href={`https://www.instagram.com/explore/tags/${experienceData.instagramTag}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="Breadcrumb-link"
-                  >
-                    <span className="Breakcrumb-linkDesc u-lSpace">#{instagramTag}</span>
-                  </a>
+                <li className="Breadcrumb-item">
+                  <Link href="/experiences">
+                    <a className="Breadcrumb-link">{t('title')}</a>
+                  </Link>
                 </li>
+                <li className="Breadcrumb-item Breadcrumb-item--separator">></li>
+                <li className="Breadcrumb-item">{title}</li>
               </ul>
             </div>
-          )}
-          {imagesListURL && (
-            <div className="Experience-photos">
-              <Masonry
-                className={'grid'}
-                elementType={'ul'}
-                options={{
-                  transitionDuration: 0,
-                  columnWidth: 100,
-                  gutter: 10
-                }}
-                disableImagesLoaded={true}
-                updateOnEachImageLoad={false}
-              >
-                {map(imagesListURL, image => {
-                  return (
-                    <li key={image} className="cell">
-                      <img src={image} alt={''} title={''} />
-                    </li>
-                  )
-                })}
-              </Masonry>
-            </div>
-          )}
-        </div>
+            <div className="Experience-wrapper">
+              <div className="Experience-image">
+                <img src={mainImageURL} className="Experience-imageItem" alt={title} title={title} />
+              </div>
+              <div className="Experience-content Text--withShadow Block-content">
+                <div className="Experience-contentInfo">
+                  <h4 className="Color--light Text Text--uppercase Text--med">{subtitle}</h4>
+                  <h2 className="Color--light Text Text--giant Text--strong">{title}</h2>
+                  <Authors members={members} authors={authors} />
 
-        {nextExperience && <NextExperience experienceData={nextExperience} />}
+                  <div className="Experience-text u-tSpace--xl">
+                    <p className="Text Text--large Color--light Paragraph">{longDesc}</p>
+                  </div>
+
+                  <div className="Experience-social Color--light u-tSpace--m">
+                    <ul className="Experience-socialList">
+                      {youtubeURL && (
+                        <li className="u-rSpace--xl">
+                          <button className="js-playVideo" data-tip data-for={'youtube'} onClick={this.onVideoClick}>
+                            <FontAwesome name="youtube-play" size="2x" />
+                            <ReactTooltip effect="solid" place="top" type="light" id={'youtube'}>
+                              <span className="Text Text--med Experience-text--noShadow">{t('youtube-video')}</span>
+                            </ReactTooltip>
+                          </button>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+
+                <ExperiencesAround currentExperience={experienceData} experiences={experiences} />
+              </div>
+
+              {youtubeURL && displayVideo && (
+                <iframe
+                  title={title}
+                  src={youtubeURL}
+                  width={'100%'}
+                  height={'100%'}
+                  frameBorder={0}
+                  allowFullScreen
+                  className="Experience-video"
+                />
+              )}
+            </div>
+            {instagramTag && (
+              <div className="Breadcrumb">
+                <ul className="Breadcrumb-inner">
+                  <li className="Breadcrumb-item u-rSpace--xl">Instagram</li>
+                  <li className="Breadcrumb-item u-rSpace--xl">
+                    <a
+                      href={`https://www.instagram.com/explore/tags/${experienceData.instagramTag}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="Breadcrumb-link"
+                    >
+                      <span className="Breakcrumb-linkDesc u-lSpace">#{instagramTag}</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
+            {imagesListURL && (
+              <div className="Experience-photos">
+                <Masonry
+                  className={'grid'}
+                  elementType={'ul'}
+                  options={{
+                    transitionDuration: 0,
+                    columnWidth: 100,
+                    gutter: 10
+                  }}
+                  disableImagesLoaded={true}
+                  updateOnEachImageLoad={false}
+                >
+                  {map(imagesListURL, image => {
+                    return (
+                      <li key={image} className="cell">
+                        <img src={image} alt={''} title={''} />
+                      </li>
+                    )
+                  })}
+                </Masonry>
+              </div>
+            )}
+          </div>
+
+          {nextExperience && <NextExperience experienceData={nextExperience} />}
+        </Hotkeys>
       </Fragment>
     )
   }

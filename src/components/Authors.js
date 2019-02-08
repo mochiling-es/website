@@ -20,7 +20,7 @@ export default translate(['experiences'])(({ members, authors, t }) => {
                   {size(authors) < 2 && <span>{name}</span>}
                   {size(authors) > 1 && (
                     <ReactTooltip effect="solid" place="top" type="light" id={id}>
-                      <span className="Text Text--med Experience-around--noShadow">{name}</span>
+                      <span className="Text Text--med Experience-text--noShadow">{name}</span>
                     </ReactTooltip>
                   )}
                 </a>

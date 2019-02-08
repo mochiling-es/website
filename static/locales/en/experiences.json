@@ -6,6 +6,7 @@
     "map": "Do you want to <i class=\"fa fa-hand-pointer-o\"></i> interact with the map?",
     "enable": "Let's do it!"
   },
+  "youtube-video": "Watch video",
   "share": "Share in",
   "other-experiences": "experiences around",
   "n-members": "{{count}} travelers",
