@@ -44,6 +44,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.0.0",
+    "eslint": "^5.13.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-config-react-app": "^3.0.6",
     "eslint-plugin-flowtype": "^3.2.1",
