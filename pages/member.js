@@ -190,7 +190,11 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default wrapper(translate(['team'])(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Member)))
+export default wrapper(
+  translate(['team'])(
+    connect(
+      mapStateToProps,
+      mapDispatchToProps
+    )(Member)
+  )
+)

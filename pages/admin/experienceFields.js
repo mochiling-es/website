@@ -115,8 +115,8 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
       options: {
         limit: 20,
         ref: 'experiences',
-        maxHeight: 300,
-        maxWidth: 600
+        maxWidth: 320,
+        maxHeight: 320
       },
       label: t('imagesListURL.label'),
       desc: textWithLinks(t('imagesListURL.desc'))
@@ -174,6 +174,12 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
       type: 'string',
       label: t('youtubeURL.label'),
       desc: textWithLinks(t('youtubeURL.desc'))
+    },
+    {
+      id: 'instagramTag',
+      type: 'string',
+      label: t('instagramTag.label'),
+      desc: textWithLinks(t('instagramTag.desc'))
     },
     {
       id: 'authors',

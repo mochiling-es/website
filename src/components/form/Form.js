@@ -13,7 +13,6 @@ import Image from './Image'
 import Checkbox from './Checkbox'
 import Arr from './Array'
 import Obj from './Map'
-import { wrapper } from '../i18n'
 import Hidden from './Hidden'
 import Date from './Date'
 

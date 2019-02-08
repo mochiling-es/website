@@ -90,6 +90,11 @@
   padding: 8px 35px;
 }
 
+.Button--inliner {
+  display: inline-block;
+  width: auto;
+}
+
 .Button.is-disabled,
 .Button[disabled] {
   opacity: 0.5;

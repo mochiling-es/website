@@ -11,9 +11,7 @@
     "title": "Otras experiencias aquí",
     "desc": "Hay más experiencias en los mismos países. ¡Échales un vistazo!"
   },
-  "next-experience": {
-    "title": "¿List@ para la siguiente?"
-  },
+  "next-experience": "¿List@ para la siguiente?",
   "add": "Añadir nueva",
   "delete": "¿Quieres eliminar {{title}} de las experiencias?",
   "slug": {
@@ -38,11 +36,15 @@
   },
   "mainImageURL": {
     "label": "Imagen principal",
-    "desc": "Esta es la imagen destacada de la experiencia"
+    "desc": "Esta es la imagen destacada de la experiencia. Se guardarán con un máximo de **1200px** de ancho y **900px** de alto"
   },
   "imagesListURL": {
     "label": "Imágenes secundarias",
-    "desc": "Las imágenes que apareceran en la lista dentro de la página de la experiencia"
+    "desc": "Las imágenes que apareceran en la lista dentro de la página de la experiencia. Se guardarán con un máximo de **320px** de ancho y alto"
+  },
+  "instagramTag": {
+    "label": "Tag de Instagram",
+    "desc": "Si quieres que los usuarios vean más imágenes en Instagram. No añadas el **#**"
   },
   "shortDesc": {
     "label": "Descripción corta",

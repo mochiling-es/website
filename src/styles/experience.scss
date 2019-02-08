@@ -70,13 +70,7 @@
   position: relative;
   width: 100%;
   min-height: 300px;
-}
-.Experience-photosLoader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -15px;
-  margin-top: -15px;
+  margin-top: 30px;
 }
 
 .Experience-nextOne {
@@ -120,6 +114,12 @@
   width: 40px;
 }
 
+.Experience-photos .cell {
+  background: #EFEFEF;
+  width: 320px;
+  margin: 5px;
+}
+
 @media (max-width: 585px) and (orientation: portrait) {
   $height: 75vh;
   $minHeight: 400px;
@@ -150,17 +150,17 @@
   }
 }
 
-@media (max-width: 585px) {
-  .Experience-photos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
+@media (max-width: 650px) {
   .Experience-photos .cell {
-    margin-bottom: 20px;
-  }
+    width: 80%;
+    padding: 0;
+    left: 50%!important;
+    transform: translateX(-50%);
+
+    & img {
+      width: 100%;
+    }
+  } 
 }
 
 @media (max-width: 780px) {

@@ -98,7 +98,7 @@ class ExperienceEdit extends Component {
           <div className="Breadcrumb">
             <ul className="Breadcrumb-inner">
               <li className="Breadcrumb-item">
-                <Link href="/team">
+                <Link href="/experiences">
                   <a className="Breadcrumb-link">{t('title')}</a>
                 </Link>
               </li>

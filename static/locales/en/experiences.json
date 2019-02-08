@@ -11,9 +11,7 @@
     "title": "other experiences here",
     "desc": "There are more experiences in the same countries. Check them out!"
   },
-  "next-experience": {
-    "title": "Ready for the next one?"
-  },
+  "next-experience": "Ready for the next one?",
   "add": "Add new",
   "delete": "Do you want to remove {{title}} from experiences?",
   "slug": {
@@ -38,11 +36,15 @@
   },
   "mainImageURL": {
     "label": "Key image",
-    "desc": "The highlighted image of the experience"
+    "desc": "The highlighted image of the experience. It will be saved with **1200x900** at max"
   },
   "imagesListURL": {
     "label": "Secondary images",
-    "desc": "These images will appear in the list of the experience page."
+    "desc": "These images will appear in the list of the experience page. It will be saved at **320x320** size"
+  },
+  "instagramTag": {
+    "label": "Instagram tag",
+    "desc": "If you want the users to check more photos in Instagram. Don't add the **#** character"
   },
   "shortDesc": {
     "label": "Short description",
