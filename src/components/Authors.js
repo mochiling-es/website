@@ -13,7 +13,7 @@ export default translate(['experiences'])(({ members, authors, t }) => {
 
         if (authors.includes(id)) {
           return (
-            <li key={id} className="Experience-author" data-tip={name} data-for={id}>
+            <li key={id} className="Experience-author" data-tip={name} data-for={size(authors) > 1 ? id : ''}>
               <Link href={`/member?memberId=${id}`} as={`/team/${id}`}>
                 <a className="Experience-authorLink Text--med Color--light">
                   <img className="Experience-authorImage u-rSpace" src={avatarURL} title={name} alt={name} />

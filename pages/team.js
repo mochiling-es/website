@@ -15,13 +15,6 @@ import { wrapper } from '../src/components/i18n'
 import '../src/styles/team.scss'
 
 class Team extends Component {
-  static async getInitialProps({ isServer }) {
-    return {
-      namespacesRequired: ['team'],
-      isServer
-    }
-  }
-
   render() {
     const { t, members, children, user } = this.props
     const isUserLogged = user.state === 'logged'

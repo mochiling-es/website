@@ -1,11 +1,13 @@
 {
   "title": "Experiences",
   "subtitle": "Our experiences",
-  "desc": "There is no better way to learn what <span class=\"Color--emphasis\">Mochiling</span> can offer than check the places where we have enjoyed. Do you want us to help you to create yours?",
+  "desc": "There is no better way to learn what <0>Mochiling</0> can offer than check the places where we have enjoyed. Do you want us to help you to create yours?",
   "navigate": {
     "map": "Do you want to <i class=\"fa fa-hand-pointer-o\"></i> interact with the map?",
     "enable": "Let's do it!"
   },
+  "join": "Would you like to join our <0>Mochiling</0> team? <1>Contact us</1>",
+  "contact-us": "Contact us",
   "youtube-video": "Watch video",
   "share": "Share in",
   "other-experiences": "experiences around",
