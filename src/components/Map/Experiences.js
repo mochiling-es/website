@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { isMobile } from 'react-device-detect'
-import { filter, size, reduce } from 'lodash'
+import { filter, size, reduce, each } from 'lodash'
+import isoCountries from 'i18n-iso-countries'
 
 import data from '../../../static/assets/data/countries.json'
 import ExperiencePopup from './ExperiencePopup'
+import { i18nHelper } from '../i18n'
 
 let Map, VectorGridDefault, VectorGrid, Popup
 
@@ -22,6 +24,10 @@ class ExperiencesMap extends Component {
     const withLeaflet = RL.withLeaflet
     VectorGridDefault = require('react-leaflet-vectorgrid')
     VectorGrid = withLeaflet(VectorGridDefault)
+
+    each(i18nHelper.supportLangs, lang => {
+      isoCountries.registerLocale(require(`i18n-iso-countries/langs/${lang}.json`))
+    })
 
     this.setState({ showMap: true })
   }
@@ -67,12 +73,14 @@ class ExperiencesMap extends Component {
 
   render() {
     const { positionPopup, belongingExperiences } = this.state
-
     const options = {
       type: 'slicer',
       data,
       idField: 'ISO_A3',
-      tooltip: 'ADMIN',
+      tooltip: ({ properties: { ISO_A3 } }) => {
+        const lang = i18nHelper.getCurrentLanguage()
+        return isoCountries.getName(ISO_A3, lang)
+      },
       style: ({ ISO_A3 }) => {
         let style = {
           color: '#EFEFEF',
@@ -173,31 +181,6 @@ export default ExperiencesMap
 
 /*
 
-var L = require('leaflet');
-require('leaflet-hash');
-var $ = require('jquery');
-var _ = require('underscore');
-var Backbone = require('backbone');
-var Instafeed = require('instafeed.js');
-var PhotoMarker = require('./photo-marker-view');
-var experiencePolygon = require('./experience-polygon-view');
-var CountriesJSON = require('../countries.json');
-var isMobileDevice = require('ismobilejs');
-var TIME_BETWEEN_MARKERS_APPEAR = 150;
-
-var INSTAGRAM_OPTS = {
-  resolution: 'thumbnail',
-  get: 'tagged',
-  sortBy: 'random',
-  limit: 1000
-};
-
-var POLYGON_STYLE = {
-  color: '#EFEFEF',
-  weight: 1,
-  opacity: 0.65
-};
-
 module.exports = Backbone.View.extend({
 
   initialize: function (opts) {
@@ -230,40 +213,6 @@ module.exports = Backbone.View.extend({
 
   _initBinds: function () {
     this.listenTo(this.model, 'change:state', this._setMapState);
-  },
-
-  _initMap: function () {
-    this._map = L.map(this.el, {
-      doubleClickZoom: true,
-      boxZoom: true,
-      dragging: true,
-      attributionControl: false,
-      scrollWheelZoom: false,
-      touchZoom: true,
-      keyboard: true,
-      minZoom: 3,
-      maxZoom: 6
-    }).setView([43, -3], 3, false);
-
-    this._map._hash = new L.Hash(this._map);
-
-    if (!isMobileDevice.any) {
-      this._map.once('popupopen', this._hideTitle.bind(this));
-    }
-
-    function onEachFeature(feature, layer) {
-      var countryName = feature.properties.name;
-      var experiences = this._belongsToAnyExperience(countryName);
-      if (experiences.length > 0) {
-        experiencePolygon(layer, this._map, experiences, countryName);
-      } else {
-        layer.setStyle(POLYGON_STYLE);
-      }
-    }
-
-    L.geoJson(CountriesJSON, {
-      onEachFeature: onEachFeature.bind(this)
-    }).addTo(this._map);
   },
 
   _setMapState: function () {

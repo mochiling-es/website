@@ -46,7 +46,7 @@ class Experiences extends Component {
             </div>
           </div>
           {children} {/*Header*/}
-          <div className="Block-content Paragraph Paragraph--centered u-tSpace--xxl js-title">
+          {/* <div className="Block-content Paragraph Paragraph--centered u-tSpace--xxl js-title">
             <h2 className="Text Text--giant Text--strong Color--emphasis">{t('subtitle')}</h2>
             <p className="Text Text--large Color--paragraph u-tSpace--l">
               <Trans i18nKey="desc" components={[<span className="Color--emphasis">{config.name}</span>]} />
@@ -64,7 +64,7 @@ class Experiences extends Component {
                 />{' '}
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         <LastExperiences limit={6} />
