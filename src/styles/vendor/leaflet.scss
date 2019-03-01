@@ -554,8 +554,10 @@
 .leaflet-tooltip {
 	position: absolute;
 	padding: 10px;
-	color: #222;
-	font-size: 14px;
+	font-size: 15px;
+  letter-spacing: -0.5px;
+  color: #333;
+  text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
 	white-space: nowrap;
 	-webkit-user-select: none;
 	-moz-user-select: none;

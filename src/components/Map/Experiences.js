@@ -3,8 +3,7 @@ import { isMobile } from 'react-device-detect'
 import { filter, size } from 'lodash'
 
 import data from '../../../static/assets/data/countries.json'
-
-import '../../styles/vendor/leaflet.scss'
+import ExperiencePopup from './ExperiencePopup'
 
 let Map, VectorGridDefault, VectorGrid, Popup
 
@@ -12,7 +11,8 @@ class ExperiencesMap extends Component {
   state = {
     showMap: false,
     positionPopup: null,
-    state: isMobile ? 'page' : 'map'
+    state: isMobile ? 'page' : 'map',
+    belongingExperiences: []
   }
 
   componentDidMount = () => {
@@ -31,26 +31,34 @@ class ExperiencesMap extends Component {
       return
     }
 
-    // this._map._hash = new L.Hash(this._map);
+    // new L.Hash(this.map)
   }
 
   onClick = ({ layer, latlng }) => {
-    if (this.belongsToAnyExperience(layer.properties.ISO_A3)) {
-      this.setState({ positionPopup: [latlng.lat, latlng.lng] })
-    } else {
-      console.log('oh!')
+    const belongingExperiences = this.belongingExperiences(layer.properties.ISO_A3)
+    let positionPopup = null
+
+    if (size(belongingExperiences) > 0) {
+      positionPopup = [latlng.lat, latlng.lng]
     }
+
+    this.setState({ positionPopup, belongingExperiences })
   }
 
   belongsToAnyExperience = countryCode => {
-    const { experiences } = this.props
-    return (
-      size(
-        filter(experiences, function(experience) {
-          return experience.countries && experience.countries.includes(countryCode)
-        })
-      ) > 0
-    )
+    return size(this.belongingExperiences(countryCode)) > 0
+  }
+
+  belongingExperiences = countryCode => {
+    const { experiences, isUserLogged } = this.props
+
+    return filter(experiences, function(experience) {
+      if (experience.published || isUserLogged) {
+        return experience.countries && experience.countries.includes(countryCode)
+      } else {
+        return false
+      }
+    })
   }
 
   onPopupClose = () => {
@@ -58,7 +66,7 @@ class ExperiencesMap extends Component {
   }
 
   render() {
-    const { positionPopup } = this.state
+    const { positionPopup, belongingExperiences } = this.state
 
     const options = {
       type: 'slicer',
@@ -75,6 +83,7 @@ class ExperiencesMap extends Component {
           fill: true,
           stroke: true
         }
+
         if (this.belongsToAnyExperience(ISO_A3)) {
           style.opacity = 0.65
           style.fillColor = '#AAA'
@@ -131,7 +140,7 @@ class ExperiencesMap extends Component {
             <VectorGrid {...options} onClick={this.onClick} />
             {positionPopup && (
               <Popup position={positionPopup} autoPan={true} onClose={this.onPopupClose}>
-                <div>paco</div>
+                <ExperiencePopup experiences={belongingExperiences} />
               </Popup>
             )}
           </Map>

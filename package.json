@@ -13,6 +13,7 @@
     "country-data": "^0.0.31",
     "informed": "^1.10.12",
     "leaflet": "^1.4.0",
+    "leaflet-hash": "^0.2.1",
     "lodash": "^4.17.11",
     "next": "^8.0.0-canary.18",
     "next-i18n-helper": "^1.0.20",

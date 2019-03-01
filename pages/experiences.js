@@ -15,7 +15,7 @@ import '../src/styles/experiences.scss'
 class Experiences extends Component {
   render() {
     const { children, experiences, user, t } = this.props
-    const isLogged = user.state === 'logged'
+    const isUserLogged = user.state === 'logged'
 
     const ContactUs = () => {
       return (
@@ -30,7 +30,14 @@ class Experiences extends Component {
         <Head title={t('title')} description={t('desc')} />
 
         <div className="Experiences Block">
-          <ExperiencesMap isLogged={isLogged} experiences={experiences} />
+          <ExperiencesMap isUserLogged={isUserLogged} experiences={experiences} />
+          {isUserLogged && (
+            <div style={{ position: 'absolute', bottom: '90px', left: '50%', transform: 'translateX(-50%)' }}>
+              <Link as={`/experience/new`} href={`/admin/experience?memberId=&experienceSlug=`}>
+                <a className="Button Button--action">{t('add')}</a>
+              </Link>
+            </div>
+          )}
           <div className="Experiences-mapMobile js-mapMobile">
             <button className="Experiences-mapMobileBack js-mapMobileBack">x</button>
             <div className="Experiences-mapMobileDisclaimer">

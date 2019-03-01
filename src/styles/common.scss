@@ -8,6 +8,7 @@
 // Vendors
 @import './vendor/reset.scss';
 @import './vendor/pure.scss';
+@import './vendor/leaflet.scss';
 
 // Custom
 @import './blocks.scss';
@@ -23,3 +24,4 @@
 @import './breadcrumb.scss';
 @import './banner.scss';
 @import './form.scss';
+@import './popup.scss';
