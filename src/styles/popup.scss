@@ -49,6 +49,9 @@ $default-border-radius: 6px;
   display: flex;
   text-decoration: none;
 }
+.Popup.is-unpublished {
+  opacity: 0.6;
+}
 .Popup--horizontal {
   flex-direction: row;
   width: 200px;

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { isMobile } from 'react-device-detect'
-import { filter, size } from 'lodash'
+import { filter, size, reduce } from 'lodash'
 
 import data from '../../../static/assets/data/countries.json'
 import ExperiencePopup from './ExperiencePopup'
@@ -83,11 +83,30 @@ class ExperiencesMap extends Component {
           fill: true,
           stroke: true
         }
+        const belongingExperiences = this.belongingExperiences(ISO_A3)
 
-        if (this.belongsToAnyExperience(ISO_A3)) {
-          style.opacity = 0.65
+        if (size(belongingExperiences) > 0) {
+          const publishedExperiences = reduce(
+            belongingExperiences,
+            (sum, experience) => {
+              if (experience.published) {
+                return sum + 1
+              }
+
+              return sum
+            },
+            0
+          )
+
           style.fillColor = '#AAA'
           style.color = '#999999'
+
+          if (publishedExperiences > 0) {
+            style.opacity = 0.65
+          } else {
+            style.opacity = 0.33
+            style.fillOpacity = 0.1
+          }
         }
 
         return style

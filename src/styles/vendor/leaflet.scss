@@ -624,3 +624,9 @@
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
+
+	@media (max-width: 1100px) {
+  .leaflet-control-zoom {
+    display: none;
+  }
+}

@@ -11,6 +11,13 @@ class ExperiencePopUp extends Component {
     index: 0
   }
 
+  componentWillMount = () => {
+    const { experiences } = this.props
+    const maximum = size(experiences) - 1
+    const minimum = 0
+    this.setState({ index: Math.floor(Math.random() * (maximum - minimum + 1)) + minimum })
+  }
+
   nextExperience = event => {
     event.preventDefault()
     event.stopPropagation()
@@ -40,7 +47,7 @@ class ExperiencePopUp extends Component {
         as={`/experience/${firstAuthor}/${slug}`}
         href={`/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
       >
-        <a className="Popup Popup--vertical">
+        <a className={`Popup Popup--vertical ${!experience.published ? 'is-unpublished' : ''}`}>
           <div className="Popup-image">
             <FontAwesome name="circle-o-notch" size="2x" spin className="Color--emphasis Popup-imageLoader" />
             <img src={mainImageURL} alt={title && title[lang]} title={title && title[lang]} />
