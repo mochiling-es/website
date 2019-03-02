@@ -1,5 +1,11 @@
 {
   "title": "Error",
   "subtitle": "Nadie encuentra su camino sin perderse varias veces",
-  "desc": "Algo ha pasado y la página que querías visitar no existe. Aprovecha y echa un vistazo a nuestras experiencias."
+  "desc": "Algo ha pasado y la página que querías visitar no existe. Aprovecha y echa un vistazo a nuestras experiencias.",
+  "navigate": {
+    "map": "¿Quieres navegar <0>navegar</0> por el mapa?",
+    "enable": "Vamos!"
+  },
+  "join": "¿Te gustaría unirte a nuestro equipo <0>Mochiling</0>? <1>Escríbenos</1>",
+  "contact-us": "Escríbenos"
 }

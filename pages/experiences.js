@@ -116,7 +116,6 @@ class Experiences extends Component {
 Experiences.propTypes = {
   t: PropTypes.func.isRequired,
   user: PropTypes.instanceOf(Object).isRequired,
-  members: PropTypes.instanceOf(Array).isRequired,
   experiences: PropTypes.instanceOf(Array).isRequired,
   children: PropTypes.array.isRequired
 }
@@ -124,7 +123,6 @@ Experiences.propTypes = {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    members: state.members,
     experiences: state.experiences
   }
 }
