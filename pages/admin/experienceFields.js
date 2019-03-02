@@ -1,7 +1,10 @@
 import React from 'react'
-import { find, map, sortBy, filter } from 'lodash'
+import { find, map, sortBy, filter, each } from 'lodash'
 import { countries } from 'country-data'
 import ReactMarkdown from 'react-markdown'
+import isoCountries from 'i18n-iso-countries'
+
+import { i18nHelper } from '../../src/components/i18n'
 
 const textWithLinks = text => {
   return (
@@ -24,6 +27,10 @@ const textWithLinks = text => {
 }
 
 export default ({ t, experiences, experienceSlug, members, memberId }) => {
+  each(i18nHelper.supportLangs, lang => {
+    isoCountries.registerLocale(require(`i18n-iso-countries/langs/${lang}.json`))
+  })
+
   return [
     {
       id: 'id',
@@ -218,7 +225,8 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
         }),
         ['label']
       ),
-      optionRender: data => `${data.emoji || '🏳️'}  ${data.label}`,
+      optionRender: data =>
+        `${data.emoji || '🏳️'}  ${isoCountries.getName(data.value, i18nHelper.getCurrentLanguage()) || '🤷🏽‍♂️'}`,
       label: t('countries.label'),
       desc: t('countries.desc')
     }

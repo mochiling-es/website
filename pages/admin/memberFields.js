@@ -1,7 +1,10 @@
 import React from 'react'
-import { find, map, sortBy, filter } from 'lodash'
+import { find, map, sortBy, filter, each } from 'lodash'
 import { countries } from 'country-data'
 import ReactMarkdown from 'react-markdown'
+import isoCountries from 'i18n-iso-countries'
+
+import { i18nHelper } from '../../src/components/i18n'
 
 const textWithLinks = text => {
   return (
@@ -24,6 +27,10 @@ const textWithLinks = text => {
 }
 
 export default ({ members, memberId, t }) => {
+  each(i18nHelper.supportLangs, lang => {
+    isoCountries.registerLocale(require(`i18n-iso-countries/langs/${lang}.json`))
+  })
+
   return [
     {
       id: 'id',
@@ -211,12 +218,13 @@ export default ({ members, memberId, t }) => {
           return {
             label: country.name,
             value: country.emoji,
-            emoji: country.emoji
+            alpha3: country.alpha3
           }
         }),
         ['label']
       ),
-      optionRender: data => data.emoji + ' ' + data.label,
+      optionRender: data =>
+        `${data.value || '🏳️'}  ${isoCountries.getName(data.alpha3, i18nHelper.getCurrentLanguage()) || '🤷🏽‍♂️'}`,
       label: t('languages.label'),
       desc: t('languages.desc')
     },
@@ -234,7 +242,8 @@ export default ({ members, memberId, t }) => {
         }),
         ['label']
       ),
-      optionRender: data => `${data.emoji || '🏳️'}  ${data.label}`,
+      optionRender: data =>
+        `${data.emoji || '🏳️'}  ${isoCountries.getName(data.value, i18nHelper.getCurrentLanguage()) || '🤷🏽‍♂️'}`,
       label: t('visitedCountries.label'),
       desc: t('visitedCountries.desc')
     }

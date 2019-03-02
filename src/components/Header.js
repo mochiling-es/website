@@ -25,14 +25,14 @@ class Header extends Component {
       <header className={`Header ${light ? 'Header--light' : ''}`}>
         <div className="Header-child">
           <h1>
-            {/* <Link href="/">
+            <Link href="/">
               <a className="Header-logo">
                 <span className="Header-logoObj u-rSpace--m">
                   <Logo light={!!light} />
                 </span>
                 <span className="Header-logoSub Text Text--strong Text--small Color--emphasis">{t('subtitle')}</span>
               </a>
-            </Link> */}
+            </Link>
           </h1>
         </div>
 
