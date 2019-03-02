@@ -29,13 +29,14 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Enable CI (deploy to staging & production)
 - [x] Migrate experience page
 - [x] Create experience edition/creation page
-- [ ] Add Cookies banner
-- [ ] Create a better terms-of-user page
-- [ ] Migrate experiences page
+- [x] Migrate 404 page
+- [x] Migrate experiences page
 - [ ] Possibility to delete experience
 - [ ] Migrate proposals page
 - [ ] Migrate home
-- [ ] Migrate 404 page
+- [ ] Add Cookies banner
+- [ ] Create a better terms-of-user page
+
 
 ---
 
