@@ -88,7 +88,7 @@
     z-index: 1000;
     transition: right 0.1s linear;
   }
-  .Header-subLinks.is-headerVisible {
+  .Canvas.is-headerVisible .Header-subLinks {
     right: 0;
   }
   .Header-subLinks .Header-navList {

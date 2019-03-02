@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import { isMobile } from 'react-device-detect'
 import { filter, size, reduce, each } from 'lodash'
 import isoCountries from 'i18n-iso-countries'
 
@@ -13,7 +12,6 @@ class ExperiencesMap extends Component {
   state = {
     showMap: false,
     positionPopup: null,
-    state: isMobile ? 'page' : 'map',
     belongingExperiences: []
   }
 
@@ -178,75 +176,3 @@ class ExperiencesMap extends Component {
 }
 
 export default ExperiencesMap
-
-/*
-
-module.exports = Backbone.View.extend({
-
-  initialize: function (opts) {
-    if (!opts.experiences) throw new Error('experiences is required');
-    if (!opts.$title) throw new Error('title element is not provided');
-    if (!opts.$mobile) throw new Error('mobile element is not provided');
-    if (!opts.instagramConfig) throw new Error('instagram config is required');
-
-    this._experiences = opts.experiences;
-    this._$title = opts.$title;
-    this._$mobile = opts.$mobile;
-    this._instagramConfig = opts.instagramConfig;
-
-    this.model = new Backbone.Model({
-      state: isMobileDevice.any ? 'page' : 'map'
-    });
-
-    this._initBinds();
-  },
-
-  render: function () {
-    this._initMap();
-
-    if (isMobileDevice.any) {
-      this._initMobileStuff();
-    }
-
-    return this;
-  },
-
-  _initBinds: function () {
-    this.listenTo(this.model, 'change:state', this._setMapState);
-  },
-
-  _setMapState: function () {
-    var currentState = this.model.get('state');
-
-    this._$mobile
-      .removeClass('in-map in-page')
-      .addClass(
-        currentState === 'map' ? 'in-map' : 'in-page'
-      );
-
-    if (currentState === 'map') {
-      $('body').animate({
-        scrollTop: 0
-      });
-    }
-
-    this._$title.toggle(currentState === 'page');
-  },
-
-  _hideTitle: function () {
-    this._$title.fadeOut();
-  },
-
-  _initMobileStuff: function () {
-    this._setMapState();
-
-    this._$mobile.find('.js-navigate').on('click', function () {
-      this.model.set('state', 'map');
-    }.bind(this));
-
-    this._$mobile.find('.js-mapMobileBack').on('click', function () {
-      this.model.set('state', 'page');
-    }.bind(this));
-  }
-});
-*/

@@ -17,16 +17,18 @@
   overflow: hidden;
   z-index: 0;
 }
-.Experience-instagramMarker {
-  animation-duration: 0.8s;
-  animation-iteration-count: 1;
-  animation-name: markerTransition;
-}
-.Experiences-mapMobile {
-  display: none;
-}
 .Experiences-mapMobileDisclaimer {
-  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #111;
+  z-index: 0;
 }
 .Experiences-mapMobileBack {
   position: absolute;
@@ -47,48 +49,7 @@
     color: white;
   }
 }
-
-.Experiences-mapMobile.in-map {
-  display: flex;
-
-  .Experiences-mapMobileBack {
-    display: block;
-  }
-  .Experiences-mapMobileDisclaimer {
-    display: none;
-  }
-}
-.Experiences-mapMobile.in-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  background: rgba(white, 0.3);
-  z-index: 0;
-
-  .Experiences-mapMobileBack {
-    display: none;
-  }
-  .Experiences-mapMobileDisclaimer {
-    display: block;
-  }
-}
 .Experiences-breadcrumb {
   position: absolute;
   bottom: 0;
-}
-
-
-@keyframes markerTransition {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

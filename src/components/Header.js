@@ -18,7 +18,7 @@ class Header extends Component {
   }
 
   render() {
-    const { light, t, showHeader } = this.props
+    const { light, t } = this.props
     const otherLang = i18nHelper.getCurrentLanguage() === 'es' ? 'en' : 'es'
 
     return (
@@ -36,7 +36,7 @@ class Header extends Component {
           </h1>
         </div>
 
-        <div className={`Header-child Header-subLinks ${showHeader ? 'is-headerVisible' : ''}`}>
+        <div className={`Header-child Header-subLinks`}>
           <nav className="Header-nav">
             <ul className="Header-navList Text Text--med Text--strong">
               <li className="Header-navListItem">
@@ -80,7 +80,6 @@ Header.propTypes = {
   light: PropTypes.bool,
   canvas: PropTypes.element,
   t: PropTypes.func.isRequired,
-  showHeader: PropTypes.bool.isRequired,
   onHamburguerClick: PropTypes.func.isRequired
 }
 
