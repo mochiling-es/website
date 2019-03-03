@@ -1,4 +1,5 @@
 {
   "upload": "upload image",
-  "submit": "submit"
+  "submit": "submit",
+  "delete": "delete"
 }

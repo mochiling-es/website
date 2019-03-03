@@ -1,4 +1,5 @@
 {
   "upload": "subir imagen",
-  "submit": "guardar"
+  "submit": "guardar",
+  "delete": "borrar"
 }

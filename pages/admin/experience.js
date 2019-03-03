@@ -9,7 +9,7 @@ import Link from '../../src/components/Link'
 import Head from '../../src/components/Head'
 import Form from '../../src/components/form/Form'
 import genFields from './experienceFields'
-import { updateExperience, createExperience } from '../../src/actions/ExperienceActions'
+import { updateExperience, createExperience, deleteExperience } from '../../src/actions/ExperienceActions'
 import { wrapper, i18nHelper } from '../../src/components/i18n'
 
 class ExperienceEdit extends Component {
@@ -44,6 +44,43 @@ class ExperienceEdit extends Component {
     })
   }
 
+  findExperience = (experienceSlug, memberId) => {
+    const { experiences } = this.props
+    return find(experiences, experience => {
+      if (experience.slug === experienceSlug && experience.authors.includes(memberId)) {
+        return true
+      } else {
+        return false
+      }
+    })
+  }
+
+  onDelete = async () => {
+    const { t, memberId, deleteExperience, experienceSlug, children } = this.props
+    const experienceData = this.findExperience(experienceSlug, memberId)
+    let error
+    const onDone = ({ data, error }) => {
+      return error
+    }
+
+    if (!experienceData) {
+      return <Error status={404} children={children} />
+    }
+
+    this.setState({ loading: true, error: null })
+
+    const modalConfirmation = window.confirm(t('delete', { title: experienceData.slug }))
+    if (modalConfirmation === true) {
+      error = await deleteExperience(experienceData.id).then(onDone)
+    }
+
+    if (error) {
+      this.setState({ loading: false, error })
+    } else {
+      window.location.href = '/experiences'
+    }
+  }
+
   onSubmit = async data => {
     const { updateExperience, createExperience } = this.props
     const filteredData = this.filterData(data)
@@ -76,20 +113,14 @@ class ExperienceEdit extends Component {
     const fields = genFields({ t, experiences, experienceSlug, members, memberId })
 
     if (user.state !== 'logged') {
-      return <Error status={403} />
+      return <Error status={403} children={children} />
     }
 
     if (experienceSlug && memberId) {
-      experienceData = find(experiences, experience => {
-        if (experience.slug === experienceSlug && experience.authors.includes(memberId)) {
-          return true
-        } else {
-          return false
-        }
-      })
+      experienceData = this.findExperience(experienceSlug, memberId)
 
       if (!experienceData) {
-        return <Error status={404} />
+        return <Error status={404} children={children} />
       }
     }
 
@@ -115,7 +146,13 @@ class ExperienceEdit extends Component {
             </ul>
           </div>
           <div className="Block-content">
-            <Form onSubmit={this.onSubmit} fields={fields} formData={experienceData} disabled={loading} />
+            <Form
+              onSubmit={this.onSubmit}
+              onDelete={this.onDelete}
+              fields={fields}
+              formData={experienceData}
+              disabled={loading}
+            />
             {error && <p className="Text Color--error u-tSpace--m">{error}</p>}
           </div>
         </div>
@@ -135,7 +172,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => {
   return {
     updateExperience: bindActionCreators(updateExperience, dispatch),
-    createExperience: bindActionCreators(createExperience, dispatch)
+    createExperience: bindActionCreators(createExperience, dispatch),
+    deleteExperience: bindActionCreators(deleteExperience, dispatch)
   }
 }
 

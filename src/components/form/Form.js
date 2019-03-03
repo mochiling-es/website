@@ -41,7 +41,12 @@ class Form extends Component {
   onSubmit = data => {
     const { onSubmit } = this.props
     this.setState({ errors: {} })
-    onSubmit(data)
+    onSubmit && onSubmit(data)
+  }
+
+  onDelete = () => {
+    const { onDelete, formData } = this.props
+    onDelete && onDelete(formData.id)
   }
 
   render() {
@@ -58,10 +63,17 @@ class Form extends Component {
           return null
         })}
         <div className="Form-field Form-footer">
-          <button disabled={disabled} className={`Button Button--action Form-submit`} type="submit">
-            <span>{t('submit')}</span>
-            {disabled && <FontAwesome className="u-lSpace--m" name="circle-o-notch" spin size="lg" />}
-          </button>
+          <div className="Form-footerActions">
+            <button disabled={disabled} className={`Button Button--action Form-submit`} type="submit">
+              <span>{t('submit')}</span>
+              {disabled && <FontAwesome className="u-lSpace--m" name="circle-o-notch" spin size="lg" />}
+            </button>
+            {formData.id && (
+              <button type="button" className="Text--small Color--error Form-delete" onClick={this.onDelete}>
+                <span>{t('delete')}</span>
+              </button>
+            )}
+          </div>
           <div className="Form-errors">
             {map(errors, (error, i) => (
               <p key={i} className="Text Color--error u-tSpace--m">
@@ -77,6 +89,7 @@ class Form extends Component {
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
   fields: PropTypes.instanceOf(Array).isRequired,
   disabled: PropTypes.bool,
   formData: PropTypes.instanceOf(Object)

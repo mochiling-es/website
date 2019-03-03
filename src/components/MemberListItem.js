@@ -7,7 +7,6 @@ import ReactTooltip from 'react-tooltip'
 import { translate } from 'react-i18next'
 
 import Link from '../components/Link'
-import { deleteMember } from '../actions/TeamActions'
 import { i18nHelper } from './i18n'
 
 const socialTypes = ['facebook', 'instagram', 'twitter']
@@ -16,26 +15,6 @@ class MemberListItem extends Component {
   state = {
     loading: false,
     error: null
-  }
-
-  onDelete = async () => {
-    const { t, data, deleteMember } = this.props
-    const { id, name } = data
-    let error
-    const onDone = ({ data, error }) => {
-      return error
-    }
-
-    this.setState({ loading: true, error: null })
-
-    const modalConfirmation = window.confirm(t('delete', { name }))
-    if (modalConfirmation === true) {
-      error = await deleteMember(id).then(onDone)
-    }
-
-    if (error) {
-      this.setState({ loading: false, error })
-    }
   }
 
   render() {
@@ -65,9 +44,6 @@ class MemberListItem extends Component {
                         <FontAwesome name="pencil" className="Color--action" />
                       </a>
                     </Link>
-                    <button onClick={this.onDelete}>
-                      <FontAwesome name="times" className="Color--error" />
-                    </button>
                   </Fragment>
                 )}
               </div>
@@ -117,12 +93,6 @@ class MemberListItem extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteMember: bindActionCreators(deleteMember, dispatch)
-  }
-}
-
 function mapStateToProps(state) {
   return {
     members: state.members,
@@ -130,7 +100,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(translate(['team'])(MemberListItem))
+export default connect(mapStateToProps)(translate(['team'])(MemberListItem))

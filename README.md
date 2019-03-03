@@ -31,7 +31,7 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Create experience edition/creation page
 - [x] Migrate 404 page
 - [x] Migrate experiences page
-- [ ] Possibility to delete experience
+- [x] Possibility to delete experience
 - [ ] Migrate proposals page
 - [ ] Migrate home
 - [ ] Add Cookies banner

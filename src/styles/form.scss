@@ -91,6 +91,21 @@
   height: 150px;
 }
 .Form-footer {
-  display: block;
+  display: flex;
   width: 100%;
+}
+.Form-footerActions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.Form-delete {
+  margin-left: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

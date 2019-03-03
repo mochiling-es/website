@@ -9,7 +9,7 @@ import Link from '../../src/components/Link'
 import Head from '../../src/components/Head'
 import Form from '../../src/components/form/Form'
 import genFields from './memberFields'
-import { updateMember, createMember } from '../../src/actions/TeamActions'
+import { updateMember, createMember, deleteMember } from '../../src/actions/TeamActions'
 import { wrapper } from '../../src/components/i18n'
 
 class MemberEdit extends Component {
@@ -24,6 +24,36 @@ class MemberEdit extends Component {
     return {
       memberId,
       isServer
+    }
+  }
+
+  onDelete = async () => {
+    const { t, memberId, deleteMember, members } = this.props
+    let memberData = {}
+    let error
+    const onDone = ({ data, error }) => {
+      return error
+    }
+
+    if (memberId) {
+      memberData = find(members, ['id', memberId])
+
+      if (!memberData) {
+        return <Error status={404} />
+      }
+    }
+
+    this.setState({ loading: true, error: null })
+
+    const modalConfirmation = window.confirm(t('delete', { name: memberData.name }))
+    if (modalConfirmation === true) {
+      error = await deleteMember(memberId).then(onDone)
+    }
+
+    if (error) {
+      this.setState({ loading: false, error })
+    } else {
+      window.location.href = '/team'
     }
   }
 
@@ -89,7 +119,13 @@ class MemberEdit extends Component {
             </ul>
           </div>
           <div className="Block-content">
-            <Form onSubmit={this.onSubmit} fields={fields} formData={memberData} disabled={loading} />
+            <Form
+              onDelete={this.onDelete}
+              onSubmit={this.onSubmit}
+              fields={fields}
+              formData={memberData}
+              disabled={loading}
+            />
             {error && <p className="Text Color--error u-tSpace--m">{error}</p>}
           </div>
         </div>
@@ -108,7 +144,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => {
   return {
     createMember: bindActionCreators(createMember, dispatch),
-    updateMember: bindActionCreators(updateMember, dispatch)
+    updateMember: bindActionCreators(updateMember, dispatch),
+    deleteMember: bindActionCreators(deleteMember, dispatch)
   }
 }
 
