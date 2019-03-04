@@ -17,7 +17,8 @@ import '../src/styles/experiences.scss'
 class Experiences extends Component {
   state = {
     mobile: false,
-    context: 'page'
+    context: 'page',
+    showTitle: true
   }
 
   constructor(props) {
@@ -26,9 +27,13 @@ class Experiences extends Component {
     this.state.mobile = isMobile
   }
 
+  onMapClicked = () => {
+    this.setState({ showTitle: false })
+  }
+
   render() {
     const { children, experiences, user, t } = this.props
-    const { mobile, context } = this.state
+    const { mobile, context, showTitle } = this.state
     const isUserLogged = user.state === 'logged'
 
     const ContactUs = () => {
@@ -44,7 +49,7 @@ class Experiences extends Component {
         <Head title={t('title')} description={t('desc')} />
 
         <div className="Experiences Block">
-          <ExperiencesMap isUserLogged={isUserLogged} experiences={experiences} />
+          <ExperiencesMap onMapClick={this.onMapClicked} isUserLogged={isUserLogged} experiences={experiences} />
           {isUserLogged && (
             <div
               style={{ position: 'absolute', bottom: '90px', left: '50%', transform: 'translateX(-50%)', zIndex: 2 }}
@@ -84,7 +89,7 @@ class Experiences extends Component {
             </div>
           )}
           {children} {/*Header*/}
-          {(context === 'page' || (mobile && context === 'page')) && (
+          {((mobile && context === 'page') || (!mobile && showTitle)) && (
             <div className="Block-content Paragraph Paragraph--centered u-tSpace--xxl js-title">
               <h2 className="Text Text--giant Text--strong Color--emphasis">{t('subtitle')}</h2>
               <p className="Text Text--large Color--paragraph u-tSpace--l">

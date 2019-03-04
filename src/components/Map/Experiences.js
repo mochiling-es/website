@@ -38,7 +38,12 @@ class ExperiencesMap extends Component {
     // new L.Hash(this.map)
   }
 
-  onClick = ({ layer, latlng }) => {
+  onMapClick = () => {
+    const { onMapClick } = this.props
+    onMapClick && onMapClick()
+  }
+
+  onLayerClick = ({ layer, latlng }) => {
     const belongingExperiences = this.belongingExperiences(layer.properties.ISO_A3)
     let positionPopup = null
 
@@ -71,6 +76,7 @@ class ExperiencesMap extends Component {
 
   render() {
     const { positionPopup, belongingExperiences } = this.state
+    const { isUserLogged } = this.props
     const options = {
       type: 'slicer',
       data,
@@ -110,7 +116,7 @@ class ExperiencesMap extends Component {
           if (publishedExperiences > 0) {
             style.opacity = 0.65
           } else {
-            style.opacity = 0.33
+            style.dashArray = '5,5,5'
             style.fillOpacity = 0.1
           }
         }
@@ -148,6 +154,7 @@ class ExperiencesMap extends Component {
             ref={node => {
               this.map = node
             }}
+            onClick={this.onMapClick}
             style={{ backgroundColor: '#FFF' }}
             keyboard={true}
             minZoom={3}
@@ -162,10 +169,10 @@ class ExperiencesMap extends Component {
             zoom={3}
             className="Experiences-map"
           >
-            <VectorGrid {...options} onClick={this.onClick} />
+            <VectorGrid {...options} onClick={this.onLayerClick} />
             {positionPopup && (
               <Popup position={positionPopup} autoPan={true} onClose={this.onPopupClose}>
-                <ExperiencePopup experiences={belongingExperiences} />
+                <ExperiencePopup experiences={belongingExperiences} isUserLogged={isUserLogged} />
               </Popup>
             )}
           </Map>

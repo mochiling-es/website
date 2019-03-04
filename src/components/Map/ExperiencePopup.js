@@ -35,7 +35,7 @@ class ExperiencePopUp extends Component {
   }
 
   render() {
-    const { experiences } = this.props
+    const { experiences, isUserLogged } = this.props
     const { index } = this.state
     const experience = experiences[index]
     const { slug, title, mainImageURL, shortDesc, authors } = experience
@@ -43,35 +43,55 @@ class ExperiencePopUp extends Component {
     const lang = i18nHelper.getCurrentLanguage()
 
     return (
-      <Link
-        as={`/experience/${firstAuthor}/${slug}`}
-        href={`/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
-      >
-        <a className={`Popup Popup--vertical ${!experience.published ? 'is-unpublished' : ''}`}>
-          <div className="Popup-image">
-            <FontAwesome name="circle-o-notch" size="2x" spin className="Color--emphasis Popup-imageLoader" />
-            <img src={mainImageURL} alt={title && title[lang]} title={title && title[lang]} />
+      <div className={`Popup Popup--vertical ${!experience.published ? 'is-unpublished' : ''}`}>
+        <div className="Popup-image">
+          <FontAwesome name="circle-o-notch" size="2x" spin className="Color--emphasis Popup-imageLoader" />
 
-            {size(experiences) > 1 && (
-              <Fragment>
-                <button type="button" class="Popup-arrow Popup-arrow--left js-left" onClick={this.prevExperience}>
-                  <FontAwesome name="angle-left" />
-                </button>
-                <button type="button" class="Popup-arrow Popup-arrow--right" onClick={this.nextExperience}>
-                  <FontAwesome name="angle-right" />
-                </button>
-              </Fragment>
-            )}
-          </div>
-          <div className="Popup-info Text">
-            <h4 className="Text--large Color--secondary">
-              {title && title[lang]}
-              <FontAwesome name="link" className="Popup-link u-lSpace" />
-            </h4>
-            <p className="Text--med Color--paragraph u-tSpace--m">{shortDesc && shortDesc[lang]}</p>
-          </div>
-        </a>
-      </Link>
+          <Link
+            as={`/experience/${firstAuthor}/${slug}`}
+            href={`/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
+          >
+            <a>
+              <img src={mainImageURL} alt={title && title[lang]} title={title && title[lang]} />
+            </a>
+          </Link>
+          {isUserLogged && (
+            <Link
+              as={`/experience/${firstAuthor}/${slug}/edit`}
+              href={`/admin/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
+            >
+              <a className="Popup-experienceEdit">
+                <FontAwesome name="pencil" className="Color--action" />
+              </a>
+            </Link>
+          )}
+
+          {size(experiences) > 1 && (
+            <Fragment>
+              <button type="button" className="Popup-arrow Popup-arrow--left js-left" onClick={this.prevExperience}>
+                <FontAwesome name="angle-left" />
+              </button>
+              <button type="button" className="Popup-arrow Popup-arrow--right" onClick={this.nextExperience}>
+                <FontAwesome name="angle-right" />
+              </button>
+            </Fragment>
+          )}
+        </div>
+        <div className="Popup-info Text">
+          <h4 className="Text--large">
+            <Link
+              as={`/experience/${firstAuthor}/${slug}`}
+              href={`/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
+            >
+              <a className="Color--emphasis">
+                {title && title[lang]}
+                <FontAwesome name="link" className="Popup-link u-lSpace" />
+              </a>
+            </Link>
+          </h4>
+          <p className="Text--med Color--paragraph u-tSpace--m">{shortDesc && shortDesc[lang]}</p>
+        </div>
+      </div>
     )
   }
 }
