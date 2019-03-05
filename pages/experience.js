@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { find, size, map } from 'lodash'
+import { find, size, map, filter } from 'lodash'
 import { translate } from 'react-i18next'
 import PropTypes from 'prop-types'
 import Masonry from 'react-masonry-component'
@@ -42,15 +42,25 @@ class Experience extends Component {
   }
 
   render() {
-    const { memberId, members, experiences, experienceSlug, t, children } = this.props
+    const { memberId, members, experiences, experienceSlug, user, t, children } = this.props
     const { displayVideo } = this.state
+    const isUserLogged = user.state === 'logged'
     let experienceData = {}
     let nextExperience
     let experiencePosition
     const lang = i18nHelper.getCurrentLanguage()
+    const otherExperiences = filter(experiences, experience => {
+      if (isUserLogged) {
+        return true
+      } else if (experience.published) {
+        return true
+      } else {
+        return false
+      }
+    })
 
     if (experienceSlug && memberId) {
-      experienceData = find(experiences, (experience, pos) => {
+      experienceData = find(otherExperiences, (experience, pos) => {
         if (experience.slug === experienceSlug && experience.authors.includes(memberId)) {
           experiencePosition = pos
           return true
@@ -60,10 +70,10 @@ class Experience extends Component {
       })
 
       if (!experienceData) {
-        return <Error status={404} />
+        return <Error status={404} children={children} />
       }
     } else {
-      return <Error status={404} />
+      return <Error status={404} children={children} />
     }
 
     const title = (experienceData.title && experienceData.title[lang]) || ''
@@ -73,13 +83,13 @@ class Experience extends Component {
 
     const { authors, youtubeURL, imagesListURL, instagramTag, mainImageURL } = experienceData
 
-    if (size(experiences) > 1) {
+    if (size(otherExperiences) > 1) {
       let nextExperiencePos = experiencePosition + 1
-      if (nextExperiencePos >= size(experiences)) {
+      if (nextExperiencePos >= size(otherExperiences)) {
         nextExperiencePos = 0
       }
 
-      nextExperience = experiences[nextExperiencePos]
+      nextExperience = otherExperiences[nextExperiencePos]
     }
 
     return (
@@ -197,13 +207,15 @@ Experience.propTypes = {
   t: PropTypes.func.isRequired,
   members: PropTypes.instanceOf(Array).isRequired,
   experiences: PropTypes.instanceOf(Array).isRequired,
-  children: PropTypes.array.isRequired
+  children: PropTypes.array.isRequired,
+  user: PropTypes.instanceOf(Object).isRequired
 }
 
 function mapStateToProps(state) {
   return {
     members: state.members,
-    experiences: state.experiences
+    experiences: state.experiences,
+    user: state.user
   }
 }
 
