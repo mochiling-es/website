@@ -9,7 +9,7 @@ import { translate } from 'react-i18next'
 import Error from './_error'
 import Link from '../src/components/Link'
 import Head from '../src/components/Head'
-import StaticMap from '../src/components/StaticMap'
+import StaticMap from '../src/components/Map/Static'
 import LastExperiences from '../src/components/LastExperiences'
 import { i18nHelper, wrapper } from '../src/components/i18n'
 
@@ -61,7 +61,7 @@ class Member extends Component {
     let yOffset, xOffset
 
     if (!memberId || !memberData) {
-      return <Error status={404} />
+      return <Error status={404} children={children} />
     }
 
     // Born location
@@ -91,11 +91,11 @@ class Member extends Component {
             countriesCode={map(memberData.visitedCountries, countryCode => countryCode.toLowerCase())}
             markers={[marker]}
             center={memberData.bornLocation}
-            scale={300}
-            height={height}
+            // scale={300}
+            // height={height}
             yOffset={yOffset}
             xOffset={xOffset}
-            width={window.innerWidth}
+            // width={window.innerWidth}
           />
           {children} {/*Header*/}
           <div className="Breadcrumb">

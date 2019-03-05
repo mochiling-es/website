@@ -4,7 +4,7 @@ import { find, map, filter } from 'lodash'
 import PropTypes from 'prop-types'
 import { translate, Trans } from 'react-i18next'
 
-import StaticMap from '../src/components/StaticMap'
+import StaticMap from '../src/components/Map/Static'
 import Head from '../src/components/Head'
 import Link from '../src/components/Link'
 import MemberListItem from '../src/components/MemberListItem'

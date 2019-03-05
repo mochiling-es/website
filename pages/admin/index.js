@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { translate } from 'react-i18next'
 
-import StaticMap from '../../src/components/StaticMap'
+import StaticMap from '../../src/components/Map/Static'
 import { wrapper } from '../../src/components/i18n'
 import Head from '../../src/components/Head'
 
