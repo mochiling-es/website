@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
-import data from '../../../static/assets/data/countries.json'
+import data from './countries.json'
 
 let Map, VectorGridDefault, VectorGrid, Marker, CircleMarker
 

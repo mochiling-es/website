@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { filter, size, reduce, each } from 'lodash'
 import isoCountries from 'i18n-iso-countries'
 
-import data from '../../../static/assets/data/countries.json'
+import data from './countries.json'
 import ExperiencePopup from './ExperiencePopup'
 import { i18nHelper } from '../i18n'
 
