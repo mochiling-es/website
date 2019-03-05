@@ -38,8 +38,8 @@ class StaticMap extends Component {
     const options = {
       type: 'slicer',
       data,
-      style: ({ ISO_A3 }) => {
-        const isItIncluded = countriesCode.includes(ISO_A3.toLowerCase()) || false
+      style: ({ iso_a3 }) => {
+        const isItIncluded = countriesCode.includes(iso_a3.toLowerCase()) || false
 
         let styles = {
           color: '#EFEFEF',
@@ -81,7 +81,8 @@ class StaticMap extends Component {
             }}
             keyboard={false}
             doubleClickZoom={false}
-            boxZoom={true}
+            boxZoom={false}
+            zoomControl={false}
             dragging={false}
             attributionControl={false}
             scrollWheelZoom={false}

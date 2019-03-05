@@ -6,7 +6,7 @@ import data from '../../../static/assets/data/countries.json'
 import ExperiencePopup from './ExperiencePopup'
 import { i18nHelper } from '../i18n'
 
-let Map, VectorGridDefault, VectorGrid, Popup
+let L, Map, VectorGridDefault, VectorGrid, Popup, Hash
 
 class ExperiencesMap extends Component {
   state = {
@@ -17,11 +17,15 @@ class ExperiencesMap extends Component {
 
   componentDidMount = () => {
     let RL = require('react-leaflet')
+    L = require('leaflet')
+
     Map = RL.Map
     Popup = RL.Popup
     const withLeaflet = RL.withLeaflet
     VectorGridDefault = require('react-leaflet-vectorgrid')
     VectorGrid = withLeaflet(VectorGridDefault)
+
+    require('leaflet-hash')
 
     each(i18nHelper.supportLangs, lang => {
       isoCountries.registerLocale(require(`i18n-iso-countries/langs/${lang}.json`))
@@ -35,7 +39,7 @@ class ExperiencesMap extends Component {
       return
     }
 
-    // new L.Hash(this.map)
+    new L.Hash(this.map)
   }
 
   onMapClick = () => {
@@ -44,7 +48,7 @@ class ExperiencesMap extends Component {
   }
 
   onLayerClick = ({ layer, latlng }) => {
-    const belongingExperiences = this.belongingExperiences(layer.properties.ISO_A3)
+    const belongingExperiences = this.belongingExperiences(layer.properties.iso_a3)
     let positionPopup = null
 
     if (size(belongingExperiences) > 0) {
@@ -80,12 +84,12 @@ class ExperiencesMap extends Component {
     const options = {
       type: 'slicer',
       data,
-      idField: 'ISO_A3',
-      tooltip: ({ properties: { ISO_A3 } }) => {
+      idField: 'iso_a3',
+      tooltip: ({ properties: { iso_a3 } }) => {
         const lang = i18nHelper.getCurrentLanguage()
-        return isoCountries.getName(ISO_A3, lang)
+        return isoCountries.getName(iso_a3, lang)
       },
-      style: ({ ISO_A3 }) => {
+      style: ({ iso_a3 }) => {
         let style = {
           color: '#EFEFEF',
           weight: 1,
@@ -95,7 +99,7 @@ class ExperiencesMap extends Component {
           fill: true,
           stroke: true
         }
-        const belongingExperiences = this.belongingExperiences(ISO_A3)
+        const belongingExperiences = this.belongingExperiences(iso_a3)
 
         if (size(belongingExperiences) > 0) {
           const publishedExperiences = reduce(
@@ -123,8 +127,8 @@ class ExperiencesMap extends Component {
 
         return style
       },
-      hoverStyle: ({ ISO_A3 }) => {
-        if (this.belongsToAnyExperience(ISO_A3)) {
+      hoverStyle: ({ iso_a3 }) => {
+        if (this.belongsToAnyExperience(iso_a3)) {
           return {
             color: '#E74525',
             fillColor: '#E74525',
@@ -134,8 +138,8 @@ class ExperiencesMap extends Component {
           return {}
         }
       },
-      activeStyle: ({ ISO_A3 }) => {
-        if (this.belongsToAnyExperience(ISO_A3)) {
+      activeStyle: ({ iso_a3 }) => {
+        if (this.belongsToAnyExperience(iso_a3)) {
           return {
             color: '#E74525',
             fillColor: '#E74525'
@@ -152,7 +156,9 @@ class ExperiencesMap extends Component {
         {this.state.showMap ? (
           <Map
             ref={node => {
-              this.map = node
+              if (node) {
+                this.map = node.leafletElement
+              }
             }}
             onClick={this.onMapClick}
             style={{ backgroundColor: '#FFF' }}
