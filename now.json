@@ -7,7 +7,7 @@
   ],
   "routes": [
     {
-      "src": "/experiences/new$",
+      "src": "/experience/new$",
       "dest": "/admin/experience"
     },
     {
