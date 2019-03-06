@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { size, extend } from 'lodash'
+import { withRouter } from 'next/router'
 
 import FontAwesome from 'react-fontawesome'
 
@@ -65,11 +66,17 @@ class Default extends Component {
   }
 
   render() {
-    const { children, members, experiences } = this.props
+    const { children, members, experiences, router } = this.props
     const { showHeader } = this.state
     const isLoading = !members || size(members) === 0 || !experiences || size(experiences) === 0
     const childrenWithHeader = React.Children.map(children, child =>
-      React.cloneElement(child, null, [<Header key="header" onHamburguerClick={this.onHamburguerClick} />])
+      React.cloneElement(child, null, [
+        <Header
+          key="header"
+          light={router.route === '/proposals' ? true : false}
+          onHamburguerClick={this.onHamburguerClick}
+        />
+      ])
     )
 
     if (isLoading) {
@@ -114,4 +121,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Default)
+)(withRouter(Default))
