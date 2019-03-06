@@ -91,11 +91,8 @@ class Member extends Component {
             countriesCode={map(memberData.visitedCountries, countryCode => countryCode.toLowerCase())}
             markers={[marker]}
             center={memberData.bornLocation}
-            // scale={300}
-            // height={height}
             yOffset={yOffset}
             xOffset={xOffset}
-            // width={window.innerWidth}
           />
           {children} {/*Header*/}
           <div className="Breadcrumb">
