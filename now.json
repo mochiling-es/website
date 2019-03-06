@@ -11,11 +11,11 @@
       "dest": "/admin/experience"
     },
     {
-      "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$",
+      "src": "/experience/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$",
       "dest": "/experience?memberId=$memberId&experienceSlug=$experienceSlug"
     },
     {
-      "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/edit$",
+      "src": "/experience/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/edit$",
       "dest": "/admin/experience?memberId=$memberId&experienceSlug=$experienceSlug"
     },
     {
