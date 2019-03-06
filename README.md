@@ -37,6 +37,7 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [ ] Migrate home
 - [ ] Add Cookies banner
 - [ ] Create a better terms-of-user page
+- [ ] Add Analytics
 
 
 ---

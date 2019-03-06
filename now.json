@@ -2,16 +2,43 @@
   "version": 2,
   "name": "website",
   "public": true,
-  "regions": ["bru"],
+  "regions": [
+    "bru"
+  ],
   "routes": [
-    { "src": "/experiences/new$", "dest": "/admin/experience" },
-    { "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$", "dest": "/experience?memberId=$memberId&experienceSlug=$experienceSlug" },
-    { "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/edit$", "dest": "/admin/experience?memberId=$memberId&experienceSlug=$experienceSlug" },
-    { "src": "/team/new$", "dest": "/admin/member?memberId=" },
-    { "src": "/team/(?<memberId>[^/]+)$", "dest": "/member?memberId=$memberId" },
-    { "src": "/team/(?<memberId>[^/]+)/edit$", "dest": "/admin/member?memberId=$memberId" }
+    {
+      "src": "/experiences/new$",
+      "dest": "/admin/experience"
+    },
+    {
+      "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$",
+      "dest": "/experience?memberId=$memberId&experienceSlug=$experienceSlug"
+    },
+    {
+      "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/edit$",
+      "dest": "/admin/experience?memberId=$memberId&experienceSlug=$experienceSlug"
+    },
+    {
+      "src": "/team/new$",
+      "dest": "/admin/member?memberId="
+    },
+    {
+      "src": "/team/(?<memberId>[^/]+)$",
+      "dest": "/member?memberId=$memberId"
+    },
+    {
+      "src": "/team/(?<memberId>[^/]+)/edit$",
+      "dest": "/admin/member?memberId=$memberId"
+    },
+    {
+      "src": "/proposals/(?<proposalId>[^/]+)$",
+      "dest": "/proposals?proposalId=$proposalId"
+    }
   ],
   "builds": [
-      { "src": "package.json", "use": "@now/next" }
+    {
+      "src": "package.json",
+      "use": "@now/next"
+    }
   ]
 }
