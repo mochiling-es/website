@@ -54,7 +54,7 @@ class Experiences extends Component {
             <div
               style={{ position: 'absolute', bottom: '90px', left: '50%', transform: 'translateX(-50%)', zIndex: 2 }}
             >
-              <Link as={`/experience/new`} href={`/admin/experience?memberId=&experienceSlug=`}>
+              <Link as={`/experiences/new`} href={`/admin/experience?memberId=&experienceSlug=`}>
                 <a className="Button Button--action">{t('add')}</a>
               </Link>
             </div>

@@ -48,7 +48,7 @@ class ExperiencePopUp extends Component {
           <FontAwesome name="circle-o-notch" size="2x" spin className="Color--emphasis Popup-imageLoader" />
 
           <Link
-            as={`/experience/${firstAuthor}/${slug}`}
+            as={`/experiences/${firstAuthor}/${slug}`}
             href={`/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
           >
             <a>
@@ -57,7 +57,7 @@ class ExperiencePopUp extends Component {
           </Link>
           {isUserLogged && (
             <Link
-              as={`/experience/${firstAuthor}/${slug}/edit`}
+              as={`/experiences/${firstAuthor}/${slug}/edit`}
               href={`/admin/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
             >
               <a className="Popup-experienceEdit">
@@ -80,7 +80,7 @@ class ExperiencePopUp extends Component {
         <div className="Popup-info Text">
           <h4 className="Text--large">
             <Link
-              as={`/experience/${firstAuthor}/${slug}`}
+              as={`/experiences/${firstAuthor}/${slug}`}
               href={`/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
             >
               <a className="Color--emphasis">

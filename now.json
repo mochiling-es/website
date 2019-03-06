@@ -7,15 +7,15 @@
   ],
   "routes": [
     {
-      "src": "/experience/new$",
+      "src": "/experiences/new$",
       "dest": "/admin/experience"
     },
     {
-      "src": "/experience/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$",
+      "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$",
       "dest": "/experience?memberId=$memberId&experienceSlug=$experienceSlug"
     },
     {
-      "src": "/experience/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/edit$",
+      "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/edit$",
       "dest": "/admin/experience?memberId=$memberId&experienceSlug=$experienceSlug"
     },
     {
