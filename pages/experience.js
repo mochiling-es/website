@@ -179,6 +179,7 @@ class Experience extends Component {
                   options={{
                     transitionDuration: 0,
                     columnWidth: 100,
+                    columnHeight: 100,
                     gutter: 10
                   }}
                   disableImagesLoaded={true}
