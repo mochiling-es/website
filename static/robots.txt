@@ -1,8 +1,3 @@
 User-agent: *
 Disallow: /cookies/
-Disallow: /en/cookies/
 Disallow: /admin/
-Disallow: /en/admin/
-
-Sitemap: http://mochiling.es/sitemap.xml
-Sitemap: http://mochiling.es/en/sitemap.xml
