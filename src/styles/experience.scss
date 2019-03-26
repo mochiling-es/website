@@ -124,11 +124,14 @@
   height: 50px;
   border: 1px solid rgba(#000, 0.5);
 }
-
+.Experience-photos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .Experience-photos .cell {
+  display: flex;
   background: #EFEFEF;
-  width: 320px;
-  height: 320px;
   margin: 5px;
 }
 
@@ -160,19 +163,6 @@
     width: 100%;
     height: auto;
   }
-}
-
-@media (max-width: 650px) {
-  .Experience-photos .cell {
-    width: 80%;
-    padding: 0;
-    left: 50%!important;
-    transform: translateX(-50%);
-
-    & img {
-      width: 100%;
-    }
-  } 
 }
 
 @media (max-width: 780px) {

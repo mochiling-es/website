@@ -172,28 +172,15 @@ class Experience extends Component {
               </div>
             )}
             {imagesListURL && (
-              <div className="Experience-photos">
-                <Masonry
-                  className={'grid'}
-                  elementType={'ul'}
-                  options={{
-                    transitionDuration: 0,
-                    columnWidth: 100,
-                    columnHeight: 100,
-                    gutter: 10
-                  }}
-                  disableImagesLoaded={true}
-                  updateOnEachImageLoad={false}
-                >
-                  {map(imagesListURL, image => {
-                    return (
-                      <li key={image} className="cell">
-                        <img src={image} alt={''} title={''} />
-                      </li>
-                    )
-                  })}
-                </Masonry>
-              </div>
+              <ul className="Experience-photos">
+                {map(imagesListURL, image => {
+                  return (
+                    <li key={image} className="cell">
+                      <img src={image} alt={title} title={title} />
+                    </li>
+                  )
+                })}
+              </ul>
             )}
           </div>
 
