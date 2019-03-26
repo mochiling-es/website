@@ -92,6 +92,7 @@ class MyApp extends App {
               <meta name="msapplication-wide310x150logo" content="/static/assets/favicon/mstile-310x150.png" />
               <meta name="msapplication-square310x310logo" content="/static/assets/favicon/mstile-310x310.png" />
 
+              {/* Firebase */}
               <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js" />
               <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js" />
               <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js" />

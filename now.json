@@ -37,7 +37,7 @@
   ],
   "builds": [
     {
-      "src": "package.json",
+      "src": "next.config.js",
       "use": "@now/next"
     }
   ]

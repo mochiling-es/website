@@ -6,7 +6,6 @@
   "bugs": "https://github.com/xavijam/Mochiling/issues",
   "author": "Javier Álvarez <xavijam@gmail.com>",
   "license": "ISC",
-  "main": "server.js",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.4.7",
@@ -16,7 +15,7 @@
     "leaflet": "^1.4.0",
     "leaflet-hash": "^0.2.1",
     "lodash": "^4.17.11",
-    "next": "^8.0.3",
+    "next": "latest",
     "next-i18n-helper": "^1.0.20",
     "next-redux-wrapper": "^3.0.0-alpha.0",
     "next-routes": "^1.4.2",
