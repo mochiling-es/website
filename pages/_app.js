@@ -25,7 +25,7 @@ class MyApp extends App {
           <Fragment>
             {/* HACK: We need this in order to load Firebase because Now.sh deploys doesn't like Firebase as npm package */}
             <Head>
-              <meta charset="utf-8" />
+              <meta charSet="utf-8" />
               <meta name="viewport" content="width=device-width,initial-scale=1" />
 
               {/* Twitter */}

@@ -35,7 +35,9 @@
     "react-markdown": "^4.0.6",
     "react-medium-image-zoom": "^3.0.15",
     "react-redux": "^6.0.0",
+    "react-scrollmagic": "^2.1.0",
     "react-simple-maps": "^0.12.1",
+    "react-swipe": "^6.0.4",
     "react-tooltip": "^3.9.2",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
@@ -43,7 +45,8 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "swipe-js-iso": "^2.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",

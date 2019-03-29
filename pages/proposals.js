@@ -59,7 +59,7 @@ class Proposals extends Component {
   }
 
   render() {
-    const { t, children, proposals, proposalId } = this.props
+    const { t, children, proposals, features, proposalId } = this.props
     const currentProposal = proposals[proposalId - 1]
 
     return (
@@ -123,7 +123,7 @@ class Proposals extends Component {
               </div>
 
               <ul className="Proposals-featuresList u-bSpace--xxl pure-g">
-                {map(proposalFeatures, feature => {
+                {map(features, feature => {
                   return (
                     <li className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">
                       <div className="l-box">
@@ -175,12 +175,14 @@ class Proposals extends Component {
 
 Proposals.propTypes = {
   t: PropTypes.func.isRequired,
-  proposals: PropTypes.instanceOf(Array).isRequired
+  proposals: PropTypes.instanceOf(Array).isRequired,
+  features: PropTypes.instanceOf(Array).isRequired
 }
 
 function mapStateToProps(state) {
   return {
-    proposals: state.proposals
+    proposals: state.proposals,
+    features: state.features
   }
 }
 
