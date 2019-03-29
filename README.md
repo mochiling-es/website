@@ -34,8 +34,10 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Possibility to delete experience
 - [x] Change static map to a Leaflet one
 - [x] Migrate proposals page
-- [ ] Migrate home
-- [ ] Add Cookies banner
+- [x] Migrate home
+- [ ] Home slider
+- [ ] Home video
+- [ ] Add terms&conditions banner
 - [ ] Create a better terms-of-user page
 - [ ] Add Analytics
 
