@@ -10,7 +10,7 @@ class HomeFeatures extends Component {
       <ul className="Proposals-featuresList u-bSpace--xxl pure-g">
         {map(features, feature => {
           return (
-            <li className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">
+            <li key={feature.name} className="pure-u-1 pure-u-sm-1-2 pure-u-md-1-2 pure-u-lg-1-3">
               <div className="l-box">
                 <div className="Proposals-featureItem Proposals-featureItem--noBkg">
                   <div className="Proposals-featureItemIcon Color--paragraph">

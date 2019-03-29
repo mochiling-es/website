@@ -2,10 +2,11 @@ import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { translate } from 'react-i18next'
-import { map, sampleSize, sample, first } from 'lodash'
+import { map, sampleSize, first } from 'lodash'
 import ReactSwipe from 'react-swipe'
 import { Controller, Scene } from 'react-scrollmagic'
 import FontAwesome from 'react-fontawesome'
+import ReactTooltip from 'react-tooltip'
 
 import Head from '../src/components/Head'
 import LastExperiences from '../src/components/LastExperiences'
@@ -25,32 +26,6 @@ class Index extends Component {
     const experience = first(experiences)
     const membersSample = sampleSize(members, 5)
     let entered = false
-
-    const DisplayMembers = ({ event }) => {
-      const memberType = ['Home-member--big', 'Home-member--small', '', 'Home-member--big', 'Home-member--small']
-
-      if (!entered) {
-        entered = event.state === 'DURING'
-      }
-
-      return (
-        <div className={`${entered ? 'is-visible' : ''}`}>
-          {map(membersSample, (member, index) => {
-            return (
-              <Link as={`/team/${member.id}`} href={`/member?memberId=${member.id}`}>
-                <a
-                  class={`Home-member Home-member--pos${index} ${memberType[index]} js-tippy`}
-                  data-theme="dark"
-                  title={member.name}
-                >
-                  <img src={member.avatarURL} title={member.name} alt={member.name} />
-                </a>
-              </Link>
-            )
-          })}
-        </div>
-      )
-    }
 
     const experienceFirstAuthorId = first(experience.authors)
     const experienceAs = `/experiences/${experienceFirstAuthorId}/${experience.slug}`
@@ -86,7 +61,7 @@ class Index extends Component {
             <div className="swiper-wrapper">
               {map([3, 2, 1, 4, 5], number => {
                 return (
-                  <div className="swiper-slide">
+                  <div className="swiper-slide" key={number}>
                     <img
                       key={`homeImage-${number}`}
                       src={`/static/assets/images/home-${number}.jpg`}
@@ -141,32 +116,64 @@ class Index extends Component {
           </div>
         </div>
 
-        <div class="Block Block--spaced Home-members" id="js-members">
+        <div className="Block Block--spaced Home-members" id="js-members">
           <StaticMap />
 
-          <div class="Block-content">
-            <div class="Paragraph Paragraph--lefty Paragraph--superSpaced Text">
-              <h4 class="Text--huge Text--strong Color--emphasis">{t('team.title')}</h4>
-              <p class="Text--large u-tSpace--l Color--paragraph">{t('team.desc')}</p>
+          <div className="Block-content">
+            <div className="Paragraph Paragraph--lefty Paragraph--superSpaced Text">
+              <h4 className="Text--huge Text--strong Color--emphasis">{t('team.title')}</h4>
+              <p className="Text--large u-tSpace--l Color--paragraph">{t('team.desc')}</p>
             </div>
           </div>
 
           <div>
             <Controller>
-              <Scene duration={200} triggerElement="#js-members" indicators={true}>
-                {(progress, event) => <DisplayMembers event={event} />}
+              <Scene duration={200} triggerElement="#js-members">
+                {(progress, event) => {
+                  const memberType = [
+                    'Home-member--big',
+                    'Home-member--small',
+                    '',
+                    'Home-member--big',
+                    'Home-member--small'
+                  ]
+
+                  if (!entered) {
+                    entered = event.state === 'DURING'
+                  }
+
+                  return (
+                    <div className={`${entered ? 'is-visible' : ''}`}>
+                      {map(membersSample, (member, index) => {
+                        return (
+                          <Link key={member.id} as={`/team/${member.id}`} href={`/member?memberId=${member.id}`}>
+                            <a
+                              className={`Home-member Home-member--pos${index} ${memberType[index]} js-tippy`}
+                              data-theme="dark"
+                              title={member.name}
+                              data-tip={member.name}
+                            >
+                              <img src={member.avatarURL} title={member.name} alt={member.name} />
+                            </a>
+                          </Link>
+                        )
+                      })}
+                      <ReactTooltip place={'top'} effect={'solid'} />
+                    </div>
+                  )
+                }}
               </Scene>
             </Controller>
           </div>
         </div>
 
-        <div class="Block Bkg--others Experience-nextOne">
-          <div class="Experience-nextOneContent">
-            <div class="Block-content Paragraph--centered Text">
-              <h4 class="Text--strong Text--giant Color--light">{t('experiences.title')}</h4>
-              <p class="Text--large u-tSpace--l Color--light">{t('experiences.desc')}</p>
+        <div className="Block Bkg--others Experience-nextOne">
+          <div className="Experience-nextOneContent">
+            <div className="Block-content Paragraph--centered Text">
+              <h4 className="Text--strong Text--giant Color--light">{t('experiences.title')}</h4>
+              <p className="Text--large u-tSpace--l Color--light">{t('experiences.desc')}</p>
               <Link as={experienceAs} href={experienceHref}>
-                <a class="Button Button--light u-tSpace--l">
+                <a className="Button Button--light u-tSpace--l">
                   <FontAwesome name="globe" className="u-rSpace" /> {t('experiences.title')}
                 </a>
               </Link>
