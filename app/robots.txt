@@ -1,8 +1,0 @@
----
-layout: null
----
-User-agent: *
-Disallow: /cookies/
-Disallow: /en/cookies/
-
-Sitemap: {{ site.url }}/sitemap.xml

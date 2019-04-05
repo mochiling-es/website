@@ -1,0 +1,14 @@
+
+.Login {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 166px);
+  min-height: 400px;
+  overflow: hidden;
+}
+.Login--avatar {
+  border-radius: 100%;
+}

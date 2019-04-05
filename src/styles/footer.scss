@@ -1,0 +1,29 @@
+// Footer styles
+
+.Footer {
+  position: relative;
+  box-sizing: border-box;
+  max-width: $mainSize;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.Footer-inner {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+  z-index: 2;
+}
+.Footer-navList {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+.Footer-navListItem {
+  padding: 0 0 0 10px;
+}

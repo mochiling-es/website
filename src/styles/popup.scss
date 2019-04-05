@@ -1,0 +1,179 @@
+// Default popups
+
+$popup-component-box-shadow: 0 0 5px 0 rgba(black, 0.44);
+$default-border-radius: 6px;
+
+.leaflet-bar a {
+  color: #666;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: $default-border-radius;
+}
+.leaflet-popup-content {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.leaflet-popup-content a {
+  text-decoration: none;
+}
+.leaflet-popup-content-wrapper {
+  padding: 0;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  line-height: 24px;
+  background: white;
+  border-radius: 100%;
+  box-shadow: $popup-component-box-shadow;
+  z-index: 3;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  box-shadow: $popup-component-box-shadow;
+}
+.leaflet-popup-content p {
+  margin: 0;
+}
+
+.Popup {
+  position: relative;
+  display: flex;
+  text-decoration: none;
+}
+.Popup.is-unpublished {
+  opacity: 0.6;
+}
+.Popup--horizontal {
+  flex-direction: row;
+  width: 200px;
+}
+.Popup--vertical {
+  flex-direction: column;
+  width: 220px;
+}
+.Popup--small {
+  width: 95px;
+  height: 96px;
+}
+.Popup-image {
+  position: relative;
+  min-height: 100px;
+  background: #EFEFEF;
+  overflow: hidden;
+}
+.Popup--vertical .Popup-image {
+  width: 100%;
+  height: auto;
+}
+.Popup-author {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid #333;
+  z-index: 3;
+}
+.Popup-imageLoader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -14px;
+  opacity: 0.5;
+  z-index: 1;
+}
+.Popup-experienceEdit {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(#000, 0.75);
+  border-radius: 4px;
+  z-index: 10;
+}
+.Popup a {
+  text-decoration: none;
+}
+.Popup-link {
+  display: none;
+}
+.Popup-image img {
+  position: relative;
+  z-index: 2;
+}
+.Popup--horizontal .Popup-image {
+  width: 90px;
+  min-width: 90px;
+  height: 90px;
+  min-height: 90px;
+  margin: 3px 2px 3px 3px;
+  border-radius: $default-border-radius;
+}
+.Popup--horizontal .Popup-image img {
+  width: 90px;
+}
+.Popup--vertical .Popup-image {
+  width: 100%;
+  min-width: 100%;
+  border-top-left-radius: $default-border-radius;
+  border-top-right-radius: $default-border-radius;
+  border-bottom: 1px solid #DDD;
+}
+.Popup--vertical .Popup-image img {
+  width: 100%;
+}
+.Popup-info {
+  position: relative;
+  display: block;
+  padding: 10px 15px 12px 15px;
+  text-decoration: none;
+  text-align: left;
+}
+.Popup-info p,
+.Popup-info h4 {
+  display: block;
+  text-decoration: none;
+  text-align: left;
+}
+.Popup-info p {
+  line-height: 17px;
+}
+.Popup:hover {
+  .Popup-link {
+    display: inline-block;
+  }
+}
+
+.Popup-arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  text-align: center;
+  font-size: 30px;
+  color: #FFF;
+  text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 1px 1px 0 #333;
+  line-height: 20px;
+  z-index: 5;
+  outline: none;
+}
+.Popup-arrow--right {
+  right: 10px;
+}
+.Popup-arrow--left {
+  left: 10px;
+}

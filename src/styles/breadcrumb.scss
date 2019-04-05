@@ -1,0 +1,58 @@
+// Breadcrumb styles
+
+.Breadcrumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  background: rgba($greyBkg, 0.05);
+  border-top: 1px solid #EFEFEF;
+  border-bottom: 1px solid #EFEFEF;
+  z-index: 1;
+}
+.Breadcrumb-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $mainSize;
+  margin: 0 auto;
+  padding: 0 20px;
+  list-style: none;
+}
+.Breadcrumb-item {
+  font-size: 12px;
+  font-family: 'Lato';
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #999;
+}
+.Breadcrumb-item--separator {
+  margin: 0 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #666;
+}
+.Breadcrumb-link {
+  color: #666;
+  text-decoration: none;
+  &:hover {
+    color: #333;
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: $mainSize) {
+  .Breadcrumb {
+    height: 48px;
+  }
+  .Breakcrumb-linkDesc {
+    display: none;
+  }
+  .Breadcrumb-linkIcon {
+    font-size: 16px;
+  }
+}

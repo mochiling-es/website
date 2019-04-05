@@ -1,0 +1,17 @@
+.Bkg {
+  background: #FFF;
+}
+.Bkg--lighter {
+  background-color: rgba(#EFEFEF, 0.5);
+}
+.Bkg--light {
+  background-color: #F2F6F9;
+}
+.Bkg--instagram {
+  background:
+    linear-gradient( #400080, transparent),
+    linear-gradient( 200deg, #d047d1, #ff0000,    #ffff00);
+}
+.Bkg--others {
+  background: #343434;
+}

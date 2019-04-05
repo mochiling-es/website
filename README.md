@@ -1,37 +1,92 @@
+<img src="https://github.com/mochiling-es/website/blob/master/static/assets/favicon/android-chrome-192x192.png" alt="Mochilin" width=60/>
+
 # Mochiling
 
-In order to run Mochiling in your computer:
+A website for showing all experiences done by our members. Done with [Next.js](https://nextjs.org/) and deployed thanks to [now.sh](https://now.sh).
 
-- Follow this [guide](https://gorails.com/setup/osx/10.12-sierra) for installing all necessary components:
-  - Homebrew
-  - Ruby (`ruby 2.2.2p95` if possible)
-  - Git
-  - Rails
-  - Node (`0.10.46`)
+---
 
-- Install bundler:
-```
-gem install bundler
-```
-- Install ruby dependencies:
-```
-bundle install
-```
-- Install node dependencies:
-```
-npm install
-```
-- Install grunt:
-```
-npm install -g grunt-cli
-```
-- Ready to see the webpage:
-```
-grunt serve
-```
-- Install [Atom](https://atom.io/) editor for editing things.
+## Features
 
-- Do you want to publish it?:
+- New website created with React framework.
+- Create/edit/remove members or experiences in the proper website.
+- Real time changes in the members or experiences offers.
+- Internationalized.
+- Images for data stored in Google Storage.
+
+---
+
+## Pending
+
+- [x] Localization
+- [x] Read and write data from database
+- [x] Migrate common components (Header, Footer, LastExperiences,...)
+- [x] Migrate team page
+- [x] Migrate member page
+- [x] Create login/admin page
+- [x] Create member edition/creation page
+- [x] Enable CI (deploy to staging & production)
+- [x] Migrate experience page
+- [x] Create experience edition/creation page
+- [x] Migrate 404 page
+- [x] Migrate experiences page
+- [x] Possibility to delete experience
+- [x] Change static map to a Leaflet one
+- [x] Migrate proposals page
+- [x] Migrate home
+- [x] Fix SEO problem
+- [x] Home slider
+- [x] Add Analytics
+- [ ] Fix member born location
+- [ ] Home video
+- [ ] Add terms&conditions banner
+- [ ] Create a better terms-of-user page
+- [ ] Migrate domain
+- [ ] Add Map hash
+
+
+
+---
+
+## Environments
+
+### Development
+
+Taking for granted you have installed [node](http://nodejs.org) and you are using one of the latest versions.
+
+```bash
+> yarn
+> yarn dev
 ```
-grunt deploy
-```
+
+### Staging
+If you want to test your changes in a staging server, you will need to:
+
+- Create a pull request.
+- In that PR, make a comment saying: `deploy staging`.
+- Probot-empty will deploy it to staging :).
+- Changes will appear at [mochiling-staging.now.sh](https://mochiling-staging.now.sh).
+
+### Production
+
+Any branch merged into `master` branch will trigger a production build thanks to [CircleCI](https://circleci.com/). Results will be visible at [mochiling.es](https://mochiling.es).
+
+---
+
+## Database (*)
+
+We only use a "database" for storing members or experiences. It has been created with Firestore (a Firebase product, bought by Google) and it is located [here](https://console.firebase.google.com/u/0/project/mochiling-production/database), if you need any access, talk with [xavijam](mailto:xavijam@gmail.com).
+
+
+---
+
+## Credits
+
+- [Blog done with Next.js and Firestore](https://github.com/suevalov/next-blog-firestore)
+
+---
+
+## Guide
+
+- [Example Next.js + Express](https://github.com/parweb/starter-website)
+- [Deploy Next.js + Express App](https://zeit.co/havoc/nextjs-express-nowv2/pzb1c5nve/source?f=src/now.json&host=nextjs-express-nowv2-pzb1c5nve.now.sh) 

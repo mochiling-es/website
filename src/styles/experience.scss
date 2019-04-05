@@ -1,0 +1,180 @@
+@import 'vars';
+
+// Experience styles
+
+.Experience {
+  position: relative;
+  padding-bottom: 50px;
+}
+.Experience-wrapper {
+  position: relative;
+  height: 640px;
+  background: #000000;
+}
+.Experience-image {
+  position: absolute;
+  width: 100%;
+  height: 640px;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(#000, 0.9), rgba(#000, 0.3));
+    z-index: 1;
+  }
+}
+.Experience-imageItem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+}
+.Experience-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: 10;
+}
+
+.Experience-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 50px;
+}
+.Experience-socialList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.Experience-contentSameExperiencesList {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Experience-photos {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  margin-top: 30px;
+}
+
+.Experience-nextOne {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.Experience-nextOneImage {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  opacity: 0.06;
+}
+
+.Experience-authors,
+.Experience-authorText,
+.Experience-authorLink {
+  $shadow: rgba(#000, 0.6);
+  text-shadow: rgba(0, 0, 0, 0.6) 1px 0 1px, rgba(0, 0, 0, 0.6) -1px 0 1px, rgba(0, 0, 0, 0.6) 0 1px 1px, rgba(0, 0, 0, 0.6) 0 -1px 1px;
+  color: #FFFFFF;
+}
+.Experience-authorLink {
+  display: flex;
+  align-items: center;
+}
+.Experience-authors {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 6px;
+}
+.Experience-author:nth-child(n+2) {
+  margin-left: -15px;
+}
+.Experience-text--noShadow {
+  text-shadow: none;
+  color: #111;
+}
+.Experience-authorImage {
+  height: 28px;
+  width: 28px;
+  border: 1px solid rgba(#000, 0.5);
+  border-radius: 100%;
+}
+.Experience-aroundImage {
+  height: 50px;
+  border: 1px solid rgba(#000, 0.5);
+}
+.Experience-photos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.Experience-photos .cell {
+  display: flex;
+  background: #EFEFEF;
+  margin: 5px;
+}
+
+@media (max-width: 585px) and (orientation: portrait) {
+  $height: 75vh;
+  $minHeight: 400px;
+
+  .Experience-wrapper,
+  .Experience-image,
+  .Experience-imageItem {
+    height: $height;
+    min-height: $minHeight;
+  }
+  .Experience-imageItem {
+    width: auto;
+  }
+}
+
+@media (max-width: 780px) and (orientation: landscape) {
+  $height: 75vh;
+  $minHeight: 400px;
+
+  .Experience-wrapper,
+  .Experience-image {
+    height: $height;
+    min-height: $minHeight;
+  }
+  .Experience-imageItem {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .Experience-content {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .Experience-contentSameExperiences {
+    margin-top: 40px;
+  }
+  .Experience-contentSameExperiencesList {
+    justify-content: flex-start;
+  }
+}

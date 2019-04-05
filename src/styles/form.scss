@@ -1,0 +1,111 @@
+.Form {
+  display: flex;
+  margin: 0 -10px;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.Form-field {
+  width: 45%;
+  min-width: 300px;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.Form-fieldLabel,
+.Form-fieldDesc {
+  display: block;
+}
+.Form-fieldInput,
+.Form-fieldTextarea,
+.Form-fieldSelect[multiple],
+.Form-fieldSelect {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  color: #999;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  outline: none;
+  line-height: 22px;
+
+  &:focus {
+    color: #666;
+    border-color: #999;
+  }
+}
+.Form-fieldCheckbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+
+  .Form-fieldInput {
+    margin-top: 3px;
+  }
+}
+.Form-fieldSelect {
+  width: 200px;
+  height: 44px;
+  background: none;
+}
+.Form-fieldSelect[multiple] {
+  width: 300px;
+  height: 300px;
+  padding: 0;
+}
+.Form-fieldSelect[multiple] option {
+  padding: 5px 10px;
+}
+.Form-fieldTextarea {
+  min-width: 280px;
+  max-width: 380px;
+  height: 300px;
+  resize: none;
+}
+.Form-fieldNested {
+  margin-left: 15px; 
+}
+.Form-imageList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Form-imageItem {
+  position: relative;
+  display: block;
+  min-height: 120px;
+  min-width: 120px;
+  background: #EDEDED;
+}
+.Form-imageDelete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+.Form-imageButton {
+  display: inline-block;
+  width: auto;
+}
+.Form-imagePreview {
+  height: 150px;
+}
+.Form-footer {
+  display: flex;
+  width: 100%;
+}
+.Form-footerActions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.Form-delete {
+  margin-left: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,44 @@
+// Colors, colors everywhere.
+
+.Color {
+  color: #666;
+}
+.Color--main {
+  color: #333333;
+}
+.Color--secondary {
+  color: #555555;
+}
+.Color--paragraph {
+  color: #787878;
+}
+.Color--desc {
+  color: #AAA;
+}
+.Color--emphasis {
+  color: $mainColor;
+}
+.Color--light {
+  color: white;
+}
+.Color--action {
+  color: #0078e7;
+}
+.Color--lightParagraph {
+  color: rgba(white, 0.78);
+}
+.Color--link {
+  color: $mainColor;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.Color--linkSecondary {
+  color: #AAA;
+  &:hover {
+    color: #555555;
+  }
+}
+.Color--error {
+  color: #F3633F
+}

@@ -1,0 +1,116 @@
+// Buttons for actions!
+
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 45px;
+  line-height: 15px;
+  background: transparent;
+  outline: none;
+  font-size: 12px;
+  font-family: 'Lato';
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 22px;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+.Button--light {
+  $light: #EEE;
+  border: 2px solid $light; 
+  color: $light;
+
+  &:hover,
+  &:focus {
+    $white: #FFF;
+    border-color: $white;
+    color: $white;
+  }
+}
+.Button--secondary {
+  $color: #666;
+  border: 2px solid $color;
+  color: $color;
+
+  &:hover,
+  &:focus {
+    $color: #333;
+    border-color: $color;
+    color: $color;
+  }
+}
+.Button--action {
+  $color: #0078e7;
+  background: $color;
+  color: white;
+
+  &:hover,
+  &:focus {
+    background: darken($color, 3);
+  }
+}
+.Button--error {
+  $color: #E74C3C;
+  background: $color;
+  color: white;
+
+  &:hover,
+  &:focus {
+    background: darken($color, 3);
+  }
+}
+.Button--success {
+  $color: #62C791;
+  background: $color;
+  color: white;
+
+  &:hover,
+  &:focus {
+    background: darken($color, 3);
+  }
+}
+.Button--main {
+  background: none;
+  color: $mainColor;
+  border: 2px solid $mainColor;
+
+  &:hover,
+  &:focus {
+    $color: darken($mainColor, 10);
+    border-color: $color;
+    color: $color;
+  }
+}
+.Button--small {
+  padding: 8px 35px;
+}
+
+.Button--inliner {
+  display: inline-block;
+  width: auto;
+}
+
+.Button.is-disabled,
+.Button[disabled] {
+  opacity: 0.5;
+  &:hover {
+    cursor: default;
+  }
+}
+
+@media (max-width: $mainSize) {
+  .Button {
+    padding: 10px 45px;
+    font-size: 10px;
+  }
+
+  .Button--small {
+    padding: 6px 35px;
+    font-size: 10px;
+  }
+}

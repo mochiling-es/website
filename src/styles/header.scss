@@ -1,0 +1,110 @@
+// Header styles
+
+.Header {
+  display: flex;
+  box-sizing: border-box;
+  max-width: $mainSize;
+  height: 70px;
+  margin: 0 auto;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+.Header-cookies {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.Header-child {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.Header-hamburguer {
+  position: relative;
+  display: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.Header-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.Header-logoSub {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+.Header-nav {
+  display: block;
+}
+.Header-navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+.Header-navListItem {
+  margin-left: 35px;
+}
+.Header-navListItemLink.is-selected {
+  padding: 26px 0 0;
+  color: #212121;
+  cursor: default;
+}
+.Header--light {
+  .Header-logo {
+    fill: rgba(#FFF, 0.8);
+  }
+  .Color--emphasis {
+    color: white;
+  }
+  .Color--linkSecondary {
+    color: rgba(white, 0.7);
+    &:hover {
+      color: rgba(white, 1);
+    }
+  }
+  .Header-navListItemLink.is-selected {
+    color: white;
+    border-color: white;
+  }
+}
+
+@media (max-width: $mainSize) {
+  .Header-subLinks {
+    position: fixed;
+    top: 0;
+    right: -200px;
+    bottom: 0;
+    display: block;
+    width: 200px;
+    background: #333;
+    z-index: 1000;
+    transition: right 0.1s linear;
+  }
+  .Canvas.is-headerVisible .Header-subLinks {
+    right: 0;
+  }
+  .Header-subLinks .Header-navList {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 30px;
+  }
+  .Header-subLinks .Header-navListItem {
+    margin-top: 30px;
+  }
+  .Header-navListItemLink.is-selected,
+  .Header--light .Header-navListItemLink.is-selected {
+    color: white;
+    border-color: transparent;
+  }
+  .Header-hamburguer {
+    display: block;
+  }
+}
