@@ -6,7 +6,6 @@ import ImageZoom from 'react-medium-image-zoom'
 import FontAwesome from 'react-fontawesome'
 
 import { loadDB } from '../../../lib/db'
-import { translate } from 'react-i18next'
 
 const ImagesInput = asField(({ fieldState, fieldApi, ...props }) => {
   const { value } = fieldState
@@ -102,7 +101,7 @@ class Image extends Component {
   handleProgress = progress => this.setState({ progress })
 
   render() {
-    const { id, label, desc, mask, validate, options, disabled, readOnly, t } = this.props
+    const { id, label, desc, mask, validate, options, disabled, readOnly, i18n } = this.props
     const { images, limit, isUploading, error } = this.state
 
     if (!this.db) {
@@ -137,7 +136,7 @@ class Image extends Component {
 
         {limit > size(images) && (
           <label disabled={isUploading} className="Form-imageButton Button Button--secondary u-tSpace--l">
-            {t('upload')}
+            {i18n.t('form:upload')}
 
             {isUploading && <FontAwesome className="u-lSpace--m" name="circle-o-notch" spin size="lg" />}
             <FileUploader
@@ -171,4 +170,4 @@ class Image extends Component {
   }
 }
 
-export default translate(['form'])(Image)
+export default Image

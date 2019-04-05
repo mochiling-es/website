@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { map } from 'lodash'
-import { translate } from 'react-i18next'
 import FontAwesome from 'react-fontawesome'
 
 class HomeFeatures extends Component {
   render() {
-    const { features, t } = this.props
+    const { features, i18n } = this.props
     return (
       <ul className="Proposals-featuresList u-bSpace--xxl pure-g">
         {map(features, feature => {
@@ -17,10 +16,10 @@ class HomeFeatures extends Component {
                     <FontAwesome name={feature.icon} />
                   </div>
                   <h5 className="Proposals-featureItemTitle Text Text--medLarge Text--strong Text--uppercase Color--paragraph u-tSpace--m">
-                    {t(`features.${feature.name}.title`)}
+                    {i18n.t(`proposals:features.${feature.name}.title`)}
                   </h5>
                   <p className="Proposals-featureItemDesc Text Text--medLarge u-tSpace--m Color">
-                    {t(`features.${feature.name}.desc`)}
+                    {i18n.t(`proposals:features.${feature.name}.desc`)}
                   </p>
                 </div>
               </div>
@@ -32,4 +31,4 @@ class HomeFeatures extends Component {
   }
 }
 
-export default translate(['proposals'])(HomeFeatures)
+export default HomeFeatures

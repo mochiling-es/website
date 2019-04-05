@@ -2,11 +2,10 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { map } from 'lodash'
-import { translate, Trans } from 'react-i18next'
+import { Trans } from 'react-i18next'
 import FontAwesome from 'react-fontawesome'
 
 import config from '../utils/config'
-import { wrapper } from '../src/components/i18n'
 import StaticMap from '../src/components/Map/Static'
 import Link from '../src/components/Link'
 import Head from '../src/components/Head'
@@ -14,39 +13,6 @@ import SocialBreadcrumb from '../src/components/SocialBreadcrumb'
 import LastExperiences from '../src/components/LastExperiences'
 
 import '../src/styles/proposals.scss'
-
-const proposalFeatures = [
-  {
-    name: 'experience',
-    icon: 'globe',
-    color: 'Proposals-featureColor--experience'
-  },
-  {
-    name: 'contact',
-    icon: 'info',
-    color: 'Proposals-featureColor--skype'
-  },
-  {
-    name: 'expert',
-    icon: 'id-badge',
-    color: 'Proposals-featureColor--expert'
-  },
-  {
-    name: 'face-2-face',
-    icon: 'map-o',
-    color: 'Proposals-featureColor--face2face'
-  },
-  {
-    name: 'customer',
-    icon: 'phone',
-    color: 'Proposals-featureColor--customer'
-  },
-  {
-    name: 'insurance',
-    icon: 'life-saver',
-    color: 'Proposals-featureColor--insurance'
-  }
-]
 
 class Proposals extends Component {
   static async getInitialProps({ query, isServer }) {
@@ -58,20 +24,35 @@ class Proposals extends Component {
     }
   }
 
+  componentWillMount = () => {
+    const { i18n, lang } = this.props
+    const commonData = require(`../src/locales/common`).default
+
+    if (this.translateNS) {
+      this.translateNS.forEach(element => {
+        const data = require(`../src/locales/${element}`).default
+        i18n.addResourceBundle(lang, element, data[lang])
+      })
+    }
+
+    i18n.addResourceBundle(lang, 'common', commonData[lang])
+    i18n.changeLanguage(lang)
+  }
+
   render() {
-    const { t, children, proposals, features, proposalId } = this.props
+    const { i18n, children, proposals, features, proposalId, lang } = this.props
     const currentProposal = proposals[proposalId - 1]
 
     return (
       <Fragment>
-        <Head title={t('title')} description={t('desc')} />
+        <Head i18n={i18n} title={i18n.t('proposals:title')} description={i18n.t('proposals:desc')} />
 
         <div className="Block">
           <div className="Proposals-header">
             {children} {/*Header*/}
             <div className="Block-content Paragraph Paragraph--centered u-tSpace--xxl">
-              <h2 className="Text Text--giant Text--strong Color--light">{t('subtitle')}</h2>
-              <p className="Text Text--large Color--lightParagraph u-tSpace--l">{t('desc')}</p>
+              <h2 className="Text Text--giant Text--strong Color--light">{i18n.t('proposals:subtitle')}</h2>
+              <p className="Text Text--large Color--lightParagraph u-tSpace--l">{i18n.t('proposals:desc')}</p>
             </div>
             <nav className="Proposals-nav">
               <ul className="Block-content Proposals-navList">
@@ -79,11 +60,14 @@ class Proposals extends Component {
                   const proposalIndex = index + 1
 
                   return (
-                    <li className={`Proposals-navItem ${proposalIndex === parseInt(proposalId) ? 'is-selected' : ''}`}>
-                      <Link as={`/proposals/${proposalIndex}`} href={`/proposals?proposalId=${proposalIndex}`}>
+                    <li
+                      key={index}
+                      className={`Proposals-navItem ${proposalIndex === parseInt(proposalId) ? 'is-selected' : ''}`}
+                    >
+                      <Link page={'/proposals'} params={{ id: proposalIndex }}>
                         <a className="Proposals-navItemButton">
                           <span className="Text Text--strong Text--medLarge Text--uppercase">
-                            {t(`items.${proposalIndex}.title`)}
+                            {i18n.t(`proposals:items.${proposalIndex}.title`)}
                           </span>
                         </a>
                       </Link>
@@ -102,7 +86,8 @@ class Proposals extends Component {
                 <div className="Proposals-itemDesc">
                   <p className="Text Text--wayBig Text--uppercase Color--secondary js-itemDesc">
                     <Trans
-                      i18nKey={`items.${proposalId}.desc`}
+                      i18n={i18n}
+                      i18nKey={`proposals:items.${proposalId}.desc`}
                       components={[<span className="Color--emphasis">.</span>]}
                     />{' '}
                   </p>
@@ -111,7 +96,7 @@ class Proposals extends Component {
                     style={{ width: '150px' }}
                     href={`mailto:${config.email}`}
                   >
-                    {t('contact-us')}
+                    {i18n.t('common:contact-us')}
                   </a>
                 </div>
               </div>
@@ -119,7 +104,9 @@ class Proposals extends Component {
 
             <div className=" Block-content">
               <div className="Proposals-featuresInfo Block-content Paragraph Paragraph--centered u-tSpace--xxl">
-                <h4 className="Text--large Text--strong Text--uppercase Color--secondary">{t('features.title')}</h4>
+                <h4 className="Text--large Text--strong Text--uppercase Color--secondary">
+                  {i18n.t('proposals:features.title')}
+                </h4>
               </div>
 
               <ul className="Proposals-featuresList u-bSpace--xxl pure-g">
@@ -140,10 +127,10 @@ class Proposals extends Component {
                               feature.color
                             } Proposals-featureItemTitle Text Text--medLarge Text--strong Text--uppercase u-tSpace--m`}
                           >
-                            {t(`features.${feature.name}.title`)}
+                            {i18n.t(`proposals:features.${feature.name}.title`)}
                           </h5>
                           <p className="Proposals-featureItemDesc Text Text--medLarge u-tSpace--m Color">
-                            {t(`features.${feature.name}.desc`)}
+                            {i18n.t(`proposals:features.${feature.name}.desc`)}
                           </p>
                         </div>
                       </div>
@@ -155,26 +142,32 @@ class Proposals extends Component {
 
             <div className="Block-content Paragraph Paragraph--centered u-tSpace--xxxl">
               <p className="Text Text--medLarge Color--paragraph u-tSpace--l">
-                <Trans i18nKey="disclaimer" components={[<span className="Color--emphasis">{config.name}</span>]} />{' '}
+                <Trans
+                  i18n={i18n}
+                  i18nKey="proposals:disclaimer"
+                  components={[<span className="Color--emphasis">{config.name}</span>]}
+                />{' '}
                 <a className="Color--link" href="{% tl experiences %}">
-                  {t('experiences')}
+                  {i18n.t('proposals:experiences')}
                 </a>
                 .
               </p>
             </div>
           </div>
 
-          <SocialBreadcrumb />
+          <SocialBreadcrumb i18n={i18n} />
         </div>
 
-        <LastExperiences limit={6} />
+        <LastExperiences i18n={i18n} limit={6} lang={lang} />
       </Fragment>
     )
   }
 }
 
+Proposals.prototype.translateNS = ['proposals', 'experiences']
+
 Proposals.propTypes = {
-  t: PropTypes.func.isRequired,
+  i18n: PropTypes.instanceOf(Object).isRequired,
   proposals: PropTypes.instanceOf(Array).isRequired,
   features: PropTypes.instanceOf(Array).isRequired
 }
@@ -186,4 +179,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default wrapper(translate(['proposals'])(connect(mapStateToProps)(Proposals)))
+export default connect(mapStateToProps)(Proposals)

@@ -23,7 +23,6 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Migrate common components (Header, Footer, LastExperiences,...)
 - [x] Migrate team page
 - [x] Migrate member page
-- [x] Add SEO capabilities
 - [x] Create login/admin page
 - [x] Create member edition/creation page
 - [x] Enable CI (deploy to staging & production)
@@ -35,11 +34,16 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Change static map to a Leaflet one
 - [x] Migrate proposals page
 - [x] Migrate home
-- [ ] Home slider
+- [x] Fix SEO problem
+- [x] Home slider
+- [ ] Fix member born location
 - [ ] Home video
 - [ ] Add terms&conditions banner
 - [ ] Create a better terms-of-user page
+- [ ] Migrate domain
 - [ ] Add Analytics
+- [ ] Add Map hash
+
 
 
 ---
@@ -79,3 +83,10 @@ We only use a "database" for storing members or experiences. It has been created
 ## Credits
 
 - [Blog done with Next.js and Firestore](https://github.com/suevalov/next-blog-firestore)
+
+---
+
+## Guide
+
+- [Example Next.js + Express](https://github.com/parweb/starter-website)
+- [Deploy Next.js + Express App](https://zeit.co/havoc/nextjs-express-nowv2/pzb1c5nve/source?f=src/now.json&host=nextjs-express-nowv2-pzb1c5nve.now.sh) 

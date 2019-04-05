@@ -1,19 +1,21 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { find, size, map, filter } from 'lodash'
-import { translate } from 'react-i18next'
+import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
+import { find, size, map, filter, extend, isEmpty } from 'lodash'
 import FontAwesome from 'react-fontawesome'
 import ReactTooltip from 'react-tooltip'
 import Hotkeys from 'react-hot-keys'
 
+import { loadDB } from '../lib/db'
 import Error from './_error'
 import Link from '../src/components/Link'
 import Authors from '../src/components/Authors'
 import Head from '../src/components/Head'
 import ExperiencesAround from '../src/components/ExperiencesAround'
-import { wrapper, i18nHelper } from '../src/components/i18n'
 import NextExperience from '../src/components/NextExperience'
+import { fetchMembers } from '../src/actions/TeamActions'
+import { fetchExperiences } from '../src/actions/ExperienceActions'
 
 import '../src/styles/experience.scss'
 
@@ -22,14 +24,48 @@ class Experience extends Component {
     displayVideo: false
   }
 
-  static async getInitialProps({ store, query, isServer }) {
+  static async getInitialProps({ isServer, query }) {
     const { experienceSlug, memberId } = query
+    const app = await loadDB()
+    const firestore = app.firestore()
+
+    const promise = new Promise(async (resolve, reject) => {
+      await firestore
+        .collection('experiences')
+        .orderBy('createdAt', 'desc')
+        .onSnapshot(snapshot => {
+          let data = []
+          snapshot.forEach(function(doc) {
+            data.push(extend({ id: doc.id }, doc.data()))
+          })
+          resolve(data)
+        })
+    })
+
+    const { experiences } = await Promise.all([promise]).then(function([experiences]) {
+      return { experiences }
+    })
 
     return {
       memberId,
       experienceSlug,
-      isServer
+      experiences
     }
+  }
+
+  componentWillMount = () => {
+    const { i18n, lang } = this.props
+    const commonData = require(`../src/locales/common`).default
+
+    if (this.translateNS) {
+      this.translateNS.forEach(element => {
+        const data = require(`../src/locales/${element}`).default
+        i18n.addResourceBundle(lang, element, data[lang])
+      })
+    }
+
+    i18n.addResourceBundle(lang, 'common', commonData[lang])
+    i18n.changeLanguage(lang)
   }
 
   onVideoClick = () => {
@@ -41,13 +77,12 @@ class Experience extends Component {
   }
 
   render() {
-    const { memberId, members, experiences, experienceSlug, user, t, children } = this.props
+    const { memberId, members, experiences, experienceSlug, user, i18n, lang, children } = this.props
     const { displayVideo } = this.state
     const isUserLogged = user.state === 'logged'
     let experienceData = {}
     let nextExperience
     let experiencePosition
-    const lang = i18nHelper.getCurrentLanguage()
     const otherExperiences = filter(experiences, experience => {
       if (isUserLogged) {
         return true
@@ -69,10 +104,10 @@ class Experience extends Component {
       })
 
       if (!experienceData) {
-        return <Error status={404} children={children} />
+        return <Error status={404} children={children} i18n={i18n} lang={lang} />
       }
     } else {
-      return <Error status={404} children={children} />
+      return <Error status={404} children={children} i18n={i18n} lang={lang} />
     }
 
     const title = (experienceData.title && experienceData.title[lang]) || ''
@@ -93,15 +128,15 @@ class Experience extends Component {
 
     return (
       <Fragment>
-        <Head title={title} description={shortDesc} image={experienceData.mainImageURL} />
+        <Head i18n={i18n} title={title} description={shortDesc} image={experienceData.mainImageURL} />
         <Hotkeys keyName="esc" onKeyDown={this.onEsc}>
           <div className="Block Experience" ref={node => (this.block = node)}>
             {children} {/*Header*/}
             <div className="Breadcrumb">
               <ul className="Breadcrumb-inner">
                 <li className="Breadcrumb-item">
-                  <Link href="/experiences">
-                    <a className="Breadcrumb-link">{t('title')}</a>
+                  <Link page="/experiences">
+                    <a className="Breadcrumb-link">{i18n.t('experiences:title')}</a>
                   </Link>
                 </li>
                 <li className="Breadcrumb-item Breadcrumb-item--separator">></li>
@@ -116,7 +151,7 @@ class Experience extends Component {
                 <div className="Experience-contentInfo">
                   <h4 className="Color--light Text Text--uppercase Text--med">{subtitle}</h4>
                   <h2 className="Color--light Text Text--giant Text--strong">{title}</h2>
-                  <Authors members={members} authors={authors} />
+                  <Authors members={members} authors={authors} i18n={i18n} />
 
                   <div className="Experience-text u-tSpace--xl">
                     <p className="Text Text--large Color--light Paragraph">{longDesc}</p>
@@ -129,7 +164,9 @@ class Experience extends Component {
                           <button className="js-playVideo" data-tip data-for={'youtube'} onClick={this.onVideoClick}>
                             <FontAwesome name="youtube-play" size="2x" />
                             <ReactTooltip effect="solid" place="top" type="light" id={'youtube'}>
-                              <span className="Text Text--med Experience-text--noShadow">{t('youtube-video')}</span>
+                              <span className="Text Text--med Experience-text--noShadow">
+                                {i18n.t('experiences:youtube-video')}
+                              </span>
                             </ReactTooltip>
                           </button>
                         </li>
@@ -138,7 +175,12 @@ class Experience extends Component {
                   </div>
                 </div>
 
-                <ExperiencesAround currentExperience={experienceData} experiences={experiences} />
+                <ExperiencesAround
+                  currentExperience={experienceData}
+                  experiences={experiences}
+                  i18n={i18n}
+                  lang={lang}
+                />
               </div>
 
               {youtubeURL && displayVideo && (
@@ -183,27 +225,37 @@ class Experience extends Component {
             )}
           </div>
 
-          {nextExperience && <NextExperience experienceData={nextExperience} />}
+          {nextExperience && <NextExperience experienceData={nextExperience} i18n={i18n} lang={lang} />}
         </Hotkeys>
       </Fragment>
     )
   }
 }
 
+Experience.prototype.translateNS = ['experiences']
+
 Experience.propTypes = {
-  t: PropTypes.func.isRequired,
-  members: PropTypes.instanceOf(Array).isRequired,
+  i18n: PropTypes.instanceOf(Object).isRequired,
   experiences: PropTypes.instanceOf(Array).isRequired,
-  children: PropTypes.array.isRequired,
-  user: PropTypes.instanceOf(Object).isRequired
+  children: PropTypes.array.isRequired
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   return {
-    members: state.members,
-    experiences: state.experiences,
-    user: state.user
+    members: isEmpty(state.members) ? props.members : state.members,
+    user: state.user,
+    experiences: isEmpty(state.experiences) ? props.experiences : state.experiences
   }
 }
 
-export default wrapper(translate(['experiences'])(connect(mapStateToProps)(Experience)))
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchMembers: bindActionCreators(fetchMembers, dispatch),
+    fetchExperiences: bindActionCreators(fetchExperiences, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Experience)

@@ -4,8 +4,6 @@ import { countries } from 'country-data'
 import ReactMarkdown from 'react-markdown'
 import isoCountries from 'i18n-iso-countries'
 
-import { i18nHelper } from '../../src/components/i18n'
-
 const textWithLinks = text => {
   return (
     <ReactMarkdown
@@ -26,8 +24,8 @@ const textWithLinks = text => {
   )
 }
 
-export default ({ t, experiences, experienceSlug, members, memberId }) => {
-  each(i18nHelper.supportLangs, lang => {
+export default ({ i18n, experiences, experienceSlug, members, lang }) => {
+  each(['es', 'en'], lang => {
     isoCountries.registerLocale(require(`i18n-iso-countries/langs/${lang}.json`))
   })
 
@@ -39,8 +37,8 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
     {
       id: 'slug',
       type: 'string',
-      label: t('slug.label'),
-      desc: t('slug.desc'),
+      label: i18n.t('experiences:slug.label'),
+      desc: i18n.t('experiences:slug.desc'),
       readOnly: !!experienceSlug,
       validate: value => {
         if (experienceSlug) {
@@ -48,15 +46,15 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
         }
 
         if (find(experiences, ['slug', value])) {
-          return t('slug.unique')
+          return i18n.t('experiences:slug.unique')
         }
 
         if (!value) {
-          return t('slug.empty')
+          return i18n.t('experiences:slug.empty')
         }
 
         if (!/[a-z]+/.test(value)) {
-          return t('slug.weird')
+          return i18n.t('experiences:slug.weird')
         }
 
         return null
@@ -65,41 +63,41 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
     {
       id: 'published',
       type: 'checkbox',
-      label: t('published.label'),
-      desc: t('published.desc')
+      label: i18n.t('experiences:published.label'),
+      desc: i18n.t('experiences:published.desc')
     },
     {
       id: 'title',
-      label: t('name.label'),
-      desc: t('name.desc'),
+      label: i18n.t('experiences:name.label'),
+      desc: i18n.t('experiences:name.desc'),
       type: 'obj',
       items: [
         {
           id: 'en',
-          label: t('name.en'),
+          label: i18n.t('experiences:name.en'),
           type: 'string'
         },
         {
           id: 'es',
-          label: t('name.es'),
+          label: i18n.t('experiences:name.es'),
           type: 'string'
         }
       ]
     },
     {
       id: 'subtitle',
-      label: t('_subtitle.label'),
-      desc: t('_subtitle.desc'),
+      label: i18n.t('experiences:_subtitle.label'),
+      desc: i18n.t('experiences:_subtitle.desc'),
       type: 'obj',
       items: [
         {
           id: 'en',
-          label: t('_subtitle.en'),
+          label: i18n.t('experiences:_subtitle.en'),
           type: 'string'
         },
         {
           id: 'es',
-          label: t('_subtitle.es'),
+          label: i18n.t('experiences:_subtitle.es'),
           type: 'string'
         }
       ]
@@ -113,8 +111,8 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
         maxHeight: 900,
         maxWidth: 1200
       },
-      label: t('mainImageURL.label'),
-      desc: textWithLinks(t('mainImageURL.desc'))
+      label: i18n.t('experiences:mainImageURL.label'),
+      desc: textWithLinks(i18n.t('experiences:mainImageURL.desc'))
     },
     {
       id: 'imagesListURL',
@@ -125,41 +123,41 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
         maxWidth: 320,
         maxHeight: 320
       },
-      label: t('imagesListURL.label'),
-      desc: textWithLinks(t('imagesListURL.desc'))
+      label: i18n.t('experiences:imagesListURL.label'),
+      desc: textWithLinks(i18n.t('experiences:imagesListURL.desc'))
     },
     {
       id: 'longDesc',
-      label: t('longDesc.label'),
-      desc: t('longDesc.desc'),
+      label: i18n.t('experiences:longDesc.label'),
+      desc: i18n.t('experiences:longDesc.desc'),
       type: 'obj',
       items: [
         {
           id: 'en',
-          label: t('longDesc.en'),
+          label: i18n.t('experiences:longDesc.en'),
           type: 'textarea'
         },
         {
           id: 'es',
-          label: t('longDesc.es'),
+          label: i18n.t('experiences:longDesc.es'),
           type: 'textarea'
         }
       ]
     },
     {
       id: 'shortDesc',
-      label: t('shortDesc.label'),
-      desc: t('shortDesc.desc'),
+      label: i18n.t('experiences:shortDesc.label'),
+      desc: i18n.t('experiences:shortDesc.desc'),
       type: 'obj',
       items: [
         {
           id: 'en',
-          label: t('shortDesc.en'),
+          label: i18n.t('experiences:shortDesc.en'),
           type: 'string'
         },
         {
           id: 'es',
-          label: t('shortDesc.es'),
+          label: i18n.t('experiences:shortDesc.es'),
           type: 'string'
         }
       ]
@@ -167,26 +165,26 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
     {
       id: 'startDate',
       type: 'date',
-      label: t('startDate.label'),
-      desc: textWithLinks(t('startDate.desc'))
+      label: i18n.t('experiences:startDate.label'),
+      desc: textWithLinks(i18n.t('experiences:startDate.desc'))
     },
     {
       id: 'endDate',
       type: 'date',
-      label: t('endDate.label'),
-      desc: textWithLinks(t('endDate.desc'))
+      label: i18n.t('experiences:endDate.label'),
+      desc: textWithLinks(i18n.t('experiences:endDate.desc'))
     },
     {
       id: 'youtubeURL',
       type: 'string',
-      label: t('youtubeURL.label'),
-      desc: textWithLinks(t('youtubeURL.desc'))
+      label: i18n.t('experiences:youtubeURL.label'),
+      desc: textWithLinks(i18n.t('experiences:youtubeURL.desc'))
     },
     {
       id: 'instagramTag',
       type: 'string',
-      label: t('instagramTag.label'),
-      desc: textWithLinks(t('instagramTag.desc'))
+      label: i18n.t('experiences:instagramTag.label'),
+      desc: textWithLinks(i18n.t('experiences:instagramTag.desc'))
     },
     {
       id: 'authors',
@@ -203,13 +201,13 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
       ),
       validate: value => {
         if (!value) {
-          return t('authors.error')
+          return i18n.t('experiences:authors.error')
         } else {
           return null
         }
       },
-      label: t('authors.label'),
-      desc: t('authors.desc')
+      label: i18n.t('experiences:authors.label'),
+      desc: i18n.t('experiences:authors.desc')
     },
     {
       id: 'countries',
@@ -225,10 +223,9 @@ export default ({ t, experiences, experienceSlug, members, memberId }) => {
         }),
         ['label']
       ),
-      optionRender: data =>
-        `${data.emoji || '🏳️'}  ${isoCountries.getName(data.value, i18nHelper.getCurrentLanguage()) || '🤷🏽‍♂️'}`,
-      label: t('countries.label'),
-      desc: t('countries.desc')
+      optionRender: data => `${data.emoji || '🏳️'}  ${isoCountries.getName(data.value, lang) || '🤷🏽‍♂️'}`,
+      label: i18n.t('experiences:countries.label'),
+      desc: i18n.t('experiences:countries.desc')
     }
   ]
 }

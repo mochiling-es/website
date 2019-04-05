@@ -2,30 +2,46 @@ import React, { Component, Fragment } from 'react'
 import FontAwesome from 'react-fontawesome'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { translate } from 'react-i18next'
 
 import StaticMap from '../../src/components/Map/Static'
-import { wrapper } from '../../src/components/i18n'
 import Head from '../../src/components/Head'
+import { loadDB } from '../../lib/db'
 
 import '../../src/styles/admin.scss'
 
 class Admin extends Component {
-  onLogout = () => {
-    firebase.auth().signOut()
+  componentWillMount = () => {
+    const { i18n, lang } = this.props
+    const commonData = require(`../../src/locales/common`).default
+
+    if (this.translateNS) {
+      this.translateNS.forEach(element => {
+        const data = require(`../../src/locales/${element}`).default
+        i18n.addResourceBundle(lang, element, data[lang])
+      })
+    }
+
+    i18n.addResourceBundle(lang, 'common', commonData[lang])
+    i18n.changeLanguage(lang)
   }
 
-  onLogin = () => {
-    var provider = new firebase.auth.GoogleAuthProvider()
-    firebase.auth().signInWithPopup(provider)
+  onLogout = async () => {
+    const app = await loadDB()
+    app.auth().signOut()
+  }
+
+  onLogin = async () => {
+    const app = await loadDB()
+    var provider = new app.auth.GoogleAuthProvider()
+    app.auth().signInWithPopup(provider)
   }
 
   render() {
-    const { user, t, children } = this.props
+    const { user, i18n, children } = this.props
 
     return (
       <Fragment>
-        <Head title={t('title')} description="" />
+        <Head i18n={i18n} title={i18n.t('title')} description="" />
 
         <div className="Block">
           <StaticMap />
@@ -40,10 +56,12 @@ class Admin extends Component {
                   alt={user.displayName}
                   title={user.displayName}
                 />
-                <h3 className="Text--big Color--main u-tSpace--l">{t('hello', { name: user.displayName })}!</h3>
+                <h3 className="Text--big Color--main u-tSpace--l">
+                  {i18n.t('admin:hello', { name: user.displayName })}!
+                </h3>
 
                 <button className="Button Button--secondary u-tSpace--l" onClick={this.onLogout}>
-                  {t('logout')}
+                  {i18n.t('admin:logout')}
                 </button>
               </Fragment>
             )}
@@ -53,7 +71,7 @@ class Admin extends Component {
                 <button className="Button Button--action" onClick={this.onLogin}>
                   Login
                 </button>
-                {user.state === 'error' && <p className="Text--med Color--error">{t('error')}</p>}
+                {user.state === 'error' && <p className="Text--med Color--error">{i18n.t('admin:error')}</p>}
               </Fragment>
             )}
           </div>
@@ -64,10 +82,12 @@ class Admin extends Component {
 }
 
 Admin.propTypes = {
-  t: PropTypes.func.isRequired,
+  i18n: PropTypes.instanceOf(Object).isRequired,
   user: PropTypes.instanceOf(Object).isRequired,
   children: PropTypes.array.isRequired
 }
+
+Admin.prototype.translateNS = ['admin']
 
 function mapStateToProps(state) {
   return {
@@ -75,4 +95,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default wrapper(translate(['admin'])(connect(mapStateToProps)(Admin)))
+export default connect(mapStateToProps)(Admin)

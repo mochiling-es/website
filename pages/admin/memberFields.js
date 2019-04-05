@@ -4,8 +4,6 @@ import { countries } from 'country-data'
 import ReactMarkdown from 'react-markdown'
 import isoCountries from 'i18n-iso-countries'
 
-import { i18nHelper } from '../../src/components/i18n'
-
 const textWithLinks = text => {
   return (
     <ReactMarkdown
@@ -26,8 +24,8 @@ const textWithLinks = text => {
   )
 }
 
-export default ({ members, memberId, t }) => {
-  each(i18nHelper.supportLangs, lang => {
+export default ({ members, memberId, i18n, lang }) => {
+  each(['es', 'en'], lang => {
     isoCountries.registerLocale(require(`i18n-iso-countries/langs/${lang}.json`))
   })
 
@@ -35,8 +33,8 @@ export default ({ members, memberId, t }) => {
     {
       id: 'id',
       type: 'string',
-      label: t('id.label'),
-      desc: t('id.desc'),
+      label: i18n.t('team:id.label'),
+      desc: i18n.t('team:id.desc'),
       readOnly: !!memberId,
       validate: value => {
         if (memberId) {
@@ -44,15 +42,15 @@ export default ({ members, memberId, t }) => {
         }
 
         if (find(members, ['id', value])) {
-          return t('id.unique')
+          return i18n.t('team:id.unique')
         }
 
         if (!value) {
-          return t('id.empty')
+          return i18n.t('team:id.empty')
         }
 
         if (!/[a-z]+/.test(value)) {
-          return t('id.weird')
+          return i18n.t('team:id.weird')
         }
 
         return null
@@ -61,9 +59,9 @@ export default ({ members, memberId, t }) => {
     {
       id: 'name',
       type: 'string',
-      label: t('name.label'),
+      label: i18n.t('team:name.label'),
       validate: value => {
-        return !value ? t('name.error') : null
+        return !value ? i18n.t('team:name.error') : null
       }
     },
     {
@@ -75,50 +73,50 @@ export default ({ members, memberId, t }) => {
         maxHeight: 120,
         maxWidth: 120
       },
-      label: t('avatarURL.label'),
-      desc: textWithLinks(t('avatarURL.desc'))
+      label: i18n.t('team:avatarURL.label'),
+      desc: textWithLinks(i18n.t('team:avatarURL.desc'))
     },
     {
       id: 'gender',
       type: 'select',
-      label: t('gender.label'),
-      desc: t('gender.desc'),
-      placeholder: t('gender.placeholder'),
+      label: i18n.t('team:gender.label'),
+      desc: i18n.t('team:gender.desc'),
+      placeholder: i18n.t('team:gender.placeholder'),
       options: [
         {
-          label: t('gender.male'),
+          label: i18n.t('team:gender.male'),
           value: 'male'
         },
         {
-          label: t('gender.female'),
+          label: i18n.t('team:gender.female'),
           value: 'female'
         }
       ],
       readOnly: false,
       validate: value => {
-        return value !== 'male' && value !== 'female' ? t('gender.error') : null
+        return value !== 'male' && value !== 'female' ? i18n.t('team:gender.error') : null
       }
     },
     {
       id: 'bornLocation',
-      label: t('bornLocation.label'),
-      desc: textWithLinks(t('bornLocation.desc')),
+      label: i18n.t('team:bornLocation.label'),
+      desc: textWithLinks(i18n.t('team:bornLocation.desc')),
       type: 'arr',
       items: [
         {
           id: 'longitude',
-          label: t('bornLocation.longitude'),
+          label: i18n.t('team:bornLocation.longitude'),
           type: 'number',
           validate: value => {
-            return isNaN(value) || value > 180 || value < -180 ? t('bornLocation.error') : null
+            return isNaN(value) || value > 180 || value < -180 ? i18n.t('team:bornLocation.error') : null
           }
         },
         {
           id: 'latitude',
-          label: t('bornLocation.latitude'),
+          label: i18n.t('team:bornLocation.latitude'),
           type: 'number',
           validate: value => {
-            return isNaN(value) || value > 180 || value < -180 ? t('bornLocation.error') : null
+            return isNaN(value) || value > 180 || value < -180 ? i18n.t('team:bornLocation.error') : null
           }
         }
       ]
@@ -126,60 +124,60 @@ export default ({ members, memberId, t }) => {
     {
       id: 'role',
       type: 'select',
-      label: t('role.label'),
-      desc: t('role.desc'),
-      placeholder: t('role.placeholder'),
+      label: i18n.t('team:role.label'),
+      desc: i18n.t('team:role.desc'),
+      placeholder: i18n.t('team:role.placeholder'),
       options: [
         {
-          label: t('role.founder'),
+          label: i18n.t('team:role.founder'),
           value: 'founder'
         },
         {
-          label: t('role.expert'),
+          label: i18n.t('team:role.expert'),
           value: 'expert'
         },
         {
-          label: t('role.webmaster'),
+          label: i18n.t('team:role.webmaster'),
           value: 'webmaster'
         }
       ],
       readOnly: false,
       validate: value => {
-        return value !== 'founder' && value !== 'webmaster' && value !== 'expert' ? t('role.error') : null
+        return value !== 'founder' && value !== 'webmaster' && value !== 'expert' ? i18n.t('team:role.error') : null
       }
     },
     {
       id: 'longDesc',
-      label: t('longDesc.label'),
-      desc: t('longDesc.desc'),
+      label: i18n.t('team:longDesc.label'),
+      desc: i18n.t('team:longDesc.desc'),
       type: 'obj',
       items: [
         {
           id: 'en',
-          label: t('longDesc.en'),
+          label: i18n.t('team:longDesc.en'),
           type: 'textarea'
         },
         {
           id: 'es',
-          label: t('longDesc.es'),
+          label: i18n.t('team:longDesc.es'),
           type: 'textarea'
         }
       ]
     },
     {
       id: 'shortDesc',
-      label: t('shortDesc.label'),
-      desc: t('shortDesc.desc'),
+      label: i18n.t('team:shortDesc.label'),
+      desc: i18n.t('team:shortDesc.desc'),
       type: 'obj',
       items: [
         {
           id: 'en',
-          label: t('shortDesc.en'),
+          label: i18n.t('team:shortDesc.en'),
           type: 'string'
         },
         {
           id: 'es',
-          label: t('shortDesc.es'),
+          label: i18n.t('team:shortDesc.es'),
           type: 'string'
         }
       ]
@@ -188,26 +186,26 @@ export default ({ members, memberId, t }) => {
     {
       id: 'instagramId',
       type: 'string',
-      label: t('instagramId.label'),
-      desc: textWithLinks(t('instagramId.desc'))
+      label: i18n.t('team:instagramId.label'),
+      desc: textWithLinks(i18n.t('team:instagramId.desc'))
     },
     {
       id: 'facebookId',
       type: 'string',
-      label: t('facebookId.label'),
-      desc: textWithLinks(t('facebookId.desc'))
+      label: i18n.t('team:facebookId.label'),
+      desc: textWithLinks(i18n.t('team:facebookId.desc'))
     },
     {
       id: 'twitterId',
       type: 'string',
-      label: t('twitterId.label'),
-      desc: textWithLinks(t('twitterId.desc'))
+      label: i18n.t('team:twitterId.label'),
+      desc: textWithLinks(i18n.t('team:twitterId.desc'))
     },
     {
       id: 'published',
       type: 'checkbox',
-      label: t('published.label'),
-      desc: t('published.desc')
+      label: i18n.t('team:published.label'),
+      desc: i18n.t('team:published.desc')
     },
     {
       id: 'languages',
@@ -223,10 +221,9 @@ export default ({ members, memberId, t }) => {
         }),
         ['label']
       ),
-      optionRender: data =>
-        `${data.value || '🏳️'}  ${isoCountries.getName(data.alpha3, i18nHelper.getCurrentLanguage()) || '🤷🏽‍♂️'}`,
-      label: t('languages.label'),
-      desc: t('languages.desc')
+      optionRender: data => `${data.value || '🏳️'}  ${isoCountries.getName(data.alpha3, lang) || '🤷🏽‍♂️'}`,
+      label: i18n.t('team:languages.label'),
+      desc: i18n.t('team:languages.desc')
     },
     {
       id: 'visitedCountries',
@@ -242,10 +239,9 @@ export default ({ members, memberId, t }) => {
         }),
         ['label']
       ),
-      optionRender: data =>
-        `${data.emoji || '🏳️'}  ${isoCountries.getName(data.value, i18nHelper.getCurrentLanguage()) || '🤷🏽‍♂️'}`,
-      label: t('visitedCountries.label'),
-      desc: t('visitedCountries.desc')
+      optionRender: data => `${data.emoji || '🏳️'}  ${isoCountries.getName(data.value, lang) || '🤷🏽‍♂️'}`,
+      label: i18n.t('team:visitedCountries.label'),
+      desc: i18n.t('team:visitedCountries.desc')
     }
   ]
 }

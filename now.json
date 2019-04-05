@@ -7,38 +7,97 @@
   ],
   "routes": [
     {
-      "src": "/experiences/new$",
+      "src": "/en",
+      "dest": "/?lang=en"
+    },
+    {
+      "src": "/propuestas/(?<proposalId>[^/]+)$",
+      "dest": "/proposals?proposalId=$proposalId"
+    },
+    {
+      "src": "/en/proposals/(?<proposalId>[^/]+)$",
+      "dest": "/proposals?proposalId=$proposalId&lang=en"
+    },
+    {
+      "src": "/experiencias",
+      "dest": "/experiences"
+    },
+    {
+      "src": "/en/experiences",
+      "dest": "/experiences?lang=en"
+    },
+    {
+      "src": "/experiencias/nueva$",
       "dest": "/admin/experience"
     },
     {
-      "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$",
+      "src": "/en/experiences/new$",
+      "dest": "/admin/experience?lang=en"
+    },
+    {
+      "src": "/experiencias/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$",
       "dest": "/experience?memberId=$memberId&experienceSlug=$experienceSlug"
     },
     {
-      "src": "/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/edit$",
+      "src": "/en/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)$",
+      "dest": "/experience?memberId=$memberId&experienceSlug=$experienceSlug&lang=en"
+    },
+    {
+      "src": "/experiencias/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/editar$",
       "dest": "/admin/experience?memberId=$memberId&experienceSlug=$experienceSlug"
     },
     {
-      "src": "/team/new$",
+      "src": "/en/experiences/(?<memberId>[^/]+)/(?<experienceSlug>[^/]+)/edit$",
+      "dest": "/admin/experience?memberId=$memberId&experienceSlug=$experienceSlug&lang=en"
+    },
+    {
+      "src": "/equipo",
+      "dest": "/team"
+    },
+    {
+      "src": "/en/team",
+      "dest": "/team?lang=en"
+    },
+    {
+      "src": "/equipo/nuevo$",
       "dest": "/admin/member?memberId="
     },
     {
-      "src": "/team/(?<memberId>[^/]+)$",
+      "src": "/en/team/new$",
+      "dest": "/admin/member?lang=en"
+    },
+    {
+      "src": "/equipo/(?<memberId>[^/]+)$",
       "dest": "/member?memberId=$memberId"
     },
     {
-      "src": "/team/(?<memberId>[^/]+)/edit$",
+      "src": "/en/team/(?<memberId>[^/]+)$",
+      "dest": "/member?memberId=$memberId&lang=en"
+    },
+    {
+      "src": "/equipo/(?<memberId>[^/]+)/editar$",
       "dest": "/admin/member?memberId=$memberId"
     },
     {
-      "src": "/proposals/(?<proposalId>[^/]+)$",
-      "dest": "/proposals?proposalId=$proposalId"
+      "src": "/en/team/(?<memberId>[^/]+)/edit$",
+      "dest": "/admin/member?memberId=$memberId&lang=en"
+    },
+    {
+      "src": "/admin",
+      "dest": "/admin"
+    },
+    {
+      "src": "/en/admin",
+      "dest": "/admin?lang=en"
     }
   ],
   "builds": [
     {
       "src": "next.config.js",
-      "use": "@now/next"
+      "use": "@now/next",
+      "config": {
+        "maxLambdaSize": "10mb"
+      }
     }
   ]
 }

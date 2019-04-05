@@ -4,7 +4,6 @@ import { first, size } from 'lodash'
 import PropTypes from 'prop-types'
 
 import Link from '../Link'
-import { i18nHelper } from '../i18n'
 
 class ExperiencePopUp extends Component {
   state = {
@@ -35,31 +34,24 @@ class ExperiencePopUp extends Component {
   }
 
   render() {
-    const { experiences, isUserLogged } = this.props
+    const { experiences, isUserLogged, lang } = this.props
     const { index } = this.state
     const experience = experiences[index]
     const { slug, title, mainImageURL, shortDesc, authors } = experience
     const firstAuthor = first(authors)
-    const lang = i18nHelper.getCurrentLanguage()
 
     return (
       <div className={`Popup Popup--vertical ${!experience.published ? 'is-unpublished' : ''}`}>
         <div className="Popup-image">
           <FontAwesome name="circle-o-notch" size="2x" spin className="Color--emphasis Popup-imageLoader" />
 
-          <Link
-            as={`/experiences/${firstAuthor}/${slug}`}
-            href={`/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
-          >
+          <Link page={`/experience`} params={{ memberId: firstAuthor, experienceSlug: slug }}>
             <a>
               <img src={mainImageURL} alt={title && title[lang]} title={title && title[lang]} />
             </a>
           </Link>
           {isUserLogged && (
-            <Link
-              as={`/experiences/${firstAuthor}/${slug}/edit`}
-              href={`/admin/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
-            >
+            <Link page={`/admin/experience`} params={{ memberId: firstAuthor, experienceSlug: slug }}>
               <a className="Popup-experienceEdit">
                 <FontAwesome name="pencil" className="Color--action" />
               </a>
@@ -79,10 +71,7 @@ class ExperiencePopUp extends Component {
         </div>
         <div className="Popup-info Text">
           <h4 className="Text--large">
-            <Link
-              as={`/experiences/${firstAuthor}/${slug}`}
-              href={`/experience?memberId=${firstAuthor}&experienceSlug=${slug}`}
-            >
+            <Link page={`/experience`} params={{ memberId: firstAuthor, experienceSlug: slug }}>
               <a className="Color--emphasis">
                 {title && title[lang]}
                 <FontAwesome name="link" className="Popup-link u-lSpace" />

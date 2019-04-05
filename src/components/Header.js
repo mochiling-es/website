@@ -3,11 +3,9 @@ import { withRouter } from 'next/router'
 import FontAwesome from 'react-fontawesome'
 import Link from './Link'
 import PropTypes from 'prop-types'
-import { translate } from 'react-i18next'
 
 import Logo from './Logo'
 import config from '../../utils/config'
-import { i18nHelper } from './i18n'
 
 class Header extends Component {
   onHamburguerClick = ev => {
@@ -18,19 +16,21 @@ class Header extends Component {
   }
 
   render() {
-    const { light, t } = this.props
-    const otherLang = i18nHelper.getCurrentLanguage() === 'es' ? 'en' : 'es'
+    const { light, i18n, lang } = this.props
+    const otherLang = lang === 'es' ? 'en' : 'es'
 
     return (
       <header className={`Header ${light ? 'Header--light' : ''}`}>
         <div className="Header-child">
           <h1>
-            <Link href="/">
+            <Link page="/">
               <a className="Header-logo">
                 <span className="Header-logoObj u-rSpace--m">
                   <Logo light={!!light} />
                 </span>
-                <span className="Header-logoSub Text Text--strong Text--small Color--emphasis">{t('subtitle')}</span>
+                <span className="Header-logoSub Text Text--strong Text--small Color--emphasis">
+                  {i18n.t('common:subtitle')}
+                </span>
               </a>
             </Link>
           </h1>
@@ -40,29 +40,31 @@ class Header extends Component {
           <nav className="Header-nav">
             <ul className="Header-navList Text Text--med Text--strong">
               <li className="Header-navListItem">
-                <Link href={`/proposals`} activeClassName="is-selected">
-                  <a className="Header-navListItemLink Color--linkSecondary">{t('routes.proposals')}</a>
+                <Link page={`/proposals`} activeClassName="is-selected">
+                  <a className="Header-navListItemLink Color--linkSecondary">{i18n.t('common:routes.proposals')}</a>
                 </Link>
               </li>
               <li className="Header-navListItem">
-                <Link href={`/experiences`} activeClassName="is-selected">
-                  <a className="Header-navListItemLink Color--linkSecondary">{t('routes.experiences')}</a>
+                <Link page={`/experiences`} activeClassName="is-selected">
+                  <a className="Header-navListItemLink Color--linkSecondary">{i18n.t('common:routes.experiences')}</a>
                 </Link>
               </li>
               <li className="Header-navListItem">
-                <Link href={`/team`} activeClassName="is-selected">
-                  <a className="Header-navListItemLink Color--linkSecondary">{t('routes.team')}</a>
+                <Link page={`/team`} activeClassName="is-selected">
+                  <a className="Header-navListItemLink Color--linkSecondary">{i18n.t('common:routes.team')}</a>
                 </Link>
               </li>
               <li className="Header-navListItem">
                 <a href={`mailto:${config.email}`} className="Header-navListItemLink Color--linkSecondary">
-                  {t('routes.contact')}
+                  {i18n.t('common:routes.contact')}
                 </a>
               </li>
               <li className="Header-navListItem">
-                <button className="Color--linkSecondary" onClick={() => i18nHelper.setCurrentLanguage(otherLang)}>
-                  <FontAwesome name="globe" /> {otherLang}
-                </button>
+                <Link page={`/`} lang={otherLang} activeClassName="is-selected">
+                  <a className="Color--linkSecondary">
+                    <FontAwesome name="globe" /> {otherLang}
+                  </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -79,8 +81,9 @@ class Header extends Component {
 Header.propTypes = {
   light: PropTypes.bool,
   canvas: PropTypes.element,
-  t: PropTypes.func.isRequired,
+  i18n: PropTypes.instanceOf(Object).isRequired,
+  lang: PropTypes.string,
   onHamburguerClick: PropTypes.func.isRequired
 }
 
-export default translate(['common'])(withRouter(Header))
+export default withRouter(Header)

@@ -1,19 +1,19 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import ReactMarkdown from 'react-markdown'
-import { find, map, debounce } from 'lodash'
+import { find, map, extend, isEmpty } from 'lodash'
 import FontAwesome from 'react-fontawesome'
-import { translate } from 'react-i18next'
 
-import Error from './_error'
+// import Error from './_error'
+import { loadDB } from '../lib/db'
 import Link from '../src/components/Link'
 import Head from '../src/components/Head'
 import StaticMap from '../src/components/Map/Static'
 import LastExperiences from '../src/components/LastExperiences'
-import { i18nHelper, wrapper } from '../src/components/i18n'
-
 import { fetchMembers } from '../src/actions/TeamActions'
+import { fetchExperiences } from '../src/actions/ExperienceActions'
 
 import '../src/styles/member.scss'
 
@@ -24,46 +24,73 @@ class Member extends Component {
     height: 900
   }
 
-  static async getInitialProps({ store, query, isServer }) {
+  static async getInitialProps({ isServer, query }) {
     const { memberId } = query
+    const app = await loadDB()
+    const firestore = app.firestore()
+
+    const promiseMembers = new Promise(async (resolve, reject) => {
+      await firestore
+        .collection('members')
+        .orderBy('createdAt', 'desc')
+        .onSnapshot(snapshot => {
+          let members = []
+          snapshot.forEach(function(doc) {
+            members.push(extend({ id: doc.id }, doc.data()))
+          })
+          resolve(members)
+        })
+    })
+
+    const promiseExperiences = new Promise(async (resolve, reject) => {
+      await firestore
+        .collection('experiences')
+        .orderBy('createdAt', 'desc')
+        .onSnapshot(snapshot => {
+          let experiences = []
+          snapshot.forEach(function(doc) {
+            experiences.push(extend({ id: doc.id }, doc.data()))
+          })
+          resolve(experiences)
+        })
+    })
+
+    const { members, experiences } = await Promise.all([promiseMembers, promiseExperiences]).then(function([
+      members,
+      experiences
+    ]) {
+      return { members, experiences, isServer }
+    })
 
     return {
+      members,
+      experiences,
       memberId,
-      namespacesRequired: ['team'],
       isServer
     }
   }
 
-  updateDimensions = debounce(() => {
-    const height = this.block.offsetHeight
-
-    this.setState({ height: height })
-  }, 500)
-
   componentWillMount = () => {
-    this.updateDimensions()
-  }
+    const { i18n, lang } = this.props
+    const commonData = require(`../src/locales/common`).default
 
-  componentDidMount = () => {
-    window.addEventListener('resize', this.updateDimensions)
-  }
+    if (this.translateNS) {
+      this.translateNS.forEach(element => {
+        const data = require(`../src/locales/${element}`).default
+        i18n.addResourceBundle(lang, element, data[lang])
+      })
+    }
 
-  componentWillUnmount = () => {
-    window.removeEventListener('resize', this.updateDimensions)
+    i18n.addResourceBundle(lang, 'common', commonData[lang])
+    i18n.changeLanguage(lang)
   }
 
   render() {
-    const { memberId, members, t, children } = this.props
+    const { memberId, members, i18n, children, lang, isServer } = this.props
     const { height } = this.state
-    const width = window.innerWidth
-    const memberData = find(members, ['id', memberId])
-    const lang = i18nHelper.getCurrentLanguage()
+    const width = !isServer ? window.innerWidth : 1000
     let yOffset, xOffset
-
-    if (!memberId || !memberData) {
-      return <Error status={404} children={children} />
-    }
-
+    const memberData = find(members, ['id', memberId])
     // Born location
     const marker = {
       markerOffset: 0,
@@ -81,6 +108,7 @@ class Member extends Component {
     return (
       <Fragment>
         <Head
+          i18n={i18n}
           title={memberData.name}
           description={`${memberData.name} · ${memberData.shortDesc[lang]}`}
           image={memberData.avatarURL}
@@ -94,12 +122,12 @@ class Member extends Component {
             yOffset={yOffset}
             xOffset={xOffset}
           />
-          {children} {/*Header*/}
+          {children}
           <div className="Breadcrumb">
             <ul className="Breadcrumb-inner">
               <li className="Breadcrumb-item">
-                <Link href="/team">
-                  <a className="Breadcrumb-link">{t('title')}</a>
+                <Link page="/team">
+                  <a className="Breadcrumb-link">{i18n.t('team:title')}</a>
                 </Link>
               </li>
               <li className="Breadcrumb-item Breadcrumb-item--separator">></li>
@@ -114,7 +142,9 @@ class Member extends Component {
                 </div>
                 <div className="Member-desc">
                   {memberData.role && (
-                    <h4 className="Color--paragraph Text Text--uppercase Text--med">{t(`role.${memberData.role}`)}</h4>
+                    <h4 className="Color--paragraph Text Text--uppercase Text--med">
+                      {i18n.t(`team:role.${memberData.role}`)}
+                    </h4>
                   )}
                   <h2 className="Color--main Text Text--giant Text--strong">{memberData.name}</h2>
                   <ul className="Member-languages u-tSpace">
@@ -144,7 +174,7 @@ class Member extends Component {
           </div>
           <div className="Breadcrumb u-tSpace--xxl">
             <ul className="Breadcrumb-inner">
-              <li className="Breadcrumb-item u-rSpace--xl">{t(`follow.${memberData.gender}`)}</li>
+              <li className="Breadcrumb-item u-rSpace--xl">{i18n.t(`team:follow.${memberData.gender}`)}</li>
 
               {map(socialTypes, socialName => {
                 if (memberData[`${socialName}Id`]) {
@@ -169,29 +199,36 @@ class Member extends Component {
           </div>
         </div>
 
-        <LastExperiences limit={10} />
+        <LastExperiences i18n={i18n} limit={6} lang={lang} />
       </Fragment>
     )
   }
 }
 
-function mapStateToProps(state) {
+Member.prototype.translateNS = ['experiences', 'team']
+
+Member.propTypes = {
+  i18n: PropTypes.instanceOf(Object).isRequired,
+  members: PropTypes.instanceOf(Array).isRequired,
+  experiences: PropTypes.instanceOf(Array).isRequired,
+  children: PropTypes.array.isRequired
+}
+
+function mapStateToProps(state, props) {
   return {
-    members: state.members
+    members: isEmpty(state.members) ? props.members : state.members,
+    experiences: isEmpty(state.experiences) ? props.experiences : state.experiences
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchMembers: bindActionCreators(fetchMembers, dispatch)
+    fetchMembers: bindActionCreators(fetchMembers, dispatch),
+    fetchExperiences: bindActionCreators(fetchExperiences, dispatch)
   }
 }
 
-export default wrapper(
-  translate(['team'])(
-    connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(Member)
-  )
-)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Member)

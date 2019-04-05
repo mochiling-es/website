@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { size, extend } from 'lodash'
+import { extend } from 'lodash'
 import { withRouter } from 'next/router'
 
-import FontAwesome from 'react-fontawesome'
-
 import { loadDB } from '../../lib/db'
+import i18n from '../i18n'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { loginUser, logoutUser, errorUser } from '../actions/UserActions'
@@ -18,19 +17,17 @@ class Default extends Component {
     showHeader: false
   }
 
-  static async getInitialProps({ store, isServer }) {
-    store.dispatch(fetchMembers())
-    store.dispatch(fetchExperiences())
-
-    return { isServer }
-  }
-
   async componentDidMount() {
+    const app = await loadDB()
+
     this.props.fetchMembers()
     this.props.fetchExperiences()
 
-    const app = await loadDB()
     app.auth().onAuthStateChanged(this.manageAuth)
+  }
+
+  componentWillMount = () => {
+    this.i18n = i18n
   }
 
   manageAuth = user => {
@@ -66,26 +63,25 @@ class Default extends Component {
   }
 
   render() {
-    const { children, members, experiences, router } = this.props
+    const { children, router, lang } = this.props
     const { showHeader } = this.state
-    const isLoading = !members || size(members) === 0 || !experiences || size(experiences) === 0
     const childrenWithHeader = React.Children.map(children, child =>
-      React.cloneElement(child, null, [
-        <Header
-          key="header"
-          light={router.route === '/proposals' ? true : false}
-          onHamburguerClick={this.onHamburguerClick}
-        />
-      ])
-    )
-
-    if (isLoading) {
-      return (
-        <div className="Loader">
-          <FontAwesome className="Color--desc" name="compass" size="3x" spin />
-        </div>
+      React.cloneElement(
+        child,
+        {
+          i18n: this.i18n
+        },
+        [
+          <Header
+            key="header"
+            lang={lang}
+            i18n={this.i18n}
+            light={router.route === '/proposals' ? true : false}
+            onHamburguerClick={this.onHamburguerClick}
+          />
+        ]
       )
-    }
+    )
 
     return (
       <div

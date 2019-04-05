@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
-import { find, mapValues, size, isEmpty } from 'lodash'
-import { translate } from 'react-i18next'
+import { find, mapValues, size, isEmpty, extend } from 'lodash'
 
 import Error from '../_error'
+import { loadDB } from '../../lib/db'
 import Link from '../../src/components/Link'
 import Head from '../../src/components/Head'
 import Form from '../../src/components/form/Form'
 import genFields from './experienceFields'
 import { updateExperience, createExperience, deleteExperience } from '../../src/actions/ExperienceActions'
-import { wrapper, i18nHelper } from '../../src/components/i18n'
 
 class ExperienceEdit extends Component {
   state = {
@@ -18,14 +18,49 @@ class ExperienceEdit extends Component {
     error: null
   }
 
-  static async getInitialProps({ store, query, isServer }) {
+  static async getInitialProps({ isServer, query }) {
+    const app = await loadDB()
+    const firestore = app.firestore()
     const { experienceSlug, memberId } = query
 
+    const promise = new Promise(async (resolve, reject) => {
+      await firestore
+        .collection('experiences')
+        .orderBy('createdAt', 'desc')
+        .onSnapshot(snapshot => {
+          let members = []
+          snapshot.forEach(function(doc) {
+            members.push(extend({ id: doc.id }, doc.data()))
+          })
+          resolve(members)
+        })
+    })
+
+    const { experiences } = await Promise.all([promise]).then(function([experiences]) {
+      return { experiences }
+    })
+
     return {
+      experiences,
       memberId,
       experienceSlug,
       isServer
     }
+  }
+
+  componentWillMount = () => {
+    const { i18n, lang } = this.props
+    const commonData = require(`../../src/locales/common`).default
+
+    if (this.translateNS) {
+      this.translateNS.forEach(element => {
+        const data = require(`../../src/locales/${element}`).default
+        i18n.addResourceBundle(lang, element, data[lang])
+      })
+    }
+
+    i18n.addResourceBundle(lang, 'common', commonData[lang])
+    i18n.changeLanguage(lang)
   }
 
   filterData = data => {
@@ -56,7 +91,7 @@ class ExperienceEdit extends Component {
   }
 
   onDelete = async () => {
-    const { t, memberId, deleteExperience, experienceSlug, children } = this.props
+    const { i18n, lang, memberId, deleteExperience, experienceSlug, children } = this.props
     const experienceData = this.findExperience(experienceSlug, memberId)
     let error
     const onDone = ({ data, error }) => {
@@ -64,12 +99,12 @@ class ExperienceEdit extends Component {
     }
 
     if (!experienceData) {
-      return <Error status={404} children={children} />
+      return <Error status={404} children={children} i18n={i18n} lang={lang} />
     }
 
     this.setState({ loading: true, error: null })
 
-    const modalConfirmation = window.confirm(t('delete', { title: experienceData.slug }))
+    const modalConfirmation = window.confirm(i18n.t('experiences:delete', { title: experienceData.slug }))
     if (modalConfirmation === true) {
       error = await deleteExperience(experienceData.id).then(onDone)
     }
@@ -105,36 +140,35 @@ class ExperienceEdit extends Component {
   }
 
   render() {
-    const { memberId, user, experiences, experienceSlug, members, t, children } = this.props
+    const { memberId, user, experiences, experienceSlug, members, i18n, lang, children } = this.props
     const { loading, error } = this.state
     let experienceData = {}
-    const lang = i18nHelper.getCurrentLanguage()
 
-    const fields = genFields({ t, experiences, experienceSlug, members, memberId })
+    const fields = genFields({ i18n, lang, experiences, experienceSlug, members, memberId })
 
     if (user.state !== 'logged') {
-      return <Error status={403} children={children} />
+      return <Error status={403} children={children} i18n={i18n} lang={lang} />
     }
 
     if (experienceSlug && memberId) {
       experienceData = this.findExperience(experienceSlug, memberId)
 
       if (!experienceData) {
-        return <Error status={404} children={children} />
+        return <Error status={404} children={children} i18n={i18n} lang={lang} />
       }
     }
 
     return (
       <Fragment>
-        <Head title={experienceData.title && experienceData.title[lang]} />
+        <Head i18n={i18n} title={experienceData.title && experienceData.title[lang]} />
 
         <div className="Block" ref={node => (this.block = node)}>
           {children} {/*Header*/}
           <div className="Breadcrumb">
             <ul className="Breadcrumb-inner">
               <li className="Breadcrumb-item">
-                <Link href="/experiences">
-                  <a className="Breadcrumb-link">{t('title')}</a>
+                <Link page="/experiences">
+                  <a className="Breadcrumb-link">{i18n.t('experiences:title')}</a>
                 </Link>
               </li>
               {!isEmpty(experienceData) && (
@@ -147,6 +181,7 @@ class ExperienceEdit extends Component {
           </div>
           <div className="Block-content">
             <Form
+              i18n={i18n}
               onSubmit={this.onSubmit}
               onDelete={this.onDelete}
               fields={fields}
@@ -161,10 +196,18 @@ class ExperienceEdit extends Component {
   }
 }
 
-function mapStateToProps(state) {
+ExperienceEdit.prototype.translateNS = ['experiences', 'form']
+
+ExperienceEdit.propTypes = {
+  i18n: PropTypes.instanceOf(Object).isRequired,
+  user: PropTypes.instanceOf(Object).isRequired,
+  experiences: PropTypes.instanceOf(Array).isRequired,
+  children: PropTypes.array.isRequired
+}
+
+function mapStateToProps(state, props) {
   return {
-    members: state.members,
-    experiences: state.experiences,
+    members: isEmpty(state.members) ? props.members : state.members,
     user: state.user
   }
 }
@@ -177,11 +220,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default wrapper(
-  translate(['experiences'])(
-    connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(ExperienceEdit)
-  )
-)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ExperienceEdit)

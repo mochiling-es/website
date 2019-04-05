@@ -1,37 +1,57 @@
 import React, { Component, Fragment } from 'react'
 import { filter, size, reduce, each } from 'lodash'
+import dynamic from 'next/dynamic'
 import isoCountries from 'i18n-iso-countries'
 
 import data from './countries.json'
 import ExperiencePopup from './ExperiencePopup'
-import { i18nHelper } from '../i18n'
 
-let L, Map, VectorGridDefault, VectorGrid, Popup, Hash
+let L
+
+const Map = dynamic(
+  () =>
+    import('react-leaflet').then(mod => {
+      return mod.Map
+    }),
+  {
+    ssr: false,
+    loading: () => <p>...</p>
+  }
+)
+const GeoJSON = dynamic(
+  () =>
+    import('react-leaflet').then(mod => {
+      return mod.GeoJSON
+    }),
+  {
+    ssr: false
+  }
+)
+const Popup = dynamic(
+  () =>
+    import('react-leaflet').then(mod => {
+      return mod.Popup
+    }),
+  {
+    ssr: false
+  }
+)
 
 class ExperiencesMap extends Component {
   state = {
-    showMap: false,
     positionPopup: null,
     belongingExperiences: []
   }
 
-  componentDidMount = () => {
-    let RL = require('react-leaflet')
-    L = require('leaflet')
+  componentDidMount = async () => {
+    L = await import('leaflet')
+    await import('leaflet-hash')
+  }
 
-    Map = RL.Map
-    Popup = RL.Popup
-    const withLeaflet = RL.withLeaflet
-    VectorGridDefault = require('react-leaflet-vectorgrid')
-    VectorGrid = withLeaflet(VectorGridDefault)
-
-    require('leaflet-hash')
-
-    each(i18nHelper.supportLangs, lang => {
+  componentWillMount = async () => {
+    each(['es', 'en'], lang => {
       isoCountries.registerLocale(require(`i18n-iso-countries/langs/${lang}.json`))
     })
-
-    this.setState({ showMap: true })
   }
 
   componentDidUpdate = () => {
@@ -47,8 +67,9 @@ class ExperiencesMap extends Component {
     onMapClick && onMapClick()
   }
 
-  onLayerClick = ({ layer, latlng }) => {
-    const belongingExperiences = this.belongingExperiences(layer.properties.iso_a3)
+  onLayerClick = ({ target, latlng }) => {
+    const iso_a3 = target.feature.properties.iso_a3
+    const belongingExperiences = this.belongingExperiences(iso_a3)
     let positionPopup = null
 
     if (size(belongingExperiences) > 0) {
@@ -80,16 +101,28 @@ class ExperiencesMap extends Component {
 
   render() {
     const { positionPopup, belongingExperiences } = this.state
-    const { isUserLogged } = this.props
+    const { isUserLogged, lang, i18n } = this.props
+
     const options = {
-      type: 'slicer',
       data,
-      idField: 'iso_a3',
-      tooltip: ({ properties: { iso_a3 } }) => {
-        const lang = i18nHelper.getCurrentLanguage()
-        return isoCountries.getName(iso_a3, lang)
+      onEachFeature: (feature, layer) => {
+        const {
+          properties: { iso_a3 }
+        } = feature
+
+        const belongingExperiences = this.belongingExperiences(iso_a3)
+
+        layer.bindTooltip(isoCountries.getName(iso_a3, lang), {
+          sticky: true,
+          direction: 'auto',
+          className: 'paco'
+        })
+
+        if (size(belongingExperiences) > 0) {
+          layer.on('click', this.onLayerClick)
+        }
       },
-      style: ({ iso_a3 }) => {
+      style: ({ properties: { iso_a3 } }) => {
         let style = {
           color: '#EFEFEF',
           weight: 1,
@@ -126,63 +159,39 @@ class ExperiencesMap extends Component {
         }
 
         return style
-      },
-      hoverStyle: ({ iso_a3 }) => {
-        if (this.belongsToAnyExperience(iso_a3)) {
-          return {
-            color: '#E74525',
-            fillColor: '#E74525',
-            fillOpacity: 0.2
-          }
-        } else {
-          return {}
-        }
-      },
-      activeStyle: ({ iso_a3 }) => {
-        if (this.belongsToAnyExperience(iso_a3)) {
-          return {
-            color: '#E74525',
-            fillColor: '#E74525'
-          }
-        } else {
-          return {}
-        }
-      },
-      zIndex: 10
+      }
     }
 
     return (
       <Fragment>
-        {this.state.showMap ? (
-          <Map
-            ref={node => {
-              if (node) {
-                this.map = node.leafletElement
-              }
-            }}
-            onClick={this.onMapClick}
-            style={{ backgroundColor: '#FFF' }}
-            keyboard={true}
-            minZoom={3}
-            maxZoom={6}
-            doubleClickZoom={true}
-            boxZoom={true}
-            dragging={true}
-            attributionControl={false}
-            scrollWheelZoom={false}
-            touchZoom={true}
-            center={[43, -3]}
-            zoom={3}
-            className="Experiences-map"
-          >
-            <VectorGrid {...options} onClick={this.onLayerClick} />
-            {positionPopup && (
-              <Popup position={positionPopup} autoPan={true} onClose={this.onPopupClose}>
-                <ExperiencePopup experiences={belongingExperiences} isUserLogged={isUserLogged} />
-              </Popup>
-            )}
-          </Map>
-        ) : null}
+        <Map
+          ref={node => {
+            if (node) {
+              this.map = node.leafletElement
+            }
+          }}
+          onClick={this.onMapClick}
+          style={{ backgroundColor: '#FFF' }}
+          keyboard={true}
+          minZoom={3}
+          maxZoom={6}
+          doubleClickZoom={true}
+          boxZoom={true}
+          dragging={true}
+          attributionControl={false}
+          scrollWheelZoom={false}
+          touchZoom={true}
+          center={[43, -3]}
+          zoom={3}
+          className="Experiences-map"
+        >
+          <GeoJSON {...options} />
+          {positionPopup && (
+            <Popup position={positionPopup} autoPan={true} onClose={this.onPopupClose}>
+              <ExperiencePopup i18n={i18n} lang={lang} experiences={belongingExperiences} isUserLogged={isUserLogged} />
+            </Popup>
+          )}
+        </Map>
       </Fragment>
     )
   }

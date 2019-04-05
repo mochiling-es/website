@@ -1,12 +1,9 @@
 import React from 'react'
-import { translate } from 'react-i18next'
 import FontAwesome from 'react-fontawesome'
 
-import { i18nHelper } from './i18n'
-import Link from 'next/link'
+import Link from './Link'
 
-const NextExperience = ({ experienceData, t }) => {
-  const lang = i18nHelper.getCurrentLanguage()
+const NextExperience = ({ experienceData, i18n, lang }) => {
   const title = (experienceData.title && experienceData.title[lang]) || ''
   const slug = experienceData.slug
   const memberId = experienceData.authors[0]
@@ -17,12 +14,9 @@ const NextExperience = ({ experienceData, t }) => {
       <div className="Experience-nextOneImage" style={{ backgroundImage: `url(${experienceData.mainImageURL})` }} />
       <div className="Experience-nextOneContent">
         <div className="Block-content Paragraph--centered Text ">
-          <h4 className="Text--strong Text--huge Color--secondary">{t('next-experience')}</h4>
+          <h4 className="Text--strong Text--huge Color--secondary">{i18n.t('experiences:next-experience')}</h4>
           <p className="Text--large u-tSpace--l Color--paragraph">{shortDesc}</p>
-          <Link
-            href={`/experience?memberId=${memberId}&experienceSlug=${slug}`}
-            as={`/experiences/${memberId}/${slug}`}
-          >
+          <Link page={'/experience'} params={{ memberId, experienceSlug: slug }}>
             <a className="Button Button--main u-tSpace--l Button--inliner">
               <FontAwesome name="globe" className="u-rSpace" />
               <span>{title}</span>
@@ -34,4 +28,4 @@ const NextExperience = ({ experienceData, t }) => {
   )
 }
 
-export default translate(['experiences'])(NextExperience)
+export default NextExperience

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { map } from 'lodash'
-import { translate, Trans } from 'react-i18next'
+import { Trans } from 'react-i18next'
 
 import Link from './Link'
 
 class HomeProposals extends Component {
   render() {
-    const { proposals, t } = this.props
+    const { proposals, i18n } = this.props
+
     return (
       <ul className="Home-proposals pure-g">
         {map([0, 2, 1], index => {
@@ -23,17 +24,18 @@ class HomeProposals extends Component {
                     index !== 2 ? 'Color--paragraph' : 'Color--emphasis'
                   } u-tSpace--l`}
                 >
-                  {t(`items.${proposalIndex}.title`)}
+                  {i18n.t(`proposals:items.${proposalIndex}.title`)}
                 </h4>
                 <p className="Text--medLarge Color--paragraph u-tSpace--m">
                   <Trans
-                    i18nKey={`items.${proposalIndex}.desc`}
+                    i18n={i18n}
+                    i18nKey={`proposals:items.${proposalIndex}.desc`}
                     components={[<span className="Color--emphasis">.</span>]}
                   />{' '}
                 </p>
-                <Link as={`/proposals/${proposalIndex}`} href={`/proposals?proposalId=${proposalIndex}`}>
+                <Link page={'/proposals'} params={{ id: proposalIndex }}>
                   <a className="Button {% if index != 2 %} Button--small Button--secondary {% else %} Button--main {% endif %} u-tSpace--l">
-                    {t('learn-more')}
+                    {i18n.t('common:learn-more')}
                   </a>
                 </Link>
               </div>
@@ -45,4 +47,4 @@ class HomeProposals extends Component {
   }
 }
 
-export default translate(['proposals'])(HomeProposals)
+export default HomeProposals

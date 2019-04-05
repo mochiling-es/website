@@ -1,16 +1,20 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { translate, Trans } from 'react-i18next'
+import { bindActionCreators } from 'redux'
+import { extend, isEmpty } from 'lodash'
+import { Trans } from 'react-i18next'
 import { isMobile } from 'react-device-detect'
 import FontAwesome from 'react-fontawesome'
 
+import { loadDB } from '../lib/db'
 import Head from '../src/components/Head'
 import Link from '../src/components/Link'
 import LastExperiences from '../src/components/LastExperiences'
-import { wrapper } from '../src/components/i18n'
 import config from '../utils/config'
 import ExperiencesMap from '../src/components/Map/Experiences'
+import { fetchMembers } from '../src/actions/TeamActions'
+import { fetchExperiences } from '../src/actions/ExperienceActions'
 
 import '../src/styles/experiences.scss'
 
@@ -27,35 +31,81 @@ class Experiences extends Component {
     this.state.mobile = isMobile
   }
 
+  static async getInitialProps({ isServer }) {
+    const app = await loadDB()
+    const firestore = app.firestore()
+
+    const promise = new Promise(async (resolve, reject) => {
+      await firestore
+        .collection('experiences')
+        .orderBy('createdAt', 'desc')
+        .onSnapshot(snapshot => {
+          let data = []
+          snapshot.forEach(function(doc) {
+            data.push(extend({ id: doc.id }, doc.data()))
+          })
+          resolve(data)
+        })
+    })
+
+    const { experiences } = await Promise.all([promise]).then(function([experiences]) {
+      return { experiences }
+    })
+
+    return {
+      experiences
+    }
+  }
+
+  componentWillMount = () => {
+    const { i18n, lang } = this.props
+    const commonData = require(`../src/locales/common`).default
+
+    if (this.translateNS) {
+      this.translateNS.forEach(element => {
+        const data = require(`../src/locales/${element}`).default
+        i18n.addResourceBundle(lang, element, data[lang])
+      })
+    }
+
+    i18n.addResourceBundle(lang, 'common', commonData[lang])
+    i18n.changeLanguage(lang)
+  }
+
   onMapClicked = () => {
     this.setState({ showTitle: false })
   }
 
   render() {
-    const { children, experiences, user, t } = this.props
+    const { children, experiences, user, i18n, lang } = this.props
     const { mobile, context, showTitle } = this.state
     const isUserLogged = user.state === 'logged'
 
     const ContactUs = () => {
       return (
-        <Link href="/contact">
-          <a className="Color--linkSecondary">{t('contact-us')}</a>
-        </Link>
+        <a href={`mailto:${config.email}`} className="Color--linkSecondary">
+          {i18n.t('common:contact-us')}
+        </a>
       )
     }
-
     return (
       <Fragment>
-        <Head title={t('title')} description={t('desc')} />
+        <Head i18n={i18n} title={i18n.t('experiences:title')} description={i18n.t('experiences:desc')} />
 
         <div className="Experiences Block">
-          <ExperiencesMap onMapClick={this.onMapClicked} isUserLogged={isUserLogged} experiences={experiences} />
+          <ExperiencesMap
+            i18n={i18n}
+            lang={lang}
+            onMapClick={this.onMapClicked}
+            isUserLogged={isUserLogged}
+            experiences={experiences}
+          />
           {isUserLogged && (
             <div
               style={{ position: 'absolute', bottom: '90px', left: '50%', transform: 'translateX(-50%)', zIndex: 2 }}
             >
-              <Link as={`/experiences/new`} href={`/admin/experience?memberId=&experienceSlug=`}>
-                <a className="Button Button--action">{t('add')}</a>
+              <Link page={`/admin/experience`}>
+                <a className="Button Button--action">{i18n.t('experiences:add')}</a>
               </Link>
             </div>
           )}
@@ -74,7 +124,11 @@ class Experiences extends Component {
               {context === 'page' && (
                 <div className="Experiences-mapMobileDisclaimer">
                   <p className="Text Text--large">
-                    <Trans i18nKey="navigate.map" components={[<FontAwesome name="hand-pointer-o">.</FontAwesome>]} />
+                    <Trans
+                      i18n={i18n}
+                      i18nKey="experiences:navigate.map"
+                      components={[<FontAwesome name="hand-pointer-o">.</FontAwesome>]}
+                    />
                   </p>
                   <button
                     className="Button Button--action u-tSpace--m"
@@ -82,7 +136,7 @@ class Experiences extends Component {
                       this.setState({ context: 'map' })
                     }}
                   >
-                    {t('navigate.enable')}
+                    {i18n.t('experiences:navigate.enable')}
                   </button>
                 </div>
               )}
@@ -91,9 +145,13 @@ class Experiences extends Component {
           {children} {/*Header*/}
           {((mobile && context === 'page') || (!mobile && showTitle)) && (
             <div className="Block-content Paragraph Paragraph--centered u-tSpace--xxl js-title">
-              <h2 className="Text Text--giant Text--strong Color--emphasis">{t('subtitle')}</h2>
+              <h2 className="Text Text--giant Text--strong Color--emphasis">{i18n.t('experiences:subtitle')}</h2>
               <p className="Text Text--large Color--paragraph u-tSpace--l">
-                <Trans i18nKey="desc" components={[<span className="Color--emphasis">{config.name}</span>]} />
+                <Trans
+                  i18n={i18n}
+                  i18nKey="experiences:desc"
+                  components={[<span className="Color--emphasis">{config.name}</span>]}
+                />
               </p>
             </div>
           )}
@@ -101,10 +159,11 @@ class Experiences extends Component {
             <ul className="Breadcrumb-inner">
               <li className="Breadcrumb-item u-rSpace--xl">
                 <Trans
-                  i18nKey="join"
+                  i18n={i18n}
+                  i18nKey="experiences:join"
                   components={[
                     <span className="Color--emphasis">{config.name}</span>,
-                    <ContactUs>{t('contact-us')}</ContactUs>
+                    <ContactUs>{i18n.t('common:contact-us')}</ContactUs>
                   ]}
                 />{' '}
               </li>
@@ -112,24 +171,37 @@ class Experiences extends Component {
           </div>
         </div>
 
-        <LastExperiences limit={6} />
+        <LastExperiences i18n={i18n} lang={lang} limit={6} />
       </Fragment>
     )
   }
 }
 
+Experiences.prototype.translateNS = ['experiences']
+
 Experiences.propTypes = {
-  t: PropTypes.func.isRequired,
+  i18n: PropTypes.instanceOf(Object).isRequired,
   user: PropTypes.instanceOf(Object).isRequired,
   experiences: PropTypes.instanceOf(Array).isRequired,
   children: PropTypes.array.isRequired
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   return {
+    members: isEmpty(state.members) ? props.members : state.members,
     user: state.user,
-    experiences: state.experiences
+    experiences: isEmpty(state.experiences) ? props.experiences : state.experiences
   }
 }
 
-export default wrapper(translate(['experiences'])(connect(mapStateToProps)(Experiences)))
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchMembers: bindActionCreators(fetchMembers, dispatch),
+    fetchExperiences: bindActionCreators(fetchExperiences, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Experiences)

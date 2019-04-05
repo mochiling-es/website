@@ -1,13 +1,10 @@
 import React from 'react'
-import { translate } from 'react-i18next'
 import { size, filter, intersection, map, first } from 'lodash'
 import ReactTooltip from 'react-tooltip'
 
 import Link from './Link'
-import { i18nHelper } from './i18n'
 
-export default translate(['experiences'])(({ currentExperience, experiences, t }) => {
-  const lang = i18nHelper.getCurrentLanguage()
+export default ({ currentExperience, experiences, i18n, lang }) => {
   const experiencesAround = filter(experiences, experience => {
     return (
       size(intersection(experience.countries, currentExperience.countries)) > 0 &&
@@ -22,18 +19,16 @@ export default translate(['experiences'])(({ currentExperience, experiences, t }
 
   return (
     <div className="Experience-contentSameExperiences Color--light Text--withShadow">
-      <h4 className="Text--small Text--uppercase">{t('other-experiences')}</h4>
+      <h4 className="Text--small Text--uppercase">{i18n.t('experiences:other-experiences')}</h4>
       <ul className="Experience-contentSameExperiencesList u-tSpace--m">
         {map(experiencesAround, experience => {
           const { mainImageURL, slug } = experience
           const experienceFirstAuthorId = first(experience.authors)
-          const experienceAs = `/experiences/${experienceFirstAuthorId}/${slug}`
-          const experienceHref = `/experience?memberId=${experienceFirstAuthorId}&experienceSlug=${slug}`
           const experienceTitle = (experience.title && experience.title[lang]) || ''
 
           return (
             <li key={experience.id} data-tip={experienceTitle} data-for={`experience-around-${experience.id}`}>
-              <Link href={experienceHref} as={experienceAs}>
+              <Link page={'/experience'} params={{ memberId: experienceFirstAuthorId, experienceSlug: slug }}>
                 <a className="Experience-authorLink Color--light">
                   <img
                     src={mainImageURL}
@@ -52,4 +47,4 @@ export default translate(['experiences'])(({ currentExperience, experiences, t }
       </ul>
     </div>
   )
-})
+}

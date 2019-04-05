@@ -1,18 +1,16 @@
 import React from 'react'
-import { translate } from 'react-i18next'
 import FontAwesome from 'react-fontawesome'
 
 import config from '../../utils/config'
-import { wrapper } from './i18n'
 
 const SocialBreadcrumb = props => {
-  const { t } = props
+  const { i18n } = props
   const { facebookId, twitterId, instagramId } = config
 
   return (
     <div className="Breadcrumb">
       <ul className="Breadcrumb-inner">
-        <li className="Breadcrumb-item u-rSpace--xl">{t('contact-us')}</li>
+        <li className="Breadcrumb-item u-rSpace--xl">{i18n.t('common:contact-us')}</li>
 
         {facebookId && (
           <li className="Breadcrumb-item u-rSpace--xl">
@@ -60,4 +58,4 @@ const SocialBreadcrumb = props => {
   )
 }
 
-export default wrapper(translate(['common'])(SocialBreadcrumb))
+export default SocialBreadcrumb

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { map } from 'lodash'
 import { Form as TheForm } from 'informed'
 import FontAwesome from 'react-fontawesome'
-import { translate } from 'react-i18next'
 
 import String from './String'
 import Textarea from './Textarea'
@@ -50,7 +49,7 @@ class Form extends Component {
   }
 
   render() {
-    const { fields, disabled, formData = {}, t } = this.props
+    const { fields, disabled, formData = {}, i18n } = this.props
     const { errors } = this.state
 
     return (
@@ -58,19 +57,19 @@ class Form extends Component {
         {map(fields, field => {
           const Field = fieldTypes[field.type]
           if (Field) {
-            return <Field key={field.id} {...field} disabled={disabled} value={formData[field.id]} />
+            return <Field i18n={i18n} key={field.id} {...field} disabled={disabled} value={formData[field.id]} />
           }
           return null
         })}
         <div className="Form-field Form-footer">
           <div className="Form-footerActions">
             <button disabled={disabled} className={`Button Button--action Form-submit`} type="submit">
-              <span>{t('submit')}</span>
+              <span>{i18n.t('form:submit')}</span>
               {disabled && <FontAwesome className="u-lSpace--m" name="circle-o-notch" spin size="lg" />}
             </button>
             {formData.id && (
               <button type="button" className="Text--small Color--error Form-delete" onClick={this.onDelete}>
-                <span>{t('delete')}</span>
+                <span>{i18n.t('form:delete')}</span>
               </button>
             )}
           </div>
@@ -88,6 +87,7 @@ class Form extends Component {
 }
 
 Form.propTypes = {
+  i18n: PropTypes.instanceOf(Object).isRequired,
   onSubmit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   fields: PropTypes.instanceOf(Array).isRequired,
@@ -95,4 +95,4 @@ Form.propTypes = {
   formData: PropTypes.instanceOf(Object)
 }
 
-export default translate(['form'])(Form)
+export default Form

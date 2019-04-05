@@ -1,6 +1,0 @@
-{
-  "title": "Admin",
-  "hello": "Hola, {{ name }}",
-  "error": "Lo siento, pero no tienes acceso",
-  "logout": "Salir"
-}

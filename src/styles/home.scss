@@ -1,13 +1,14 @@
 @import 'vars';
 
-.Home-slider {
+.slider, .slider-slide {
 	min-height: 480px;
-	max-height: 580px;
+	max-height: 640px;
 	background: #CCC;
 }
-.swiper-slide img {
-	width: 100%;
+.slider-control-bottomcenter button {
+	color: #FFF!important;
 }
+
 .Home-sliderMamufas {
 	position: absolute;
 	top: 0;
@@ -188,18 +189,30 @@
 }
 
 @media (max-width: 640px) {
-	.Home-slider {
-		height: 480px;
+	.slider, .slider-slide {
+		height: auto;
+		min-height: 400px;
 	}
-	.swiper-slide img {
-		width: auto;
-		height: 100%;
+	.slider-control-centerleft,
+	.slider-control-centerright {
+		display: none;
+	}
+	.slider-control-bottomcenter ul {
+		top: 0!important;
+	}
+	.slider-slide > img {
+		position: absolute;
+		width: auto!important;
+		height: 100%!important;
+		z-index: 0;
 	}
 	.Home-banner {
     right: 40px;
     bottom: 40px;
     left: 40px;
-    text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 	.Home-proposal,
 	.Home-proposal:first-child,
