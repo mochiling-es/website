@@ -63,13 +63,12 @@ Taking for granted you have installed [node](http://nodejs.org) and you are usin
 If you want to test your changes in a staging server, you will need to:
 
 - Create a pull request.
-- In that PR, make a comment saying: `deploy staging`.
-- Probot-empty will deploy it to staging :).
-- Changes will appear at [mochiling-staging.now.sh](https://mochiling-staging.now.sh).
+- And then automatically `now.sh` will deploy those changes to an inmutable URL.
+- Tachan!
 
 ### Production
 
-Any branch merged into `master` branch will trigger a production build thanks to [CircleCI](https://circleci.com/). Results will be visible at [mochiling.es](https://mochiling.es).
+Any branch merged into `master` will be deployed thanks to `now.sh`. Results will be visible at [mochiling.es](https://mochiling.es).
 
 ---
 
