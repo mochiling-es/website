@@ -1,4 +1,4 @@
-<img src="https://github.com/mochiling-es/website/blob/master/static/assets/favicon/android-chrome-192x192.png" alt="Mochiling" title="Mochiling" width=60/>
+<img src="https://github.com/mochiling-es/website/blob/master/static/assets/favicon/favicon-96x96.png" alt="Mochiling" title="Mochiling" width=60/>
 
 # Mochiling
 
