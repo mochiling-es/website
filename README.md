@@ -41,6 +41,7 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Add terms&conditions banner
 - [x] Create a better terms-of-user page
 - [x] Home video
+- [ ] Add sitemap
 - [ ] Fix member born location
 - [ ] Add Map hash
 - [ ] Better page code handling (page initial props, locales,...)
