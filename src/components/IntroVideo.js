@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FontAwesome from 'react-fontawesome'
 import Lockr from 'lockr'
 
 class IntroVideo extends Component {
@@ -27,7 +28,7 @@ class IntroVideo extends Component {
     if (!visible) {
       return (
         <button className="EmbedVideo-buttonPlay" onClick={this.showVideo}>
-          <i class="fa fa-play" size="2x" />
+          <FontAwesome name="play" />
         </button>
       )
     }
@@ -37,12 +38,12 @@ class IntroVideo extends Component {
         <iframe
           title="Mochiling intro"
           src="https://www.youtube.com/embed/8HM5zKnj_lM?rel=0&amp;showinfo=0"
-          frameborder="0"
+          frameBorder="0"
           allow="autoplay; encrypted-media"
-          allowfullscreen
+          allowFullScreen
         />
         <button className="EmbedVideo-button" onClick={this.hideVideo}>
-          <i class="fa fa-times" />
+          <FontAwesome name="times" />
         </button>
       </div>
     )
