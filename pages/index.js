@@ -13,6 +13,7 @@ import StaticMap from '../src/components/Map/Static'
 import HomeProposals from '../src/components/HomeProposals'
 import HomeFeatures from '../src/components/HomeFeatures'
 import Link from '../src/components/Link'
+import IntroVideo from '../src/components/IntroVideo'
 import { fetchMembers } from '../src/actions/TeamActions'
 import { fetchExperiences } from '../src/actions/ExperienceActions'
 
@@ -180,6 +181,7 @@ class Index extends Component {
         )}
 
         <LastExperiences limit={6} i18n={i18n} lang={lang} />
+        <IntroVideo />
       </Fragment>
     )
   }

@@ -9,6 +9,49 @@
 	color: #FFF!important;
 }
 
+$bkgColor: #222;
+$br: 3px;
+
+.EmbedVideo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  padding: 5px;
+  margin: 0;
+  background: $bkgColor;
+  border-radius: $br;
+  z-index: 10;
+}
+.EmbedVideo iframe {
+  width: 360px;
+  height: 190px;
+}
+.EmbedVideo-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 28px;
+  background: $bkgColor;
+  border-radius: $br;
+  color: white;
+}
+.EmbedVideo-buttonPlay {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 40px;
+	height: 40px;
+	background: #333;
+	color: #FFF;
+	border-radius: 3px;
+	z-index: 10;
+}
+
 .Home-sliderMamufas {
 	position: absolute;
 	top: 0;
@@ -222,4 +265,15 @@
 		border-radius: 4px;
 		border-width: 1px;
 	}
+}
+
+@media (max-width: 500px) {
+  .EmbedVideo {
+    bottom: 10px;
+    right: 10px;
+  }
+  .EmbedVideo iframe {
+    width: 260px;
+    height: 130px;
+  }
 }

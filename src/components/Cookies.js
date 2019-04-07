@@ -23,7 +23,6 @@ class Cookies extends Component {
   render() {
     const { i18n, router } = this.props
     const { visible } = this.state
-    console.log(router)
 
     if (!visible || router.pathname === '/cookies') {
       return null
