@@ -8,6 +8,7 @@ import { loadDB } from '../../lib/db'
 import i18n from '../i18n'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Cookies from '../components/Cookies'
 import { loginUser, logoutUser, errorUser } from '../actions/UserActions'
 import { fetchMembers } from '../actions/TeamActions'
 import { fetchExperiences } from '../actions/ExperienceActions'
@@ -89,6 +90,7 @@ class Default extends Component {
         ref={node => (this.canvas = node)}
         onClick={this.onCanvasClick}
       >
+        <Cookies i18n={this.i18n} />
         {childrenWithHeader}
         <Footer />
       </div>

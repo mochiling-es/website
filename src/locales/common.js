@@ -6,6 +6,7 @@ export default {
     'learn-more': 'Learn more',
     'rights-reserved': 'All rights reserved',
     'contact-us': 'Contact us',
+    disclaimer: 'We use Google Analytics 🍪 to improve the user experience',
     by: 'by',
     routes: {
       proposals: 'Proposals',
@@ -24,6 +25,7 @@ export default {
     'learn-more': 'Saber más',
     'rights-reserved': 'Todos los derechos reservados',
     'contact-us': 'Escríbenos',
+    disclaimer: 'Usamos 🍪 de Google Analytics para mejorar la experiencia de usuario',
     by: 'por',
     routes: {
       proposals: 'Propuestas',
