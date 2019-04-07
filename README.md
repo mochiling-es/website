@@ -37,11 +37,11 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Fix SEO problem
 - [x] Home slider
 - [x] Add Analytics
+- [x] Migrate domain
 - [ ] Fix member born location
 - [ ] Home video
 - [ ] Add terms&conditions banner
 - [ ] Create a better terms-of-user page
-- [ ] Migrate domain
 - [ ] Add Map hash
 
 
