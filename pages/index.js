@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { extend, map, slice, first, isEmpty } from 'lodash'
+import { map, slice, first, isEmpty } from 'lodash'
 import Carousel from 'nuka-carousel'
 import { Controller, Scene } from 'react-scrollmagic'
 import FontAwesome from 'react-fontawesome'
@@ -138,7 +138,7 @@ class Index extends Component {
                         return (
                           <Link key={member.id} page={'/member'} params={{ memberId: member.id }}>
                             <a
-                              className={`Home-member Home-member--pos${index} ${memberType[index]} js-tippy`}
+                              className={`Home-member Home-member--pos${index} ${memberType[index]}`}
                               data-theme="dark"
                               title={member.name}
                               data-tip={member.name}
