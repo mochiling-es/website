@@ -93,6 +93,14 @@
     {
       "src": "/en/admin",
       "dest": "/admin?lang=en"
+    },
+    {
+      "src": "/cookies",
+      "dest": "/cookies"
+    },
+    {
+      "src": "/en/cookies",
+      "dest": "/cookies?lang=en"
     }
   ],
   "builds": [

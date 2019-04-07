@@ -34,6 +34,10 @@ const routes = {
   '/admin': () => ({
     en: '/en/admin',
     es: '/admin'
+  }),
+  '/cookies': () => ({
+    en: '/en/cookies',
+    es: '/cookies'
   })
 }
 
