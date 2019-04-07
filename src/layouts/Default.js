@@ -90,7 +90,7 @@ class Default extends Component {
         ref={node => (this.canvas = node)}
         onClick={this.onCanvasClick}
       >
-        <Cookies i18n={this.i18n} />
+        <Cookies i18n={this.i18n} router={router} />
         {childrenWithHeader}
         <Footer />
       </div>
