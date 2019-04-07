@@ -40,9 +40,10 @@ A website for showing all experiences done by our members. Done with [Next.js](h
 - [x] Migrate domain
 - [x] Add terms&conditions banner
 - [x] Create a better terms-of-user page
+- [x] Home video
 - [ ] Fix member born location
-- [ ] Home video
 - [ ] Add Map hash
+- [ ] Better page code handling (page initial props, locales,...)
 
 
 
