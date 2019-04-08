@@ -3,9 +3,9 @@ const routes = {
     en: '/en',
     es: '/'
   }),
-  '/proposals': ({ id = '' }) => ({
-    en: `/en/proposals${id ? '/' + id : ''}`,
-    es: `/propuestas${id ? '/' + id : ''}`
+  '/proposals': ({ proposalId = '' }) => ({
+    en: `/en/proposals${proposalId ? '/' + proposalId : ''}`,
+    es: `/propuestas${proposalId ? '/' + proposalId : ''}`
   }),
   '/experiences': () => ({
     en: '/en/experiences',

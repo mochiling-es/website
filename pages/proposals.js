@@ -64,7 +64,7 @@ class Proposals extends Component {
                       key={index}
                       className={`Proposals-navItem ${proposalIndex === parseInt(proposalId) ? 'is-selected' : ''}`}
                     >
-                      <Link page={'/proposals'} params={{ id: proposalIndex }}>
+                      <Link page={'/proposals'} params={{ proposalId: proposalIndex }}>
                         <a className="Proposals-navItemButton">
                           <span className="Text Text--strong Text--medLarge Text--uppercase">
                             {i18n.t(`proposals:items.${proposalIndex}.title`)}

@@ -33,7 +33,7 @@ class HomeProposals extends Component {
                     components={[<span className="Color--emphasis">.</span>]}
                   />{' '}
                 </p>
-                <Link page={'/proposals'} params={{ id: proposalIndex }}>
+                <Link page={'/proposals'} params={{ proposalId: proposalIndex }}>
                   <a className="Button {% if index != 2 %} Button--small Button--secondary {% else %} Button--main {% endif %} u-tSpace--l">
                     {i18n.t('common:learn-more')}
                   </a>
