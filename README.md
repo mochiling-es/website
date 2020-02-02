@@ -66,7 +66,7 @@ If you want to test your changes in a staging server, you will need to:
 
 - Create a pull request.
 - And then automatically `now.sh` will deploy those changes to an inmutable URL.
-- Tachan!
+- 🎉!
 
 ### Production
 
