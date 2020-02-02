@@ -24,7 +24,7 @@
     "next-ga": "^2.3.4",
     "next-redux-wrapper": "^3.0.0-alpha.0",
     "next-routes": "^1.4.2",
-    "nuka-carousel": "^4.5.3",
+    "nuka-carousel": "^4.6.1",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-custom-scrollbars": "^4.2.1",
