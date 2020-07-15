@@ -19,7 +19,7 @@
     "leaflet": "^1.4.0",
     "leaflet-hash": "^0.2.1",
     "lockr": "^0.8.5",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "next": "latest",
     "next-ga": "^2.3.4",
     "next-redux-wrapper": "^3.0.0-alpha.0",
